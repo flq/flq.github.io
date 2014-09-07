@@ -1,0 +1,40 @@
+---
+title: "Multi-resonance crystals (MRCs)"
+layout: post
+tags: saitron sci-fi
+date: 2007-03-11 21:26:10
+redirect_from: "/go/69"
+---
+
+Looking at multi-resonance crystals as a black box the following diagram describes the crystal’s ability:
+
+![](files/images/saitech1-fig1.gif)
+
+The word crystal is somewhat misleading. It merely describes that the internal structure of this spatial entity is very ordered, its complexity arises from the intricate arrangement of very simple causal fields. Why I am using such weird words? Why not calling it a quantum field or something the like? Well, those fields are usually based and calibrated on certain characteristics of entities moving through the Spacetime continuum. In other words, their mass, their charge, their Spacetime relation to other entities with compatible properties, are the cornerstones of such fields. The activities that ensue in a MRC go beyond such concepts. Even those cornerstones are put into question within the realm of a MRC. A thing like charge becomes a variable much like a spatial coordinate that can also be altered through the interaction with other entities  representing charge or spin or other parameters that define a particle. It is therefore appropriate to just talk of causality, or causal effects, since causality is definitely given inside the MRC.
+
+If you still have problems with the word crystal, you best relate it to the appearance of a MRC. A MRC has a dislocating effect on photons, i.e. if you look through such a crystal, it will be clearly visible in the light. Often it will look as if it is reflecting the light, sometimes transient effects may be visible on the MRC’s surface, as if waves of light of differing colour are moving in an ocean. This is just an example, indeed there have been artists using the resonance properties of MRCs to create beautiful displays, highly complex patterns of light with sometimes astounding effects on an individual. The great value of those crystals, however means that there are few such installations. In most of the cases, a clearly visible shape of the _spatial entity_ can be observed, which makes it often look like a pretty mineral based crystal. 
+
+From the outside, such a crystal is solid in the sense that its visible shape remains more or less intact. I will come back later to the italics I have used in the last sentence. Suffice to say that the crystal’s shape appears blurred to the human vision. In this stage of so-called high purity, the MRC’s classical properties are essentially undefined. Charge, mass, spin or derived ones like hardness cannot be measured. We would hardly notice a crystal, would it not have that peculiar effect on passing photons to sometimes switch around their frequencies. It is when we injure such a crystal that it becomes impure, it breaks and begins to interact with the outside in classical terms - it becomes ordinary matter.
+
+### Some more about what they do
+
+So, what happens if I actually bombard such an MRC with electrons, protons, photons, whole atoms maybe?
+
+First experiments suggest that a MRC appears completely non-existent to the sub-atomic particles shot at it. A neutrino will pass as much as an electron or a photon does. Of course, this is not quite right. A MRC is well visible, so it must in some way interact with photons? A multi-resonance crystal appears as if it is reflecting the light while also appearing at times transparent. The key is that the crystal has a certain reaction point which is measured in units of sub-atomic particles per crystal surface area at a time unit (e.g. X/m²sec).
+
+Consider the simple experiment where a MRC is shot at with photons at a very small rate:
+
+![](files/images/saitech1-fig2.gif)
+
+The MRC appears as if it is not there, the photons pass through it and all is good. 
+When the number of particles shot at the crystal exceeds a certain amount at a given time, a number of strange observations can be undertaken. They all have in common that the spatial description of the particle shot at it becomes detached from its other characteristics, those that are relevant with respect to electromagnetic or gravitational forces.
+
+A classical experiment is the following:
+
+![](files/images/saitech1-fig3.gif)
+
+Given a certain rate of photons and electrons shot at two distinct points of the MRC, the flow of photons and electrons behind the crystal is interchanged. With yet another set of initial parameters, the flow of electrons and photons can be mixed. 
+This gets complicated beyond any level you could think of in the next four hours. Even so it should be noted that all theories used for the classification and predictions regarding the crystal’s possibilities and the critical type saturation point all have an empiric core and can only be calculated in a tolerable amount of time through the use of Frequentors, the Iilasian computing devices. Their technological principles are based on the MRC’s properties, which should not come as a surprise to you.
+
+One of the first uses in the history of the Ii was the generation of a coherent high energy photon stream (or Laser if you prefer) by injecting protons and electrons into the MRC. 
+The observed effect is best described by assuming a reaction similar to the annihilation of electron and positron. So, a proton suddenly converted into a positron? Well, yes, but at the price of type saturation. Leptons and Hadrons can be mathematically expressed within a single domain and a conversion between the two signifies an accumulation of parameters inside the MRC that have been detached from the previously available 4Band definition, the position in time and space of a given particle. What’s more, particles resulting from certain resonance interactions by injection of two or more particle streams into the crystal can have characteristics that were not available from previous particle streams flowing through the highly complex internal structure of the MRC.

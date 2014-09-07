@@ -1,0 +1,81 @@
+---
+title: "Dependency Injection is not locating services"
+layout: post
+tags: dotnet TrivadisContent dependency-injection StructureMap
+date: 2009-01-07 22:23:13
+redirect_from: "/go/137"
+---
+
+The DI container StructureMap has been coming along nicely lately, with version 2.5.1 [available as download](http://sourceforge.net/projects/structuremap). I have been following closely its recent development, since it is providing some core object wiring functionality to my current project.
+
+A rather inviting pattern one can be lured into in DI container usage is using the container as service locator:
+
+<csharp>
+public ShippingScreenPresenter()
+{
+  _service = ObjectFactory.GetInstance<IShippingService>();
+  _repository = ObjectFactory.GetInstance<IRepository>();
+}
+</csharp>
+
+(This example is taken straight from Jeremy's [recent StructureMap post](http://codebetter.com/blogs/jeremy.miller/archive/2009/01/07/autowiring-in-structuremap-2-5.aspx))
+
+As simple as it looks, splattering references to some "ObjectFactory" all over your code contradicts why you may be using the container in the first place: To simplify keeping concerns separated and removing responsibility of instantiation from classes, thereby simplifying coding against abstractions.
+
+StructureMap also has the notion of named instances, i.e. objects that are not retrieved as default but are rather stored under a key which must be used to retrieve said instance again. StructureMap can even provide you with named instances (or custom instances) when doing constructor-based injection. It may look something like that (taken from a StructureMap registry, the place to configure object dependencies):
+
+<csharp>
+ForRequestedType<Form>()
+  .CacheBy(InstanceScope.Singleton)
+  .TheDefault.Is.OfConcreteType<MainForm>().CtorDependency<IApplicationModule>().Is(a=>a.TheInstanceNamed("MainModule"));
+</csharp>
+
+In another scenario I have the problem that a class needs to obtain instances based on code that will provide an instance name. Here starting to use the ObjectFactory as service locator is ever so inviting. However, there is a simple way to provide some straightforward decoupling from the ObjectFactory. I delegate the resolving of object to an...ObjectResolver. This class is generic and the provided type argument sets what kind of types are being looked up. The implementation is very straightforward:
+
+<csharp>
+public class ObjectResolver<T> where T : class
+{
+  public virtual T this[string key] { 
+    get { 
+      return ObjectFactory.GetNamedInstance<T>(key); 
+    }
+  }
+}
+</csharp>
+
+Now I can express the dependency to an ObjectResolver as with any other type in the constructor:
+
+<csharp>
+public class CommandMediator {
+  ctor(ObjectResolver<ICommand> cmdResolver) {
+    ...
+  }
+
+  public void Foo() {
+    var cmd = cmdResolver["Save"];
+    Assert.That(cmd != null);
+  }
+}
+</csharp>
+
+In what way is this better than doing service locating?
+
+*   For a common scenario, the tie to StructureMap for resolving named instances is reduced to a single class.
+*   If you wanted, replacing the lookup scheme for instances is fairly easy.
+*   Since the ObjectResolver is a concrete class, StructureMap can effortlessly instantiate it such that you don't need a single line of configuration to use it.
+*   You can satisfy a dependency to the ObjectResolver without instantiating any DI container.
+
+Check out the following code that uses [Rhino Mocks](http://ayende.com/projects/rhino-mocks.aspx) to provide a satisfying response within a test:
+
+<csharp>
+public void MediatorWillInstantiateSaveCommand {
+  var cmd = new Command();
+  var resolver = MockRepository.GenerateMock<ObjectResolver<ICommand>>();
+  resolver.Expect(r=>r[null]).Constraints(Is.Equal("Save")).Return(cmd);
+  var mediator = new CommandMediator(resolver);
+  mediator.Foo();
+  resolver.VerifyAllExpectations();
+}
+</csharp>
+
+What I am trying to say is: Put some effort into your code when you see yourself using a DI Container as Service Locator. It is most likely to pay off in several ways.

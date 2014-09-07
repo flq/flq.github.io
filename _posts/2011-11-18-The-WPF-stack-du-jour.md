@@ -1,0 +1,50 @@
+---
+title: "The WPF stack du jour"
+layout: post
+tags: programming TrivadisContent WPF software-architecture
+date: 2011-11-18 21:00:00
+redirect_from: "/go/206"
+---
+
+For the past year i've had plenty of possibility to get my head around WPF as a UI technology. 
+In that time a number of frameworks have crystallized that in their combination makes writing good WPF Apps, let's say, bearable:
+
+* [Caliburn.Micro][1]
+* [StructureMap][2]
+* [Membus][3]
+
+
+## Caliburn.Micro:
+
+__What it brings to the table__: 
+
+* Conventional wiring of ViewModel->View, 
+* conventional and extendable wiring of UI elements to elements of the Viewmodel, 
+* Interfaces that allow you to cleanly describe the lifecycles of your ViewModels, 
+* a nice hook to get your favorite DI Container doing instantiation work for you
+* A nice attached property to get out of corner cases when needing View events in ViewModels.
+
+__What it should bring to the table__: Not much really, I prefer that thing to stay low-profile.
+
+__What it shouldn't bring to the table__: I can't find a use case for the coroutine implementation, I don't need the event aggregator (see MemBus), it's unlikely I'll ever need all those default conductors already defined.
+
+## StructureMap
+
+__What it brings to the table__: Fufils all instantiation needs you'll ever have, served to you in a non-ceremomial way that puts the current MEF incarnation to shame.
+
+__What it should bring to the table__: Some funky things I am beginning to desire after a couple of years of DI Container usage.
+
+## MemBus
+
+__What it brings to the table__: Fulfils all "event aggregation" needs you'll ever have. Seamless wiring of ViewModels to messages, in-built mechsnism to ensure messages are processed on the UI thread or processed in the background, extensible to allow your own interesting scenarios around app-internal messaging.
+
+__What it should bring to the table__: I am still wondering whether correlated messaging could be useful (publishing a message with id x and then receiving messages in the context of that id)
+
+__What it doesn't need to bring to the table__: Funny enough there is quite a bit of API I don't need anymore, because it can be expressed in a different way that seems more attractive and maintainable. I'll probably mark those bits as obsolete.
+
+This _package_, sprinkled with a number of goodies which I usually don't bother making a dll of (for example the [DataTemplateChoice][4], or an attached property to influence Focus from the ViewModel, or a key binding service with a simple API that saves me the trouble to know the goddamn visual tree all the time) allows for a pretty quick development speed while maintaining a fairly clean overall structure and keeping a number of hooks and tools around to tackle more challenging stuff.
+
+  [1]: http://caliburnmicro.codeplex.com/
+  [2]: https://github.com/structuremap/structuremap
+  [3]: https://github.com/flq/MemBus
+  [4]: http://realfiction.net/go/198

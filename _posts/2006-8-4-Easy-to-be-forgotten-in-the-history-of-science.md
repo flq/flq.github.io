@@ -1,0 +1,9 @@
+---
+title: "Easy to be forgotten in the history of science"
+layout: post
+tags: physics loosely-coupled
+date: 2006-08-04 07:37:47
+redirect_from: "/go/49"
+---
+
+[Emilie du Châtelet](http://www.guardian.co.uk/guardianweekly/story/0,,1835656,00.html) - the scientist whom history forgot - A woman that in her emancipation was well beyond her time and whose intelligence must have scared most of them away. Apparently she was fairly important to physics, yet it&#39;s a name you do not come across very often.

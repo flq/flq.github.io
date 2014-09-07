@@ -1,0 +1,94 @@
+---
+title: "FunSpIns - Collisions, the dead, and a (not so) grateful ending."
+layout: post
+tags: programming Haskell fun-spin
+date: 2013-09-26 14:00:00
+redirect_from: "/go/237"
+---
+
+> Inspired by Rob Ashton's series "[Learn functional programming with me][1]"
+
+Without further ado, let's have a look at arguably the most important function of the game...**kill**!
+
+	kill :: [WorldItem] -> [WorldItem] -> [WorldItem] -> ([WorldItem],[WorldItem])
+	kill [] remainingShots dead = (remainingShots,dead)
+	kill _ [] dead = ([],dead)
+	kill (e:enemies) shots dead =
+	  case (find (intersect e) shots) of
+	    Just shot -> kill enemies (shots \\ [shot]) (dead++[e])
+	    Nothing -> kill enemies shots dead
+	intersect wi wi' = (getRect wi) # (getRect wi')
+	  where 
+	    (#) (Rect x y w h) (Rect x' y' w' h') = 
+	      (y + h) > y' && y < (y' + h') && (x + w) > x' && x < (x' + w')
+
+It takes in all enemies, all shots and returns the shots that remain and those who died.
+On each (recursive) iteration it takes an enemy and tries to figure out if it collides with any shot *(find (intersect e) shots)*. The intersection code is shamelessly copied from a [SDL tutorial transcribed to Haskell][2]. If a collision is detected, the shot that hit gets removed from the list of shots, and the list of the dead increases by one. Otherwise we enter the next iteration unchanged.
+
+This implementation is obviously *far from perfect* performance-wise, but it seemed good enough.  
+
+The above code is used in the *enemiesActor*. On each pass we obtain the values from the kill function...
+
+	(shotsLeft,deadEnemies) = kill enemies (heroShots w) []
+
+With **w** being the World. shotsLeft can simply be reassigned to the new World coming out of the actor. As to the dead enemies, they need to be considered when creating the enemy grid on the next render pass. For this we add the new dead to the already existing dead enemies that are also kept in the World state.
+
+	newState = w 
+        { 
+          enemyPosition = requiredChange (enemyPosition w), 
+          enemyMovement = snd newMovePattern,
+          heroShots = shotsLeft,
+          mIA = (mIA w) ++ deadEnemies
+        }
+
+The enemy grid is now constructed as follows
+
+	enemyGrid (originX,originY) (rows, cols) = 
+	  (zipWith Enemy 
+	    [ (x,y) | x <- take cols [originX,originX+60..], y <- take rows [originY,originY+30..]] 
+	    [1..]) \\ (mIA w)
+
+The *zipWith* is pretty much a zip where you need to provide a function to construct what comes out of the two lists being zipped. To remind you what **Enemy** is...  
+
+	data WorldItem = Enemy Point Int | Hero Point | Shot Point
+
+the second list is hence just an Int that gives each enemy a unique Id. See, equality is not a given for things in a Haskell program. In order to use the **\\** function between two lists, the items in the list need to be equatable. In Haskell we do this by making World Items an instance of **Eq**.
+
+	instance Eq WorldItem where
+	  (==) (Enemy _ pos) (Enemy _ pos') = pos == pos'
+	  (==) (Shot p) (Shot p') = p == p'
+	  (==) _ _ = False
+
+Hence, enemies are compared through their id, which allows us to remove dead enemies irrespective of their current position. Shots on the other hand are compared by their position in the world. We used that equality when removing a shot that hit an enemy from the list of shots currently flying through the world.
+The last line is pretty much a paranoid safe guard which isn't strictly necessary. Pattern matches don't seem to have to be complete - what can happen to you is a *non-exhaustive pattern match* - exception at runtime.
+
+I didn't want to make a fully fledged game, but I at least wanted the program to exit gracefully instead of due to some exception because some list was empty or the like.
+
+Voila, the exit actor:
+
+	exitActor :: World -> (World,[WorldItem])
+	exitActor w
+	  | length (mIA w) == 32 = (w { lastKey = SDLK_x },[])
+	  | otherwise = (w, [])
+
+The exit condition is having 32 dead enemies. Since the program already used the x key for exiting, it seemed not a bad choice to pipe in an 'x' into the World state as if the user pressed it. This means introducing a little check in the loop:
+
+	loop world = do 
+	  if (lastKey world) == SDLK_x then 
+	    FX.quit
+	  else
+	    FX.pollEvent >>= handleEvent
+      ...
+
+While Rob added a few more features to his clojure space invaders I conclude the series at this point. You can find the [complete listing as a gist at github][3].
+
+What I would personally take away from this series...
+
+* IO has been mystified far too much in Haskell. Fair enough, sensibly building own Monads may be a different story, but using IO is mostly a straightforward thing.
+* Even though the line count is not that high, there is quite some scope for improvement.
+* You can go pretty far in Haskell without Monads, Monad Transformers, Applicatives, Functors and with a fairly high percentage of pure functions. Granted, I do get the feeling I am missing out on a lot of toys...
+* The record syntax in Haskell is indeed somewhat clumsy, I hope to do a refactoring with Lenses, which would be a sort of Appendix blog post coming up. 
+
+  [1]: http://codeofrob.com/entries/learn-functional-programming-with-me---adding-collision-detection-to-the-game.html
+  [2]: https://github.com/snkkid/LazyFooHaskell/blob/master/lesson17/lesson17.hs#L62
+  [3]: https://gist.github.com/flq/6515336

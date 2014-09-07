@@ -1,0 +1,32 @@
+---
+title: "Interaction frequency"
+layout: post
+tags: saitron sci-fi
+date: 2007-02-20 19:44:46
+redirect_from: "/go/62"
+---
+
+The idea of constraining entities and instance entities, objects, was already shortly introduced.
+
+What does it mean? The Ii's mathematical modelling does not provide great distinctions between the different ingredients of reality, SPACE is an entity like a single space point, the ELECTRON is an entity like any single electron.
+
+Consider for example said single electron as it interacts with other typed matter - its uniqueness arises mainly from its configuration in space, its relations to other matter. While its type is one of the driving factors to describe how those coordinates were reached and how its worldline will develop, that type &quot;electron&quot; is common to myriads of electrons throughout our reality. The Ii therefore consider an ELECTRON as well as heptillions and more electrons. Remember how we shortly considered a simple space in which energy could flow along a worldline? If we have an electron instance (you know, those particles we like to experiment with in silly double-slit experiments and what-have-you), it is in essence an energy flow though space, constrained by the SPACE entity as well as the ELECTRON entity (and other ENTITIES involved, represented by their reactive instances that shape the current reality configuration from that electron's point of view).
+
+Do not be fooled that we are talking about the ELECTRON. This entity obviously has a more complex internal structure (since there are more fundamental constraints underpinning the Spacetime interactions of typed matter). However, for the Ii it is mathematically without grand issues to aggregate constraints in order to obtain higher order perspectives on reality. In fact, it is the type of simplification that we do in our physical modelling all the time!
+
+On the other hand, **objects **and **ENTITIES **are in essence **the same**: Items taken from Definition Space (consider it as the space in which all possible constraints are defined) that have been made real by enacting their constraints with pure energy.
+But the ELECTRON and an electron instance are quite different, aren't they? How can the Ii possibly handle those at the same conceptional level?
+
+### That is where interaction frequency enters the stage!
+
+I shall deviate a moment to prepare the argument for interaction frequency. Our understanding of the things around us is based on the fact that from our point of view reality is constructed causally. Interaction leads to a different configuration of Spacetime and particle worldlines, which in turn constitute the initial conditions for the following interactions. Admittedly, this is the classical view of things. Quantum mechanics already has to think about issues of locality, causality and realism, most notably pointed out by experiments that deal with entanglement - alas, humanity so far has troubles to deal with this viewpoint. One of the reasons is surely that causality lies at the heart of mankind's physical modelling. Hence Quantum mechanics appears exceptional.
+
+The Ii's reality model considers causality a concept that is built up from two atomic entities: A **source **and a **target **change. These act on realized entities. All energy flow of changes is to and from the domain of pure energy.
+
+The combination of a source and target change is a causal interaction. This combination is a context. Multiple contexts form interaction logic. While this may seem weird at first and irrelevant at second, it leads to the insight that the Ii's definition of causality is detached from the concept of time (Which seems logical, since the Ii consider TIME to be just another entity.)
+
+Even so, interaction logic considers contexts whose realization through transferral of energy between entities is based on previously realized contexts. This may seem at odds with a missing notion of time, yet there is a special case where there is a clear difference between subsequent realizations of contexts: **Destructive **or **constructive **changes, as opposed to source and target changes. So far energy transferrals have been considered that link entities into unique configurations. Even so, a source change can only be enacted if the source entity has energy available. The availability of energy _within _a given entity is nothing that we (or any other consciousness with a limited overview of all interactions) would be able to measure. Much could be written about this stuff, but at this point I only want to stress that an unrealized entity cannot be used for a source change - It will first have to experience a constructive change: A change that changes the entity's state from potential to real.
+
+What I want to emphasize in a cumbersome way is that, although causality is not based on time, the 'current' configuration influences subsequent configurations. We obtain **interaction chains**. Some Entity **N** can only be the start point of an interaction chain if it already was in a realized state. If at the 'end' of some interaction chain, an entity becomes the target of a change that was caused because the same entity was the source of a previous change, we obtain an **interaction cycle**. According to the Ii those are the principal building blocks of our concrete reality, since they hide the inherent non-causal nature of reality. When interaction cycles are combined in configurations, one will find out that some cycles finish faster than others. This concept can be expanded to the basic assumption that changes to entities can precede (or succeed) one another. This is what the Ii refer to as interaction frequency.
+
+Based on this knowledge, we have entities SPACE and TYPE that can indeed be the target and source of all changes related to all space points known to us. Their interaction frequency is far greater than the one of any space point. Our focus of consciousness in turn has (most of the time) an interaction frequency comparable to those space points. Which is why space appears coherent to us and yet we cannot see how the trick is done. Our ability to interact is massively slower than the ability of other entities to interact. Before we complete one of our cycles (a heartbeat, breathe in and out), the universe has 'redrawn' itself multiple times based on the constraining entities that shape the common structure of our Spacetime.

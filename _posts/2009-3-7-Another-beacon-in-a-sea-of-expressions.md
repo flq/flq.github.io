@@ -1,0 +1,78 @@
+---
+title: "Another beacon in a sea of expressions"
+layout: post
+tags: programming download dotnet TrivadisContent LINQ
+date: 2009-03-07 15:57:43
+redirect_from: "/go/139"
+---
+
+A prosaic introduction to the subject of .NET expressions. These were introduced with .NET 3.5 and are featured most prominently in LINQ. Over [here](http://realfiction.net/?q=node/118) I implemented a use case with the aid of expressions.
+
+In my current project I am using expressions to be able to analyze what the user of some API wants to express. From the expression
+
+`
+Expression<Function<Person,object>> e = p => p. FirstName + "," + p.LastName
+`
+
+I want to know that properties _FirstName_ and _LastName_ are being used to generate the return value. While developing the things for this to work I came across two things that really helped me:
+
+## A debugger visualizer for expressions
+
+There is one available as part of the Visual Studio samples (under _Microsoft Visual Studio 9.0\Samples\1033\CSharpSamples.zip\LinqSamples\ExpressionTreeVisualizer_) or downloadable from [here](http://code.msdn.microsoft.com/csharpsamples).
+
+You will need to compile the visualizer and place it under _VS9.0\Common7\Packages\Debugger\Visualizers_.
+
+![visualization of a simple expression](/files/images/expressiontreevisualizer.jpg)
+
+## The expression Visitor
+
+At the end of [this post here](http://blogs.msdn.com/mattwar/archive/2007/07/31/linq-building-an-iqueryable-provider-part-ii.aspx) on [The Wayward Weblog](http://blogs.msdn.com/mattwar/). I have taken exactly that code and just made a run with R# over it. It is attached as a cs file at the end of this post. The class is extremely useful when you are checking up on complex expression trees. The class ensures that all nodes of the tree are visited and that you can actually replace certain parts of it. 
+
+You would typically create a class that inherits from the ExpressionVisitor, override the methods that are interesting to you and provide some entry point that accepts an expression which is subsequently passed to the protected base class's Visit method. 
+
+As an example, I wanted to parse an expression that gets a DataSet as arguments and represents access to a number of fields on a number of rows stemming from said DataSet. In this case I was only interested in any MemberAccess and it was sufficient to just override that method and insert my logic:
+
+<csharp>
+protected override Expression VisitMemberAccess(MemberExpression m)
+{
+  if (m.Member.DeclaringType.IsSubclassOf(typeof (DataRow)) &&
+      !m.Type.IsSubclassOf(typeof (DataRow)))
+  {
+    datasetFieldName = m.Member.Name;
+    tableName = m.Member.DeclaringType.Name.Replace("Row", "");
+  }
+  else if (m.Member.DeclaringType.IsSubclassOf(typeof (DataSet)))
+  {
+    dataSetName = m.Member.DeclaringType.Name;
+    entryTable = m.Member.Name;
+  }
+  persistField();
+  return base.VisitMemberAccess(m);
+}
+</csharp>
+
+As a last example, to show off the tree modifying features of the class to change an expression, the following 2 methods change
+
+`Expression<Func<SomeDataSet,object>> e = ds => ds.Master[0].FirstName + "," + ds.Master[0].GetAddresses()[0].City;`
+to 
+`Expression<Func<DataRow,object>> e = r => ((MasterRow)r).FirstName + "," + ((MasterRow)r).GetAddresses()[0].City;`
+<csharp>
+protected override Expression VisitMethodCall(MethodCallExpression m)
+{
+  if (m.Method.Name == "get_Item")
+    return Expression.Convert(dataRowParameter, m.Type);
+  return base.VisitMethodCall(m);
+}
+
+protected override Expression VisitLambda(LambdaExpression lambda)
+{
+  if (visitedMainLambdaBody) 
+    return base.VisitLambda(lambda);
+  visitedMainLambdaBody = true; // sort of. This is somewhat recursive...
+  Expression body = Visit(lambda.Body);
+  List<ParameterExpression> @params =
+    new List<ParameterExpression> { dataRowParameter };
+
+  return Expression.Lambda<Func<DataRow, object>>(body, @params);
+}
+</csharp>
