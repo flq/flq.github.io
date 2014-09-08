@@ -1,6 +1,7 @@
 # Dependencies
 markdown:         redcarpet
 highlighter:         true
+excerpt_separator: <!--more-->
 
 # Permalinks
 permalink:        pretty
@@ -23,3 +24,6 @@ version:          1.0.0
 
 github:
   repo:           https://github.com/poole/hyde
+
+gems:
+  - jekyll-redirect-from
