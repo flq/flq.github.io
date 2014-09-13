@@ -3,7 +3,7 @@ title: "More. DataTemplates. In. WPF."
 layout: post
 tags: programming dotnet TrivadisContent WPF
 date: 2011-02-18 20:57:00
-redirect_from: "/go/198"
+redirect_from: /go/198/
 ---
 
 Imagine you want to fill a toolbar through its ItemsSource and appropriate DataTemplates and not all commands are created equal. Some commands should be shown as Buttons, or ToggleButtons or whatever Visual tree you may come up with. In such a situation you can use a DataTemplateSelector. How to implement one (not exceedingly complicated) is [described here](http://www.switchonthecode.com/tutorials/wpf-tutorial-how-to-use-a-datatemplateselector). Alas, it requires you to leave the realms of XAML. One idea is then to have a XAML-friendly template selector. The idea isn’t new, one implementation [can be found here](http://zhebrun.blogspot.com/2008/09/are-you-tired-to-create.html). However I wanted something even simpler: A XAML-based template selector that is only driven by the DataType specified on the template. The API shown makes it possible to have the XAML look like this:

@@ -3,7 +3,7 @@ title: "Things I learned about VM Machines today"
 layout: post
 tags: programming virtualization TrivadisContent
 date: 2006-12-11 20:58:04
-redirect_from: "/go/56"
+redirect_from: /go/56/
 ---
 
 There is no doubt, virtual machines are very useful, considering the constant increase in resources available even on a laptop (Yeah, alright, I got a mobile 100GB harddisk now). Today, while trying to set up a simple FreeDOS-based machine I learned the following:

@@ -3,7 +3,7 @@ title: "Exploring Haskell's type system - A Roman number type"
 layout: post
 tags: programming Haskell
 date: 2013-07-26 20:50:57
-redirect_from: "/go/224"
+redirect_from: /go/224/
 ---
 
 Once in a while I need a break from my day-to-day job in C# land. Don't get me wrong, I like the language, but it doesn't cover _all_ of my intellectual needs.

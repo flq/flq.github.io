@@ -3,7 +3,7 @@ title: "Spoiled with Dependency Injection"
 layout: post
 tags: dotnet TrivadisContent software-architecture dependency-injection
 date: 2008-09-07 11:19:43
-redirect_from: "/go/132"
+redirect_from: /go/132/
 ---
 
 <div class="messages status">

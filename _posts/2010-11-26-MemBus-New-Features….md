@@ -3,7 +3,7 @@ title: "MemBus: New Features…"
 layout: post
 tags: programming dotnet TrivadisContent patterns membus
 date: 2010-11-26 00:00:00
-redirect_from: "/go/190"
+redirect_from: /go/190/
 ---
 
 MemBus has taken a couple of updates based on some inspiration from an example of a very simple [CQRS style example application](https://github.com/gregoryyoung/m-r) from Greg Young and input from working on the Hello World App MemBusOnTweet.

@@ -3,7 +3,7 @@ title: "Untyped matter &amp; RIM fuelling"
 layout: post
 tags: saitron sci-fi
 date: 2007-03-18 10:40:47
-redirect_from: "/go/75"
+redirect_from: /go/75/
 ---
 
 _Untyped matter – matter that is defined in space and time but does not bear any other characteristics of the 4Band continuum, i.e. it has no electrical charge or strong atomic force ‘colour’, it has no mass and no spin. A volume containing untyped matter may also be described as a vacuum whose inherent energy is much greater than the one encountered in our 4Band universe._

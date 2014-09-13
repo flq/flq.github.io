@@ -3,7 +3,7 @@ title: "Visual Studio 2010: Introducing new pitfalls"
 layout: post
 tags: programming dotnet visual-studio
 date: 2010-05-07 22:37:00
-redirect_from: "/go/167"
+redirect_from: /go/167/
 ---
 
 A couple of days ago I installed Visual Studio 2010 on my machine. In general it seems to be a fine release, especially when beefed up with Resharper V5 (I very, very much like the new Ctrl + Shift + Alt + A).

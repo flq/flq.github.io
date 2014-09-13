@@ -3,7 +3,7 @@ title: "Simple model of a politician in Haskell"
 layout: post
 tags: geekdom humour Haskell
 date: 2013-08-19 20:28:57
-redirect_from: "/go/229"
+redirect_from: /go/229/
 ---
 
 Here is a simple model of a politician in Haskell, which you can use to create arbitrary politician instances.

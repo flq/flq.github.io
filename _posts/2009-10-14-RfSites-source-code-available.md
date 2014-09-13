@@ -3,7 +3,7 @@ title: "Rf.Sites source code available"
 layout: post
 tags: programming site TrivadisContent ASP.NET-MVC open-source
 date: 2009-10-14 21:07:52
-redirect_from: "/go/152"
+redirect_from: /go/152/
 ---
 
 It is my aim to have this site running on .NET code by the time I can leave my current hosting contract (end of February 2010).

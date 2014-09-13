@@ -3,7 +3,7 @@ title: "Lazy instantiation one-liner of instance fields with the coalesce operat
 layout: post
 tags: programming dotnet TrivadisContent
 date: 2008-05-13 12:00:01
-redirect_from: "/go/123"
+redirect_from: /go/123/
 ---
 
 It is hardly worth blogging, but...

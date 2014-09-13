@@ -3,7 +3,7 @@ title: "Free Hugs Campaign"
 layout: post
 tags: loosely-coupled
 date: 2006-10-02 12:04:30
-redirect_from: "/go/53"
+redirect_from: /go/53/
 ---
 
 It sounds somewhat cheesy, but after all the disgusting news on [Teenies filming with their mobiles how they beat up other Teenies](http://www.spiegel.de/schulspiegel/0,1518,388117,00.html), a guy that starts off a campaign to hug people is refreshing - You know, shadows require light.

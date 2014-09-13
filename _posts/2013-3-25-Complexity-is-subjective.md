@@ -3,7 +3,7 @@ title: "Complexity is subjective"
 layout: post
 tags: physics programming
 date: 2013-03-25 00:00:00
-redirect_from: "/go/219"
+redirect_from: /go/219/
 ---
 
 > Note: This post was originally posted on the 19th August 2012 on the "more" blog that I kept for some time

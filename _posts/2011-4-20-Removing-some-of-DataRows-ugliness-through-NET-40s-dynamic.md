@@ -3,7 +3,7 @@ title: "Removing some of DataRow's ugliness through .NET 4.0’s dynamic"
 layout: post
 tags: programming TrivadisContent patterns DLR oracle
 date: 2011-04-20 12:37:00
-redirect_from: "/go/201"
+redirect_from: /go/201/
 ---
 
 If you do test your stuff, not having static compilation _at all times_ doesn’t seem too daunting. In such cases (and when you can use .NET 4.0) you can consider using the dynamic capabilities to give yourself a somewhat nicer API to deal with a DataRow (something you may end up with if you don’t want to take on a dependency to_ insert-your-favourite-ORM-tool-here_ for _insert-whatever-reasons-you-have-here_).

@@ -3,7 +3,7 @@ title: "defining contiguous activities with IDisposable"
 layout: post
 tags: programming dotnet patterns fsharp
 date: 2011-12-05 08:00:00
-redirect_from: "/go/210"
+redirect_from: /go/210/
 ---
 
 > "Atomic activities may not be confused with consecutive code" - _Arthur X. Brannigan_<br>

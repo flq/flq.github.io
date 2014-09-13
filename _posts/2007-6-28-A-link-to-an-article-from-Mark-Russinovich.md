@@ -3,7 +3,7 @@ title: "A link to an article from Mark Russinovich"
 layout: post
 tags: windows TrivadisContent
 date: 2007-06-28 10:18:05
-redirect_from: "/go/95"
+redirect_from: /go/95/
 ---
 
 I [once wrote](/?q=node/93) I quite like Vista. Now, a few months later, I can't really say that I hate it, but...

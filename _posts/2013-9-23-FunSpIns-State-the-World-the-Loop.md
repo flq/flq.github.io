@@ -3,7 +3,7 @@ title: "FunSpIns - State, the World, the Loop"
 layout: post
 tags: programming Haskell fun-spin
 date: 2013-09-23 14:00:00
-redirect_from: "/go/234"
+redirect_from: /go/234/
 ---
 
 > Inspired by Rob Ashton's series "[Learn functional][4] [programming with me][6]"

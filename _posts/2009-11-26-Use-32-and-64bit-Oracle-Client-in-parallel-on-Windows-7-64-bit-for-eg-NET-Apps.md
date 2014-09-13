@@ -3,7 +3,7 @@ title: "Use 32 and 64bit Oracle Client in parallel on Windows 7 64-bit for e.g. 
 layout: post
 tags: dotnet TrivadisContent oracle haxz
 date: 2009-11-26 19:46:56
-redirect_from: "/go/153"
+redirect_from: /go/153/
 ---
 
 Since you come here probably looking for an answer, let me give it first. After that, if you have time, I'll explain why it turned out to be that sort of hack, i.e. what other approaches didn't work.

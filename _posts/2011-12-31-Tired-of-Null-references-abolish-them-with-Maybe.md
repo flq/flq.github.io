@@ -3,7 +3,7 @@ title: "Tired of Null references? abolish them with Maybe"
 layout: post
 tags: programming dotnet TrivadisContent patterns
 date: 2011-12-31 13:51:00
-redirect_from: "/go/213"
+redirect_from: /go/213/
 ---
 
 Are you tired of null checks in your C# code? if (blahdiblah != null) ?

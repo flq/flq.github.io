@@ -3,7 +3,7 @@ title: "When to jump into the water - with maths"
 layout: post
 tags: loosely-coupled mathematics
 date: 2007-05-17 20:32:05
-redirect_from: "/go/88"
+redirect_from: /go/88/
 ---
 
 I once heard that with the following problem dogs had less of an issue than many distinguished people of the human race.

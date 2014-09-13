@@ -3,7 +3,7 @@ title: "Dealing with primitive obsession (this time: Measurements)"
 layout: post
 tags: programming dotnet TrivadisContent software-architecture patterns C# NMeasure
 date: 2010-11-30 09:00:00
-redirect_from: "/go/192"
+redirect_from: /go/192/
 ---
 
 Jeremy Miller on Twitter pointed out a blog post that aged well, because it is valid information: “[Dealing with primitive obsession](http://grabbagoft.blogspot.com/2007/12/dealing-with-primitive-obsession.html)”. Have a go through. The basic thing is: Value Objects make your code expressive! ([Book of Greg, psalm 11](http://realfiction.net/go/191)).

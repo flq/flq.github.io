@@ -3,7 +3,7 @@ title: "Realfiction Goodies - .NET Stuff you may like to use"
 layout: post
 tags: programming download dotnet
 date: 2006-07-02 12:01:08
-redirect_from: "/go/38"
+redirect_from: /go/38/
 ---
 
 **Last update**: 14.08.2006, **Version** 1.4 

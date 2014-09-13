@@ -3,7 +3,7 @@ title: "Revisiting the Alphabet Range with the latest .NET"
 layout: post
 tags: programming dotnet TrivadisContent LINQ
 date: 2008-01-19 22:58:48
-redirect_from: "/go/112"
+redirect_from: /go/112/
 ---
 
 While Richard Bushnell was showing off how old problems can be [implemented very concise with LINQ](http://richardbushnell.net/index.php/2008/01/18/using-linqpad-to-create-a-time-selector-drop-down-list/) he also made use of an extension method to the int Type.

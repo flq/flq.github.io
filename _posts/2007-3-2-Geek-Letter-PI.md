@@ -3,7 +3,7 @@ title: "Geek Letter PI"
 layout: post
 tags: programming loosely-coupled dotnet geekdom mathematics TrivadisContent
 date: 2007-03-02 20:34:29
-redirect_from: "/go/66"
+redirect_from: /go/66/
 ---
 
 My good man Andre N. pointed me to yet another geeky website:

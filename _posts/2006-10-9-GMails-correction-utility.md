@@ -3,7 +3,7 @@ title: "GMail's correction utility..."
 layout: post
 tags: loosely-coupled google
 date: 2006-10-09 15:31:34
-redirect_from: "/go/55"
+redirect_from: /go/55/
 ---
 
 ...sometimes lacks understanding of the language to check (in this case German). Here comes a strange example:

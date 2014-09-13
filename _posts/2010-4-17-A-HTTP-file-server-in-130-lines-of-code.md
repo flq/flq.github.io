@@ -3,7 +3,7 @@ title: "A HTTP file server in 130 lines of code"
 layout: post
 tags: programming dotnet web
 date: 2010-04-17 16:32:00
-redirect_from: "/go/166"
+redirect_from: /go/166/
 ---
 
 ...of which 20 deal with mapping file extensions to MIME types. 

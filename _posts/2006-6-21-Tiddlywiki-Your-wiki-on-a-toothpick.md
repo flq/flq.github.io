@@ -3,7 +3,7 @@ title: "Tiddlywiki - Your wiki on a toothpick"
 layout: post
 tags: loosely-coupled TrivadisContent
 date: 2006-06-21 09:42:38
-redirect_from: "/go/34"
+redirect_from: /go/34/
 ---
 
 [Tiddlywiki](http://www.tiddlywiki.com/) is a wiki that is contained within a single html page. It makes judicious use of Javascript and has superior command of the html DOM to provide editing capabilities that should make 90% of Wiki software out there bloody envious.

@@ -3,7 +3,7 @@ title: "Coherence in my blog: A Quantum worldline"
 layout: post
 tags: physics quantum-mechanics
 date: 2006-06-13 20:02:30
-redirect_from: "/go/32"
+redirect_from: /go/32/
 ---
 
 Remember the blog entries [Quantum computer solves problem...](/?q=node/15) and [How to find some bombs...](/?q=node/18) ? Well, they are related, since 'counterfactual computing' is related to 'interaction-free measurement'.

@@ -3,7 +3,7 @@ title: "Proposal for Open Source Software usage in .NET (as comfy as rubygems)"
 layout: post
 tags: dotnet TrivadisContent open-source bin4net
 date: 2010-02-28 06:00:00
-redirect_from: "/go/157"
+redirect_from: /go/157/
 ---
 
 Every once in a while I turn on twitter to see if I can finally handle that form of communication (I still can’t). Even so, I saw a tweet from (I think) Jeremy Miller who said something along the lines of the .NET Open-Source (OS) ecosystem missing something like [RubyGems](http://docs.rubygems.org/). There’s a [follow-up](http://codebetter.com/blogs/jeremy.miller/archive/2010/02/25/a-vision-for-fubumvc-s-component-model-gems-nu-engines-slices-oh-my.aspx) on this on his blog. It touches a lot of stuff, I am just going to look a bit at the RubyGems story.

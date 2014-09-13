@@ -3,7 +3,7 @@ title: "My bare minimum NDepend rules (and how to get them into a new project)"
 layout: post
 tags: programming TrivadisContent software-architecture ndepend
 date: 2010-12-19 21:37:00
-redirect_from: "/go/193"
+redirect_from: /go/193/
 ---
 
 When you run an Ndepend anylsis over a project you will notice a certain tendency of the Code Queries (CQL) to overwhelm you. By default NDepends comes with a lot of queries against your code that can help you to have an eye on code quality metrics.

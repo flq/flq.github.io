@@ -3,7 +3,7 @@ title: "The Technology behind the SAITRON"
 layout: post
 tags: saitron technology sci-fi
 date: 2006-06-07 18:41:10
-redirect_from: "/go/28"
+redirect_from: /go/28/
 ---
 
 Greetings to this book which will guide you through important bits of the technology that enables the spaceship SAITRON to be a dangerous opponent, a fast traveller and a protector against the perils of intergalactic doing.

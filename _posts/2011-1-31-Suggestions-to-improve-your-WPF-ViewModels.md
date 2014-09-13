@@ -3,7 +3,7 @@ title: "Suggestions to improve your WPF ViewModels"
 layout: post
 tags: programming dotnet TrivadisContent WPF
 date: 2011-01-31 13:00:00
-redirect_from: "/go/196"
+redirect_from: /go/196/
 ---
 
 Throughout the years where I have been working on WPF projects, I have seen a fair share of classes used as ViewModels (VM) that have been lacking in revealing their intended and proper usage, such that their resistance to maintenance is increased. I think that the following suggestions help to make ViewModels that still work well and are more explicit about their functionality.

@@ -3,7 +3,7 @@ title: "Where to find MRCs"
 layout: post
 tags: saitron sci-fi
 date: 2007-03-15 21:00:12
-redirect_from: "/go/70"
+redirect_from: /go/70/
 ---
 
 MRCs form in the vicinity of pulsars. Pulsars have extremely strong magnetic fields rotating at considerable speeds. Given these pre-conditions and some other conditions that the surrounding material must fulfil (e.g. its distance from the pulsar, its distribution and its heat), Multi-resonance crystals are formed within a torus-shaped area surrounding the pulsar and its main particle jet. This describes an ideal situation as seen in the figure. Often the magnetic axis will not be perpendicular to the rotational axis, so that the particle streams arising from the rotating neutron star hits possible particles orbiting the Pulsar only at specific locations, turning the ideal resonance ring to resonance spots.

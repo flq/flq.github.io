@@ -3,7 +3,7 @@ title: "Unit testing events with anonymous delegates"
 layout: post
 tags: programming dotnet TrivadisContent
 date: 2006-07-24 19:19:52
-redirect_from: "/go/47"
+redirect_from: /go/47/
 ---
 
 The other day I figured out that anonymous delegates can also help you to test an event while staying nicely contained within a single test method. 

@@ -3,7 +3,7 @@ title: "Haven't digested C#3? Brace yourself for V4!"
 layout: post
 tags: programming dotnet TrivadisContent C#
 date: 2008-11-04 22:37:45
-redirect_from: "/go/135"
+redirect_from: /go/135/
 ---
 
 After Microsoft's PDC, a whole host of C# 4.0 infos are coming up. Many months ago we were already allowed to peek at Hejlsberg & Team sitting in an old meeting room, talking about what C# 4.0 would be all about (I have lost the link but you [here's](http://channel9.msdn.com/pdc2008/TL16/) his talk at the PDC about the upcoming language - Takes some time, but it's pretty good).

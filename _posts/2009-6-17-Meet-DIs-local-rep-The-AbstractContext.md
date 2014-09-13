@@ -3,7 +3,7 @@ title: "Meet DIs local rep: The AbstractContext"
 layout: post
 tags: dotnet TrivadisContent software-architecture dependency-injection
 date: 2009-06-17 20:12:46
-redirect_from: "/go/146"
+redirect_from: /go/146/
 ---
 
 I am having an unhealthy yet energetic and fruitful relation with a close relative of 'the' Dependency Injection (DI) container. She's called _AbstractContext_ and she's been able to cope with all kinds of thorny situations where numerous objects need to collaborate without resulting in a tangled mess of spaghetti.

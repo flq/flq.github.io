@@ -3,7 +3,7 @@ title: "Google and A.I."
 layout: post
 tags: loosely-coupled google biology
 date: 2007-02-20 10:40:25
-redirect_from: "/go/60"
+redirect_from: /go/60/
 ---
 
 [heise online - Künstliche Intelligenz für Suche gesucht](http://www.heise.de/newsticker/meldung/85530/from/rss09)

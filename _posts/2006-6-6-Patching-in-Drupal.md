@@ -3,7 +3,7 @@ title: "Patching in Drupal"
 layout: post
 tags: site drupal TrivadisContent
 date: 2006-06-06 20:44:12
-redirect_from: "/go/26"
+redirect_from: /go/26/
 ---
 
 This is the second update to drupal that I go through...that many security issues..?..oh my...anyway, had to figure out how to **patch** on me olde Windows machine, here are my findings:

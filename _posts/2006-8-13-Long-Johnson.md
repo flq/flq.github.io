@@ -3,7 +3,7 @@ title: "Long Johnson"
 layout: post
 tags: loosely-coupled visual humour
 date: 2006-08-13 16:28:44
-redirect_from: "/go/50"
+redirect_from: /go/50/
 ---
 
 This cat made my day:

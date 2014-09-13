@@ -3,7 +3,7 @@ title: "Functional Programming and Quantum Computing"
 layout: post
 tags: programming quantum-mechanics Haskell
 date: 2007-05-24 12:33:10
-redirect_from: "/go/89"
+redirect_from: /go/89/
 ---
 
 Some effort goes into simulating a Quantum computer on a classical one, omitting the fact that such a simulation becomes arbitrarily slow due to the fact that a qubit encodes more information than a bit.

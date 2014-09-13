@@ -3,7 +3,7 @@ title: "The funny 8s and 9s in javascript"
 layout: post
 tags: programming javascript TrivadisContent
 date: 2007-06-19 15:02:21
-redirect_from: "/go/94"
+redirect_from: /go/94/
 ---
 
 This may be a known fact to those that have mastered javascript in real life scenarios, but just today I came across this:

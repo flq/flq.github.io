@@ -3,7 +3,7 @@ title: "A new beginning"
 layout: post
 tags: site
 date: 2013-03-24 21:47:53
-redirect_from: "/go/218"
+redirect_from: /go/218/
 ---
 
 If all goes well, this should be the first post that enters the website through my dropbox - realfiction has then reached *the cloud*

@@ -3,7 +3,7 @@ title: "How to find some bombs, while still needing protection from others"
 layout: post
 tags: physics quantum-mechanics
 date: 2006-02-28 18:10:00
-redirect_from: "/go/13"
+redirect_from: /go/13/
 ---
 
 [Elitzur-Vaidman bomb-testing problem:](http://www.answers.com/topic/elitzur-vaidman-bomb-testing-problem)

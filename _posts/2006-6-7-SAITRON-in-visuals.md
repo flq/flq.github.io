@@ -3,7 +3,7 @@ title: "SAITRON in visuals"
 layout: post
 tags: CAD saitron sci-fi
 date: 2006-06-07 18:59:41
-redirect_from: "/go/29"
+redirect_from: /go/29/
 ---
 
 Oh, yes! Finally, some visual information about the most sophisticated **KAZOON class activity-centric ship** of the swarm surrounding the SIX-FOLDED STAR OF YHLASUU. KAZOON simply meaning that the ship has a length of half a ship's length - If that does not make sense to you it is because you are not aware that a ship's length is a standardized measure in the World of the Ii.

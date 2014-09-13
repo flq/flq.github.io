@@ -3,7 +3,7 @@ title: "Three degrees of Framework"
 layout: post
 tags: programming patterns
 date: 2013-04-04 07:12:51
-redirect_from: "/go/221"
+redirect_from: /go/221/
 ---
 
 In case it would not be obvious, there is a ton of things out there that can be reused in the form of packages. Those packages would roughly fall into any of the following categories where a single framework can obviously fall into several categories at once.

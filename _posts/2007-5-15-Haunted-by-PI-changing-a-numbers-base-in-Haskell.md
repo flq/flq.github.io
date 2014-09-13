@@ -3,7 +3,7 @@ title: "Haunted by PI - changing a number's base in Haskell"
 layout: post
 tags: programming geekdom mathematics Haskell TrivadisContent
 date: 2007-05-15 21:15:28
-redirect_from: "/go/86"
+redirect_from: /go/86/
 ---
 
 I was looking back at [Christoph's ruby code](/?q=node/113) and was thinking that by now I should be able to implement that algorithm in Haskell. Indeed, one of my solutions looks like that:

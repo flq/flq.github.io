@@ -3,7 +3,7 @@ title: "Using MemBus"
 layout: post
 tags: programming dotnet TrivadisContent patterns C# membus
 date: 2010-09-15 07:25:00
-redirect_from: "/go/180"
+redirect_from: /go/180/
 ---
 
 Usage of MemBus always goes through the IBus interface:

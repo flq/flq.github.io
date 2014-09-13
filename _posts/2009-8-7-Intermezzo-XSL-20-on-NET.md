@@ -3,7 +3,7 @@ title: "Intermezzo: XSL 2.0 on .NET"
 layout: post
 tags: programming dotnet TrivadisContent xml
 date: 2009-08-07 22:28:53
-redirect_from: "/go/148"
+redirect_from: /go/148/
 ---
 
 I was up to updating some old stuff that I had previously written in JAVA to the .NET world. It has been a while since I worked with JAVA - I had forgotten that the XSL I once built used [version 2.0](http://www.w3.org/TR/xslt20/) features. To my dismay .NET 3.5 allows you to control your coffee machine with a workflow, but once you want to calculate a duration directly in xsl you will quickly notice that .NET's in-built support only covers XSL 1.0 (and XQuery not at all).

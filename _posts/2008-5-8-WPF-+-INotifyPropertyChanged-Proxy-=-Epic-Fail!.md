@@ -3,7 +3,7 @@ title: "WPF + INotifyPropertyChanged Proxy = Epic Fail!"
 layout: post
 tags: download dotnet TrivadisContent WPF castle-windsor
 date: 2008-05-08 20:48:58
-redirect_from: "/go/122"
+redirect_from: /go/122/
 ---
 
 It seemed a straightforward thing to do.

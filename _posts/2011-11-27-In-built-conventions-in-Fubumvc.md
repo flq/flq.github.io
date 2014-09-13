@@ -3,7 +3,7 @@ title: "In-built conventions in Fubumvc"
 layout: post
 tags: programming dotnet TrivadisContent web fubumvc
 date: 2011-11-27 21:30:00
-redirect_from: "/go/208"
+redirect_from: /go/208/
 ---
 
 Fubumvc not only allows you to define your own conventions, i.e. the ways in which your code gets wired up into your web app,

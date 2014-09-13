@@ -3,7 +3,7 @@ title: "Extending Caliburn-Micro's view location strategy"
 layout: post
 tags: programming TrivadisContent WPF patterns caliburn.micro
 date: 2012-03-05 14:00:00
-redirect_from: "/go/215"
+redirect_from: /go/215/
 ---
 
 [Scal][1] (containing name parts of __S__tructureMap and __Cal__iburn.Micro) is a project into which flows the way I like to work with Caliburn.Micro (CM). Scal brings together what I like to use in a reasonable sized WPF app - its Nuget dependencies are...manifold:

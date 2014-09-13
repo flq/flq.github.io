@@ -3,7 +3,7 @@ title: "How much Haskell can I squeeze out of C#?"
 layout: post
 tags: programming dotnet Haskell TrivadisContent
 date: 2007-05-10 10:52:25
-redirect_from: "/go/84"
+redirect_from: /go/84/
 ---
 
 You know all this talk about a new language every year and that it should be something different, etc. Since functions are playing a more & more important role in C#, I thought that it would make sense to have a look at a language that has been functional all along: [Haskell](http://www.haskell.org/haskellwiki/Haskell). Well, I do not want to bore you with introductory details, of which there are enough on the web.

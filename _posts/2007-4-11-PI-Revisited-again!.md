@@ -3,7 +3,7 @@ title: "PI Revisited - again!"
 layout: post
 tags: programming geekdom mathematics TrivadisContent
 date: 2007-04-11 20:11:02
-redirect_from: "/go/80"
+redirect_from: /go/80/
 ---
 
 What Andre's link [caused](/?q=node/92)...

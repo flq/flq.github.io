@@ -3,7 +3,7 @@ title: "Multi-resonance crystals (MRCs)"
 layout: post
 tags: saitron sci-fi
 date: 2007-03-11 21:26:10
-redirect_from: "/go/69"
+redirect_from: /go/69/
 ---
 
 Looking at multi-resonance crystals as a black box the following diagram describes the crystal’s ability:

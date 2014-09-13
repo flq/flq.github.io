@@ -3,7 +3,7 @@ title: "Small trap on .NET 2.0 List object"
 layout: post
 tags: programming dotnet TrivadisContent
 date: 2006-07-19 19:54:06
-redirect_from: "/go/46"
+redirect_from: /go/46/
 ---
 
 Consider the following small c# 2.0 program:

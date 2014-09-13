@@ -3,7 +3,7 @@ title: "How can I get rid of this goto?"
 layout: post
 tags: programming TrivadisContent C#
 date: 2009-09-24 22:01:33
-redirect_from: "/go/150"
+redirect_from: /go/150/
 ---
 
 Help! It's late and I don't see a good way to get rid of this goto construct:

@@ -3,7 +3,7 @@ title: "Disk partition (mis)management"
 layout: post
 tags: windows TrivadisContent
 date: 2007-07-25 11:10:16
-redirect_from: "/go/97"
+redirect_from: /go/97/
 ---
 
 For many, many years I had the C drive partitioned to 10GB. For many years, this was plenty of space. The last time I installed my Windows, I did it again - the difference being that 10GB is not so much anymore. In other words, I am notoriously running out of space on my C drive.

@@ -3,7 +3,7 @@ title: "A simple way to start your code in a different AppDomain"
 layout: post
 tags: programming dotnet TrivadisContent software-architecture
 date: 2008-05-20 16:50:13
-redirect_from: "/go/124"
+redirect_from: /go/124/
 ---
 
 You may know that AppDomains in the .Net Framework are comparable to processes in that they provide an isolated execution context for the instructions executed by the CLR. However, they are also quite lightweight and what is more, you can have more than one inside an actual OS process in which a given CLR Host is running. Usually our code gets executed in a default AppDomain and we do not care about additional ones. Why should you care about AppDomains at all?

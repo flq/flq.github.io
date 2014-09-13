@@ -3,7 +3,7 @@ title: "More tricks from ye olde Event Aggregator: No, I don’t want that messa
 layout: post
 tags: programming TrivadisContent membus
 date: 2011-08-12 20:46:00
-redirect_from: "/go/203"
+redirect_from: /go/203/
 ---
 
 You may know by now that MemBus is my favorite Event Aggregator. This is because it allows you to mess quite a bit with the way publishing and subscription needs. Consider the following situation:

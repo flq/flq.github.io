@@ -3,7 +3,7 @@ title: "ASP.NET MVC from scratch"
 layout: post
 tags: dotnet TrivadisContent visual-studio ASP.NET-MVC
 date: 2009-06-07 19:01:05
-redirect_from: "/go/145"
+redirect_from: /go/145/
 ---
 
 Yesterday I thought that it would be a good idea to check out ASP.NET MVC (MVC) on my "on-the-edge" rig with Visual Studio 2010 running on Windows 7.

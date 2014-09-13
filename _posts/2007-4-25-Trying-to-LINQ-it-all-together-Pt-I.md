@@ -3,7 +3,7 @@ title: "Trying to LINQ it all together (Pt. I)"
 layout: post
 tags: programming dotnet TrivadisContent LINQ
 date: 2007-04-25 21:33:33
-redirect_from: "/go/82"
+redirect_from: /go/82/
 ---
 
 Yeah, yeah, we've all done our **_from thingy in stuff where thingy.Age > 26_**, etc., etc.

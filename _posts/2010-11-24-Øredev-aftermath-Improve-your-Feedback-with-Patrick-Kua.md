@@ -3,7 +3,7 @@ title: "Øredev aftermath: Improve your Feedback with Patrick Kua"
 layout: post
 tags: loosely-coupled TrivadisContent oredev
 date: 2010-11-24 13:14:00
-redirect_from: "/go/188"
+redirect_from: /go/188/
 ---
 
 Quite often feedback goes pretty wrong between interacting humans. What do I mean? Ever saw those shows about how to train your Dog? It is all about constructive feedback. Can you state when you gave constructive feedback to someone last time?

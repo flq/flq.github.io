@@ -3,7 +3,7 @@ title: "So, how expensive is it to let NInject make my object?"
 layout: post
 tags: programming dotnet TrivadisContent software-architecture castle-windsor dependency-injection ninject
 date: 2008-06-25 13:11:57
-redirect_from: "/go/127"
+redirect_from: /go/127/
 ---
 
 Back [here](http://realfiction.net/?q=node/143) I made a quick and dirty performance comparison. In the comments I actually got some "flak" scrutinizing some of the "design decisions" behind the example shown. I would like to reinstate that the example was made purely for checking instantiation performance of IoC container, and that I could not be asked to use "Foo" and "Bar" or "Samurai" and "Sword" ([no worries, Nate](http://dojo.ninject.org/wiki/display/NINJECT/Dependency+Injection+With+Ninject) ;)

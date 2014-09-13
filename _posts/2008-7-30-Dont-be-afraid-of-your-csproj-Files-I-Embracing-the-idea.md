@@ -3,7 +3,7 @@ title: "Don't be afraid of your csproj-Files (I): Embracing the idea"
 layout: post
 tags: programming dotnet TrivadisContent msbuild visual-studio
 date: 2008-07-30 22:05:37
-redirect_from: "/go/128"
+redirect_from: /go/128/
 ---
 
 # Intro

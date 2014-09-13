@@ -3,7 +3,7 @@ title: "Comfortable command line argument parsing"
 layout: post
 tags: programming dotnet TrivadisContent
 date: 2009-03-27 21:29:42
-redirect_from: "/go/141"
+redirect_from: /go/141/
 ---
 
 Once in a while you may want to write a command line tool which may have to accept commad line arguments. In comes a nice little bit of source code that is part of the great output of the Mono project. Documentation is available [here](http://www.ndesk.org/doc/ndesk-options/NDesk.Options/OptionSet.html) and the [source code](http://anonsvn.mono-project.com/viewvc/trunk/mcs/class/Mono.Options/Mono.Options/) can be taken, used directly, modified and it (obviously) compiles without any issues from .NET Framework 2.0 onwards.

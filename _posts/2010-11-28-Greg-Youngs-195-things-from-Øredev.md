@@ -3,7 +3,7 @@ title: "Greg Young’s 19.5 things from Øredev"
 layout: post
 tags: programming TrivadisContent patterns oredev
 date: 2010-11-28 13:26:00
-redirect_from: "/go/191"
+redirect_from: /go/191/
 ---
 
 This is a time guide to [Greg’s session](http://vimeo.com/17151526). It is a pretty damn good session to clean up some mental cruft you may have about the subject. 

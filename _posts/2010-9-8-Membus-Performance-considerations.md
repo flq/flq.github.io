@@ -3,7 +3,7 @@ title: "Membus: Performance considerations"
 layout: post
 tags: programming dotnet TrivadisContent patterns C# membus
 date: 2010-09-08 12:00:00
-redirect_from: "/go/179"
+redirect_from: /go/179/
 ---
 
 When developing a piece of code that could potentially be used as a central component, one should have a look at the performance as well. There is no easy answer as to whether MemBus is fast or not – it depends which features you are using.

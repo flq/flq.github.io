@@ -3,7 +3,7 @@ title: "Haskell decision making"
 layout: post
 tags: programming Haskell TrivadisContent
 date: 2007-05-30 19:59:22
-redirect_from: "/go/90"
+redirect_from: /go/90/
 ---
 
 A few days ago, while I was implementing something in PL/SQL for that dreaded Oracle Forms project I had to code some scary if-else construct spanning two logic checks that depending on the combination gave four different results. 

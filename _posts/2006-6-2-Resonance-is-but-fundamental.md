@@ -3,7 +3,7 @@ title: "Resonance is but fundamental"
 layout: post
 tags: physics
 date: 2006-06-02 20:44:45
-redirect_from: "/go/24"
+redirect_from: /go/24/
 ---
 
 Two small videos that show off resonance. One uses a magnetic fluid in a rotating and alternating magnetic field, the other one uses supposedly rice on a plate whose vibration is induced acoustically.

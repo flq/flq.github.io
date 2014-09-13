@@ -3,7 +3,7 @@ title: "Øredev: Things from Microsoft"
 layout: post
 tags: dotnet TrivadisContent C# oredev
 date: 2010-11-15 10:30:00
-redirect_from: "/go/187"
+redirect_from: /go/187/
 ---
 
 Several sessions were held by guys from Microsoft, which I want to give you a quick rundown of those I’ve visited here.

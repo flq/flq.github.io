@@ -3,7 +3,7 @@ title: "Resharper 5.0 Outgoing calls analysis: Example from NHibernate"
 layout: post
 tags: programming dotnet NHibernate
 date: 2010-08-13 15:43:00
-redirect_from: "/go/173"
+redirect_from: /go/173/
 ---
 
 The following is a screenshot when you start off from NHibernate’s default OnLoad listener (called e.g. when you say **session.Load&lt;Cat&gt;(23)**).

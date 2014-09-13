@@ -3,7 +3,7 @@ title: "Some more on the implicit operator"
 layout: post
 tags: programming dotnet TrivadisContent
 date: 2008-05-22 19:59:27
-redirect_from: "/go/125"
+redirect_from: /go/125/
 ---
 
 Elaborating on my [past post](/Content/Entry/104) on the implicit operator in C#, here some additional information to round this thing up.

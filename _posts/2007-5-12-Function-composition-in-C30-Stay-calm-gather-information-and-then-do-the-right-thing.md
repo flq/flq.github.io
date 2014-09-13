@@ -3,7 +3,7 @@ title: "Function composition in C#3.0 (Stay calm, gather information and then do
 layout: post
 tags: programming download dotnet TrivadisContent
 date: 2007-05-12 21:11:20
-redirect_from: "/go/85"
+redirect_from: /go/85/
 ---
 
 In the [last post](/?q=node/117) I was talking about how we could create the natural Haskell function composition operator into C# and my first solution (also contained as the _Functional_ assembly in the attached solution) was one based on the possibilities provided by the 2.0 Version of the .NET framework. It worked, but it was clumsy, with a lot infrastructure to support a single requirement.

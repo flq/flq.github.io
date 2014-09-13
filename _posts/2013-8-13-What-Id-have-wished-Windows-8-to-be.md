@@ -3,7 +3,7 @@ title: "What I'd have wished Windows 8 to be"
 layout: post
 tags: windows
 date: 2013-08-13 09:00:40
-redirect_from: "/go/228"
+redirect_from: /go/228/
 ---
 
 >There has been so much rant on Windows 8 that you could think that it is enough already. Then again, the same argument can be used to say that given so much rant, some more doesn't even count, so here we go.

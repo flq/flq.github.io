@@ -3,7 +3,7 @@ title: "Having fun in irb"
 layout: post
 tags: programming ruby download TrivadisContent
 date: 2006-03-14 19:06:00
-redirect_from: "/go/16"
+redirect_from: /go/16/
 ---
 
 Check out this piece of interactive ruby:

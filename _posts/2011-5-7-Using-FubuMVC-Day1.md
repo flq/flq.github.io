@@ -3,7 +3,7 @@ title: "Using FubuMVC - Day1"
 layout: post
 tags: programming dotnet web ASP.NET-MVC fubumvc
 date: 2011-05-07 10:25:00
-redirect_from: "/go/202"
+redirect_from: /go/202/
 ---
 
 There is a change request coming which requires some software to fake an external system. It should be usable by testers in order to exercise the use cases. A nice situation to finally test [fubu mvc](https://github.com/DarthFubuMVC/fubumvc), the swiss army knife (factory) for friends of MVC Web frameworks. The following is partly backed up from my twitter timeline, partly backed up from my memory and stitched up with some good will.

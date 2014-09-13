@@ -3,7 +3,7 @@ title: "&Oslash;redev keynote #1: NASA&rsquo;s Jeff Norris"
 layout: post
 tags: oredev programming loosely-coupled geekdom TrivadisContent
 date: 2010-11-10 23:01:00
-redirect_from: "/go/186"
+redirect_from: /go/186/
 ---
 
 One thing up front. [This conference](http://oredev.org/2010) may blow my mind. My neuronal network(s) will take a shift, for better or worse remains to be seen.

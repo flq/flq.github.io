@@ -3,7 +3,7 @@ title: "Oh Brother, What's Art though?"
 layout: post
 tags: Hesitan-and-Miracles
 date: 2006-05-25 17:20:21
-redirect_from: "/go/7"
+redirect_from: /go/7/
 ---
 
       

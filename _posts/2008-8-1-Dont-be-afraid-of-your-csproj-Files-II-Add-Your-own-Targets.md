@@ -3,7 +3,7 @@ title: "Don't be afraid of your csproj-Files (II): Add Your own Targets"
 layout: post
 tags: dotnet TrivadisContent msbuild visual-studio
 date: 2008-08-01 22:03:26
-redirect_from: "/go/129"
+redirect_from: /go/129/
 ---
 
 In my [first post](http://realfiction.net/?q=node/162) on csproj-fun I had an example where after every build, the resulting assemblies lying in e.g. bin/debug would be merged into one and copied out to some other place. Maybe you do not want this every time you rebuild your project, but you'd rather want to trigger it at will.

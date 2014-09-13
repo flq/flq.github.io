@@ -3,7 +3,7 @@ title: "WCF: Externalize Binding Configuration Only"
 layout: post
 tags: programming dotnet TrivadisContent WCF C#
 date: 2010-07-30 15:00:00
-redirect_from: "/go/171"
+redirect_from: /go/171/
 ---
 
 In one of our current objects we are using WCF as Client-Server communication. Contracts and endpoints are easily defined: We are using a common interface assembly from which the contracts are derived and setting the endpoint URLs is a matter of providing an address root. Currently the ABC of WCF is set up programmatically: The targetted architecture allowed it and it ensures a set up of WCF clients and servers with a minimum of configuration.

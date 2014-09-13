@@ -3,7 +3,7 @@ title: "Don't be afraid of your csproj-Files (III): We have a condition"
 layout: post
 tags: dotnet TrivadisContent msbuild visual-studio
 date: 2008-08-16 08:22:23
-redirect_from: "/go/130"
+redirect_from: /go/130/
 ---
 
 # Project references

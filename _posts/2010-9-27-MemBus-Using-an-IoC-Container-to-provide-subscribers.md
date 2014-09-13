@@ -3,7 +3,7 @@ title: "MemBus: Using an IoC Container to provide subscribers"
 layout: post
 tags: programming TrivadisContent patterns membus
 date: 2010-09-27 20:41:00
-redirect_from: "/go/183"
+redirect_from: /go/183/
 ---
 
 The “Observe” and “Subscribe” functionality already opens up numerous possibilities for reacting to messages. Another way to handle messages is by providing a Handler which accepts messages of a certain type:

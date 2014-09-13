@@ -3,7 +3,7 @@ title: "Someone closes your console, stopping you from doing any cleanup?"
 layout: post
 tags: dotnet TrivadisContent
 date: 2008-03-31 16:19:52
-redirect_from: "/go/117"
+redirect_from: /go/117/
 ---
 
 Fair enough, production code is unlikely to be running in a cute .NET Console App, but maybe you come into a situation where you at least want to prevent somebody from closing your console window without going through your lovely cleanup routines. This [link here](http://www.msnewsgroups.net/group/microsoft.public.dotnet.languages.csharp/topic10229.aspx) will tell you what you can do.

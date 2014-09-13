@@ -3,7 +3,7 @@ title: "Atrocious Learnings of Haskell for Make Benefit of solving Math Problem"
 layout: post
 tags: programming Haskell
 date: 2013-07-30 22:36:29
-redirect_from: "/go/225"
+redirect_from: /go/225/
 ---
 
 Monday evening's _original_ plan was to read up on [Concurrency stuff][1] in Haskell. Alas, the site was down. My focus shifted towards twitter and then to this tweet:

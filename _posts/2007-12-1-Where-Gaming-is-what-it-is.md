@@ -3,7 +3,7 @@ title: "Where Gaming is what it is"
 layout: post
 tags: geekdom
 date: 2007-12-01 23:40:33
-redirect_from: "/go/107"
+redirect_from: /go/107/
 ---
 
 Apart from the useless stutter of politicians and their gross misconduct in terms of spending habits there's a subject that was overly annoying lately...the debate about so-called killer games. A more pathetic attempt to find a scapegoat for serious issues in the educational system and our current cultural and social structure hasn't been seen since the brouhaha regarding old Rock albums that were supposed to have a terrible influence on the youth. [Judas Priest](http://en.wikipedia.org/wiki/Judas_Priest#Subliminal_message_trial), anyone?

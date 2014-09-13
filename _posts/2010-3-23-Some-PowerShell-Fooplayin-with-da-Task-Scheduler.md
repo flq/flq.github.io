@@ -3,7 +3,7 @@ title: "Some PowerShell Foo...playin' with da Task Scheduler"
 layout: post
 tags: powershell
 date: 2010-03-23 04:43:00
-redirect_from: "/go/164"
+redirect_from: /go/164/
 ---
 
 When adopting something new it can take quite a while until you really get into it. PowerShell is such a thing. When it came out I played around with it, not more. Now, with us having to provide some maintenance tools for our last project and me working on connecting Powershell to MSBuild, things look different. PowerShell feels like a Swiss army knife.

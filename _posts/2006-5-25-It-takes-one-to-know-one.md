@@ -3,7 +3,7 @@ title: "It takes one to know one"
 layout: post
 tags: Hesitan-and-Miracles
 date: 2006-05-25 15:58:28
-redirect_from: "/go/5"
+redirect_from: /go/5/
 ---
 
       

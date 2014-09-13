@@ -3,7 +3,7 @@ title: "Road to Reality - Continued Fractions"
 layout: post
 tags: programming mathematics Haskell TrivadisContent
 date: 2007-06-03 17:34:26
-redirect_from: "/go/92"
+redirect_from: /go/92/
 ---
 
 Saturday my new book arrived - [The Road to Reality](http://www.amazon.de/Road-Reality-Complete-Guide-Universe/dp/0679454438/ref=pd_bbs_sr_2/303-4282147-1446639?ie=UTF8&amp;s=books-intl-de&amp;qid=1180890923&amp;sr=8-2) by [Roger Penrose](http://en.wikipedia.org/wiki/Roger_penrose). This is a much appraised book. The saying goes that it is somewhat too complex to be understood by the minds that, let's say, usually deal with stuff that has not much connection to the thought processes that lead to a mathematical understanding of our reality. Either way, it is meant to be a thorough introduction (it clocks in at roughly 1000 pages), does not shy away from maths, and is quite current when it comes to what we know about how the world is composed. I am still in the starting tracks and now came across the way that the ancient Greeks dealt with irrational numbers. You can obtain those by doing _continued fractions_.

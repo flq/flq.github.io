@@ -3,7 +3,7 @@ title: "Parameters of MRC usage"
 layout: post
 tags: saitron sci-fi
 date: 2007-03-17 20:10:09
-redirect_from: "/go/73"
+redirect_from: /go/73/
 ---
 
 The resulting type<sup>*)</sup> imbalance is however constrained to the physical geometry of the Multi-resonance crystals. It means that the resulting unhinged state of the MRC is not measurable as such from the outside. For any repeatedly used particle resonance<sup>**)</sup>  a saturation point is reached after which the given resonance (e.g. electron and proton to photon) cannot be sustained any longer. After this point the crystal’s reactions are notoriously difficult to predict. The MRC begins to interact with its surroundings and can do so on any level of fundamental forces. Under certain conditions it can even exert a field of strong nuclear force on its surroundings. This is the reason why almost all applications of the MRC are based on its reactions in a non-saturated state.

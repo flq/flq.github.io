@@ -3,7 +3,7 @@ title: "Rotating MRCs and RIMs"
 layout: post
 tags: saitron sci-fi
 date: 2007-03-17 20:23:48
-redirect_from: "/go/74"
+redirect_from: /go/74/
 ---
 
 It helps to think once more about what happens when the crystal becomes type saturated. In most of the cases the crystal turns into ordinary matter e.g. diamond or another crystalline carbon structure, or in some cases into hydrogen gas or a massive burst of high-energy photon radiation. As catastrophic as this discharge can occur, it is usually just a fraction of the energy stored in that specific type saturation. Most of the energy disappears into what can be best described as implosion towards regions of higher interaction frequencies i.e. frequencies greater than the ones defining the Spacetime domain. If this process (which is like any causal process non-instantaneous) occurs irregularly throughout the MRC it is when the crystal can shatter at great speeds due to the extreme changes in material properties and the arising shear forces. Combined with the great rotational speeds that can be accredited to the crystal’s ‘suprafluid’ core, you have to cope with a particle wave of devastating mechanical power leaving everything in its wake pulverized.

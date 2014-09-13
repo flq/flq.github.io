@@ -3,7 +3,7 @@ title: "Applying Attributes to method parameters"
 layout: post
 tags: programming dotnet TrivadisContent
 date: 2007-12-02 19:46:23
-redirect_from: "/go/108"
+redirect_from: /go/108/
 ---
 
 Hopefully everybody who reads this knows more or less what Attributes are in terms of .NET/C# programming. While I was scanning the documentation for that interesting [Monorail project](http://www.castleproject.org/monorail/index.html) (btw, if you ever played with [RoR ](http://www.rubyonrails.org/)you probably feel right at home), I noticed that you can also apply attributes to method parameters. In the following I develop a small example as to how you can make use of such a feat. First let's get the mockery behind us...

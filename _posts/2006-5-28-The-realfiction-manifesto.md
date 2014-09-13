@@ -3,7 +3,7 @@ title: "The realfiction manifesto"
 layout: post
 tags: essays
 date: 2006-05-28 17:36:36
-redirect_from: "/go/22"
+redirect_from: /go/22/
 ---
 
 ##  From fiction to reality 

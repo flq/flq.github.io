@@ -3,7 +3,7 @@ title: "Update to Vista - Check!"
 layout: post
 tags: virtualization windows
 date: 2007-03-10 19:55:08
-redirect_from: "/go/67"
+redirect_from: /go/67/
 ---
 
 Well, not at home, but on my work laptop. Since January I was virtualizing all of my projects, and when a colleague pointed to a blog entry about how [VMWare Workstation 6 Beta](http://www.vmware.com/products/beta/ws/) (fully supporting Windows Vista as host) could be [taken out of its default debug-mode](http://4sysops.com/archives/disable-debug-mode-of-vmware-workstation-60-beta-%E2%80%93-the-solution-for-vista-users/), I thought that it should be fairly painless to change to Microsoft's new Operating System.

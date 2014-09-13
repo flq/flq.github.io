@@ -3,7 +3,7 @@ title: "An experiment that’s causing somewhat of a stir"
 layout: post
 tags: physics
 date: 2004-07-31 17:54:00
-redirect_from: "/go/1"
+redirect_from: /go/1/
 ---
 
 Ah, it’s been a while since I heard ‘Copenhagen-interpretation’. You may say that said interpretation is the quantum mechanics sister to our well-known _I only believe/It’s only real what I see_. In terms of particle / wave duality, the interpretation states that I can only make an observation of  the wave or particle aspect of a subatomic spacetime entity at any time.

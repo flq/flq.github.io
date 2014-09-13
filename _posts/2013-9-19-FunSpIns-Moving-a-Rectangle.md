@@ -3,7 +3,7 @@ title: "FunSpIns - Moving a Rectangle"
 layout: post
 tags: programming Haskell fun-spin
 date: 2013-09-19 14:00:00
-redirect_from: "/go/232"
+redirect_from: /go/232/
 ---
 
 > Inspired by Rob Ashton's series "[Learn functional programming with me][1]"

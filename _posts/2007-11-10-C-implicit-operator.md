@@ -3,7 +3,7 @@ title: "C# implicit operator"
 layout: post
 tags: programming dotnet TrivadisContent
 date: 2007-11-10 12:38:04
-redirect_from: "/go/104"
+redirect_from: /go/104/
 ---
 
 You know you love a programming language when it still manages to surprise you with something you didn't know about. 

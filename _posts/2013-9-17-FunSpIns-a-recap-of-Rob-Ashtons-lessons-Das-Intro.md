@@ -3,7 +3,7 @@ title: "FunSpIns - a recap of Rob Ashton's lessons - Das Intro"
 layout: post
 tags: programming Haskell fun-spin
 date: 2013-09-17 21:49:28
-redirect_from: "/go/230"
+redirect_from: /go/230/
 ---
 
 A few weeks ago I was considering following [Rob Ashton's footsteps][1] in learning functional programming by programming a game (Space Invaders, or **Fun**ctional **Sp**ace **In**vader**s** or **FunSpIns**, right? *le sigh*)

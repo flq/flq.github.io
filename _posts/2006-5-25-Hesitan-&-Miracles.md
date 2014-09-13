@@ -3,7 +3,7 @@ title: "Hesitan & Miracles"
 layout: post
 tags: Hesitan-and-Miracles
 date: 2006-05-25 15:29:33
-redirect_from: "/go/3"
+redirect_from: /go/3/
 ---
 
  ![Parmenides getting the most out of virtual jourmalism](/files/images/parmenides.gif)  A dialogue may, at its best, shed light upon a subject from at least two spots - 

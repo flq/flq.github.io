@@ -3,7 +3,7 @@ title: "Handling MRCs"
 layout: post
 tags: saitron sci-fi
 date: 2007-03-15 21:10:17
-redirect_from: "/go/71"
+redirect_from: /go/71/
 ---
 
 Hopefully this is just enough information to be able to deviate a little bit, since we started talking about untyped matter containment and its key role in today’s technology.

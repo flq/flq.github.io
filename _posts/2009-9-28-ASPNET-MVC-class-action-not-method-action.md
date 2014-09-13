@@ -3,7 +3,7 @@ title: "ASP.NET MVC: class / action, not method / action"
 layout: post
 tags: programming TrivadisContent software-architecture C# StructureMap ASP.NET-MVC
 date: 2009-09-28 08:13:05
-redirect_from: "/go/151"
+redirect_from: /go/151/
 ---
 
 While pushing along my little home-brew CMS, Rf.Sites, which uses ASP.NET MVC for the HTTP Cruft that comes with Web development, there was something that was disturbing me. The train of thought was roughly as follows:

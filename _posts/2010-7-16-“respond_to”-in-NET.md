@@ -3,7 +3,7 @@ title: "“respond_to” in .NET"
 layout: post
 tags: programming ruby dotnet TrivadisContent C#
 date: 2010-07-16 20:00:00
-redirect_from: "/go/170"
+redirect_from: /go/170/
 ---
 
 One of the new features in .NET 4.0 is the introduction of the dynamic keyword that delegates the check whether something can be called to the runtime. This supports the Dynamic Language runtime and allows .NEt code to call e.g. an object created by a ruby script without much syntax hassle. One unfortunate omission in this functionality is the ability to question an object of type dynamic whether it would accept a certain kind of call. Ruby knows such an operation, called respond_to. 

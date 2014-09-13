@@ -3,7 +3,7 @@ title: "State design pattern, simplified?"
 layout: post
 tags: programming download dotnet TrivadisContent
 date: 2007-01-22 15:03:53
-redirect_from: "/go/57"
+redirect_from: /go/57/
 ---
 
 While at a client, who is doing the transition from Procedural to OO, I constantly challenge them to get rid of their if-statements. One of them asked me how to solve a problem without an if in the case of a scenario where they load a control into their windows forms which is placed centrally on the form - It looks a bit like MDI with the difference that only one control is displayed at any time. What they do is bog-standard procedural: Check whether the control count on the panel in question is greater zero, which provides the answer what to do.

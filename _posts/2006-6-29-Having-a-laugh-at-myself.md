@@ -3,7 +3,7 @@ title: "Having a laugh at myself..."
 layout: post
 tags: programming javascript
 date: 2006-06-29 20:56:22
-redirect_from: "/go/36"
+redirect_from: /go/36/
 ---
 
 While documenting a Javascript method I wrote without thinking much:

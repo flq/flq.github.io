@@ -3,7 +3,7 @@ title: "Cellular life"
 layout: post
 tags: visual biology
 date: 2007-04-12 19:12:37
-redirect_from: "/go/81"
+redirect_from: /go/81/
 ---
 
 You wouldn't think that's it's just about DNA, now, would you?

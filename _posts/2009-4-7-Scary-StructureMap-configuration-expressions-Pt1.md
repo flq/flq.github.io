@@ -3,7 +3,7 @@ title: "Scary StructureMap configuration expressions Pt.1"
 layout: post
 tags: TrivadisContent dependency-injection C# StructureMap
 date: 2009-04-07 18:51:51
-redirect_from: "/go/142"
+redirect_from: /go/142/
 ---
 
 "Most scary StructureMap Configuration Expression"&trade; so far...

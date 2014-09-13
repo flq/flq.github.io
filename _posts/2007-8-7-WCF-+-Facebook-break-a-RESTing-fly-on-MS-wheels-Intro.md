@@ -3,7 +3,7 @@ title: "WCF + Facebook (break a RESTing fly on MS wheels) - Intro"
 layout: post
 tags: programming dotnet TrivadisContent WCF
 date: 2007-08-07 20:00:00
-redirect_from: "/go/96"
+redirect_from: /go/96/
 ---
 
 <div class="messages status">This post is the first of two. While this one is introductory and collects a number of useful links if you want to use WCF to talk to everyday web-based Web APIs like those from del.icio.us, facebook or flickr, the second one (link to come) deals with the specific problem of sending something to a service that is not XML.</div>

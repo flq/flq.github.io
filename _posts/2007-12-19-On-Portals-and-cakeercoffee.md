@@ -3,7 +3,7 @@ title: "On Portals and cake..er..coffee"
 layout: post
 tags: geekdom
 date: 2007-12-19 23:23:17
-redirect_from: "/go/110"
+redirect_from: /go/110/
 ---
 
 I have been playing Steam's [Portal](http://www.steampowered.com/v/index.php?area=game&AppId=400#) and can only second all that has been said before. Great game, too short. The evil mastercomputer is a great character, the "test chambers" are lovely, the whole portal technology is just fun and the end of the game simply has style.

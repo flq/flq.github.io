@@ -3,7 +3,7 @@ title: "On Monads"
 layout: post
 tags: programming dotnet Haskell TrivadisContent
 date: 2011-12-04 12:00:00
-redirect_from: "/go/209"
+redirect_from: /go/209/
 ---
 
 > The following was written by me as a comment on a [post from Derick Bailey regarding Monads][1]. Since then,

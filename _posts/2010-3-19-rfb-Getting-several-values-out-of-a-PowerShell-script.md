@@ -3,7 +3,7 @@ title: "rfb: Getting several values out of a PowerShell script"
 layout: post
 tags: dotnet msbuild open-source rfb powershell
 date: 2010-03-19 20:37:00
-redirect_from: "/go/163"
+redirect_from: /go/163/
 ---
 
 The whole “[MSBuild without XML](/go/160)“ started with the FubuMVC project using ruby for building. It quickly became apparent that one major omission of MSBuild is the lack of ability of adding “ad-hoc” code to it. Which is why MSBuild was [married to PowerShell](/go/162).

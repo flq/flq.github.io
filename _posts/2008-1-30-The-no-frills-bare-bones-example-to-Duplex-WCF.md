@@ -3,7 +3,7 @@ title: "The no frills, bare-bones example to Duplex WCF"
 layout: post
 tags: download dotnet TrivadisContent WCF
 date: 2008-01-30 15:51:35
-redirect_from: "/go/113"
+redirect_from: /go/113/
 ---
 
 Can a WCF client call a WCF service and have the server call back with whatever? Oh, yes. Can you get an example how it's done? Indeed.

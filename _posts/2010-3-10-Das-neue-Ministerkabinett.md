@@ -3,7 +3,7 @@ title: "Das neue Ministerkabinett"
 layout: post
 tags: sick-world loosely-coupled
 date: 2010-03-10 02:27:00
-redirect_from: "/go/161"
+redirect_from: /go/161/
 ---
 
 Verehrte Damen, geschätzte Herren,

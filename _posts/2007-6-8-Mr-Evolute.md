@@ -3,7 +3,7 @@ title: "Mr Evolute"
 layout: post
 tags: Hesitan-and-Miracles
 date: 2007-06-08 20:39:55
-redirect_from: "/go/93"
+redirect_from: /go/93/
 ---
 
 Can you remember that sad time when some people suddenly thought that it's desperately necessary that God made Earth in a couple of thousand years?

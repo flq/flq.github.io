@@ -3,7 +3,7 @@ title: "Objectivity does not exist"
 layout: post
 tags: physics loosely-coupled
 date: 2013-02-26 00:00:00
-redirect_from: "/go/220"
+redirect_from: /go/220/
 ---
 
 > Note: This post was originally posted on the 27th August 2012 on the "more" blog that I kept for some time

@@ -3,7 +3,7 @@ title: "Are no news news?"
 layout: post
 tags: loosely-coupled quantum-mechanics ruby
 date: 2006-09-27 19:44:24
-redirect_from: "/go/52"
+redirect_from: /go/52/
 ---
 
 It is pretty much a month ago since I last wrote something here. There have been holidays, a cold, much work and interesting settings. However, nothing that changes much right now. Such is life...sometimes you hang around, wait, sometimes it moves on quickly. Well, I wouldn&#39;t be the first one that writes about nothing!  

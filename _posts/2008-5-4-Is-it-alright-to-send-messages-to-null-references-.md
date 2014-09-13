@@ -3,7 +3,7 @@ title: "Is it alright to send messages to null references?"
 layout: post
 tags: programming dotnet TrivadisContent patterns
 date: 2008-05-04 19:01:54
-redirect_from: "/go/121"
+redirect_from: /go/121/
 ---
 
 This is a non-question, you may say, and even at the end of this post you will notice that it is still true that you cannot call anything on a null reference. But let me explain...

@@ -3,7 +3,7 @@ title: "Spammers have gone bonkers"
 layout: post
 tags: loosely-coupled site
 date: 2010-03-03 17:00:00
-redirect_from: "/go/158"
+redirect_from: /go/158/
 ---
 
 Stuff I had to do in the past 24hours to sustain the onslaught of comment spamming:

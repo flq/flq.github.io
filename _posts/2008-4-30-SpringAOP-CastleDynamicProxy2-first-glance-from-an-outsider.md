@@ -3,7 +3,7 @@ title: "Spring.AOP, Castle.DynamicProxy2 - first glance from an outsider"
 layout: post
 tags: programming dotnet TrivadisContent castle-windsor
 date: 2008-04-30 20:24:37
-redirect_from: "/go/120"
+redirect_from: /go/120/
 ---
 
 The other day I got a presentation on Spring.NET and that it brings along quite a bit of aspect oriented Zen. Frankly, I do not know much about Spring.NET. I did a [very quick look](http://realfiction.net/?q=node/143) at performance comparison with respect to object instantiation between Spring.Net and my weapon of choice lately: Castle Windsor. Part of the project is the **Castle.DynamicProxy2** (what a name!). It provides a functionality that is similar to the one you can extract from the **Spring.AOP** Assembly.

@@ -3,7 +3,7 @@ title: "Interaction frequency"
 layout: post
 tags: saitron sci-fi
 date: 2007-02-20 19:44:46
-redirect_from: "/go/62"
+redirect_from: /go/62/
 ---
 
 The idea of constraining entities and instance entities, objects, was already shortly introduced.

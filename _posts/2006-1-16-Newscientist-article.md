@@ -3,7 +3,7 @@ title: "Newscientist article"
 layout: post
 tags: physics
 date: 2006-01-16 09:20:00
-redirect_from: "/go/8"
+redirect_from: /go/8/
 ---
 
 [Over here](http://www.newscientist.com/channel/fundamentals/mg18925331.200) there is one of those typical NewSci Articles that I just love:  “Take a leap into hyperspace”. I belong to those guys who firmly believes that he will see the beginning of identifying technology for interstellar travel (if only when we figure out how to make our bodies immortal and how to hibernate them temporarily). The other possibility would be some physical theory that will enclose general relativity and yet surpass it in order to give us the means to do pretty quick travelling. Anyway, have a look…

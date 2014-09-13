@@ -3,7 +3,7 @@ title: "Introducing the realfiction builder &ndash; MsBuild without XML"
 layout: post
 tags: rfb programming msbuild open-source
 date: 2010-03-08 05:05:00
-redirect_from: "/go/160"
+redirect_from: /go/160/
 ---
 
 I have previously [talked about](/go/144) using rake for building .NET apps. While I do like ruby, I’m not a big fan of the whole idea. It takes time to set up the correct environment, problems no .NET developer is aware of lurk around corners. If you want to learn ruby, that’s fine. But do you want to learn a language just to get some build scripts going?

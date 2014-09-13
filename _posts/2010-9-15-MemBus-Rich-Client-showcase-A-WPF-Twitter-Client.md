@@ -3,7 +3,7 @@ title: "MemBus Rich Client showcase: A WPF Twitter Client"
 layout: post
 tags: programming dotnet membus
 date: 2010-09-15 20:35:00
-redirect_from: "/go/182"
+redirect_from: /go/182/
 ---
 
 After pondering a bit about the example application that should showcase MemBus, I thought that it should be a Twitter client. I think that Twitter Clients are something like the web era’s Hello World examples.

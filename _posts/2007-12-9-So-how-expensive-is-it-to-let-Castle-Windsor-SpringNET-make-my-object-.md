@@ -3,7 +3,7 @@ title: "So, how expensive is it to let Castle Windsor / Spring.NET make my objec
 layout: post
 tags: programming dotnet TrivadisContent software-architecture castle-windsor dependency-injection
 date: 2007-12-09 16:43:46
-redirect_from: "/go/109"
+redirect_from: /go/109/
 ---
 
 Lately I was getting increasingly curious about the overhead of using a [Dependency Injection](http://martinfowler.com/articles/injection.html)-container to provide me with instances of my objects. With overhead I mean if and how much longer it takes for the DI container to provide me with the desired instance. 

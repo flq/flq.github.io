@@ -3,7 +3,7 @@ title: "Spec# - Constraining the domain your c# program operates upon"
 layout: post
 tags: programming dotnet TrivadisContent
 date: 2006-07-01 14:23:49
-redirect_from: "/go/37"
+redirect_from: /go/37/
 ---
 
 I found this at Microsoft&#39;s research downloads: [Spec#](http://research.microsoft.com/specsharp/) is an extension to the c# programming language and brings multiple ways of adding explicit constraints to what is essentially the data your c# program works upon. One nice example from the [overview[pdf]](http://research.microsoft.com/specsharp/papers/krml136.pdf) presented there:

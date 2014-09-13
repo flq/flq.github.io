@@ -3,7 +3,7 @@ title: "Evolution's intelligence"
 layout: post
 tags: loosely-coupled essays Hesitan-and-Miracles biology
 date: 2008-02-25 22:58:26
-redirect_from: "/go/115"
+redirect_from: /go/115/
 ---
 
 Quite some time ago I wanted to write about this in the form of a [Hesitan & Miracles](/?q=node/7) dialogue. Alas, it doesn't seem like these two guys will ever manage to get on with this matter, so I'll write here.

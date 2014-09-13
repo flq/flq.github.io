@@ -3,7 +3,7 @@ title: "bulletin on planet earth"
 layout: post
 tags: loosely-coupled sci-fi
 date: 2011-12-29 17:00:00
-redirect_from: "/go/212"
+redirect_from: /go/212/
 ---
 
 ## Bulletin 34452-669#745-3

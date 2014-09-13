@@ -3,7 +3,7 @@ title: "FunSpIns - No attributes, No vectors, A tiny Workflow and more squares"
 layout: post
 tags: programming Haskell fun-spin
 date: 2013-09-20 14:00:00
-redirect_from: "/go/233"
+redirect_from: /go/233/
 ---
 
 > Inspired by Rob Ashton's series "[Learn][1] [functional][2] [programming with me][3]"

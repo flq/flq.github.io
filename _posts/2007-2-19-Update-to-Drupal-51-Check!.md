@@ -3,7 +3,7 @@ title: "Update to Drupal 5.1 - Check!"
 layout: post
 tags: site drupal virtualization
 date: 2007-02-19 21:50:26
-redirect_from: "/go/59"
+redirect_from: /go/59/
 ---
 
 Well, that's done. It took a moment or two to update the site from drupal 4.7 to 5.1. The administration looks good, it has been cleaned up for the better, and the update process was fairly straightforward. 

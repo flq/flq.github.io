@@ -3,7 +3,7 @@ title: "MemBus: A more complex rich client setup"
 layout: post
 tags: programming dotnet TrivadisContent patterns membus
 date: 2010-09-06 09:00:00
-redirect_from: "/go/178"
+redirect_from: /go/178/
 ---
 
 Let us consider a more complex Bus setup in order to understand the capabilities of the different parts of the infrastructure:

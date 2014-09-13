@@ -3,7 +3,7 @@ title: "Javascript FTW or what's 'this' anyway?"
 layout: post
 tags: programming javascript TrivadisContent
 date: 2008-01-30 20:48:39
-redirect_from: "/go/114"
+redirect_from: /go/114/
 ---
 
 It has been itching for a while now. I may love .NET, but every once in a while I need to escape into something else. Primordial soups of programming, dynamic chaos...well, ok, I am exaggerating, I wasn't doing [unlambda](http://www.madore.org/~david/programs/unlambda/), just javascript.

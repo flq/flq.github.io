@@ -3,7 +3,7 @@ title: "Delegates available to you in .NET 2.0"
 layout: post
 tags: programming dotnet TrivadisContent
 date: 2006-08-25 08:45:38
-redirect_from: "/go/51"
+redirect_from: /go/51/
 ---
 
 With the introduction of anonymous methods, using delegates has become a lot more straightforward. Even so, delegate definitions are still required to which an anonymous method can map. Thankfully there are a few delegates already defined in the framework so that you can reuse them in your own methods, saving you the hassle to define a delegate yourself in a number of situations.

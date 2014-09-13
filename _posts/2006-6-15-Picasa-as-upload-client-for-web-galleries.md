@@ -3,7 +3,7 @@ title: "Picasa as upload client for web galleries"
 layout: post
 tags: loosely-coupled google
 date: 2006-06-15 15:46:57
-redirect_from: "/go/33"
+redirect_from: /go/33/
 ---
 
 [Picasa Web Albums](http://picasaweb.google.com/fquednau)

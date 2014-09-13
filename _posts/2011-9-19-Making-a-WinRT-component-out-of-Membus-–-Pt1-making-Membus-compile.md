@@ -3,7 +3,7 @@ title: "Making a WinRT component out of Membus – Pt.1, making Membus compile"
 layout: post
 tags: programming dotnet TrivadisContent membus metro
 date: 2011-09-19 19:51:58
-redirect_from: "/go/204"
+redirect_from: /go/204/
 ---
 
 After last week’s [//BUILD](http://www.buildwindows.com/) conference we have learned (amongst other things) of a new class of apps that are touch-centric and use a new .NET Framework profile in order to be run on top of the new Windows Runtime. A nice way to learn about what is different in this new stack is to port some existing code. Membus is a nice contender since I know the codebase(o rly?), it has a fair number of unit and integration tests, it is (apart from some tests) unaware of UI stuff, but I use it extensively in WPF UI Apps, so let’s move in.

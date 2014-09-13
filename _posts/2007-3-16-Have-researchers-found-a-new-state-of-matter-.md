@@ -3,7 +3,7 @@ title: "Have researchers found a new state of matter?"
 layout: post
 tags: physics engineering
 date: 2007-03-16 08:01:06
-redirect_from: "/go/72"
+redirect_from: /go/72/
 ---
 
 [Have researchers found a new state of matter?](http://www.eurekalert.org/pub_releases/2007-03/ns-hrf031407.php)

@@ -3,7 +3,7 @@ title: "FunSpIns - Collisions, the dead, and a (not so) grateful ending."
 layout: post
 tags: programming Haskell fun-spin
 date: 2013-09-26 14:00:00
-redirect_from: "/go/237"
+redirect_from: /go/237/
 ---
 
 > Inspired by Rob Ashton's series "[Learn functional programming with me][1]"

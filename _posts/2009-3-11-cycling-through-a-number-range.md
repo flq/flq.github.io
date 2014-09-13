@@ -3,7 +3,7 @@ title: "cycling through a number range"
 layout: post
 tags: programming dotnet geekdom mathematics TrivadisContent C#
 date: 2009-03-11 21:36:30
-redirect_from: "/go/140"
+redirect_from: /go/140/
 ---
 
 What I really wanted to do was to play a round of quakelive. But right now, [quakelive](http://www.quakelive.com/) is down (well, it's Beta, isn't it?). Quakelive pointed me to their [twitter feed](http://twitter.com/quakelive). 

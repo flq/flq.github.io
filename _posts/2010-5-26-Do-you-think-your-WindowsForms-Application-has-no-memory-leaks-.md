@@ -3,7 +3,7 @@ title: "Do you think your Windows.Forms Application has no memory leaks?"
 layout: post
 tags: programming dotnet windows TrivadisContent C#
 date: 2010-05-26 03:10:00
-redirect_from: "/go/169"
+redirect_from: /go/169/
 ---
 
 If your answer is yes, please read on, because, _once_, I thought so, too.

@@ -3,7 +3,7 @@ title: "rfb: Marrying MSBuild and PowerShell"
 layout: post
 tags: dotnet TrivadisContent msbuild open-source powershell rfb
 date: 2010-03-14 02:44:00
-redirect_from: "/go/162"
+redirect_from: /go/162/
 ---
 
 I have previously written about [rfb, MsBuild without XML](/go/160). It took me longer than expected to support this script, but it’s available in the current source now:

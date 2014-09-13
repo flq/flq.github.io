@@ -3,7 +3,7 @@ title: "Useful Extension Methods for Points and friends in WPF"
 layout: post
 tags: programming dotnet TrivadisContent WPF
 date: 2010-10-11 16:30:00
-redirect_from: "/go/185"
+redirect_from: /go/185/
 ---
 
 Every once in a while you may be down to low-level element calculation and placement of elements in WPF. For this situation, I have found the following extension methods quite useful:

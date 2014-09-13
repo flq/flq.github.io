@@ -3,7 +3,7 @@ title: "Some hints on how different JAVA generics appear to be to .NET generics"
 layout: post
 tags: programming dotnet JAVA TrivadisContent
 date: 2007-01-26 14:06:33
-redirect_from: "/go/58"
+redirect_from: /go/58/
 ---
 
 A tss entry caught my curiosity as it was talking about a &quot;[generics puzzle](http://stuffthathappens.com/blog/2007/01/25/java-generics-puzzler/)&quot; in JAVA. Finally, I thought, an example-based look at how JAVA generics differ from their .NET pendant? Indeed, the puzzle turns out to not be one in e.g. C#.

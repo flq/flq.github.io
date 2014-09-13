@@ -3,7 +3,7 @@ title: "Creating and then using a local OpenWrap repository"
 layout: post
 tags: TrivadisContent software-architecture nuget openwrap
 date: 2011-01-03 22:57:00
-redirect_from: "/go/195"
+redirect_from: /go/195/
 ---
 
 When I looked at this blog post here about [setting up a NuGet local repository](http://gregorsuttie.wordpress.com/2011/01/03/using-a-nuget-local-repository/) I couldn’t help but write up the necessary steps to get a local repository with OpenWrap:

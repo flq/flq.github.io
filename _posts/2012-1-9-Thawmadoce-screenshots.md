@@ -3,7 +3,7 @@ title: "Thawmadoce screenshots"
 layout: post
 tags: programming site
 date: 2012-01-09 08:57:00
-redirect_from: "/go/214"
+redirect_from: /go/214/
 ---
 
 Well, here goes a couple of Screenshots from [Thawmadoce][1], that project 

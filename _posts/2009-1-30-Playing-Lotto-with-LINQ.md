@@ -3,7 +3,7 @@ title: "Playing Lotto with LINQ"
 layout: post
 tags: dotnet geekdom TrivadisContent LINQ lotto
 date: 2009-01-30 23:12:16
-redirect_from: "/go/138"
+redirect_from: /go/138/
 ---
 
 You know, they are once again going _craazy_ in Germany - The Lotto jackpot has swollen to a whopping 35 million. That's a lot of money, certainly enough to devote some of my time to the subject.

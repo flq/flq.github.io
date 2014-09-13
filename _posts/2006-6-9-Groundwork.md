@@ -3,7 +3,7 @@ title: "Groundwork"
 layout: post
 tags: saitron sci-fi
 date: 2006-06-09 20:26:58
-redirect_from: "/go/30"
+redirect_from: /go/30/
 ---
 
 This chapter lays out the major concepts that underpin the understanding, approach and Know-how of the **Ii** ship-builders.

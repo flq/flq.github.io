@@ -3,7 +3,7 @@ title: "MemBus + Caliburn.Micro = Lean Screen"
 layout: post
 tags: programming dotnet TrivadisContent WPF membus caliburn.micro
 date: 2010-10-01 21:54:00
-redirect_from: "/go/184"
+redirect_from: /go/184/
 ---
 
 To be honest, without [this blog post](http://www.rudigrobler.net/Blog/screen-conductor-101) on [Caliburn.Micro](http://caliburnmicro.codeplex.com/) I was kind of stuck. But now I ended up with my Screen conductor, and it’s likely that it is not going to change a lot:

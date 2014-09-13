@@ -3,7 +3,7 @@ title: "Untested Extension method which should be a nice one"
 layout: post
 tags: programming dotnet TrivadisContent
 date: 2007-09-21 20:25:28
-redirect_from: "/go/102"
+redirect_from: /go/102/
 ---
 
 You probably know by now that [I quite like](http://realfiction.net/?q=node/110) the upcoming extension methods in .NET 3.5.

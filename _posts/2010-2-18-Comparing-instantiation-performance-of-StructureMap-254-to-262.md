@@ -3,7 +3,7 @@ title: "Comparing instantiation performance of StructureMap 2.5.4 to 2.6.2"
 layout: post
 tags: dotnet dependency-injection StructureMap
 date: 2010-02-18 18:30:00
-redirect_from: "/go/156"
+redirect_from: /go/156/
 ---
 
 Some weeks ago Jeremy [released StructureMap 2.6.x](http://codebetter.com/blogs/jeremy.miller/archive/2010/02/04/structuremap-2-6-and-2-5-4-is-released.aspx) . An interesting change is the apparent ditching of Reflection.Emit code in favour of using Expressions to do the “instance instantiation” (sic). Almost 2 years ago I wrote a post on [instantiation performance of DI containers](/Content/Entry/109). I never checked up on StructureMap (SM). Now it’s time to do just that. 

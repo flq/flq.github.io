@@ -3,7 +3,7 @@ title: "Serializing close to the WPF things"
 layout: post
 tags: dotnet TrivadisContent WPF
 date: 2007-09-27 20:57:06
-redirect_from: "/go/103"
+redirect_from: /go/103/
 ---
 
 I should probably write about the facebook WCF wrapper [as promised](http://realfiction.net/?q=node/130), but since I am have been working my a... off on the frontend of things with the aid of WPF, I will write something about that instead.

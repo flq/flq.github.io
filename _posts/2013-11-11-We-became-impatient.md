@@ -3,7 +3,7 @@ title: "We became impatient"
 layout: post
 tags: loosely-coupled
 date: 2013-11-11 14:00:00
-redirect_from: "/go/238"
+redirect_from: /go/238/
 ---
 
 A colleague asked me why we didn't have a cure for the common cold *(I was telling him about the [complications of cold viruses][1])*. I said something along the lines of us being more stupid than we think we are, and that quite often, teamwork won't work due to dysfunctional elements, hidden agendas and similar orthogonal noise.

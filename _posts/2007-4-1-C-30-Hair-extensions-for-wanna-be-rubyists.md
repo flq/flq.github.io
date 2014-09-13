@@ -3,7 +3,7 @@ title: "C# 3.0 - Hair extensions for wanna-be rubyists"
 layout: post
 tags: programming ruby dotnet TrivadisContent
 date: 2007-04-01 13:55:52
-redirect_from: "/go/77"
+redirect_from: /go/77/
 ---
 
 Metaprogramming and cool syntax aside, there is something in ruby that is quite sexy and will be available to the .NET world once C# 3.0 is out: Check out this sweet ruby code:

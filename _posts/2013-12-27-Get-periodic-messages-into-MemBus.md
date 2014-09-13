@@ -3,7 +3,7 @@ title: "Get periodic messages into MemBus"
 layout: post
 tags: programming membus
 date: 2013-12-27 14:00:00
-redirect_from: "/go/241"
+redirect_from: /go/241/
 ---
 
 In the previous post introducing MemBus v3 I mentioned that I removed a project in the solution that contained code to help setting up the creation of periodic messages - once I probed the Rx-codebase a little more I found that there is support to set up Observables that create output periodically - so here's a (very) short post on how you combine that with MemBus.

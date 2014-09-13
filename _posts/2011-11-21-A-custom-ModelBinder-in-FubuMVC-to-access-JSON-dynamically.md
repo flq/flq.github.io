@@ -3,7 +3,7 @@ title: "A custom ModelBinder in FubuMVC to access JSON dynamically"
 layout: post
 tags: programming TrivadisContent fubumvc
 date: 2011-11-21 20:46:00
-redirect_from: "/go/207"
+redirect_from: /go/207/
 ---
 
 One aspect of my new web site is the admin interface which allows me to write new posts and post them to my site via a simple HTTP-based 

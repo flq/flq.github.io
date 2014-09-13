@@ -3,7 +3,7 @@ title: "Quantum computer solves problem, and it does run"
 layout: post
 tags: physics quantum-mechanics
 date: 2006-02-23 09:06:00
-redirect_from: "/go/10"
+redirect_from: /go/10/
 ---
 
 The title of this story is : “Quantum computer solves problem, without running”

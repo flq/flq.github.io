@@ -3,7 +3,7 @@ title: "Human Reaction Time"
 layout: post
 tags: biology
 date: 2007-11-30 23:14:46
-redirect_from: "/go/106"
+redirect_from: /go/106/
 ---
 
 Today I saw an [interesting show](http://www.prosieben.de/wissen/galileomystery/episoden/artikel/45913/) about the capabilities of human fighters skilled in their respective arts like boxing, Karate or Nin Jitsu. 

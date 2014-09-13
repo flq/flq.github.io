@@ -3,7 +3,7 @@ title: "Double Slit Experiment revisited with video"
 layout: post
 tags: physics quantum-mechanics visual
 date: 2006-02-26 18:10:00
-redirect_from: "/go/12"
+redirect_from: /go/12/
 ---
 
 <embed style="width:400px; height:326px;" id="VideoPlayback" align="middle" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=-4237751840526284618" allowScriptAccess="sameDomain" quality="best" bgcolor="#ffffff" scale="noScale" salign="TL"  FlashVars="playerMode=embedded"> </embed>

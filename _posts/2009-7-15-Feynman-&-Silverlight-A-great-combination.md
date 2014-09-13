@@ -3,7 +3,7 @@ title: "Feynman & Silverlight: A great combination"
 layout: post
 tags: physics loosely-coupled dotnet TrivadisContent
 date: 2009-07-15 21:21:14
-redirect_from: "/go/147"
+redirect_from: /go/147/
 ---
 
 Over at [Microsoft research](http://research.microsoft.com/en-us/), [they have put up numerous lectures](http://research.microsoft.com/apps/tools/tuva/#) from that great theoretical physicist and bongo player, [Richard Feynman](http://en.wikipedia.org/wiki/Richard_feynman).

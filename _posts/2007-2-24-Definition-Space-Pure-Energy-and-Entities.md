@@ -3,7 +3,7 @@ title: "Definition Space, Pure Energy and Entities"
 layout: post
 tags: saitron sci-fi
 date: 2007-02-24 15:26:38
-redirect_from: "/go/65"
+redirect_from: /go/65/
 ---
 
 The major ingredients to the reality model used by Ii Scientists and Engineers alike are short in number and relatively easy to understand.

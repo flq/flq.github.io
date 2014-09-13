@@ -3,7 +3,7 @@ title: "That's when I realized my incantation of the Automation API had gone wro
 layout: post
 tags: programming dotnet TrivadisContent WPF
 date: 2011-02-26 23:11:00
-redirect_from: "/go/199"
+redirect_from: /go/199/
 ---
 
 ![memory](http://realfiction.net/files/memory_cfe47a33-f86a-4a21-ab33-b02b542364f4.png "memory") 

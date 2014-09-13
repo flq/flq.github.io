@@ -3,7 +3,7 @@ title: "Dependency Injection is not locating services"
 layout: post
 tags: dotnet TrivadisContent dependency-injection StructureMap
 date: 2009-01-07 22:23:13
-redirect_from: "/go/137"
+redirect_from: /go/137/
 ---
 
 The DI container StructureMap has been coming along nicely lately, with version 2.5.1 [available as download](http://sourceforge.net/projects/structuremap). I have been following closely its recent development, since it is providing some core object wiring functionality to my current project.

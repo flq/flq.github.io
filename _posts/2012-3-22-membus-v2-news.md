@@ -3,7 +3,7 @@ title: "membus v2 news"
 layout: post
 tags: programming dotnet TrivadisContent membus
 date: 2012-03-22 13:00:00
-redirect_from: "/go/216"
+redirect_from: /go/216/
 ---
 
 Membus 1.5.0 is a kind of V2 release in that it removed a number of things that had ben marked as obsolete and also provides users with a new feature.

@@ -3,7 +3,7 @@ title: "Trying to LINQ it all together (Pt. I) - Epilogue"
 layout: post
 tags: programming dotnet TrivadisContent LINQ
 date: 2007-04-29 19:22:03
-redirect_from: "/go/83"
+redirect_from: /go/83/
 ---
 
 In the [last post](?q=node/115) I said that I thought I'd have a bug in the keyword-based LINQ expression building. Of course, this is bollocks and not of the dog variety.

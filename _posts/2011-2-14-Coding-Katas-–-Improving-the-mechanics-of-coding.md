@@ -3,7 +3,7 @@ title: "Coding Katas – Improving the mechanics of coding"
 layout: post
 tags: programming dotnet TrivadisContent C#
 date: 2011-02-14 11:13:00
-redirect_from: "/go/197"
+redirect_from: /go/197/
 ---
 
 If only one could code straight from the brain – Alas, we aren’t there yet. If you want to reduce the impedance between a programming idea in your mind and the act of coding you can do exercises that concentrate on reducing that impedance. This is what [Code Katas](http://codekata.pragprog.com/) are: [exercises](http://en.wikipedia.org/wiki/Kata) whose problem domain are understood by you, and which by repetition you can concentrate on the mechanics of coding. After all, you don’t expect a musician to only ever play her instrument on a gig, right?

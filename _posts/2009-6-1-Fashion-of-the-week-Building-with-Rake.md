@@ -3,7 +3,7 @@ title: "Fashion of the week - Building with Rake"
 layout: post
 tags: programming ruby dotnet TrivadisContent DLR
 date: 2009-06-01 14:01:23
-redirect_from: "/go/144"
+redirect_from: /go/144/
 ---
 
 Here & There I have been seeing people using Ruby's build system [rake](http://rake.rubyforge.org/) in their .NET open source projects instead of NAnt or MSBuild. 

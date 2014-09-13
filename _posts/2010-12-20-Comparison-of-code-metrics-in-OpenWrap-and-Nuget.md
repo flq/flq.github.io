@@ -3,7 +3,7 @@ title: "Comparison of code metrics in OpenWrap and Nuget"
 layout: post
 tags: ndepend bin4net nuget openwrap
 date: 2010-12-20 20:49:00
-redirect_from: "/go/194"
+redirect_from: /go/194/
 ---
 
 .NET needs package management. As an example, can you imagine ruby without ruby gems? Now you know what programmers in .NET land have to put up with to build projects on top of (very valuable and well written) OSS.

@@ -3,7 +3,7 @@ title: "NHibernate's ISession, scoped for a single WCF-call"
 layout: post
 tags: TrivadisContent WCF NHibernate
 date: 2008-09-23 07:52:10
-redirect_from: "/go/133"
+redirect_from: /go/133/
 ---
 
 I am working at a project that uses the .NET 3.5 communication stack between client & server (WCF) and they have decided to be Domain driven. In this case NHibernate (NH) is the persistence framework of choice.

@@ -3,7 +3,7 @@ title: "The WPF stack du jour"
 layout: post
 tags: programming TrivadisContent WPF software-architecture
 date: 2011-11-18 21:00:00
-redirect_from: "/go/206"
+redirect_from: /go/206/
 ---
 
 For the past year i've had plenty of possibility to get my head around WPF as a UI technology. 

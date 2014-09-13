@@ -3,7 +3,7 @@ title: "Conclusion"
 layout: post
 tags: saitron sci-fi
 date: 2007-03-18 11:00:21
-redirect_from: "/go/76"
+redirect_from: /go/76/
 ---
 
 This essay has attempted to give you an extremely brief run-through of the key to Iilasian technology. The technology presented here allows the Ii to have ready access to vast amounts of matter of all type from a source that does not bring penalties in terms of excessive electromagnetic charge or gravitational mass or other types that can be encountered in the 4Band continuum. It has been described where Multi-resonance crystals (MRCs) can be found, how they can be harvested and how they become the core of a rotating interaction matrix (RIM), a system which overcomes numerous drawbacks with which pure MRCs come along.
