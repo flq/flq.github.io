@@ -1,7 +1,7 @@
 ---
 title: "The irregular physics fix"
 layout: post
-tags: physics
+tags: [physics]
 date: 2006-06-11 09:50:19
 redirect_from: /go/31/
 ---

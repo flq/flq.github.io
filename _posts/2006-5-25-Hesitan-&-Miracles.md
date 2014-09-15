@@ -1,7 +1,7 @@
 ---
 title: "Hesitan & Miracles"
 layout: post
-tags: Hesitan-and-Miracles
+tags: [Hesitan-and-Miracles]
 date: 2006-05-25 15:29:33
 redirect_from: /go/3/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "When to jump into the water - with maths"
 layout: post
-tags: loosely-coupled mathematics
+tags: [loosely-coupled, mathematics]
 date: 2007-05-17 20:32:05
 redirect_from: /go/88/
 ---

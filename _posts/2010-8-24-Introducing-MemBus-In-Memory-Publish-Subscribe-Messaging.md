@@ -1,7 +1,7 @@
 ---
 title: "Introducing MemBus: In-Memory Publish/Subscribe Messaging"
 layout: post
-tags: programming dotnet TrivadisContent patterns membus
+tags: [programming, dotnet, TrivadisContent, patterns, membus]
 date: 2010-08-24 20:50:00
 redirect_from: /go/175/
 ---

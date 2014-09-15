@@ -1,7 +1,7 @@
 ---
 title: "New Tooling, new Posts"
 layout: post
-tags: programming loosely-coupled
+tags: [programming, loosely-coupled]
 date: 2011-11-17 20:34:00
 redirect_from: /go/205/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "from an iso live cd to a virtual machine"
 layout: post
-tags: programming ruby TrivadisContent
+tags: [programming, ruby, TrivadisContent]
 date: 2006-06-24 12:52:52
 redirect_from: /go/35/
 ---

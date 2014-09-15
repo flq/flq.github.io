@@ -1,7 +1,7 @@
 ---
 title: "Objectivity does not exist"
 layout: post
-tags: physics loosely-coupled
+tags: [physics, loosely-coupled]
 date: 2013-02-26 00:00:00
 redirect_from: /go/220/
 ---

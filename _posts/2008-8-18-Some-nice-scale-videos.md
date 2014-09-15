@@ -1,7 +1,7 @@
 ---
 title: "Some nice scale videos"
 layout: post
-tags: physics loosely-coupled
+tags: [physics, loosely-coupled]
 date: 2008-08-18 15:20:15
 redirect_from: /go/131/
 ---

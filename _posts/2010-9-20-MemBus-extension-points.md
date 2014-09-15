@@ -1,7 +1,7 @@
 ---
 title: "MemBus extension points"
 layout: post
-tags: programming dotnet TrivadisContent patterns C# membus
+tags: [programming, dotnet, TrivadisContent, patterns, C, membus]
 date: 2010-09-20 06:08:00
 redirect_from: /go/181/
 ---

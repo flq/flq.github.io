@@ -1,7 +1,7 @@
 ---
 title: "Serializing close to the WPF things"
 layout: post
-tags: dotnet TrivadisContent WPF
+tags: [dotnet, TrivadisContent, WPF]
 date: 2007-09-27 20:57:06
 redirect_from: /go/103/
 ---

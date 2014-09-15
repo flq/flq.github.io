@@ -1,7 +1,7 @@
 ---
 title: "Are no news news?"
 layout: post
-tags: loosely-coupled quantum-mechanics ruby
+tags: [loosely-coupled, quantum-mechanics, ruby]
 date: 2006-09-27 19:44:24
 redirect_from: /go/52/
 ---

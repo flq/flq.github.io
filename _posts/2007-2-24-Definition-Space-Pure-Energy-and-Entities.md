@@ -1,7 +1,7 @@
 ---
 title: "Definition Space, Pure Energy and Entities"
 layout: post
-tags: saitron sci-fi
+tags: [saitron, sci-fi]
 date: 2007-02-24 15:26:38
 redirect_from: /go/65/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "What I'd have wished Windows 8 to be"
 layout: post
-tags: windows
+tags: [windows]
 date: 2013-08-13 09:00:40
 redirect_from: /go/228/
 ---

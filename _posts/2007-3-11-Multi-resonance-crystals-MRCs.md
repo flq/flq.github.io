@@ -1,7 +1,7 @@
 ---
 title: "Multi-resonance crystals (MRCs)"
 layout: post
-tags: saitron sci-fi
+tags: [saitron, sci-fi]
 date: 2007-03-11 21:26:10
 redirect_from: /go/69/
 ---

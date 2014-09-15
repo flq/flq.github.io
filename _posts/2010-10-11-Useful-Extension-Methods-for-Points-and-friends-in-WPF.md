@@ -1,7 +1,7 @@
 ---
 title: "Useful Extension Methods for Points and friends in WPF"
 layout: post
-tags: programming dotnet TrivadisContent WPF
+tags: [programming, dotnet, TrivadisContent, WPF]
 date: 2010-10-11 16:30:00
 redirect_from: /go/185/
 ---

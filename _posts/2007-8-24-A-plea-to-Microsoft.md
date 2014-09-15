@@ -1,7 +1,7 @@
 ---
 title: "A plea to Microsoft"
 layout: post
-tags: dotnet windows
+tags: [dotnet, windows]
 date: 2007-08-24 17:54:57
 redirect_from: /go/101/
 ---

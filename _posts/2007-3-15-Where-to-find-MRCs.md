@@ -1,7 +1,7 @@
 ---
 title: "Where to find MRCs"
 layout: post
-tags: saitron sci-fi
+tags: [saitron, sci-fi]
 date: 2007-03-15 21:00:12
 redirect_from: /go/70/
 ---

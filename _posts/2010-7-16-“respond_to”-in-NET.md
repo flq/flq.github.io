@@ -1,7 +1,7 @@
 ---
 title: "“respond_to” in .NET"
 layout: post
-tags: programming ruby dotnet TrivadisContent C#
+tags: [programming, ruby, dotnet, TrivadisContent, C]
 date: 2010-07-16 20:00:00
 redirect_from: /go/170/
 ---

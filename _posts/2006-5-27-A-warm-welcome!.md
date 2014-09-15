@@ -1,7 +1,7 @@
 ---
 title: "A warm welcome!"
 layout: post
-tags: site
+tags: [site]
 date: 2006-05-27 15:18:56
 redirect_from: /go/21/
 ---

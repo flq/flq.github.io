@@ -1,7 +1,7 @@
 ---
 title: "My current dream energy generation for a quick car"
 layout: post
-tags: engineering technology
+tags: [engineering, technology]
 date: 2007-02-21 21:46:14
 redirect_from: /go/63/
 ---

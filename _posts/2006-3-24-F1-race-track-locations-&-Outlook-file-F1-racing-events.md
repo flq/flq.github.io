@@ -1,7 +1,7 @@
 ---
 title: "F1 race track locations & Outlook file F1 racing events"
 layout: post
-tags: racing download
+tags: [racing, download]
 date: 2006-03-24 21:55:00
 redirect_from: /go/18/
 ---

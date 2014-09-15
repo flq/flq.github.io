@@ -1,7 +1,7 @@
 ---
 title: "How much energy does a swarmship need? The Ii's energy source"
 layout: post
-tags: saitron sci-fi
+tags: [saitron, sci-fi]
 date: 2007-03-11 20:26:13
 redirect_from: /go/68/
 ---

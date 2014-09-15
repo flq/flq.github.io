@@ -1,7 +1,7 @@
 ---
 title: "C# 3.0 - Hair extensions for wanna-be rubyists"
 layout: post
-tags: programming ruby dotnet TrivadisContent
+tags: [programming, ruby, dotnet, TrivadisContent]
 date: 2007-04-01 13:55:52
 redirect_from: /go/77/
 ---

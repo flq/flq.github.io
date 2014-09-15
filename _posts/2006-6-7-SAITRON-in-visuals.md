@@ -1,7 +1,7 @@
 ---
 title: "SAITRON in visuals"
 layout: post
-tags: CAD saitron sci-fi
+tags: [CAD, saitron, sci-fi]
 date: 2006-06-07 18:59:41
 redirect_from: /go/29/
 ---

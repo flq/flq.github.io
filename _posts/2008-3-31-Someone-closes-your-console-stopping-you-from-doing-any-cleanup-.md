@@ -1,7 +1,7 @@
 ---
 title: "Someone closes your console, stopping you from doing any cleanup?"
 layout: post
-tags: dotnet TrivadisContent
+tags: [dotnet, TrivadisContent]
 date: 2008-03-31 16:19:52
 redirect_from: /go/117/
 ---

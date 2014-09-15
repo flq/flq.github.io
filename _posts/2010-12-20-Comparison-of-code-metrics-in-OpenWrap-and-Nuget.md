@@ -1,7 +1,7 @@
 ---
 title: "Comparison of code metrics in OpenWrap and Nuget"
 layout: post
-tags: ndepend bin4net nuget openwrap
+tags: [ndepend, bin4net, nuget, openwrap]
 date: 2010-12-20 20:49:00
 redirect_from: /go/194/
 ---

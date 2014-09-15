@@ -1,7 +1,7 @@
 ---
 title: "The WPF stack du jour"
 layout: post
-tags: programming TrivadisContent WPF software-architecture
+tags: [programming, TrivadisContent, WPF, software-architecture]
 date: 2011-11-18 21:00:00
 redirect_from: /go/206/
 ---

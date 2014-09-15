@@ -1,7 +1,7 @@
 ---
 title: "Delegates available to you in .NET 2.0"
 layout: post
-tags: programming dotnet TrivadisContent
+tags: [programming, dotnet, TrivadisContent]
 date: 2006-08-25 08:45:38
 redirect_from: /go/51/
 ---

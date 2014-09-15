@@ -1,7 +1,7 @@
 ---
 title: "How much does Linq.Take take?"
 layout: post
-tags: dotnet TrivadisContent LINQ
+tags: [dotnet, TrivadisContent, LINQ]
 date: 2009-04-17 14:23:47
 redirect_from: /go/143/
 ---

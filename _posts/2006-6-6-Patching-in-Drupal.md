@@ -1,7 +1,7 @@
 ---
 title: "Patching in Drupal"
 layout: post
-tags: site drupal TrivadisContent
+tags: [site, drupal, TrivadisContent]
 date: 2006-06-06 20:44:12
 redirect_from: /go/26/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Øredev: Things from Microsoft"
 layout: post
-tags: dotnet TrivadisContent C# oredev
+tags: [dotnet, TrivadisContent, C, oredev]
 date: 2010-11-15 10:30:00
 redirect_from: /go/187/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Complexity is subjective"
 layout: post
-tags: physics programming
+tags: [physics, programming]
 date: 2013-03-25 00:00:00
 redirect_from: /go/219/
 ---

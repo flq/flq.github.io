@@ -1,7 +1,7 @@
 ---
 title: "FunSpIns - a recap of Rob Ashton's lessons - Das Intro"
 layout: post
-tags: programming Haskell fun-spin
+tags: [programming, Haskell, fun-spin]
 date: 2013-09-17 21:49:28
 redirect_from: /go/230/
 ---

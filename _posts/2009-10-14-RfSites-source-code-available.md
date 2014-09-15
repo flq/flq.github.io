@@ -1,7 +1,7 @@
 ---
 title: "Rf.Sites source code available"
 layout: post
-tags: programming site TrivadisContent ASP.NET-MVC open-source
+tags: [programming, site, TrivadisContent, ASPNET-MVC, open-source]
 date: 2009-10-14 21:07:52
 redirect_from: /go/152/
 ---

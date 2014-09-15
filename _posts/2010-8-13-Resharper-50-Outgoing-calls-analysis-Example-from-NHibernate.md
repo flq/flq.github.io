@@ -1,7 +1,7 @@
 ---
 title: "Resharper 5.0 Outgoing calls analysis: Example from NHibernate"
 layout: post
-tags: programming dotnet NHibernate
+tags: [programming, dotnet, NHibernate]
 date: 2010-08-13 15:43:00
 redirect_from: /go/173/
 ---

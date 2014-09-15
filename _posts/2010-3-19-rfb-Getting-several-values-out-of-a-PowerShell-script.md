@@ -1,7 +1,7 @@
 ---
 title: "rfb: Getting several values out of a PowerShell script"
 layout: post
-tags: dotnet msbuild open-source rfb powershell
+tags: [dotnet, msbuild, open-source, rfb, powershell]
 date: 2010-03-19 20:37:00
 redirect_from: /go/163/
 ---

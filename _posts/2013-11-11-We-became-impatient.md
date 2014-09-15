@@ -1,7 +1,7 @@
 ---
 title: "We became impatient"
 layout: post
-tags: loosely-coupled
+tags: [loosely-coupled]
 date: 2013-11-11 14:00:00
 redirect_from: /go/238/
 ---

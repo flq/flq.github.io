@@ -1,7 +1,7 @@
 ---
 title: "More 'Jobs' for the people, or why MSN News rocks"
 layout: post
-tags: sick-world humour
+tags: [sick-world, humour]
 date: 2007-05-16 12:34:35
 redirect_from: /go/87/
 ---

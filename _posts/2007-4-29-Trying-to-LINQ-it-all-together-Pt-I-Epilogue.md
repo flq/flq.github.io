@@ -1,7 +1,7 @@
 ---
 title: "Trying to LINQ it all together (Pt. I) - Epilogue"
 layout: post
-tags: programming dotnet TrivadisContent LINQ
+tags: [programming, dotnet, TrivadisContent, LINQ]
 date: 2007-04-29 19:22:03
 redirect_from: /go/83/
 ---

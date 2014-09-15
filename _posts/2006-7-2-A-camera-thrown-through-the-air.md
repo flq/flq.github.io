@@ -1,7 +1,7 @@
 ---
 title: "A camera thrown through the air"
 layout: post
-tags: 
+tags: []
 date: 2006-07-02 19:04:43
 redirect_from: /go/40/
 ---

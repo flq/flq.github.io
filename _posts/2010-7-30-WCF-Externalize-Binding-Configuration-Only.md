@@ -1,7 +1,7 @@
 ---
 title: "WCF: Externalize Binding Configuration Only"
 layout: post
-tags: programming dotnet TrivadisContent WCF C#
+tags: [programming, dotnet, TrivadisContent, WCF, C]
 date: 2010-07-30 15:00:00
 redirect_from: /go/171/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "So, how expensive is it to let Castle Windsor / Spring.NET make my object?"
 layout: post
-tags: programming dotnet TrivadisContent software-architecture castle-windsor dependency-injection
+tags: [programming, dotnet, TrivadisContent, software-architecture, castle-windsor, dependency-injection]
 date: 2007-12-09 16:43:46
 redirect_from: /go/109/
 ---

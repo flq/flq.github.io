@@ -1,7 +1,7 @@
 ---
 title: "Human Reaction Time"
 layout: post
-tags: biology
+tags: [biology]
 date: 2007-11-30 23:14:46
 redirect_from: /go/106/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Newscientist article"
 layout: post
-tags: physics
+tags: [physics]
 date: 2006-01-16 09:20:00
 redirect_from: /go/8/
 ---

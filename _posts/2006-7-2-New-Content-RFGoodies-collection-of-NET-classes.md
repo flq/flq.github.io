@@ -1,7 +1,7 @@
 ---
 title: "New Content - RF.Goodies collection of .NET classes"
 layout: post
-tags: site
+tags: [site]
 date: 2006-07-02 12:21:00
 redirect_from: /go/39/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "I for one welcome my new Split overload"
 layout: post
-tags: programming dotnet TrivadisContent
+tags: [programming, dotnet, TrivadisContent]
 date: 2007-08-14 15:07:51
 redirect_from: /go/100/
 ---

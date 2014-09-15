@@ -1,7 +1,7 @@
 ---
 title: "Feynman & Silverlight: A great combination"
 layout: post
-tags: physics loosely-coupled dotnet TrivadisContent
+tags: [physics, loosely-coupled, dotnet, TrivadisContent]
 date: 2009-07-15 21:21:14
 redirect_from: /go/147/
 ---

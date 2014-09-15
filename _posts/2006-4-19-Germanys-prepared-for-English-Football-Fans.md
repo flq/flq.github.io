@@ -1,7 +1,7 @@
 ---
 title: "Germany’s prepared for English Football Fans"
 layout: post
-tags: loosely-coupled
+tags: [loosely-coupled]
 date: 2006-04-19 18:41:00
 redirect_from: /go/20/
 ---

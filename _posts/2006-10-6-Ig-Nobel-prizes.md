@@ -1,7 +1,7 @@
 ---
 title: "Ig Nobel prizes"
 layout: post
-tags: loosely-coupled
+tags: [loosely-coupled]
 date: 2006-10-06 08:43:49
 redirect_from: /go/54/
 ---

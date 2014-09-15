@@ -1,7 +1,7 @@
 ---
 title: "A new user - sort of"
 layout: post
-tags: site
+tags: [site]
 date: 2006-07-16 20:34:36
 redirect_from: /go/44/
 ---

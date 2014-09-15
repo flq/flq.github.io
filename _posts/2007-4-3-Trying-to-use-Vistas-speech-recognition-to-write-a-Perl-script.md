@@ -1,7 +1,7 @@
 ---
 title: "Trying to use Vista's speech recognition to write a Perl script"
 layout: post
-tags: visual windows humour
+tags: [visual, windows, humour]
 date: 2007-04-03 14:33:37
 redirect_from: /go/78/
 ---

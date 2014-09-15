@@ -1,7 +1,7 @@
 ---
 title: "John Baez on our current standing in fundamental physics"
 layout: post
-tags: physics
+tags: [physics]
 date: 2006-02-26 16:43:00
 redirect_from: /go/11/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "The no frills, bare-bones example to Duplex WCF"
 layout: post
-tags: download dotnet TrivadisContent WCF
+tags: [download, dotnet, TrivadisContent, WCF]
 date: 2008-01-30 15:51:35
 redirect_from: /go/113/
 ---

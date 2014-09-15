@@ -1,7 +1,7 @@
 ---
 title: "MemBus + Caliburn.Micro = Lean Screen"
 layout: post
-tags: programming dotnet TrivadisContent WPF membus caliburn.micro
+tags: [programming, dotnet, TrivadisContent, WPF, membus, caliburnmicro]
 date: 2010-10-01 21:54:00
 redirect_from: /go/184/
 ---

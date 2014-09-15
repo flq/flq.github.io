@@ -1,7 +1,7 @@
 ---
 title: "More. DataTemplates. In. WPF."
 layout: post
-tags: programming dotnet TrivadisContent WPF
+tags: [programming, dotnet, TrivadisContent, WPF]
 date: 2011-02-18 20:57:00
 redirect_from: /go/198/
 ---

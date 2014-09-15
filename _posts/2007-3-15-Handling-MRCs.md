@@ -1,7 +1,7 @@
 ---
 title: "Handling MRCs"
 layout: post
-tags: saitron sci-fi
+tags: [saitron, sci-fi]
 date: 2007-03-15 21:10:17
 redirect_from: /go/71/
 ---

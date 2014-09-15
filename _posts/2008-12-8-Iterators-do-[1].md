@@ -1,7 +1,7 @@
 ---
 title: "Iterators do [1..]"
 layout: post
-tags: programming dotnet TrivadisContent LINQ
+tags: [programming, dotnet, TrivadisContent, LINQ]
 date: 2008-12-08 22:00:14
 redirect_from: /go/136/
 ---

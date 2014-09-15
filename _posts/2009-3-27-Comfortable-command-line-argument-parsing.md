@@ -1,7 +1,7 @@
 ---
 title: "Comfortable command line argument parsing"
 layout: post
-tags: programming dotnet TrivadisContent
+tags: [programming, dotnet, TrivadisContent]
 date: 2009-03-27 21:29:42
 redirect_from: /go/141/
 ---

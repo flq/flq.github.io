@@ -1,7 +1,7 @@
 ---
 title: "Spammers have gone bonkers"
 layout: post
-tags: loosely-coupled site
+tags: [loosely-coupled, site]
 date: 2010-03-03 17:00:00
 redirect_from: /go/158/
 ---

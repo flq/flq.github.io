@@ -1,7 +1,7 @@
 ---
 title: "A parable on eternity"
 layout: post
-tags: loosely-coupled
+tags: [loosely-coupled]
 date: 2011-12-29 13:38:00
 redirect_from: /go/211/
 ---

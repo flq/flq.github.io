@@ -1,7 +1,7 @@
 ---
 title: "Combat fatty WPF VMs - Controller"
 layout: post
-tags: programming dotnet WPF patterns
+tags: [programming, dotnet, WPF, patterns]
 date: 2013-08-05 20:23:25
 redirect_from: /go/227/
 ---

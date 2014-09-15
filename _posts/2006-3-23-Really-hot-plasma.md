@@ -1,7 +1,7 @@
 ---
 title: "Really hot plasma"
 layout: post
-tags: 
+tags: []
 date: 2006-03-23 17:35:00
 redirect_from: /go/17/
 ---

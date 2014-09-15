@@ -1,7 +1,7 @@
 ---
 title: "Where Gaming is what it is"
 layout: post
-tags: geekdom
+tags: [geekdom]
 date: 2007-12-01 23:40:33
 redirect_from: /go/107/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Easy to be forgotten in the history of science"
 layout: post
-tags: physics loosely-coupled
+tags: [physics, loosely-coupled]
 date: 2006-08-04 07:37:47
 redirect_from: /go/49/
 ---

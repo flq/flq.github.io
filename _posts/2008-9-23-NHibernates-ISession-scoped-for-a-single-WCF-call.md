@@ -1,7 +1,7 @@
 ---
 title: "NHibernate's ISession, scoped for a single WCF-call"
 layout: post
-tags: TrivadisContent WCF NHibernate
+tags: [TrivadisContent, WCF, NHibernate]
 date: 2008-09-23 07:52:10
 redirect_from: /go/133/
 ---

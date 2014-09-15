@@ -1,7 +1,7 @@
 ---
 title: "Some testing is always going on"
 layout: post
-tags: loosely-coupled site drupal
+tags: [loosely-coupled, site, drupal]
 date: 2007-06-01 09:25:54
 redirect_from: /go/91/
 ---

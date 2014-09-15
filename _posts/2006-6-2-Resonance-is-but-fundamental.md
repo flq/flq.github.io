@@ -1,7 +1,7 @@
 ---
 title: "Resonance is but fundamental"
 layout: post
-tags: physics
+tags: [physics]
 date: 2006-06-02 20:44:45
 redirect_from: /go/24/
 ---

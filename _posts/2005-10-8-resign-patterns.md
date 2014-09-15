@@ -1,7 +1,7 @@
 ---
 title: "resign patterns"
 layout: post
-tags: programming
+tags: [programming]
 date: 2005-10-08 09:05:00
 redirect_from: /go/2/
 ---

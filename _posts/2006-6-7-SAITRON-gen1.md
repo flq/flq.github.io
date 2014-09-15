@@ -1,7 +1,7 @@
 ---
 title: "SAITRON gen1"
 layout: post
-tags: 
+tags: []
 date: 2006-06-07 18:55:23
 redirect_from: /go/27/
 ---

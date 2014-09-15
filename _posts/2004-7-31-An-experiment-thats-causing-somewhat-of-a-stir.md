@@ -1,7 +1,7 @@
 ---
 title: "An experiment that’s causing somewhat of a stir"
 layout: post
-tags: physics
+tags: [physics]
 date: 2004-07-31 17:54:00
 redirect_from: /go/1/
 ---

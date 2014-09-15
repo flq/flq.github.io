@@ -1,7 +1,7 @@
 ---
 title: "C# implicit operator"
 layout: post
-tags: programming dotnet TrivadisContent
+tags: [programming, dotnet, TrivadisContent]
 date: 2007-11-10 12:38:04
 redirect_from: /go/104/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "A fine example of progress"
 layout: post
-tags: loosely-coupled TrivadisContent
+tags: [loosely-coupled, TrivadisContent]
 date: 2006-01-23 11:30:00
 redirect_from: /go/9/
 ---

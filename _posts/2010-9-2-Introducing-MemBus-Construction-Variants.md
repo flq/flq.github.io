@@ -1,7 +1,7 @@
 ---
 title: "Introducing MemBus: Construction Variants"
 layout: post
-tags: programming dotnet TrivadisContent C# membus
+tags: [programming, dotnet, TrivadisContent, C, membus]
 date: 2010-09-02 14:16:00
 redirect_from: /go/177/
 ---

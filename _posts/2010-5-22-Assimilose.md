@@ -1,7 +1,7 @@
 ---
 title: "Assimilose"
 layout: post
-tags: loosely-coupled geekdom
+tags: [loosely-coupled, geekdom]
 date: 2010-05-22 15:58:00
 redirect_from: /go/168/
 ---

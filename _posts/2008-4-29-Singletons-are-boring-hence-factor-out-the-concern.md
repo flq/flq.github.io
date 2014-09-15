@@ -1,7 +1,7 @@
 ---
 title: "Singletons are boring, hence factor out the concern"
 layout: post
-tags: programming dotnet TrivadisContent software-architecture
+tags: [programming, dotnet, TrivadisContent, software-architecture]
 date: 2008-04-29 14:16:54
 redirect_from: /go/119/
 ---

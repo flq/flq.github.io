@@ -1,7 +1,7 @@
 ---
 title: "Spoiled with Dependency Injection"
 layout: post
-tags: dotnet TrivadisContent software-architecture dependency-injection
+tags: [dotnet, TrivadisContent, software-architecture, dependency-injection]
 date: 2008-09-07 11:19:43
 redirect_from: /go/132/
 ---

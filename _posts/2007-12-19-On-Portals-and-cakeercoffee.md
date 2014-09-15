@@ -1,7 +1,7 @@
 ---
 title: "On Portals and cake..er..coffee"
 layout: post
-tags: geekdom
+tags: [geekdom]
 date: 2007-12-19 23:23:17
 redirect_from: /go/110/
 ---

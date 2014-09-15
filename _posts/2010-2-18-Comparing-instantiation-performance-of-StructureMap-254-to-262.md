@@ -1,7 +1,7 @@
 ---
 title: "Comparing instantiation performance of StructureMap 2.5.4 to 2.6.2"
 layout: post
-tags: dotnet dependency-injection StructureMap
+tags: [dotnet, dependency-injection, StructureMap]
 date: 2010-02-18 18:30:00
 redirect_from: /go/156/
 ---

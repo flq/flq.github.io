@@ -1,7 +1,7 @@
 ---
 title: "NDepend Cheat Sheet"
 layout: post
-tags: download dotnet TrivadisContent software-architecture ndepend
+tags: [download, dotnet, TrivadisContent, software-architecture, ndepend]
 date: 2008-04-03 11:51:41
 redirect_from: /go/118/
 ---

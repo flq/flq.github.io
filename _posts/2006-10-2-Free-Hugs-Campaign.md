@@ -1,7 +1,7 @@
 ---
 title: "Free Hugs Campaign"
 layout: post
-tags: loosely-coupled
+tags: [loosely-coupled]
 date: 2006-10-02 12:04:30
 redirect_from: /go/53/
 ---

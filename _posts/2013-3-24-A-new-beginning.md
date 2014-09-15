@@ -1,7 +1,7 @@
 ---
 title: "A new beginning"
 layout: post
-tags: site
+tags: [site]
 date: 2013-03-24 21:47:53
 redirect_from: /go/218/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Function composition in C#3.0 (Stay calm, gather information and then do the right thing)"
 layout: post
-tags: programming download dotnet TrivadisContent
+tags: [programming, download, dotnet, TrivadisContent]
 date: 2007-05-12 21:11:20
 redirect_from: /go/85/
 ---

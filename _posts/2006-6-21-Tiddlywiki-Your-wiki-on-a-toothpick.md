@@ -1,7 +1,7 @@
 ---
 title: "Tiddlywiki - Your wiki on a toothpick"
 layout: post
-tags: loosely-coupled TrivadisContent
+tags: [loosely-coupled, TrivadisContent]
 date: 2006-06-21 09:42:38
 redirect_from: /go/34/
 ---

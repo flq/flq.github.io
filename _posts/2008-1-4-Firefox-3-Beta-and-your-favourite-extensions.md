@@ -1,7 +1,7 @@
 ---
 title: "Firefox 3 Beta and your favourite extensions"
 layout: post
-tags: windows TrivadisContent web
+tags: [windows, TrivadisContent, web]
 date: 2008-01-04 19:17:56
 redirect_from: /go/111/
 ---

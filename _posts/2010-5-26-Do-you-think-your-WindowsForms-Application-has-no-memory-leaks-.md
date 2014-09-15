@@ -1,7 +1,7 @@
 ---
 title: "Do you think your Windows.Forms Application has no memory leaks?"
 layout: post
-tags: programming dotnet windows TrivadisContent C#
+tags: [programming, dotnet, windows, TrivadisContent, C]
 date: 2010-05-26 03:10:00
 redirect_from: /go/169/
 ---

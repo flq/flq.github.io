@@ -1,7 +1,7 @@
 ---
 title: "Bigotterie und Doppelmoral"
 layout: post
-tags: sick-world
+tags: [sick-world]
 date: 2007-02-23 09:50:22
 redirect_from: /go/64/
 ---

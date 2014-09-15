@@ -1,7 +1,7 @@
 ---
 title: "FunSpIns - The hero shoots."
 layout: post
-tags: programming Haskell fun-spin
+tags: [programming, Haskell, fun-spin]
 date: 2013-09-25 14:00:00
 redirect_from: /go/236/
 ---

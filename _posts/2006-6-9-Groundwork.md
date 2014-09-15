@@ -1,7 +1,7 @@
 ---
 title: "Groundwork"
 layout: post
-tags: saitron sci-fi
+tags: [saitron, sci-fi]
 date: 2006-06-09 20:26:58
 redirect_from: /go/30/
 ---

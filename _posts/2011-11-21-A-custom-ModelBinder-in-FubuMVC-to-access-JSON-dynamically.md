@@ -1,7 +1,7 @@
 ---
 title: "A custom ModelBinder in FubuMVC to access JSON dynamically"
 layout: post
-tags: programming TrivadisContent fubumvc
+tags: [programming, TrivadisContent, fubumvc]
 date: 2011-11-21 20:46:00
 redirect_from: /go/207/
 ---

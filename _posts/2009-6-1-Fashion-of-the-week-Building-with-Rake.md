@@ -1,7 +1,7 @@
 ---
 title: "Fashion of the week - Building with Rake"
 layout: post
-tags: programming ruby dotnet TrivadisContent DLR
+tags: [programming, ruby, dotnet, TrivadisContent, DLR]
 date: 2009-06-01 14:01:23
 redirect_from: /go/144/
 ---

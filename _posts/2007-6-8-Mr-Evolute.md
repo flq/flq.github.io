@@ -1,7 +1,7 @@
 ---
 title: "Mr Evolute"
 layout: post
-tags: Hesitan-and-Miracles
+tags: [Hesitan-and-Miracles]
 date: 2007-06-08 20:39:55
 redirect_from: /go/93/
 ---
