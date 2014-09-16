@@ -1,9 +1,7 @@
-# Dependencies
 markdown:  redcarpet
 highlighter:  pygments
+exclude: [run]
 excerpt_separator: <!--more-->
-
-# Permalinks
 permalink:        pretty
 
 # Setup
@@ -30,3 +28,4 @@ github:
 
 gems:
   - jekyll-redirect-from
+  - jekyll-sitemap
