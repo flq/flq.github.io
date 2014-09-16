@@ -63,7 +63,7 @@ The API is rather crude at this point in that it only allows to match on a prope
 
 
   [1]: https://github.com/flq/Scal
-  [2]: http://realfiction.net/files/scal_deps.png
+  [2]: http://realfiction.net/assets/scal_deps.png
   [3]: https://github.com/DarthFubuMVC/fubumvc
   [4]: https://github.com/flq/Scal/blob/master/Scal/ViewLocation/ViewLocationManagement.cs
   [5]: https://github.com/flq/Scal/blob/master/Scal/ViewLocation/IViewLocator.cs

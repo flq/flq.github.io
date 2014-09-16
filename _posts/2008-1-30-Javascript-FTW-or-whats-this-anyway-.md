@@ -10,13 +10,13 @@ It has been itching for a while now. I may love .NET, but every once in a while 
 
 Arguably, javascript may be the most abused language out there, with millions of unknowing folks falling over it and torturing it until...
 
-![](/files/images/unresponsive.jpg)
+![](/assets/unresponsive.jpg)
 
 Sometimes people are also quite brutal. They teach him [all sorts of tricks](http://www.asp.net/ajax/documentation/live/tutorials/EnhancingJavaScriptTutorial.aspx) like interfaces, namespaces, private and public members...Probably quite useful and all but for many applications outrageously complicated.
 
 You know, javascript is a bit like a grandfather. He plays with your grandchildren, and they're having fun and all, but he's actually a kind, intelligent and cunning person, too, with whom you can have excellent and deep conversations. Provided you use a [nice framework](http://jquery.com/) that does not get in the way and you realize that Javascript is the poor man's functional programming language of choice, you're off writing cool stuff in few lines of code.
 
-Let me talk through the example with which I satisfied my longing for some functional mayhem. [You can have a look at it here](http://realfiction.net/files/ValidationTest.htm). It is basically a nano-framework,quite incomplete, to express client-side validation of HTML form fields in a very unobtrusive fashion.
+Let me talk through the example with which I satisfied my longing for some functional mayhem. [You can have a look at it here](http://realfiction.net/assets/ValidationTest.htm). It is basically a nano-framework,quite incomplete, to express client-side validation of HTML form fields in a very unobtrusive fashion.
 
 What is this unobtrusive java scripting anyway? It all boils down to separation of concerns again. The HTML structures your document, much like xml. Interspersing it with funny javascript calls (like onclick="dofunkyStuff(1, '23')") is not necessarily your friend when it comes down to maintaining your page. Meanwhile most people seem to have grasped the idea of separating structure and styling with the aid of CSS. While in HTML you still tend to have a reference to your CSS, you can inject your programmable logic without any notion of javascript in your HTML code.
 

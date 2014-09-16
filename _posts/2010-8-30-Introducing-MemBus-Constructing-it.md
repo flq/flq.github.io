@@ -10,11 +10,11 @@ as you might have guessed, MemBus isn’t a single class. A number of different 
 
 The BusSetup either takes a class that interacts with, or it allows you to interact directly with the **IConfigurableBus**. 
 
-![BusSetup](http://realfiction.net/files/image_288bb54a-ea88-4197-a4e9-5fe13d7f6b76.png "BusSetup") 
+![BusSetup](http://realfiction.net/assets/image_288bb54a-ea88-4197-a4e9-5fe13d7f6b76.png "BusSetup") 
 
  Let’s talk about those responsibilities by looking at the interface:
 
-![IConfigurableBus_interface](http://realfiction.net/files/ebe64f99-efa7-4c46-b66a-46eb7d74fb2a_4c6b7c23-511e-4fc4-b265-11d69c2dbbf9.png "IConfigurableBus_interface")
+![IConfigurableBus_interface](http://realfiction.net/assets/ebe64f99-efa7-4c46-b66a-46eb7d74fb2a_4c6b7c23-511e-4fc4-b265-11d69c2dbbf9.png "IConfigurableBus_interface")
 
 &nbsp;
 

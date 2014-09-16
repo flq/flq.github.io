@@ -16,7 +16,7 @@ There is a change request coming which requires some software to fake an externa
 Setting startup project to **[FubuMVC.HelloSpark](https://github.com/DarthFubuMVC/fubumvc/tree/master/src/FubuMVC.HelloSpark)&nbsp;**– success!
 *   ~11:15 – Having a laugh about the Hello World Spark. Strange stuff going on there, in what you see in the browser as well as teh codez. A short question to twitter clarifies that [@RobertTheGrey](http://twitter.com/#!/RobertTheGrey) is the one to be held accountable! He offers help in case I’m stuck, it must be partly bad conscience, partly because he’s a good guy (A Gandalf reference surely wouldn’t be made by a bad person?) 
 
-![image](http://realfiction.net/files/image_615cd585-7c6a-4bb6-ab7c-89cf94c5fcdc.png "image") 
+![image](http://realfiction.net/assets/image_615cd585-7c6a-4bb6-ab7c-89cf94c5fcdc.png "image") 
 
 *   Shortly before lunchtime – Created my first fubumvc project, which basically follows the layout of HelloSpark. Bootstrapping a fubu app is pretty clean stuff these days, but to a beginner the wealth of the internal bootstrapping DSL is daunting. Please do follow the Hello* Apps, otherwise you will get lost too easily.
 Yes, I see the Home View/Action I defined, nice moment to go and eat.

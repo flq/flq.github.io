@@ -12,11 +12,11 @@ Let me first clarify what I mean by leaks in a .NET application. Under this defi
 
 In a windows forms application memory pressure is even higher, because Windows Forms, as it turns out, is a thin layer of .NET on top of a multi-decade old technology, [GDI](http://en.wikipedia.org/wiki/Graphics_Device_Interface). The great [Process Explorer](http://technet.microsoft.com/en-us/sysinternals/bb896653.aspx) allows you to look at the GDI Objects consumed by any process by turning on the respective column:
 
-&nbsp;![gdiObjects](http://realfiction.net/files/gdiObjects_6ffad6a0-8d1a-496a-93b8-ddf5f53cc21a.png "gdiObjects") 
+&nbsp;![gdiObjects](http://realfiction.net/assets/gdiObjects_6ffad6a0-8d1a-496a-93b8-ddf5f53cc21a.png "gdiObjects") 
 
 The resource of GDI objects is quite limited, as it may not surpass a number defined in the registry as **GDIProcessHandleQuota**. The default is 10’000. You may increase that number, but as you can see you may run out of GDI Object handles long before your memory is exhausted.
 
-![handleQuota](http://realfiction.net/files/handleQuota_5cab2b59-cbb5-4178-8868-0c5082df4bd0.png "handleQuota") 
+![handleQuota](http://realfiction.net/assets/handleQuota_5cab2b59-cbb5-4178-8868-0c5082df4bd0.png "handleQuota") 
 
 How can this be? .NET has a Garbage Collector (GC), or has it? Indeed, none of the issues arise because the GC is broken. It is not. The biggest source of loosing objects is by **attaching event handlers to events of objects that live longer than the instances to which the event handlers belong**. Add to this the failure to **correctly Dispose of Objects in the System.Windows.Forms namespace**. Let’s check out some real life examples.
 
@@ -48,7 +48,7 @@ public static Icon RetrieveEditIcon()
 
 You may or may not have the same opinion about Windows.Forms Binding but in my eyes it is an absolute beast. We are using a concept of Control connectors that abstract the behaviour of controls for our system. In there a timer is used that gets its say after a short period of the user typing in stuff in a textbox. That way we get a binding that is more logical to the user than the Focus Lost behaviour and is less intrusive than the SourceChanged Binding. To my dismay, something weird was happening to the TimerCallback, the Event handler delegate that represents a callback from the timer:
 
-![timerLeak](http://realfiction.net/files/timerLeak_6e94ad39-e5bd-4722-8a31-7ec4b782389c.png "timerLeak") 
+![timerLeak](http://realfiction.net/assets/timerLeak_6e94ad39-e5bd-4722-8a31-7ec4b782389c.png "timerLeak") 
 
 A Garbage Collector Handle was keeping my Timer callback to go away. Since it was connected to a connector which in turn exposes events to other parts of some application module, all kind of objects are now stuck in memory, objects that due to their affinity to Windows Forms may also leak GDI objects.
 
@@ -73,7 +73,7 @@ The timer now references a static handler, and just to be sure, the actual objec
 
 Imagine you use some component and suddenly you realize that said component attaches to a static event handler, i.e. a part of the system that remains alive until the end of the AppDomain. This is what happens to you when you do not explicitly dispose certain components from [Infragistics](http://www.infragistics.com/):
 
-![gridLeak](http://realfiction.net/files/gridLeak_534c2e57-c6a5-447c-8714-6245a2af9029.png "gridLeak")
+![gridLeak](http://realfiction.net/assets/gridLeak_534c2e57-c6a5-447c-8714-6245a2af9029.png "gridLeak")
 
 Infragistics was already made aware of this kind of behaviour quite some time ago as shown in this [discussion thread](http://forums.infragistics.com/forums/t/20841.aspx). As they say that this behaviour is by design and just make sure that all Controls get properly disposed, things remained like that up to the version that we are utilizing for the project. The solution to that one is either dispose of all controls, or use the somewhat dirty but effective move to empty the invocation list of the relevant static events. This is indeed possible through reflection and funny enough the required code had already been written and [is available on the Internet](http://subjectively.blogspot.com/2009/03/importance-of-recycling-memory.html). Since we don’t use any of the theme changing capabilities of Ig controls, this code is called at an appropriate moment and it ensures that no component leak happens through that chain anymore.
 

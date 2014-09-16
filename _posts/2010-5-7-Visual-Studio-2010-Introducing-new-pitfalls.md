@@ -10,7 +10,7 @@ A couple of days ago I installed Visual Studio 2010 on my machine. In general it
 
 However, the new release managed to drive me nuts yesterday when I started a new demo project with the good old Console Project. It so appears that the _Target Framework_ set in the Project properties is by default the new “.Net Framework 4 Client Profile”. 
 
-![image](http://realfiction.net/files/image_3.png "image") 
+![image](http://realfiction.net/assets/image_3.png "image") 
 
 This is a limited subset which, if you can restrict yourself to the assemblies contained, allows for a smaller redistribution footprint.
 
@@ -18,7 +18,7 @@ However, as outlined in this [msdn document](http://msdn.microsoft.com/en-gb/lib
 
 The second pitfall in using the Command line profile is the very controversially discussed decision to have a Console App default to x86 processor
 
-&nbsp;![image](http://realfiction.net/files/image_063ac2d2-5e6a-4e49-a5b4-391b8297e427.png "image") 
+&nbsp;![image](http://realfiction.net/assets/image_063ac2d2-5e6a-4e49-a5b4-391b8297e427.png "image") 
 
 This setting is not changeable through the Visual studio IDE anymore once you add additional projects to your solution. I learned it the hard way (is there any other way?) when writing Unit Tests in a separate class library project and referencing the console project. The only thing that the R# task runner was able to say was a “BadImageFormatException” which under the circumstances absolutely makes sense since the class library is allowed to run in any processor mode. 
 
@@ -26,4 +26,4 @@ See also [Rick Byers - AnyCPU Exes are usually more trouble than they're worth](
 
 Personally I don’t get why Microsoft makes such a decision if there quite obviously are a large number of developers who want to **decide for themselves** what processor architecture to target. If you want to change it – bad luck. You can enter the .sln with an editor though an add the line as shown in the following screenshot...
 
-![image](http://realfiction.net/files/image_b4b6799f-0ce4-4b72-b03b-17df7e356909.png "image")
+![image](http://realfiction.net/assets/image_b4b6799f-0ce4-4b72-b03b-17df7e356909.png "image")

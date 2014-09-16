@@ -8,7 +8,7 @@ redirect_from: /go/136/
 
 The following picture probably doesn't surprise you
 
-<div style="text-align:center">![](http://realfiction.net/files/exception.png)</div>
+<div style="text-align:center">![](http://realfiction.net/assets/exception.png)</div>
 
 But as you can see in what is commented out, you can indeed e.g. do
 

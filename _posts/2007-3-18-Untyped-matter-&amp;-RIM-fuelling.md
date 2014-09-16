@@ -9,7 +9,7 @@ redirect_from: /go/75/
 _Untyped matter – matter that is defined in space and time but does not bear any other characteristics of the 4Band continuum, i.e. it has no electrical charge or strong atomic force ‘colour’, it has no mass and no spin. A volume containing untyped matter may also be described as a vacuum whose inherent energy is much greater than the one encountered in our 4Band universe._
 
 Let us concentrate onto a thin layer just outside of the MRC’s rotating surface. This layer hardly ever reaches thicknesses of about 10<sup>-8</sup> m. In this area particles are strongly exposed to the interactions running at greater frequencies inside the MRC. If you consider the kind of particle scattering we obtain in human-made particle accelerators, a set of typed matter can be brought into interaction with another in order to generate a third set of typed matter. In a way, the interactions happening inside this boundary layer are so rapid that the actual types that are members of the interaction sequence are not observable anymore. This is not completely correct but comes close to it. This is the layer in which we find untyped matter. The interactions happening in this layer run too fast to be fully compatible to the typical interaction frequencies that control 4Band physics. This layer can indeed be thought of as a very special type of vacuum. Compare this to the human findings proving the existence of vacuum energy, energy that exists and is quantifiable despite the absence of typed particles. 
-  ![](/files/images/saitech1-fig10.gif)  
+  ![](/assets/saitech1-fig10.gif)  
 
 **Very coarse diagram showing a typical breakdown of RIM layers around a MRC with a 10 metre radius. Numerous transitions and additional layers have been omitted, since they merit full articles on their own.**
 
@@ -39,7 +39,7 @@ This is a simplifying calculation, but it gives an idea of the dimensions involv
 In order to understand the fuelling process used by Iilasian ships, a further property of MRCs and in fact RIMs must be introduced. This property is already known in human quantum mechanics as particle entanglement. I already wrote about the fact that a RIM can be reshaped. This reshaping can be done such that two RIMs are created out of a single one. The generated system is indeed entangled such that types and boundary layer 'densities' can be teleported from one RIM to the other<sup>**)</sup>. The fuelling process is therefore undertaken by exposing RIM 2 to particle streams, thereby causing type and particle saturation in RIM 1. 
 
 The process is illustrated by following diagram.
- ![](/files/images/saitech1-fig12.gif) 
+ ![](/assets/saitech1-fig12.gif) 
 
 *   A RIM is created by the described process
 *   By manipulating the containing electromagnetic field, the RIM is shaped cylinder-like
@@ -52,7 +52,7 @@ The particles required for the fuelling process are obtained by Iilasian ships b
 
 ## *)
 
-The Planck length ![](/files/images/saitech1-fig11.gif)  is about 1.6 * 10<sup>-35</sup> metres. The Planck volume is then about 4*10<sup>-105</sup> m<sup>3</sup>. Compare this to the approximate volume of an unexcited Hydrogen atom of about 5*10<sup>-31</sup> m<sup>3</sup> or the approximate volume accredited to a proton of about 4*10<sup>-75</sup> m<sup>3</sup>.
+The Planck length ![](/assets/saitech1-fig11.gif)  is about 1.6 * 10<sup>-35</sup> metres. The Planck volume is then about 4*10<sup>-105</sup> m<sup>3</sup>. Compare this to the approximate volume of an unexcited Hydrogen atom of about 5*10<sup>-31</sup> m<sup>3</sup> or the approximate volume accredited to a proton of about 4*10<sup>-75</sup> m<sup>3</sup>.
 
 ## **)
 

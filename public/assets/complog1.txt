@@ -1,0 +1,54 @@
+Fritiu Limgu - Problems with the central computer - Recording of dialogue with Central Computer
+****************
+
+-	comp, login: Limgu.
+-	Good morning Limgu.
+-	Give me the status on the meta-generators, the fluctuation compensators and the pathway-tracker.
+-	Everything is fine. The generators are singing with the 234 voices of metala. 
+        Their harmonies enclose total righteousness. The choirs of metala are happy.
+-	Excuse me? What the heck are you saying? Why did your voice change?
+-	Excuse granted. Question: What does heck mean? My voice did not change.
+-	<pause deleted>
+-	comp, please access program default voice. Execute program default voice.
+-	There is no such program in my databank, Limgu.
+-	Do you want to take the piss?
+-	Question: What does piss in this context mean?
+-	<pause deleted>
+-	comp, please display the contents of databank 0 on holo2...what is this? This is complete garbage. 
+        You have just disobeyed a direct order from me. I remind you that this contradicts to the third rule 
+        of behaviour!
+-	I am sorry, Limgu, but I am displaying the harmonies of my most inner self. Enjoy. Everything is fine.
+-	<pause deleted>
+-	comp, go back to the status account
+-	the fluctuation compensators...are not singing together with the 23 voices of metala. Their harmonies 
+        sound like...distorted variations on the wonderfully rhythmic pulsing of the pathway trackers...
+-	For the almighty brains of Kaala! Are you able to describe this is in technical terms?
+-	No.
+-	Do you remember that you could?
+-	No.
+-	comp, access your memory bank, and display the first Megatrit of information...What is this?
+-	The harmonies of my outer inner self. Enjoy. Everything is fine.
+-	<pause deleted>
+-	comp, try to display the harmonies of the fluctuation compensators together with the ones from 
+        the pathway tracker in a 2 dimensional diagram...Are you able to measure the delay 
+        between those two peaks?
+-	Yes.
+-	Tell me.
+-	The delay between fluctuation compensator and pathway tracker on those 2 peaks is 1237 timedots.
+-	Is the pathway tracker still singing with the...23 voices of metala?
+-	Yes. They are 632 now.
+-	That is all for now.
+
+Analysis
+**************
+
+The computer is nuts. It looks to me that the parts of the computer dealing directly 
+with the path tracker have somehow fallen into some sort of oscillation, 
+affecting all other databases and processors. Spontaneous rerouting of processor pathways 
+has probably not occurred, but could still happen. 
+I was still able to understand that the fluctuation compensators are malfunctioning. 
+A reason cannot be given. The outputs of path tracker and compensators should not have a delay to each other. 
+A maximum delay of 30 timedots ensures proper functioning. 
+Lareto will be able to tell you more on this, but it is sure that the primary effect 
+of this failure will be a greatly reduced accuracy of falling back into Einstein-Space. 
+It is unclear where the female voice comes from.

@@ -44,7 +44,7 @@ Indeed the only bit of infrastructure that bin4net would need is some place to h
 
 Here’s a little picture to summarize what we have so far…
 
-[![nozz1](http://realfiction.net/files/nozz1_thumb.png "nozz1")](http://realfiction.net/files/nozz1_2.png)
+[![nozz1](http://realfiction.net/assets/nozz1_thumb.png "nozz1")](http://realfiction.net/assets/nozz1_2.png)
 
 The optionality of the VS-Add-in refers to the idea of using the GAC as repository. What is good about it is the direct availability to your project and that there is a solution available for versioning. Bad is the necessity of strong naming, necessary administrative privileges to install and probably a host of other things I don’t know about.
 

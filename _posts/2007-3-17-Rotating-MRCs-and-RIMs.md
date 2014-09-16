@@ -13,12 +13,12 @@ _Rule number one_: Keep your big MRCs in bunkers.
 Nonetheless the deeper reason for all those secondary effects is the implosion of the type imbalance away from our Spacetime domain. Such imbalance is created in the crystal when e.g. photons and electrons are used to generate a mass field.
 
 What happens when the critical type saturation point is reached? We remember that such a crystal is best described when it is assumed that its internal structure, rotate at very high speeds around the crystal’s rotational axis.
-  ![](/files/images/saitech1-fig8.gif) 
+  ![](/assets/saitech1-fig8.gif) 
 
  The arrows represent the magnitude of the angular velocity at a given distance from the MRC core. Velocity should not be necessarily understood as spatial velocity – it is rather the oscillation of the medium’s properties in relation to the surrounding Spacetime-continuum. 
 
 In the case of the crystal reaching a critical type saturation point, the implosion moves from the surface of the crystal towards its rotational axis. This can be counteracted by rotating the crystal. And because the crystal has no weight, some quite astonishing revs can be achieved! From the perspective of the 4Band, the limit to the achievable rotation arises from the material properties of the clamp whose basic design we discussed in the previous section. I already mentioned that those are not very good.
-  ![](/files/images/saitech1-fig9.gif)  
+  ![](/assets/saitech1-fig9.gif)  
 
 Still, considering that the crystal possesses no mass in its unsaturated state, maybe 1’000 revs / second can be achieved. Beyond this magnitude the centrifugal force overcomes the clamp’s internal bonding. Of course, this in itself is quite dangerous. With the clamp breaking apart, the crystal remains attached to some of the parts. This looks quite ridiculous - you would never expect such a sizeable object to fly around at speeds of much smaller objects. Remember though, that the crystal has no mass. And remember also that the crystal has a very disordering effect when it is hit by matter (or flies through it).
 

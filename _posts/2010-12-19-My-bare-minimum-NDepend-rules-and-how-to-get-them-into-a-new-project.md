@@ -10,7 +10,7 @@ When you run an Ndepend anylsis over a project you will notice a certain tendenc
 
 After having used NDepend for some like, I like to keep a bare minimum of rules around that I deem really important…
 
-![Capture](http://realfiction.net/files/Capture.png "Capture") 
+![Capture](http://realfiction.net/assets/Capture.png "Capture") 
 
 *   A large type (currently LOC &gt; 400 or IL Instruction&gt; 2500) is most likely doing too much.Doing too much?
 It means there are too many reasons why a type may change
@@ -20,7 +20,7 @@ It means there are too many reasons why a type may change
 *   Next one only starts warning after a certain point. This is less of a pain point but more of a having things clean type of attitude.
 *   Things that can be private should be private. You can’t couple from the outside to things that are private. Even when you don’t, a maintainer may not know if somebody is using that which could be private from the outside. 
 
-![Capture2](http://realfiction.net/files/Capture2.png "Capture2") 
+![Capture2](http://realfiction.net/assets/Capture2.png "Capture2") 
 
 *   A large method is bad news in terms of maintainability. Probability of a bugs increase with method size, and most likely not linearly.
 *   A complex method is even worse. Many methods will actually appear in both metrics, as a large one is probably complex. Complexity refers to cyclomatic complexity: if, switch, else foreach…
@@ -30,7 +30,7 @@ It means there are too many reasons why a type may change
 *   Again, things that can be private should be. Not many things manage to make me frown as well as excessive use of get; set on properties where the set is only used in private. This is bad, don’t do it!
 *   Afferent and efferent coupling also exist on a method level. While big and complex methods are most likely going to have high efferent coupling, afferent gets its own metric. It may not be a bad thing that a method has high afferent coupling, but it could mean that there is a type missing or something else that can break apart the pile of coupling that is mounting up. 
 
-![Capture3](http://realfiction.net/files/Capture3.png "Capture3") 
+![Capture3](http://realfiction.net/assets/Capture3.png "Capture3") 
 
 *   I love readonly fields. They tell me straight away that they are immutable things, invariants of some instance. This really helps keeping complexity under control
 *   Public fields are definitely strange and should be looked at 

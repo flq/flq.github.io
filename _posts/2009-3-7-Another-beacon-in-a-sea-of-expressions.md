@@ -22,7 +22,7 @@ There is one available as part of the Visual Studio samples (under _Microsoft Vi
 
 You will need to compile the visualizer and place it under _VS9.0\Common7\Packages\Debugger\Visualizers_.
 
-![visualization of a simple expression](/files/images/expressiontreevisualizer.jpg)
+![visualization of a simple expression](/assets/expressiontreevisualizer.jpg)
 
 ## The expression Visitor
 
