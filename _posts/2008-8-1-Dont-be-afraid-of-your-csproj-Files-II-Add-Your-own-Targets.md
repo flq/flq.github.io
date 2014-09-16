@@ -31,14 +31,14 @@ msbuild /t:Merge
 Not too bad, but still somewhat clumsy. A more comfortable and integrated way to call your target is to do the following:
 
 1.  Under Visual Studio/Tools choose "External Tools..."
-![](/assets/menumsbuild.png)
+![](/public/assets/menumsbuild.png)
 
 2.  Press Add and fill out the dialog as shown in this screenshot:
-![](/assets/addmsbuild.png)
+![](/public/assets/addmsbuild.png)
 Note that msbuild is found in any framework directory. Also note that the used variable will become the directory of the project currently selected in the solution explorer.
 
 3.  Now your newly created command will appear in the Tools Menu. By selecting your new command, the following dialog appears:
-![](/assets/usemsbuild.png)
+![](/public/assets/usemsbuild.png)
 Here you can type your arguments, i.e. calling a specific target. The checkbox we chose to see the output gives us a nice output in the corresponding Visual Studio window.
 Just as a reminder, you can parameterize your MSBuild task. You can then pass parameters through the command line arguments as such:
 `

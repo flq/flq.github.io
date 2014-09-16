@@ -44,25 +44,25 @@ I have been doing a number of performance measurements wit the following setup:
 
 The actual publishing happens in line 18. We publish three different messages by random, in total 100’000 messages. The three subscriptions each increment a counter, the messages themselves increment an internal counter when they are constructed. Let’s start with the simple setup (“**Conservative**”):
 
-![image](http://realfiction.net/assets/image_5314e329-cdb9-4cdc-82d8-2245ebc72749.png "image") 
+![image](/public/assets/image_5314e329-cdb9-4cdc-82d8-2245ebc72749.png "image") 
 
 Pretty quick. Let’s compare it to the “**AsyncConfiguration**”:
 
-![image](http://realfiction.net/assets/image_e3e558bc-b06e-4827-bf63-59863e4ff134.png "image") 
+![image](/public/assets/image_e3e558bc-b06e-4827-bf63-59863e4ff134.png "image") 
 
 That’s taking a while...Let us actually do some work in a subscription and put a small thread.sleep() of 1 milliseconds in the subscription of message B. Let’s go **Conservative**:
 
-![image](http://realfiction.net/assets/image_26fb2203-0e83-4070-a1b7-93ac4c8c9dab.png "image") 
+![image](/public/assets/image_26fb2203-0e83-4070-a1b7-93ac4c8c9dab.png "image") 
 
 That could be expected! B got 33463 messages, at 1ms each it gives you roughly that number. Let’s push it through the **AsyncConfiguration**:
 
-![image](http://realfiction.net/assets/image_4f1ee625-b549-4ff8-933f-35ee48eb3165.png "image") 
+![image](/public/assets/image_4f1ee625-b549-4ff8-933f-35ee48eb3165.png "image") 
 
 The Publishing loop comes back much quicker, but now we can see that the work hasn’t been completed yet – The message construction count differs from the subscription counters! Also note that in this scenario I had to change the Increment code (“**++**”) to the thread-safe version (“**Interlocked.Increment(ref i)**”) as the counts would not match up anymore. As opposed to the code shown, I changed the counter output to be delayed by 1 seconds. Hence, after roughly 9 seconds all work was done.
 
 As a final check, let’s use the “**Fast**” setup:
 
-![image](http://realfiction.net/assets/image_7519dc98-15d1-439f-aa9f-1ac3a30d139a.png "image") 
+![image](/public/assets/image_7519dc98-15d1-439f-aa9f-1ac3a30d139a.png "image") 
 
 Here, publishing comes back pretty quick, but the work also takes about the same time. the Fast setup was created after some sessions with the dotTrace performance profiler that showed where time could be saved. The fast setup will not do **contravariant publishing** (i.e. a subscription on a message of type object will not receive a message of type “MessageA”) and exceptions in subscriptions are **not taken care of**.
 

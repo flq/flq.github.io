@@ -12,6 +12,6 @@ Stuff I had to do in the past 24hours to sustain the onslaught of comment spammi
 
 Especially from the logging I can tell that Spammers are really trying to get in. This is a small chart showing what was happening tonight:
 
-[![spam_chart](http://realfiction.net/assets/spam_chart_thumb.png "spam_chart")](http://realfiction.net/assets/spam_chart_2.png)
+[![spam_chart](/public/assets/spam_chart_thumb.png "spam_chart")](/public/assets/spam_chart_2.png)
 
 This is not counting the unsure events (22 of them). Oh, and by the way, none of you vermin came in.

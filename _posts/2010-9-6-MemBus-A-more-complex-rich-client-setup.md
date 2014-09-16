@@ -8,7 +8,7 @@ redirect_from: /go/178/
 
 Let us consider a more complex Bus setup in order to understand the capabilities of the different parts of the infrastructure:
 
-&nbsp;![image](http://realfiction.net/assets/image_7337b070-7353-4041-bb93-87aca8327ca8.png "image") 
+&nbsp;![image](/public/assets/image_7337b070-7353-4041-bb93-87aca8327ca8.png "image") 
 
 What are we expressing here?
 

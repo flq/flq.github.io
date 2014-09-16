@@ -8,7 +8,7 @@ redirect_from: /go/173/
 
 The following is a screenshot when you start off from NHibernate’s default OnLoad listener (called e.g. when you say **session.Load&lt;Cat&gt;(23)**).
 
-![NhibernateLoadEntity](http://realfiction.net/assets/NhibernateLoadEntity_3.png "NhibernateLoadEntity") 
+![NhibernateLoadEntity](/public/assets/NhibernateLoadEntity_3.png "NhibernateLoadEntity") 
 
 I’ve cut out other outgoing calls to show you the level of abstraction between loading an Entity and hitting the ExecuteReader() method of ADO.NET’s low-level API.
 

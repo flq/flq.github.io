@@ -18,7 +18,7 @@ This idea was originally proposed by [John Houbolt](http://en.wikipedia.org/wiki
 
 Some NASA rocket science was also put to good use by having a computer recognize some cards that Norris was shifting on the table and represent those on screen as Moon, Earth, Apollo landing module etc. Awesome!
 
-![10112010072](http://realfiction.net/assets/10112010072_4e5578a4-83a2-4ccf-af5c-6a477dc987f5.jpg "10112010072") 
+![10112010072](/public/assets/10112010072_4e5578a4-83a2-4ccf-af5c-6a477dc987f5.jpg "10112010072") 
 
 &nbsp;
 

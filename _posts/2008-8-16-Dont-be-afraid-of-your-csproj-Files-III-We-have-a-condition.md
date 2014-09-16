@@ -20,15 +20,15 @@ Maybe you want to be able to test Console either with A or B. You can do that wi
 
 Select it and the manager appears that will let you create a new configuration...
 
-![](/assets/msbuildconfmgr.png)
+![](/public/assets/msbuildconfmgr.png)
 
 The next dialog allows you to provide a name and copy settings from a different configuration.
 
-![](/assets/msbuildnewconf.png)
+![](/public/assets/msbuildnewconf.png)
 
 And presto, a new configuration has been created for you. For this example configuration I choose not to compile PluginB.
 
-![](/assets/msbuildpluginaconf.png)
+![](/public/assets/msbuildpluginaconf.png)
 
 However, after having done that, and considering that you never ever compiled Plugin B, you will get an unfriendly error message from Visual Studio:
 

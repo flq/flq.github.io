@@ -11,7 +11,7 @@ Lately I was getting increasingly curious about the overhead of using a [Depende
 Indeed, this is not an overly interesting number. After all, how often do you instantiate an object in your Application's lifecycle and even if you do it very often, how does it compare to other activities of your Software like doing a Database Query?
 
 Even so, I was curious, so here we go. First I needed a simple example. I came up with the usual BankAccount stuff that depends on a Exchange rate facility in order to work correctly. The following image gives you an overview: 
- ![System overview Bankaccount](/assets/scrshot_bank.png) 
+ ![System overview Bankaccount](/public/assets/scrshot_bank.png) 
 
 I decided for the possibility of constructor-based injection, such that the normal usage of the BankAccount class would be like that:
  <pre class="sh_csharp">

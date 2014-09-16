@@ -12,15 +12,15 @@ Since you come here probably looking for an answer, let me give it first. After 
 
 Download and install Oracle Clients 11g (which support lower DB versions) for 32 and 64 bits. I use the Instant clients which come with an install.bat for 32-bit and the OUI for 64-bit.
 
-![](/assets/oracle_folders.png)
+![](/public/assets/oracle_folders.png)
 
 Open an elevated console and in **%windir%\system32** create a soft link to the 64-bit oracle client installation, while in **%windir%\SysWOW64** you make a soft link to the 32-bit installation. making a soft link to a directory means using the **mklink** command as explained [here](http://www.howtogeek.com/howto/windows-vista/using-symlinks-in-windows-vista/). Visually it will display as such (I called my link _11g_):
 
-![](/assets/oracle_link.png)
+![](/public/assets/oracle_link.png)
 
 Edit your **PATH** environment variable and add the following path to it: **c:\windows\system32\11g**. Please note that **%WINDIR%** will not be expanded in **%PATH%**.
 
-![](/assets/oracle_env.png)
+![](/public/assets/oracle_env.png)
 
 ## Background
 

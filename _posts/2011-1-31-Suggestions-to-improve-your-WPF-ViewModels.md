@@ -34,7 +34,7 @@ While not as useful as OneWay, the other modes can also communicate intent to fe
 
 Out of sheer curiosity I went to the object browser and did a “find derived types” with Resharper on the IValueConverter:
 
-![image](http://realfiction.net/assets/image_17963921-3cc2-4611-8fdd-46b5a341ae61.png "image") 
+![image](/public/assets/image_17963921-3cc2-4611-8fdd-46b5a341ae61.png "image") 
 
 I don’t know about you but I have written a **BooleanToVisibilityConverter** very often! This one is a bit like the System.IO.Path type.
 

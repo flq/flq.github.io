@@ -36,7 +36,7 @@ I have put them here so I always have the latest version available. It also mean
 The whole thing is rounded up by the control&#39;s ability to purge the visible log as well as save the current contents to a folder of your choice.
 
 **PathStrip** - Seen any screenshots of Vista? There appears to be a new way of accessing and manipulating the full path of a file system folder currently in view. The path is separated into its constituent parts. Each part is clickable, allowing you to quickly move up the folder hierarchy again. Each clickable item also provides a dropdown list that shows all folders that are on the same level. 
-<div style="text-align: center">![The PathStrip comonent in action](/assets/pathstrip.gif)</div>
+<div style="text-align: center">![The PathStrip comonent in action](/public/assets/pathstrip.gif)</div>
 
 Well, that is pretty much what I implemented in this component. It inherits straight from the ToolStrip, so you could mess around with it. For the sake of this component, however, you will be interested in the **Path **property to get and set the path that is currently visible, as well as the **PathChanged **event, which will allow you to be notified whenever a new path has been chosen by the user with the PathStrip component. 
 
