@@ -6,9 +6,9 @@ date: 2007-05-15 21:15:28
 redirect_from: /go/86/
 ---
 
-I was looking back at [Christoph's ruby code](/?q=node/113) and was thinking that by now I should be able to implement that algorithm in Haskell. Indeed, one of my solutions looks like that:
+I was looking back at [Christoph's ruby code](/go/113) and was thinking that by now I should be able to implement that algorithm in Haskell. Indeed, one of my solutions looks like that:
 
-`
+```haskell
 out x
     | x >= base = foldl (++) [] $ map (\f -> out $ f x base) [mod,div]
     | x < base = digit
@@ -16,7 +16,7 @@ out x
         range = ['a'..'z']
         digit = [range!!(fromIntegral x)]
         base = fromIntegral $ length range
-`
+```
 
 The digit to be output is a letter of the alphabet, so we are changing PI to a base 26 number system. Let's check it briefly: The **map** function maps one array to another. In this case the array consists of two functions, **mod **and **div**. mod returns the remainder of a division while div returns how often the divisor fits in the dividend.
 

@@ -6,7 +6,7 @@ date: 2008-06-16 14:04:18
 redirect_from: /go/126/
 ---
 
-Remember the [Epic fail](http://realfiction.net/?q=node/156) that was building a simple class and a proxy on top to save on doing the PropertyChanged-mechanics?
+Remember the [Epic fail](http://realfiction.net/go/156) that was building a simple class and a proxy on top to save on doing the PropertyChanged-mechanics?
 
 It now works in WPF, too, which, I hope you'll agree, is pretty cool.
 

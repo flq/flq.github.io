@@ -6,7 +6,7 @@ date: 2007-04-11 20:11:02
 redirect_from: /go/80/
 ---
 
-What Andre's link [caused](/?q=node/92)...
+What Andre's link [caused](/go/92)...
 
 One idea that came up from a former colleague of mine, Christoph was to rebase the number PI to 27, allowing for a presentation in the form of letters of the alphabet. His first tackle at this was written in ruby:
 

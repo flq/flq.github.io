@@ -6,7 +6,7 @@ date: 2007-09-21 20:25:28
 redirect_from: /go/102/
 ---
 
-You probably know by now that [I quite like](http://realfiction.net/?q=node/110) the upcoming extension methods in .NET 3.5.
+You probably know by now that [I quite like](http://realfiction.net/go/110) the upcoming extension methods in .NET 3.5.
 
 I haven't tested the following code as I don't have the right framework at hand right now (and I cannot be asked to turn on my laptop), but I don't see why it shouldn't work:
 

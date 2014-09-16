@@ -40,4 +40,4 @@ _Most ironic_ is the fact that I have been using exactly that method call all al
 
 Use the commenting for any bashing or indeed, consolation. I _know_ I'm not the only one out there acting that weird...
 
-[![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://realfiction.net/?q=node/134)](http://www.dotnetkicks.com/kick/?url=http://realfiction.net/?q=node/134)
+[![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://realfiction.net/go/134)](http://www.dotnetkicks.com/kick/?url=http://realfiction.net/go/134)

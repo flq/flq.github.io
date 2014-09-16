@@ -64,4 +64,4 @@ In other words, there are explicit ways to do such a conversion. Provide a metho
 
 At the end of the day, programming has quite a bit to do with creativity. There may be scenarios out there where the implicit operator would be just the right thing to use, but for now, I don't know any. Me, I just like the fact to learn about another obscure facet of C#...
 
-**Update:** I wrote some more about the implicit operator [here](http://realfiction.net/?q=node/159).
+**Update:** I wrote some more about the implicit operator [here](http://realfiction.net/go/159).

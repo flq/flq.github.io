@@ -6,7 +6,7 @@ date: 2008-08-01 22:03:26
 redirect_from: /go/129/
 ---
 
-In my [first post](http://realfiction.net/?q=node/162) on csproj-fun I had an example where after every build, the resulting assemblies lying in e.g. bin/debug would be merged into one and copied out to some other place. Maybe you do not want this every time you rebuild your project, but you'd rather want to trigger it at will.
+In my [first post](http://realfiction.net/go/162) on csproj-fun I had an example where after every build, the resulting assemblies lying in e.g. bin/debug would be merged into one and copied out to some other place. Maybe you do not want this every time you rebuild your project, but you'd rather want to trigger it at will.
 
 The only thing you need to do is to place the tasks in the AfterBuild target into some different target, like so:
 

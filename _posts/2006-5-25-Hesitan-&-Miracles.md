@@ -17,6 +17,6 @@ begins to understand that everything is possible and everything must  be conside
 
 ![Pythagoras would have loved to talk to his fans all over the world](/assets/pythagoras.gif) 
 
-*   [The Ant &amp; the Green Eyed Bug](/?q=node/8)
-*   [It takes one to know one](/?q=node/9)
-*   [Oh Brother, What&#39;s Art, though?](/?q=node/11)
+*   [The Ant &amp; the Green Eyed Bug](/go/8)
+*   [It takes one to know one](/go/9)
+*   [Oh Brother, What&#39;s Art, though?](/go/11)

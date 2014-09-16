@@ -8,7 +8,7 @@ redirect_from: /go/112/
 
 While Richard Bushnell was showing off how old problems can be [implemented very concise with LINQ](http://richardbushnell.net/index.php/2008/01/18/using-linqpad-to-create-a-time-selector-drop-down-list/) he also made use of an extension method to the int Type.
 
-It has been quite some time since I did an update to the [.NET goodies](/?q=node/54). In there there was an implementation to be able to iterate over the letters of the alphabet.
+It has been quite some time since I did an update to the [.NET goodies](/go/54). In there there was an implementation to be able to iterate over the letters of the alphabet.
 
 Extension methods and LINQ allow the provision of a concise implementation that can be easily used to obtain character ranges over the alphabet.
 

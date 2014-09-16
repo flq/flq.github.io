@@ -6,7 +6,7 @@ date: 2008-05-22 19:59:27
 redirect_from: /go/125/
 ---
 
-Elaborating on my [past post](/Content/Entry/104) on the implicit operator in C#, here some additional information to round this thing up.
+Elaborating on my [past post](/go/104) on the implicit operator in C#, here some additional information to round this thing up.
 
 *   Can you inherit the implicit operator(s)? 
 
@@ -83,7 +83,7 @@ Which makes sense after all, as it kind of leads polymorphism ad absurdum.
 
 Lately I have come across a pattern where it appears useful to me to provide implicit operators. 
 It is the case for generic utility classes that enhance a given type in a sort of decorator style.
-You can find an example here with the [SingletonOf&lt;T&gt;](http://realfiction.net/?q=node/153). Further examples are
+You can find an example here with the [SingletonOf&lt;T&gt;](http://realfiction.net/go/153). Further examples are
 
 *   Monitored&lt;T&gt; : It provides a decorator around a value of type T that, when changed through a property raises a ValueChanged event.
 *   Historized&lt;T&gt; : It provides a decorator around a value of type T that keeps track in a Dictionary with timestamp when the value is changed and could be rolled back to some point in time.

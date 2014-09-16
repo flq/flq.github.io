@@ -6,7 +6,7 @@ date: 2007-09-27 20:57:06
 redirect_from: /go/103/
 ---
 
-I should probably write about the facebook WCF wrapper [as promised](http://realfiction.net/?q=node/130), but since I am have been working my a... off on the frontend of things with the aid of WPF, I will write something about that instead.
+I should probably write about the facebook WCF wrapper [as promised](http://realfiction.net/go/130), but since I am have been working my a... off on the frontend of things with the aid of WPF, I will write something about that instead.
 
 There is plenty of stuff to write but in this post I reflect upon an idea I had a few days ago. The whole thing is certainly inspired by Dan Crevier's fantastic job on outlining how a [decent WPF application architecture may look like](http://blogs.msdn.com/dancre/archive/2006/09/17/dm-v-vm-part-8-view-models.aspx) with the added bonus of a nicely laid out and documented WPF solution to download. Very helpful indeed!
 

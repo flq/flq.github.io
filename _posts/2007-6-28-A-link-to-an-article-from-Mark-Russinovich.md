@@ -6,7 +6,7 @@ date: 2007-06-28 10:18:05
 redirect_from: /go/95/
 ---
 
-I [once wrote](/?q=node/93) I quite like Vista. Now, a few months later, I can't really say that I hate it, but...
+I [once wrote](/go/93) I quite like Vista. Now, a few months later, I can't really say that I hate it, but...
 
 Well, for once there is extremely annoying delay I experience when the file explorer /file open dialog opens. It takes the investigational skills of one [Mark Russinovich](http://en.wikipedia.org/wiki/Mark_Russinovich) to figure out what's going on.
 

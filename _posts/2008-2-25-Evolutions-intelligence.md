@@ -6,7 +6,7 @@ date: 2008-02-25 22:58:26
 redirect_from: /go/115/
 ---
 
-Quite some time ago I wanted to write about this in the form of a [Hesitan & Miracles](/?q=node/7) dialogue. Alas, it doesn't seem like these two guys will ever manage to get on with this matter, so I'll write here.
+Quite some time ago I wanted to write about this in the form of a [Hesitan & Miracles](/go/7) dialogue. Alas, it doesn't seem like these two guys will ever manage to get on with this matter, so I'll write here.
 
 And why not? I can write about anything that bothers me. As an example, it bothers me that people are unable to leave their dogmatic foundations and look out and beyond their well-defined viewpoint, formalities, terminologies and definitions.
 

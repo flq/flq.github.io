@@ -190,4 +190,4 @@ What about the States that are required? There they go...
 Enough of that. What's the point? Well, I was trying to see how nice you can go...once more I am doing a bit of Ruby and there you have things like acts_as_state_machine, a plugin that allows your Ruby class to act as ...well...a state machine. C# can't go quite as pretty, but with some reflection and generics you can spruce up a relatively useful thing.
 Anyway, the file attachment is the .NET solution that contains the Machine code as well as the two examples. If you find it useful, please let me know.
 
-[![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://realfiction.net/?q=node/78)](http://www.dotnetkicks.com/kick/?url=http://realfiction.net/?q=node/78)
+[![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://realfiction.net/go/78)](http://www.dotnetkicks.com/kick/?url=http://realfiction.net/go/78)

@@ -6,7 +6,7 @@ date: 2009-03-07 15:57:43
 redirect_from: /go/139/
 ---
 
-A prosaic introduction to the subject of .NET expressions. These were introduced with .NET 3.5 and are featured most prominently in LINQ. Over [here](http://realfiction.net/?q=node/118) I implemented a use case with the aid of expressions.
+A prosaic introduction to the subject of .NET expressions. These were introduced with .NET 3.5 and are featured most prominently in LINQ. Over [here](http://realfiction.net/go/118) I implemented a use case with the aid of expressions.
 
 In my current project I am using expressions to be able to analyze what the user of some API wants to express. From the expression
 
