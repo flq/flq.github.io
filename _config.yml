@@ -1,6 +1,6 @@
 # Dependencies
 markdown:  redcarpet
-highlighter:  rouge
+highlighter:  pygments
 excerpt_separator: <!--more-->
 
 # Permalinks
@@ -26,7 +26,7 @@ redcarpet:
 version:          1.0.0
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/flq/flq.github.io
 
 gems:
   - jekyll-redirect-from
