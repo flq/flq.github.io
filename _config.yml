@@ -1,17 +1,17 @@
 # Dependencies
-markdown:	redcarpet
-highlighter:	rouge
+markdown:  redcarpet
+highlighter:  rouge
 excerpt_separator: <!--more-->
 
 # Permalinks
 permalink:        pretty
 
 # Setup
-title:		Realfiction
-tagline:		'intersect'
-description:	'Content from Frank Quednau about programming and fields of interest.'
-url:		http://realfiction.net
-baseurl:	/
+title:    Realfiction
+tagline:    'intersect'
+description:  'Content from Frank Quednau about programming and fields of interest.'
+url:    http://realfiction.net
+baseurl:  /
 
 author:
   name:        'Frank Quednau'
