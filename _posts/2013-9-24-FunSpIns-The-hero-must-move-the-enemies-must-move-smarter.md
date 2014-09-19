@@ -1,7 +1,7 @@
 ---
 title: "FunSpIns - The hero must move, the enemies must move smarter."
 layout: post
-tags: [software-development, Haskell, fun-spin]
+tags: [software-development, haskell, fun-spin]
 date: 2013-09-24 14:00:00
 redirect_from: /go/235/
 ---

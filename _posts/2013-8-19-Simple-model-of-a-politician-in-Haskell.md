@@ -1,7 +1,7 @@
 ---
 title: "Simple model of a politician in Haskell"
 layout: post
-tags: [geekdom, humour, Haskell]
+tags: [geekdom, humour, haskell]
 date: 2013-08-19 20:28:57
 redirect_from: /go/229/
 ---

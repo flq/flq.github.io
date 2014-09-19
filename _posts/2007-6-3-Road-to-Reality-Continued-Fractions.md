@@ -1,7 +1,7 @@
 ---
 title: "Road to Reality - Continued Fractions"
 layout: post
-tags: [software-development, mathematics, Haskell]
+tags: [software-development, mathematics, haskell]
 date: 2007-06-03 17:34:26
 redirect_from: /go/92/
 ---

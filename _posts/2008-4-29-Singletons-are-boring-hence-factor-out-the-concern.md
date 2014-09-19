@@ -12,25 +12,19 @@ Regardless of whether Singletons are considered harmful or not, I could not resi
 
 Indeed, the solution is hugely similar to [this one here](http://www.cognitivecoding.com/2008/03/hidden-gem-singleton-factory-in-c.html), which was also [credited at dotnetkicks](http://www.cognitivecoding.com/2008/03/hidden-gem-singleton-factory-in-c.html), however, I added the implicit operator for providing some "I am instantiating" feeling to the whole thing:
 
-`
-class SingletonOf<T> where T : class
-{
-    static T instance = (T)Activator.CreateInstance(typeof(T), true);
+	class SingletonOf<T> where T : class
+	{
+	    static T instance = (T)Activator.CreateInstance(typeof(T), true);
 
-    public static implicit operator T (SingletonOf<T> singleton) {
-        return SingletonOf<T>.instance;
-    }
-}
-`
+	    public static implicit operator T (SingletonOf<T> singleton) {
+	        return SingletonOf<T>.instance;
+	    }
+	}
 
 The implicit operator makes it possible to do this:
 
-`
-Person p = new SingletonOf<Person>();
-Person p2 = new SingletonOf<Person>();
-Debug.Assert(object.ReferenceEquals(p, p2), "W00t?! They should be equal!");
-`
+	Person p = new SingletonOf<Person>();
+	Person p2 = new SingletonOf<Person>();
+	Debug.Assert(object.ReferenceEquals(p, p2), "W00t?! They should be equal!");
 
 Doesn't it look funny? I find it quite likeable and you definitely don't pollute the class in question with some singleton boilerplate. I would like to say "Go forth and multiply" but it seems wholly inappropriate for the issue at hand...
-
-[![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2frealfiction.net%2f%3fq%3dnode%2f153&bgcolor=0000CC)](http://www.dotnetkicks.com/kick/?url=http%3a%2f%2frealfiction.net%2f%3fq%3dnode%2f153)

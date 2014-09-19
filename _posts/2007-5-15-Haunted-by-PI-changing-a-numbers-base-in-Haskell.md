@@ -1,7 +1,7 @@
 ---
 title: "Haunted by PI - changing a number's base in Haskell"
 layout: post
-tags: [software-development, geekdom, mathematics, Haskell]
+tags: [software-development, geekdom, mathematics, haskell]
 date: 2007-05-15 21:15:28
 redirect_from: /go/86/
 ---

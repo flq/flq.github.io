@@ -110,4 +110,4 @@ Again, if you prefer working without a configuration entry, you can set this up 
 
 That's it, you shouldn't need more, honest, dude. No generated class in sight, all interfaces are the same throughout Client and Server. Distribute over projects/threads/app domains at your leisure and enjoy.
 
-**Update**: [Here is a small vs2008 solution](/public/assets/RF.WCF.Callback.zip) attached below that shows the programmatic setup of this blog post.
+**Update**: [Here is a small vs2008 solution](/public/assets/RF.WCF.Callback.zip) that shows the programmatic setup of this blog post.

@@ -1,7 +1,7 @@
 ---
 title: "Haskell decision making"
 layout: post
-tags: [software-development, Haskell]
+tags: [software-development, haskell]
 date: 2007-05-30 19:59:22
 redirect_from: /go/90/
 ---

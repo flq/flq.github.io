@@ -1,12 +1,13 @@
 ---
 title: "FunSpIns - The hero shoots."
 layout: post
-tags: [software-development, Haskell, fun-spin]
+tags: [software-development, haskell, fun-spin]
 date: 2013-09-25 14:00:00
 redirect_from: /go/236/
 ---
 
 > Inspired by Rob Ashton's series "[Learn functional programming with me][1]"
+
 
 Before getting down to the additions necessary to get great space defender to shoot, a few refactorings that occurred along the way...
 
