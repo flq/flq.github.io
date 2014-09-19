@@ -1,7 +1,7 @@
 ---
 title: "Coding Katas – Improving the mechanics of coding"
 layout: post
-tags: [programming]
+tags: [software-development]
 date: 2011-02-14 11:13:00
 redirect_from: /go/197/
 ---

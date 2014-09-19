@@ -1,7 +1,7 @@
 ---
 title: "Repository or DAO?: Repository"
 layout: post
-tags: [programming, libs-and-frameworks, csharp, patterns]
+tags: [software-development, libs-and-frameworks, csharp, patterns]
 date: 2009-09-21 20:20:51
 redirect_from: /go/149/
 ---

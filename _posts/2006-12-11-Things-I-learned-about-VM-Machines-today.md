@@ -1,7 +1,7 @@
 ---
 title: "Things I learned about VM Machines today"
 layout: post
-tags: [programming, technology]
+tags: [software-development, technology]
 date: 2006-12-11 20:58:04
 redirect_from: /go/56/
 ---

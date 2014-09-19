@@ -1,7 +1,7 @@
 ---
 title: "MemBus extension points"
 layout: post
-tags: [programming, patterns, csharp, membus]
+tags: [software-development, patterns, csharp, membus]
 date: 2010-09-20 06:08:00
 redirect_from: /go/181/
 ---

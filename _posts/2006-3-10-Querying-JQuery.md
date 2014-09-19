@@ -1,7 +1,7 @@
 ---
 title: "Querying JQuery"
 layout: post
-tags: [programming, javascript, download]
+tags: [software-development, javascript, download]
 date: 2006-03-10 21:42:00
 redirect_from: /go/15/
 ---

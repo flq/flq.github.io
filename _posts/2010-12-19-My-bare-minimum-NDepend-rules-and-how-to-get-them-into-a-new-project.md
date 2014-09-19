@@ -1,7 +1,7 @@
 ---
 title: "My bare minimum NDepend rules (and how to get them into a new project)"
 layout: post
-tags: [programming, tools]
+tags: [software-development, tools]
 date: 2010-12-19 21:37:00
 redirect_from: /go/193/
 ---

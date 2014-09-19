@@ -1,7 +1,7 @@
 ---
 title: "membus v2 news"
 layout: post
-tags: [programming, dotnet, membus]
+tags: [software-development, dotnet, membus]
 date: 2012-03-22 13:00:00
 redirect_from: /go/216/
 ---

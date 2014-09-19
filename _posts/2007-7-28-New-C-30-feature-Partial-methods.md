@@ -1,7 +1,7 @@
 ---
 title: "New C# 3.0 feature - Partial methods"
 layout: post
-tags: [programming, dotnet]
+tags: [software-development, dotnet]
 date: 2007-07-28 20:36:11
 redirect_from: /go/99/
 ---

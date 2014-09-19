@@ -1,7 +1,7 @@
 ---
 title: "Wie ich REST meiner Ehefrau erkl&auml;rte"
 layout: post
-tags: [programming, loosely-coupled, web]
+tags: [software-development, loosely-coupled, web]
 date: 2010-07-30 16:45:00
 redirect_from: /go/172/
 ---

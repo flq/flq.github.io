@@ -1,7 +1,7 @@
 ---
 title: "How can I get rid of this goto?"
 layout: post
-tags: [programming, csharp]
+tags: [software-development, csharp]
 date: 2009-09-24 22:01:33
 redirect_from: /go/150/
 ---

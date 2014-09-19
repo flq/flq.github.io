@@ -1,7 +1,7 @@
 ---
 title: "The funny 8s and 9s in javascript"
 layout: post
-tags: [programming, javascript]
+tags: [software-development, javascript]
 date: 2007-06-19 15:02:21
 redirect_from: /go/94/
 ---

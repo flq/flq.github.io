@@ -1,7 +1,7 @@
 ---
 title: "MemBus + Caliburn.Micro = Lean Screen"
 layout: post
-tags: [programming, dotnet, membus, libs-and-frameworks]
+tags: [software-development, dotnet, membus, libs-and-frameworks]
 date: 2010-10-01 21:54:00
 redirect_from: /go/184/
 ---

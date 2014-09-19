@@ -1,7 +1,7 @@
 ---
 title: "Small trap on .NET 2.0 List object"
 layout: post
-tags: [programming, dotnet]
+tags: [software-development, dotnet]
 date: 2006-07-19 19:54:06
 redirect_from: /go/46/
 ---

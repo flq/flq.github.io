@@ -1,7 +1,7 @@
 ---
 title: "Applying Attributes to method parameters"
 layout: post
-tags: [programming, dotnet]
+tags: [software-development, dotnet]
 date: 2007-12-02 19:46:23
 redirect_from: /go/108/
 ---

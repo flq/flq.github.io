@@ -1,7 +1,7 @@
 ---
 title: "Javascript FTW or what's 'this' anyway?"
 layout: post
-tags: [programming, javascript]
+tags: [software-development, javascript]
 date: 2008-01-30 20:48:39
 redirect_from: /go/114/
 ---

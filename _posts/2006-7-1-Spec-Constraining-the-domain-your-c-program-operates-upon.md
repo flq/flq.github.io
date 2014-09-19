@@ -1,7 +1,7 @@
 ---
 title: "Spec# - Constraining the domain your c# program operates upon"
 layout: post
-tags: [programming, dotnet]
+tags: [software-development, dotnet]
 date: 2006-07-01 14:23:49
 redirect_from: /go/37/
 ---

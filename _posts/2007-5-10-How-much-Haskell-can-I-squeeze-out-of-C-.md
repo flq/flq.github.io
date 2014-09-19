@@ -1,7 +1,7 @@
 ---
 title: "How much Haskell can I squeeze out of C#?"
 layout: post
-tags: [programming, dotnet, Haskell]
+tags: [software-development, dotnet, Haskell]
 date: 2007-05-10 10:52:25
 redirect_from: /go/84/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Don't be afraid of your csproj-Files (I): Embracing the idea"
 layout: post
-tags: [programming, msbuild]
+tags: [software-development, msbuild]
 date: 2008-07-30 22:05:37
 redirect_from: /go/128/
 ---

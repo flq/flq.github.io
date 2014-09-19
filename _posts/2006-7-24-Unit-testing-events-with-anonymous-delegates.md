@@ -1,7 +1,7 @@
 ---
 title: "Unit testing events with anonymous delegates"
 layout: post
-tags: [programming, dotnet]
+tags: [software-development, dotnet]
 date: 2006-07-24 19:19:52
 redirect_from: /go/47/
 ---

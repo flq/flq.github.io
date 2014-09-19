@@ -1,7 +1,7 @@
 ---
 title: "WCF + Facebook (break a RESTing fly on MS wheels) - Intro"
 layout: post
-tags: [programming, dotnet, libs-and-frameworks]
+tags: [software-development, dotnet, libs-and-frameworks]
 date: 2007-08-07 20:00:00
 redirect_from: /go/96/
 ---

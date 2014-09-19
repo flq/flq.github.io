@@ -1,7 +1,7 @@
 ---
 title: "Trying to LINQ it all together (Pt. I)"
 layout: post
-tags: [programming, dotnet, libs-and-frameworks]
+tags: [software-development, dotnet, libs-and-frameworks]
 date: 2007-04-25 21:33:33
 redirect_from: /go/82/
 ---

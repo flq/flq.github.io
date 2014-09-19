@@ -1,7 +1,7 @@
 ---
 title: "Introducing the realfiction builder &ndash; MsBuild without XML"
 layout: post
-tags: [own-software, programming, msbuild]
+tags: [own-software, software-development, msbuild]
 date: 2010-03-08 05:05:00
 redirect_from: /go/160/
 ---

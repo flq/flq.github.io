@@ -1,7 +1,7 @@
 ---
 title: "A simple way to start your code in a different AppDomain"
 layout: post
-tags: [programming, dotnet]
+tags: [software-development, dotnet]
 date: 2008-05-20 16:50:13
 redirect_from: /go/124/
 ---

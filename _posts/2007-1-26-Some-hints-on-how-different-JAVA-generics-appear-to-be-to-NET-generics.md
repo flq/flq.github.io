@@ -1,7 +1,7 @@
 ---
 title: "Some hints on how different JAVA generics appear to be to .NET generics"
 layout: post
-tags: [programming, dotnet, JAVA]
+tags: [software-development, dotnet, JAVA]
 date: 2007-01-26 14:06:33
 redirect_from: /go/58/
 ---

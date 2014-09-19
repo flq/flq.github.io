@@ -1,7 +1,7 @@
 ---
 title: "&Oslash;redev keynote #1: NASA&rsquo;s Jeff Norris"
 layout: post
-tags: [oredev, programming, loosely-coupled, geekdom]
+tags: [oredev, software-development, loosely-coupled, geekdom]
 date: 2010-11-10 23:01:00
 redirect_from: /go/186/
 ---

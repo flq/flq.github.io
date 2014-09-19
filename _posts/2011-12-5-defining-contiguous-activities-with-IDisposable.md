@@ -1,7 +1,7 @@
 ---
 title: "defining contiguous activities with IDisposable"
 layout: post
-tags: [programming, dotnet, patterns, fsharp]
+tags: [software-development, dotnet, patterns, fsharp]
 date: 2011-12-05 08:00:00
 redirect_from: /go/210/
 ---

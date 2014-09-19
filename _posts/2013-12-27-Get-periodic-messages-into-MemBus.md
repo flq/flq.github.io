@@ -1,7 +1,7 @@
 ---
 title: "Get periodic messages into MemBus"
 layout: post
-tags: [programming, membus]
+tags: [software-development, membus]
 date: 2013-12-27 14:00:00
 redirect_from: /go/241/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Ugly integration test&hellip;what can I do better?"
 layout: post
-tags: [programming, dotnet, patterns]
+tags: [software-development, dotnet, patterns]
 date: 2010-08-16 09:08:00
 redirect_from: /go/174/
 ---

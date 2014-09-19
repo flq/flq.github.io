@@ -1,7 +1,7 @@
 ---
 title: "MemBus Rich Client showcase: A WPF Twitter Client"
 layout: post
-tags: [programming, dotnet, membus]
+tags: [software-development, dotnet, membus]
 date: 2010-09-15 20:35:00
 redirect_from: /go/182/
 ---

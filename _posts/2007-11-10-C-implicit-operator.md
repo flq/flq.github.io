@@ -1,7 +1,7 @@
 ---
 title: "C# implicit operator"
 layout: post
-tags: [programming, dotnet]
+tags: [software-development, dotnet]
 date: 2007-11-10 12:38:04
 redirect_from: /go/104/
 ---

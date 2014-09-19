@@ -1,7 +1,7 @@
 ---
 title: "MemBus: New Features…"
 layout: post
-tags: [programming, dotnet, patterns, membus]
+tags: [software-development, dotnet, patterns, membus]
 date: 2010-11-26 00:00:00
 redirect_from: /go/190/
 ---

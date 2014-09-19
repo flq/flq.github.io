@@ -1,7 +1,7 @@
 ---
 title: "More tricks from ye olde Event Aggregator: No, I don’t want that message for a while"
 layout: post
-tags: [programming, membus]
+tags: [software-development, membus]
 date: 2011-08-12 20:46:00
 redirect_from: /go/203/
 ---

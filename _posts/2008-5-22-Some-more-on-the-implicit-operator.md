@@ -1,7 +1,7 @@
 ---
 title: "Some more on the implicit operator"
 layout: post
-tags: [programming, dotnet]
+tags: [software-development, dotnet]
 date: 2008-05-22 19:59:27
 redirect_from: /go/125/
 ---

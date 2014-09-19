@@ -1,7 +1,7 @@
 ---
 title: "Realfiction Goodies - .NET Stuff you may like to use"
 layout: post
-tags: [programming, download, dotnet]
+tags: [software-development, download, dotnet]
 date: 2006-07-02 12:01:08
 redirect_from: /go/38/
 ---

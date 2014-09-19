@@ -1,7 +1,7 @@
 ---
 title: "MemBus: A more complex rich client setup"
 layout: post
-tags: [programming, dotnet, patterns, membus]
+tags: [software-development, dotnet, patterns, membus]
 date: 2010-09-06 09:00:00
 redirect_from: /go/178/
 ---

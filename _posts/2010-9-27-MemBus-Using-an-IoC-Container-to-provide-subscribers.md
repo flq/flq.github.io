@@ -1,7 +1,7 @@
 ---
 title: "MemBus: Using an IoC Container to provide subscribers"
 layout: post
-tags: [programming, patterns, membus]
+tags: [software-development, patterns, membus]
 date: 2010-09-27 20:41:00
 redirect_from: /go/183/
 ---

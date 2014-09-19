@@ -1,7 +1,7 @@
 ---
 title: "Having fun in irb"
 layout: post
-tags: [programming, ruby, download]
+tags: [software-development, ruby, download]
 date: 2006-03-14 19:06:00
 redirect_from: /go/16/
 ---

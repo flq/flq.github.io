@@ -1,7 +1,7 @@
 ---
 title: "Greg Young’s 19.5 things from Øredev"
 layout: post
-tags: [programming, patterns, oredev]
+tags: [software-development, patterns, oredev]
 date: 2010-11-28 13:26:00
 redirect_from: /go/191/
 ---

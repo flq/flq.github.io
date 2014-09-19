@@ -1,7 +1,7 @@
 ---
 title: "Three degrees of Framework"
 layout: post
-tags: [programming, patterns]
+tags: [software-development, patterns]
 date: 2013-04-04 07:12:51
 redirect_from: /go/221/
 ---

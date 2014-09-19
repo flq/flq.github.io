@@ -1,7 +1,7 @@
 ---
 title: "fixie and resharper, smooth sailing on the Agenda."
 layout: post
-tags: [programming]
+tags: [software-development]
 date: 2014-02-22 20:56:26
 redirect_from: /go/242/
 ---

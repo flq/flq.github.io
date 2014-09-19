@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio 2010: Introducing new pitfalls"
 layout: post
-tags: [programming, dotnet, tools]
+tags: [software-development, dotnet, tools]
 date: 2010-05-07 22:37:00
 redirect_from: /go/167/
 ---
