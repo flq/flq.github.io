@@ -7,6 +7,7 @@ redirect_from: /go/233/
 ---
 
 > Inspired by Rob Ashton's series "[Learn][1] [functional][2] [programming with me][3]"
+
 This post kind of covers 3 of Rob's posts, as, frankly, I can't say much about attributes - in Rob's case it refers to the DOM, which we don't have here.
 Why he would mention Vectors? I don't know, maybe to sound fancy ;)  
 

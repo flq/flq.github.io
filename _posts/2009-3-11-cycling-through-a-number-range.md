@@ -14,14 +14,14 @@ I hesitated, for my home PC has no Visual Studio. Alas, the trusty ol' csc is pa
 
 With the following code you can count up an index and let it roll over once it hits a limit and start with 0 again. Once you "get" the code you will understand that _limit_ can be any number of the form 2<sup>n</sup>-1...
 
-`
-int limit = 1; int count = 0;
 
-while (true) {
-  System.Threading.Thread.Sleep(300);
-  Console.WriteLine(count);
-  count = (count + 1) & limit;
-}
-`
+	int limit = 1; int count = 0;
+
+	while (true) {
+	  System.Threading.Thread.Sleep(300);
+	  Console.WriteLine(count);
+	  count = (count + 1) & limit;
+	}
+
 
 It really isn't a big deal, but it's a nice reminder of binary arithmetics and if you are a performance geek (insert statement of premature optimization etc. here) you will like the fact that this counter is consistently faster than doing it with a modulo (%) operation. In fact, up to 4ms...repeating it 10'000'000 times. ;)

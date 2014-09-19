@@ -10,13 +10,11 @@ The DI container StructureMap has been coming along nicely lately, with version 
 
 A rather inviting pattern one can be lured into in DI container usage is using the container as service locator:
 
-<csharp>
-public ShippingScreenPresenter()
-{
-  _service = ObjectFactory.GetInstance<IShippingService>();
-  _repository = ObjectFactory.GetInstance<IRepository>();
-}
-</csharp>
+    public ShippingScreenPresenter()
+    {
+      _service = ObjectFactory.GetInstance<IShippingService>();
+      _repository = ObjectFactory.GetInstance<IRepository>();
+    }
 
 (This example is taken straight from Jeremy's [recent StructureMap post](http://codebetter.com/blogs/jeremy.miller/archive/2009/01/07/autowiring-in-structuremap-2-5.aspx))
 
@@ -24,39 +22,36 @@ As simple as it looks, splattering references to some "ObjectFactory" all over y
 
 StructureMap also has the notion of named instances, i.e. objects that are not retrieved as default but are rather stored under a key which must be used to retrieve said instance again. StructureMap can even provide you with named instances (or custom instances) when doing constructor-based injection. It may look something like that (taken from a StructureMap registry, the place to configure object dependencies):
 
-<csharp>
-ForRequestedType<Form>()
-  .CacheBy(InstanceScope.Singleton)
-  .TheDefault.Is.OfConcreteType<MainForm>().CtorDependency<IApplicationModule>().Is(a=>a.TheInstanceNamed("MainModule"));
-</csharp>
+
+    ForRequestedType<Form>()
+      .CacheBy(InstanceScope.Singleton)
+      .TheDefault.Is.OfConcreteType<MainForm>()
+      .CtorDependency<IApplicationModule>().Is(a=>a.TheInstanceNamed("MainModule"));
 
 In another scenario I have the problem that a class needs to obtain instances based on code that will provide an instance name. Here starting to use the ObjectFactory as service locator is ever so inviting. However, there is a simple way to provide some straightforward decoupling from the ObjectFactory. I delegate the resolving of object to an...ObjectResolver. This class is generic and the provided type argument sets what kind of types are being looked up. The implementation is very straightforward:
 
-<csharp>
-public class ObjectResolver<T> where T : class
-{
-  public virtual T this[string key] { 
-    get { 
-      return ObjectFactory.GetNamedInstance<T>(key); 
+    public class ObjectResolver<T> where T : class
+    {
+      public virtual T this[string key] { 
+        get { 
+          return ObjectFactory.GetNamedInstance<T>(key); 
+        }
+      }
     }
-  }
-}
-</csharp>
 
 Now I can express the dependency to an ObjectResolver as with any other type in the constructor:
 
-<csharp>
-public class CommandMediator {
-  ctor(ObjectResolver<ICommand> cmdResolver) {
-    ...
-  }
+    public class CommandMediator {
+      ctor(ObjectResolver<ICommand> cmdResolver) {
+        ...
+      }
 
-  public void Foo() {
-    var cmd = cmdResolver["Save"];
-    Assert.That(cmd != null);
-  }
-}
-</csharp>
+      public void Foo() {
+        var cmd = cmdResolver["Save"];
+        Assert.That(cmd != null);
+      }
+    }
+
 
 In what way is this better than doing service locating?
 
@@ -67,15 +62,13 @@ In what way is this better than doing service locating?
 
 Check out the following code that uses [Rhino Mocks](http://ayende.com/projects/rhino-mocks.aspx) to provide a satisfying response within a test:
 
-<csharp>
-public void MediatorWillInstantiateSaveCommand {
-  var cmd = new Command();
-  var resolver = MockRepository.GenerateMock<ObjectResolver<ICommand>>();
-  resolver.Expect(r=>r[null]).Constraints(Is.Equal("Save")).Return(cmd);
-  var mediator = new CommandMediator(resolver);
-  mediator.Foo();
-  resolver.VerifyAllExpectations();
-}
-</csharp>
+    public void MediatorWillInstantiateSaveCommand {
+      var cmd = new Command();
+      var resolver = MockRepository.GenerateMock<ObjectResolver<ICommand>>();
+      resolver.Expect(r=>r[null]).Constraints(Is.Equal("Save")).Return(cmd);
+      var mediator = new CommandMediator(resolver);
+      mediator.Foo();
+      resolver.VerifyAllExpectations();
+    }
 
 What I am trying to say is: Put some effort into your code when you see yourself using a DI Container as Service Locator. It is most likely to pay off in several ways.

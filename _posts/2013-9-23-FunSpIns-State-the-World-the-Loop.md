@@ -7,6 +7,7 @@ redirect_from: /go/234/
 ---
 
 > Inspired by Rob Ashton's series "[Learn functional][4] [programming with me][6]"
+
 Recreating this episode *really* had me on the brink of giving up the whole thing. I am not a games programmer, **FFS**, what am I *doing* here?
 
 When it comes to things that look mildly imperative or indeed involve mutating state, Haskell keeps doing my head in. Of course Haskell has no troubles with state and its tendency to change, but while other languages have state baked in, in Haskell it is pretty much just another abstraction.

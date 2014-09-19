@@ -7,6 +7,7 @@ redirect_from: /go/231/
 ---
 
 > Inspired by Rob Ashton's series "[Learn functional programming with me][1]"
+
 It probably *is* a good idea to introduce to some basic syntax:
 
 A Haskell function call:
