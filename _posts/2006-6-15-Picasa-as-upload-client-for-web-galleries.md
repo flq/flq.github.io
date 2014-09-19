@@ -1,7 +1,7 @@
 ---
 title: "Picasa as upload client for web galleries"
 layout: post
-tags: [loosely-coupled, google]
+tags: [web]
 date: 2006-06-15 15:46:57
 redirect_from: /go/33/
 ---

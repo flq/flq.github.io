@@ -1,7 +1,7 @@
 ---
 title: "Showing off Oblivion physics engine"
 layout: post
-tags: [loosely-coupled, visual]
+tags: [technology, physics, programming]
 date: 2006-05-26 09:51:39
 redirect_from: /go/14/
 ---

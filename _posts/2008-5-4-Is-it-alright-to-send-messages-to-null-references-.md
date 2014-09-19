@@ -1,7 +1,7 @@
 ---
 title: "Is it alright to send messages to null references?"
 layout: post
-tags: [programming, dotnet, TrivadisContent, patterns]
+tags: [programming, dotnet, patterns]
 date: 2008-05-04 19:01:54
 redirect_from: /go/121/
 ---

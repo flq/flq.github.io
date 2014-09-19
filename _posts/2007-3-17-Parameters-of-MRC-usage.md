@@ -1,7 +1,7 @@
 ---
 title: "Parameters of MRC usage"
 layout: post
-tags: [saitron, sci-fi]
+tags: [sci-fi]
 date: 2007-03-17 20:10:09
 redirect_from: /go/73/
 ---

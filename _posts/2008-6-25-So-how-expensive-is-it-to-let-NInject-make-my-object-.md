@@ -1,7 +1,7 @@
 ---
 title: "So, how expensive is it to let NInject make my object?"
 layout: post
-tags: [programming, dotnet, TrivadisContent, software-architecture, castle-windsor, dependency-injection, ninject]
+tags: [programming, dotnet, patterns, libs-and-frameworks]
 date: 2008-06-25 13:11:57
 redirect_from: /go/127/
 ---

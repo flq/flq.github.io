@@ -1,7 +1,7 @@
 ---
 title: "Proposal for Open Source Software usage in .NET (as comfy as rubygems)"
 layout: post
-tags: [dotnet, TrivadisContent, open-source, bin4net]
+tags: [dotnet, own-software]
 date: 2010-02-28 06:00:00
 redirect_from: /go/157/
 ---

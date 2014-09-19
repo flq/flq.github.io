@@ -1,7 +1,7 @@
 ---
 title: "Another beacon in a sea of expressions"
 layout: post
-tags: [programming, download, dotnet, TrivadisContent, LINQ]
+tags: [programming, download, dotnet, libs-and-frameworks]
 date: 2009-03-07 15:57:43
 redirect_from: /go/139/
 ---

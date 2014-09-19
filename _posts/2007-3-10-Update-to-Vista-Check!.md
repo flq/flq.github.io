@@ -1,7 +1,7 @@
 ---
 title: "Update to Vista - Check!"
 layout: post
-tags: [virtualization, windows]
+tags: [windows]
 date: 2007-03-10 19:55:08
 redirect_from: /go/67/
 ---

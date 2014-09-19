@@ -1,7 +1,7 @@
 ---
 title: "A link to an article from Mark Russinovich"
 layout: post
-tags: [windows, TrivadisContent]
+tags: [windows]
 date: 2007-06-28 10:18:05
 redirect_from: /go/95/
 ---

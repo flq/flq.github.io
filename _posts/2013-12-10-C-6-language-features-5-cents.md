@@ -1,7 +1,7 @@
 ---
 title: "C# 6 language features? 5 cents."
 layout: post
-tags: [programming, C]
+tags: [csharp]
 date: 2013-12-10 14:00:00
 redirect_from: /go/239/
 ---

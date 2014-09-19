@@ -1,7 +1,7 @@
 ---
 title: "Don't be afraid of your csproj-Files (II): Add Your own Targets"
 layout: post
-tags: [dotnet, TrivadisContent, msbuild, visual-studio]
+tags: [dotnet, msbuild, tools]
 date: 2008-08-01 22:03:26
 redirect_from: /go/129/
 ---

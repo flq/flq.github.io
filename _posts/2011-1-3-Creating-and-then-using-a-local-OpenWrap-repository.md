@@ -1,7 +1,7 @@
 ---
 title: "Creating and then using a local OpenWrap repository"
 layout: post
-tags: [TrivadisContent, software-architecture, nuget, openwrap]
+tags: [programming, libs-and-frameworks]
 date: 2011-01-03 22:57:00
 redirect_from: /go/195/
 ---

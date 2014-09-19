@@ -1,7 +1,7 @@
 ---
 title: "Extending Caliburn-Micro's view location strategy"
 layout: post
-tags: [programming, TrivadisContent, WPF, patterns, caliburnmicro]
+tags: [programming, patterns, libs-and-frameworks]
 date: 2012-03-05 14:00:00
 redirect_from: /go/215/
 ---

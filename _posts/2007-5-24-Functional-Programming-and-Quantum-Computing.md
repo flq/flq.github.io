@@ -1,7 +1,7 @@
 ---
 title: "Functional Programming and Quantum Computing"
 layout: post
-tags: [programming, quantum-mechanics, Haskell]
+tags: [physics, Haskell]
 date: 2007-05-24 12:33:10
 redirect_from: /go/89/
 ---

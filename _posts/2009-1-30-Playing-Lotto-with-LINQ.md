@@ -1,7 +1,7 @@
 ---
 title: "Playing Lotto with LINQ"
 layout: post
-tags: [dotnet, geekdom, TrivadisContent, LINQ, lotto]
+tags: [dotnet, geekdom, loosely-coupled]
 date: 2009-01-30 23:12:16
 redirect_from: /go/138/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Coding Katas – Improving the mechanics of coding"
 layout: post
-tags: [programming, dotnet, TrivadisContent, C]
+tags: [programming]
 date: 2011-02-14 11:13:00
 redirect_from: /go/197/
 ---

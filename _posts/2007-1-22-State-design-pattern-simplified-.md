@@ -1,7 +1,7 @@
 ---
 title: "State design pattern, simplified?"
 layout: post
-tags: [programming, download, dotnet, TrivadisContent]
+tags: [programming, download, dotnet]
 date: 2007-01-22 15:03:53
 redirect_from: /go/57/
 ---

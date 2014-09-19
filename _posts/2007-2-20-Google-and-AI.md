@@ -1,7 +1,7 @@
 ---
 title: "Google and A.I."
 layout: post
-tags: [loosely-coupled, google, biology]
+tags: [technology, biology]
 date: 2007-02-20 10:40:25
 redirect_from: /go/60/
 ---

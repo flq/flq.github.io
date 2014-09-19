@@ -1,7 +1,7 @@
 ---
 title: "rfb: Marrying MSBuild and PowerShell"
 layout: post
-tags: [dotnet, TrivadisContent, msbuild, open-source, powershell, rfb]
+tags: [dotnet, msbuild, tools, own-software]
 date: 2010-03-14 02:44:00
 redirect_from: /go/162/
 ---

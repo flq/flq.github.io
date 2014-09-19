@@ -1,7 +1,7 @@
 ---
 title: "In-built conventions in Fubumvc"
 layout: post
-tags: [programming, dotnet, TrivadisContent, web, fubumvc]
+tags: [programming, dotnet, web, libs-and-frameworks]
 date: 2011-11-27 21:30:00
 redirect_from: /go/208/
 ---

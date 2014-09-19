@@ -1,7 +1,7 @@
 ---
 title: "WPF + INotifyPropertyChanged Proxy = Epic Fail!"
 layout: post
-tags: [download, dotnet, TrivadisContent, WPF, castle-windsor]
+tags: [download, dotnet, libs-and-frameworks]
 date: 2008-05-08 20:48:58
 redirect_from: /go/122/
 ---
@@ -16,73 +16,72 @@ The idea grew: Implement a class that is abstract. All properties defined on it 
 
 However, the Interceptor registers when the setter of such a property is accessed. Provided you do not "Proceed" to an underlying implementation (that may not exist), you can provide an implementation of the property within the Interceptor itself. This is quite easy and in my case I just based it on a Dictionary:
 
-<csharp>
+
 Dictionary<string, object> values = new Dictionary<string, object>();
 ...
 public void Intercept(IInvocation invocation)
 {
-  ...
-  bool talkingToPropertySetter = 
-    invocation.Method.IsSpecialName && invocation.Method.Name.StartsWith("set_");
-  bool talkingToPropertyGetter = ...
-  ...
-  if (talkingToPropertyGetter)
-  {
-    object output;
-    values.TryGetValue(GetPropertyName(invocation.Method), out output);
-    invocation.ReturnValue = output;
-  }
-  if (talkingToPropertySetter)
-  {
-    values[GetPropertyName(invocation.Method)] = invocation.Arguments[0];
-    RaisePropertyChangedEvent(invocation.InvocationTarget,GetPropertyName(invocation.Method));
-  }
-  ...
-</csharp>
+...
+bool talkingToPropertySetter = 
+invocation.Method.IsSpecialName && 
+invocation.Method.Name.StartsWith("set_");
+bool talkingToPropertyGetter = ...
+...
+if (talkingToPropertyGetter)
+{
+object output;
+values.TryGetValue(GetPropertyName(invocation.Method), out output);
+invocation.ReturnValue = output;
+}
+if (talkingToPropertySetter)
+{
+values[GetPropertyName(invocation.Method)] = invocation.Arguments[0];
+RaisePropertyChangedEvent(invocation.InvocationTarget,
+GetPropertyName(invocation.Method));
+}
+...
 
 You can also already see how the interceptor raises the event. Indeed, the abstract class does not event need to implement the INotifyPropertyChanged interface: We can say that our proxy should implement it and simply ensure that our interceptor implements the mechanics:
 
-<csharp>
 class PropertyInterceptor : IInterceptor
 {
-  PropertyChangedEventHandler handler;
-  ...
-  public void Intercept(IInvocation invocation)
-  {
-    bool talkingToAddChangedEventHandler = invocation.Method.Name == "add_PropertyChanged";
-    ...
-    if (talkingToAddChangedEventHandler)
-    {
-      handler += (PropertyChangedEventHandler)invocation.Arguments[0];
-    }
-    ...
-    private void RaisePropertyChangedEvent(object o, string notifiedProperty)
-    {
-      if (handler != null) handler(o, new PropertyChangedEventArgs(notifiedProperty));
-    }
-</csharp>
+PropertyChangedEventHandler handler;
+...
+public void Intercept(IInvocation invocation)
+{
+bool talkingToAddChangedEventHandler = 
+invocation.Method.Name == "add_PropertyChanged";
+...
+if (talkingToAddChangedEventHandler)
+{
+handler += (PropertyChangedEventHandler)invocation.Arguments[0];
+}
+...
+private void RaisePropertyChangedEvent(object o, string notifiedProperty)
+{
+if (handler != null) handler(o, new PropertyChangedEventArgs(notifiedProperty));
+}
+}
 
 The attached solution shows the full implementation of the prototype. Basically, it works. This play-class behaves as a fully fledged class implementing INotifyPropertyChanged and raising events like the big kids do:
 
-<csharp>
-  public abstract class Person
-  {
-    public abstract string FirstName { get; set; }
-    public abstract DateTime Birthdate { get; set; }
 
-    public virtual void Promote()
-    {
-      this.FirstName = FirstName + " The Chief";
-    }
-  }
-</csharp>
+public abstract class Person
+{
+public abstract string FirstName { get; set; }
+public abstract DateTime Birthdate { get; set; }
+
+public virtual void Promote()
+{
+this.FirstName = FirstName + " The Chief";
+}
+}
 
 And then to get the proxy:
 
-<csharp>
 Person p2 = new NotifyingGenerator().Create<Person>();
-((INotifyPropertyChanged)p2).PropertyChanged += new PropertyChangedEventHandler(p2_PropertyChanged);
-</csharp>
+((INotifyPropertyChanged)p2).PropertyChanged += 
+new PropertyChangedEventHandler(p2_PropertyChanged);
 
 Great! On to WPF. After all, one of the main uses of such a such a class would be to bind it to some WPF UI. Here is were things go very awry.
 
@@ -95,5 +94,3 @@ My second attempt was to make the abstract properties on Person protected, provi
 Epic fails are quite normal for a first shot, but looks like we need to stick to boilerplate code for now...
 
 The VS2008 solution contains both attempts, you can check for yourself. Maybe there is a solution to the issue after all. If time permits I will do some manual reflection on the proxy to try and get an AmbiguousMatchException myself, which should guide to a possible solution if there is any.
-
-[![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2frealfiction.net%2f%3fq%3dnode%2f156&bgcolor=0000CC)](http://www.dotnetkicks.com/kick/?url=http%3a%2f%2frealfiction.net%2f%3fq%3dnode%2f156)

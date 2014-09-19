@@ -1,7 +1,7 @@
 ---
 title: "Making a WinRT component out of Membus – Pt.1, making Membus compile"
 layout: post
-tags: [programming, dotnet, TrivadisContent, membus, metro]
+tags: [programming, dotnet, membus, libs-and-frameworks]
 date: 2011-09-19 19:51:58
 redirect_from: /go/204/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Intermezzo: XSL 2.0 on .NET"
 layout: post
-tags: [programming, dotnet, TrivadisContent, xml]
+tags: [programming, dotnet, tools]
 date: 2009-08-07 22:28:53
 redirect_from: /go/148/
 ---

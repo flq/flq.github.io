@@ -1,7 +1,7 @@
 ---
 title: "When your fictional creations take over"
 layout: post
-tags: [loosely-coupled, visual]
+tags: [humour]
 date: 2006-06-05 14:45:31
 redirect_from: /go/25/
 ---

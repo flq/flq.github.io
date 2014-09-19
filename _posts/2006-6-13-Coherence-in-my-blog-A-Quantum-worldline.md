@@ -1,7 +1,7 @@
 ---
 title: "Coherence in my blog: A Quantum worldline"
 layout: post
-tags: [physics, quantum-mechanics]
+tags: [physics]
 date: 2006-06-13 20:02:30
 redirect_from: /go/32/
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Untyped matter &amp; RIM fuelling"
 layout: post
-tags: [saitron, sci-fi]
+tags: [sci-fi]
 date: 2007-03-18 10:40:47
 redirect_from: /go/75/
 ---

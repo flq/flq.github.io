@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET MVC: class / action, not method / action"
 layout: post
-tags: [programming, TrivadisContent, software-architecture, C, StructureMap, ASPNET-MVC]
+tags: [patterns, libs-and-frameworks, csharp]
 date: 2009-09-28 08:13:05
 redirect_from: /go/151/
 ---

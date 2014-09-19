@@ -1,7 +1,7 @@
 ---
 title: "Spring.AOP, Castle.DynamicProxy2 - first glance from an outsider"
 layout: post
-tags: [programming, dotnet, TrivadisContent, castle-windsor]
+tags: [dotnet, libs-and-frameworks]
 date: 2008-04-30 20:24:37
 redirect_from: /go/120/
 ---

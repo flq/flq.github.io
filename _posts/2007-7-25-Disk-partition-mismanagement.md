@@ -1,7 +1,7 @@
 ---
 title: "Disk partition (mis)management"
 layout: post
-tags: [windows, TrivadisContent]
+tags: [windows]
 date: 2007-07-25 11:10:16
 redirect_from: /go/97/
 ---

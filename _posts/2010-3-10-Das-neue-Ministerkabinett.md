@@ -1,7 +1,7 @@
 ---
 title: "Das neue Ministerkabinett"
 layout: post
-tags: [sick-world, loosely-coupled]
+tags: [loosely-coupled,humour]
 date: 2010-03-10 02:27:00
 redirect_from: /go/161/
 ---
@@ -15,11 +15,11 @@ Da die Regierung schon die tiefstmögliche Stufe der Inkompetenz erklommen hat, 
 *   **Bundeskanzler**: _Günther Jauch_
 *   **Auswärtiges**: _Thomas Gottschalk_
 *   **Inneres**: _Hugo Egon Balder_
-*   **Justiz**:_ Michael Mittermeier_
+*   **Justiz**: _Michael Mittermeier_
 *   **Finanzen**: _Dieter Nuhr_
 *   **Wirtschaft u Technologie**: _Django Asül_
 *   **Arbeit u Soziales**: _Bernhard Hoecker_
-*   **Verbraucherschutz u Landwirtschaft**:_ Cindy aus Marzahn_
+*   **Verbraucherschutz u Landwirtschaft**: _Cindy aus Marzahn_
 *   **Verteidigungsminister**: _Hella v. Sinnen_
 *   **Familie, Senioren, Frauen und Jugend**: _Rüdiger Hoffmann_
 *   **Gesundheitsminister**: _Eckhart v. Hirschhausen_

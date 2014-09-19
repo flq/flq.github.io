@@ -1,7 +1,7 @@
 ---
 title: "WPF + INotifyPropertyChanged Proxy = success!"
 layout: post
-tags: [dotnet, TrivadisContent, WPF, castle-windsor]
+tags: [dotnet, libs-and-frameworks]
 date: 2008-06-16 14:04:18
 redirect_from: /go/126/
 ---

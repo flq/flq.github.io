@@ -1,7 +1,7 @@
 ---
 title: "Links around Øredev 2010"
 layout: post
-tags: [loosely-coupled, TrivadisContent, oredev]
+tags: [loosely-coupled, oredev]
 date: 2010-11-29 09:00:00
 redirect_from: /go/189/
 ---

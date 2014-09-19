@@ -1,7 +1,7 @@
 ---
 title: "Øredev aftermath: Improve your Feedback with Patrick Kua"
 layout: post
-tags: [loosely-coupled, TrivadisContent, oredev]
+tags: [loosely-coupled, oredev]
 date: 2010-11-24 13:14:00
 redirect_from: /go/188/
 ---

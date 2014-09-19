@@ -1,7 +1,7 @@
 ---
 title: "Dependency Injection is not locating services"
 layout: post
-tags: [dotnet, TrivadisContent, dependency-injection, StructureMap]
+tags: [dotnet, patterns, libs-and-frameworks]
 date: 2009-01-07 22:23:13
 redirect_from: /go/137/
 ---

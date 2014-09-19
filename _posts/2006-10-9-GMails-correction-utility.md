@@ -1,7 +1,7 @@
 ---
 title: "GMail's correction utility..."
 layout: post
-tags: [loosely-coupled, google]
+tags: [humour]
 date: 2006-10-09 15:31:34
 redirect_from: /go/55/
 ---

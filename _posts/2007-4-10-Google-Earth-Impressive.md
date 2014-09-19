@@ -1,7 +1,7 @@
 ---
 title: "Google Earth Impressive"
 layout: post
-tags: [visual, google]
+tags: [technology]
 date: 2007-04-10 19:05:22
 redirect_from: /go/79/
 ---

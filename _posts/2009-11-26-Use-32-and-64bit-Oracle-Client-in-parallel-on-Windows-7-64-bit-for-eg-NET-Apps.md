@@ -1,7 +1,7 @@
 ---
 title: "Use 32 and 64bit Oracle Client in parallel on Windows 7 64-bit for e.g. .NET Apps"
 layout: post
-tags: [dotnet, TrivadisContent, oracle, haxz]
+tags: [dotnet, tools]
 date: 2009-11-26 19:46:56
 redirect_from: /go/153/
 ---

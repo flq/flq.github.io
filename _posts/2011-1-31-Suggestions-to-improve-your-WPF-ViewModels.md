@@ -1,7 +1,7 @@
 ---
 title: "Suggestions to improve your WPF ViewModels"
 layout: post
-tags: [programming, dotnet, TrivadisContent, WPF]
+tags: [dotnet, patterns, libs-and-frameworks]
 date: 2011-01-31 13:00:00
 redirect_from: /go/196/
 ---

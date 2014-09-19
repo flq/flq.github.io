@@ -1,7 +1,7 @@
 ---
 title: "Dealing with primitive obsession (this time: Measurements)"
 layout: post
-tags: [programming, dotnet, TrivadisContent, software-architecture, patterns, C, NMeasure]
+tags: [dotnet, patterns, csharp, own-software]
 date: 2010-11-30 09:00:00
 redirect_from: /go/192/
 ---

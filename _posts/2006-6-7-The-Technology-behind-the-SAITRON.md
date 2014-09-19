@@ -1,7 +1,7 @@
 ---
 title: "The Technology behind the SAITRON"
 layout: post
-tags: [saitron, technology, sci-fi]
+tags: [sci-fi]
 date: 2006-06-07 18:41:10
 redirect_from: /go/28/
 ---

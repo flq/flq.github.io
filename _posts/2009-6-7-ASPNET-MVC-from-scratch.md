@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET MVC from scratch"
 layout: post
-tags: [dotnet, TrivadisContent, visual-studio, ASPNET-MVC]
+tags: [dotnet, libs-and-frameworks, web]
 date: 2009-06-07 19:01:05
 redirect_from: /go/145/
 ---

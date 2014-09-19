@@ -1,7 +1,7 @@
 ---
 title: "That's when I realized my incantation of the Automation API had gone wrong"
 layout: post
-tags: [programming, dotnet, TrivadisContent, WPF]
+tags: [dotnet, libs-and-frameworks]
 date: 2011-02-26 23:11:00
 redirect_from: /go/199/
 ---

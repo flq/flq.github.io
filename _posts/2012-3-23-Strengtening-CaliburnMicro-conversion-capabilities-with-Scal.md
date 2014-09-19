@@ -1,7 +1,7 @@
 ---
 title: "Strengtening Caliburn.Micro conversion capabilities with Scal"
 layout: post
-tags: [programming, dotnet, TrivadisContent, WPF, caliburnmicro]
+tags: [programming, dotnet, libs-and-frameworks]
 date: 2012-03-23 12:00:00
 redirect_from: /go/217/
 ---

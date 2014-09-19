@@ -1,7 +1,7 @@
 ---
 title: "cycling through a number range"
 layout: post
-tags: [programming, dotnet, geekdom, mathematics, TrivadisContent, C]
+tags: [programming, dotnet, geekdom, mathematics, csharp]
 date: 2009-03-11 21:36:30
 redirect_from: /go/140/
 ---

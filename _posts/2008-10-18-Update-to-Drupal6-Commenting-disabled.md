@@ -1,7 +1,7 @@
 ---
 title: "Update to Drupal6 - Commenting disabled"
 layout: post
-tags: [site, drupal]
+tags: [site]
 date: 2008-10-18 21:06:32
 redirect_from: /go/134/
 ---

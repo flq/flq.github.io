@@ -1,7 +1,7 @@
 ---
 title: "In honour of the Pi Day &ndash; Expansion Series in Silverlight"
 layout: post
-tags: [programming, geekdom, mathematics, TrivadisContent, WPF]
+tags: [programming, geekdom, mathematics, libs-and-frameworks]
 date: 2011-03-14 20:57:00
 redirect_from: /go/200/
 ---

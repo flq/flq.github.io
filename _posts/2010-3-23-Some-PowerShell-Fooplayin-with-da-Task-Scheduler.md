@@ -1,7 +1,7 @@
 ---
 title: "Some PowerShell Foo...playin' with da Task Scheduler"
 layout: post
-tags: [powershell]
+tags: [tools]
 date: 2010-03-23 04:43:00
 redirect_from: /go/164/
 ---

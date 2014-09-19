@@ -1,7 +1,7 @@
 ---
 title: "Meet DIs local rep: The AbstractContext"
 layout: post
-tags: [dotnet, TrivadisContent, software-architecture, dependency-injection]
+tags: [dotnet, patterns]
 date: 2009-06-17 20:12:46
 redirect_from: /go/146/
 ---

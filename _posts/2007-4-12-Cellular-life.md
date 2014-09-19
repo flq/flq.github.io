@@ -1,7 +1,7 @@
 ---
 title: "Cellular life"
 layout: post
-tags: [visual, biology]
+tags: [biology]
 date: 2007-04-12 19:12:37
 redirect_from: /go/81/
 ---

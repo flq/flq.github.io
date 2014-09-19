@@ -1,7 +1,7 @@
 ---
 title: "Who would have thought that...(I)"
 layout: post
-tags: [javascript, TrivadisContent, open-source]
+tags: [javascript]
 date: 2010-03-04 01:00:00
 redirect_from: /go/159/
 ---

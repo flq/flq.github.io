@@ -1,7 +1,7 @@
 ---
 title: "Using FubuMVC - Day1"
 layout: post
-tags: [programming, dotnet, web, ASPNET-MVC, fubumvc]
+tags: [programming, dotnet, web, libs-and-frameworks]
 date: 2011-05-07 10:25:00
 redirect_from: /go/202/
 ---

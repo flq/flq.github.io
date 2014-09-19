@@ -1,7 +1,7 @@
 ---
 title: "Double Slit Experiment revisited with video"
 layout: post
-tags: [physics, quantum-mechanics, visual]
+tags: [physics]
 date: 2006-02-26 18:10:00
 redirect_from: /go/12/
 ---

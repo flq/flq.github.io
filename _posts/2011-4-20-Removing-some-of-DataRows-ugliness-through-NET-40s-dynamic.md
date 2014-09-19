@@ -1,7 +1,7 @@
 ---
 title: "Removing some of DataRow's ugliness through .NET 4.0’s dynamic"
 layout: post
-tags: [programming, TrivadisContent, patterns, DLR, oracle]
+tags: [programming, patterns, libs-and-frameworks]
 date: 2011-04-20 12:37:00
 redirect_from: /go/201/
 ---

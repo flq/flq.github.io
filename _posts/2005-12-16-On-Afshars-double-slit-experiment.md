@@ -1,7 +1,7 @@
 ---
 title: "On Afshar’s double-slit experiment"
 layout: post
-tags: [physics, quantum-mechanics]
+tags: [physics]
 date: 2005-12-16 16:00:00
 redirect_from: /go/6/
 ---

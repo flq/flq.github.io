@@ -1,7 +1,7 @@
 ---
 title: "Revisiting the Alphabet Range with the latest .NET"
 layout: post
-tags: [programming, dotnet, TrivadisContent, LINQ]
+tags: [programming, dotnet, libs-and-frameworks]
 date: 2008-01-19 22:58:48
 redirect_from: /go/112/
 ---

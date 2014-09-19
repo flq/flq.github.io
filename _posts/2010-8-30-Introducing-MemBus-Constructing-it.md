@@ -1,7 +1,7 @@
 ---
 title: "Introducing MemBus: Constructing it"
 layout: post
-tags: [programming, dotnet, TrivadisContent, patterns, membus]
+tags: [programming, dotnet, patterns, membus]
 date: 2010-08-30 08:01:00
 redirect_from: /go/176/
 ---

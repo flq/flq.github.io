@@ -1,7 +1,7 @@
 ---
 title: "Parkour - running free in the cities"
 layout: post
-tags: [loosely-coupled, visual]
+tags: [loosely-coupled]
 date: 2006-03-25 11:36:00
 redirect_from: /go/19/
 ---
