@@ -7,6 +7,7 @@ redirect_from: /go/219/
 ---
 
 > Note: This post was originally posted on the 19th August 2012 on the "more" blog that I kept for some time
+
 Complexity - one of those words. [Wikipedia says that][1] 
 
 > complexity tends to be used to characterize something with many parts in intricate arrangement  
