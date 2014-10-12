@@ -20,7 +20,7 @@ The great thing about maths is that interesting patterns emerge...to cite Penros
 
 We can express this in Haskell (those Greeks would probably have loved my laptop. What a good life I could have lead. And yet, I'd have had to sleep lightly, who knows who'd have&nbsp;wanted to steal my magic screen. Not to speak that I don't know where I could get electricity at that time. But I'm deviating)
 
-`
+```haskell
 depth = 20
 -- Create a sequence of the form 1/(a + 1/(b + 1/(c + 1/a)), etc. where a,b,c come from 
 -- an infinite sequence where those 
@@ -42,7 +42,7 @@ useSeq start x = start + ctF (makeSequence mySeq) depth
 -- sqrt(24) = useSeq 4 [1]
 -- sqrt(23) = useSeq 4 [1,3,1]
 -- sqrt(24) = useSeq 4 [1]
-`
+```
 
 Haskell is just cool when it comes down to using infiniteness. We have inifinite lists, sequences, what have you. Naturally we have to ensure that at some point we get a result back, however the bail-out condition in the above code is the depth value that states how often we will perform a division.
 
