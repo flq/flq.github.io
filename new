@@ -1,0 +1,26 @@
+# create a new post
+
+printf "Title: "
+read -r title
+
+printf "Tags (csv): "
+read -r tags
+
+titleForFile=$(echo "$title" | 
+	sed 's/[ ?<>*=!'\'']/-/g' | 
+	sed -E 's/-+/-/g' | sed -E 's/-$//g')
+
+fileName="$(date +"%Y-%m-%d")-$titleForFile.md"
+
+cat >_posts/$fileName <<EOL
+---
+title: "$title"
+layout: post
+tags: [$tags]
+date: $(date +"%Y-%m-%d %T")
+---
+EOL
+
+echo "_posts/$fileName" | pbcopy
+echo "created $fileName and put path to clipboard"
+

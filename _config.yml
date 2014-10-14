@@ -1,6 +1,6 @@
 markdown:  redcarpet
 highlighter:  pygments
-exclude: [run]
+exclude: [run, new]
 excerpt_separator: <!--more-->
 permalink:        pretty
 
