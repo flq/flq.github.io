@@ -1,7 +1,7 @@
 ---
 title: "Thawmadoce screenshots"
 layout: post
-tags: [software-development, site]
+tags: [software-development, own-software]
 date: 2012-01-09 08:57:00
 redirect_from: /go/214/
 ---

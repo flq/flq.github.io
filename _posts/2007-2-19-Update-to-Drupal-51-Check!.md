@@ -1,7 +1,7 @@
 ---
 title: "Update to Drupal 5.1 - Check!"
 layout: post
-tags: [site, tools]
+tags: [meta, tools]
 date: 2007-02-19 21:50:26
 redirect_from: /go/59/
 ---
