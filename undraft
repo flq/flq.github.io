@@ -1,0 +1,23 @@
+todayFile=$(date +"%Y-%m-%d")
+todayContent=$(date +"%Y\-%m\-%d %T")
+
+echo "Please select a file:"
+options=( $(ls _drafts/*) )
+
+echo "Which file should be published?"
+select opt in "${options[@]}" "Quit" ; do 
+    if (( REPLY == 1 + ${#options[@]} )) ; then
+        exit
+
+    elif (( REPLY > 0 && REPLY <= ${#options[@]} )) ; then
+        newName=$(echo $opt | sed "s#_drafts/date#_posts/$todayFile#g")
+        mv $opt $newName
+        echo "$todayContent $newName"
+        #sed -i bak 's/date-placeholder/'$todayContent'/g' "$newName"
+        perl -pi -e "s/date-placeholder/$todayContent/g" "$newName"
+        echo  "$opt -> $newName"
+        break
+    else
+        echo "Invalid option. Try another one."
+    fi
+done

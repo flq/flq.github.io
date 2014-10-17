@@ -10,17 +10,15 @@ titleForFile=$(echo "$title" |
 	sed 's/[ ?<>*=!'\'']/-/g' | 
 	sed -E 's/-+/-/g' | sed -E 's/-$//g')
 
-fileName="$(date +"%Y-%m-%d")-$titleForFile.md"
-
-cat >_posts/$fileName <<EOL
+cat >_drafts/date-$titleForFile.md <<EOL
 ---
 title: "$title"
 layout: post
 tags: [$tags]
-date: $(date +"%Y-%m-%d %T")
+date: date-placeholder
 ---
 EOL
 
-echo "_posts/$fileName" | pbcopy
-echo "created $fileName and put path to clipboard"
+echo "_drafts/date-$titleForFile.md" | pbcopy
+echo "created $titleForFile and put path to clipboard"
 
