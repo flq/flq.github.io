@@ -29,8 +29,12 @@ layout: default
 {% unless page.nocomments %}
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'realfiction'; 
+    var disqus_shortname = 'realfiction';
+    {% if page.redirect_from %}
     var disqus_identifier = '{{page.redirect_from}}'.match(/\d+/)[0];
+    {% else %}
+    var disqus_identifier = '{{page.id}}';
+    {% endif %}
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
