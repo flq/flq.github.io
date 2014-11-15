@@ -9,38 +9,41 @@ redirect_from: /go/179/
 When developing a piece of code that could potentially be used as a central component, one should have a look at the performance as well. There is no easy answer as to whether MemBus is fast or not – it depends which features you are using.
 
 I have been doing a number of performance measurements wit the following setup:
- <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:264e5340-184d-49b5-961b-25a36e9297f4" class="wlWriterEditableSmartContent"><pre name="code" class="c#">        public void Run(IBus bus, TextWriter w)
-        {
-            bus.Subscribe&lt;MessageA&gt;(onMessageA);
-            bus.Subscribe&lt;MessageB&gt;(onMessageB);
-            bus.Subscribe&lt;MessageC&gt;(onMessageC);
 
-            var r = new Random();
-            var dict = new Dictionary&lt;int, Func&lt;object&gt;&gt;
-                           {
-                               {0, () =&gt; new MessageA()},
-                               {1, () =&gt; new MessageB()},
-                               {2, () =&gt; new MessageC()},
-                           };
-            int count = 0;
-            var sw = Stopwatch.StartNew();
-            while (count &lt; 100000)
-            {
-                bus.Publish(dict[r.Next(0, 3)]());
-                count++;
-            }
+```csharp
+public void Run(IBus bus, TextWriter w)
+{
+    bus.Subscribe<MessageA>(onMessageA);
+    bus.Subscribe<MessageB>(onMessageB);
+    bus.Subscribe<MessageC>(onMessageC);
 
-            w.WriteLine("Through {0}", sw.ElapsedMilliseconds);
+    var r = new Random();
+    var dict = new Dictionary<int, Func<object>>
+                   {
+                       {0, () => new MessageA()},
+                       {1, () => new MessageB()},
+                       {2, () => new MessageC()},
+                   };
+    int count = 0;
+    var sw = Stopwatch.StartNew();
+    while (count < 100000)
+    {
+        bus.Publish(dict[r.Next(0, 3)]());
+        count++;
+    }
 
-            count = 0;
-            while (count &lt; 4)
-            {
-                w.WriteLine("From MsgA:{0}({1}), B:{2}({3}), C:{4}({5})", aCount, MessageA.Count, bCount,
-                            MessageB.Count, cCount, MessageC.Count);
-                Thread.Sleep(200);
-                count++;
-            }
-        }</pre></div>
+    w.WriteLine("Through {0}", sw.ElapsedMilliseconds);
+
+    count = 0;
+    while (count < 4)
+    {
+        w.WriteLine("From MsgA:{0}({1}), B:{2}({3}), C:{4}({5})", aCount, MessageA.Count, bCount,
+                    MessageB.Count, cCount, MessageC.Count);
+        Thread.Sleep(200);
+        count++;
+    }
+}
+```
 
 The actual publishing happens in line 18. We publish three different messages by random, in total 100’000 messages. The three subscriptions each increment a counter, the messages themselves increment an internal counter when they are constructed. Let’s start with the simple setup (“**Conservative**”):
 
