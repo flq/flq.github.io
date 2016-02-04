@@ -1,5 +1,5 @@
-markdown:  redcarpet
-highlighter:  pygments
+markdown:  kramdown
+highlighter:  rouge
 exclude: [run, new]
 excerpt_separator: <!--more-->
 permalink:        pretty

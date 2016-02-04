@@ -31,11 +31,12 @@ The code created will be available in [runnable form on github][4], and I will i
 Coming to Eric's [second post][5], the method to get the top bits of a 16-bit word looks...very similar, just that
 in F# we have operators that look a bit like their C-style counterparts.
 
-```fsharp
+
+~~~
 let fetch_bits high length word =
   let mask = ~~~ (-1 <<< length) in
   (word >>> (high - length + 1)) &&& mask
-```
+~~~
 
 [1]: http://ericlippert.com/2016/02/01/west-of-house/
 [2]: http://ionide.io
