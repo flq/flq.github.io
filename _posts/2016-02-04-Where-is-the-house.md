@@ -32,7 +32,7 @@ Coming to Eric's [second post][5], the method to get the top bits of a 16-bit wo
 in F# we have operators that look a bit like their C-style counterparts.
 
 
-~~~
+~~~fsharp
 let fetch_bits high length word =
   let mask = ~~~ (-1 <<< length) in
   (word >>> (high - length + 1)) &&& mask

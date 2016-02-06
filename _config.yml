@@ -29,3 +29,5 @@ github:
 gems:
   - jekyll-redirect-from
   - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-paginate
