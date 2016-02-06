@@ -1,7 +1,7 @@
 ---
 title: "More a tree than a forest"
 layout: post
-tags: [fsharp,fun-spin]
+tags: [fsharp,ionz]
 date: 2016-02-06 20:00:00
 ---
 
