@@ -18,18 +18,18 @@ Alas, expression trees are much more powerful than just being LINQ's backbone. T
 
 Let me just remind you the syntax of the function compositor. It stayed almost the same, as all the generics fun and method chaining makes for great type safety:
 
-`
+~~~
 Func<int, decimal> func =
         new FunctionalExpress.FuncCombination<int, decimal>()
         .Add<string>(int2StringStatic)
         .Add(s => s.ToArray())
         .AddFinal(char2Decimal);
 decimal d = func(23);
-`
+~~~
 
 Now, however, I don't really have to store a reference to the passed delegate. I extract the info contained in the delegate and store it in a list that will be passed along the instances on which Add are called:
 
-`
+~~~
 public delegate V Digestif<T, V>(T input);
 ...
 private List<MethodInfo> infos;
@@ -39,30 +39,30 @@ public FuncAddendum<START, FINAL, OUT, NEWOUT> Add<NEWOUT>(Digestif<OUT, NEWOUT>
   infos.Add(pluck.Method);
   return new FuncAddendum<START, FINAL, OUT, NEWOUT>(infos);
 }
-`
+~~~
 
 Once AddFinal is called, something else happens:
 
-`
+~~~
 public Func<START,FINAL> AddFinal(Digestif<OUT, FINAL> pluck)
 {
   infos.Add(pluck.Method);
   return GetFunction();
 }
-`
+~~~
 
-At this point in time all information is available to combine the functions in an optimal fashion. 
+At this point in time all information is available to combine the functions in an optimal fashion.
 What we would do when chaining the functions in a normal fashion (i.e. when writing our source code) is essentially this:
 
-`
+~~~
 type myFuncComposition(type value) {
   return last_method(before_last_method(...(first method(value))..);
 }
-`
+~~~
 
 Only, we are already at runtime! Let's create the expression that looks like above instead. At the current state of the .NET framework 3.5 we use static methods of the Expression class to create different expressions (method calls, parameters, comparisons, additions, multiplications, etc., etc....).
 
-`
+~~~
 private Func<START, FINAL> GetFunction()
 {
   ParameterExpression pe =
@@ -73,12 +73,12 @@ private Func<START, FINAL> GetFunction()
     Expression.Lambda<Func<START, FINAL>>(mce, new ParameterExpression[] { pe });
   return myFunc.Compile();
 }
-`
+~~~
 
 For once we can make good use of the Enumerator as an object to pass along a recursive chain (Which is what I do, since the expression created from the first method is the input to the second method which is the input to the third...you get it).
 The difference between the first and all other methods is that its input is the very same parameter that is the input to the function that will be generated once we compile the whole caboodle - which is why **pe** appears twice here. The last piece in the puzzle is the **BuildExpression **method:
 
-`
+~~~
 private MethodCallExpression BuildExpression(IEnumerator<MethodInfo> mis, Expression ex)
 {
   while (mis.MoveNext())
@@ -89,14 +89,12 @@ private MethodCallExpression BuildExpression(IEnumerator<MethodInfo> mis, Expres
   }
   return (MethodCallExpression)ex;
 }
-`
+~~~
 
 And that's this. Once the recursion is finished, the Visual Studio shows us the ToString(), which gives a nice confirmation of what I was trying to achieve:
 
-![](files/images/func_expression.gif)
+![](/public/assets/func_expression.gif)
 
 You can see, soon there are even more tools in the ever growing .NET toolbox. In some situations you may want to resort to create and compile some small-scale code at runtime - namely when you have all necessary information available to create just the right code to answer your requirement.
 
 A final word to the function compositor provided in the attachment: It is currently able to call lambdas as well as static methods but no instance methods.
-
-[![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://realfiction.net/go/118)](http://www.dotnetkicks.com/kick/?url=http://realfiction.net/go/118)
