@@ -76,7 +76,7 @@ private Func<START, FINAL> GetFunction()
 ~~~
 
 For once we can make good use of the Enumerator as an object to pass along a recursive chain (Which is what I do, since the expression created from the first method is the input to the second method which is the input to the third...you get it).
-The difference between the first and all other methods is that its input is the very same parameter that is the input to the function that will be generated once we compile the whole caboodle - which is why **pe** appears twice here. The last piece in the puzzle is the **BuildExpression **method:
+The difference between the first and all other methods is that its input is the very same parameter that is the input to the function that will be generated once we compile the whole caboodle - which is why **pe** appears twice here. The last piece in the puzzle is the **BuildExpression** method:
 
 ~~~
 private MethodCallExpression BuildExpression(IEnumerator<MethodInfo> mis, Expression ex)
