@@ -1,0 +1,34 @@
+---
+title: "How to get started with Marten on OSX (Hint: There's nothing to it)"
+layout: post
+tags: [libs-and-frameworks,dotnet]
+date: 2016-09-26 19:00:00
+---
+
+Since Jeremy announced v1 of Marten, I thought that this is a good moment to see if I can quickly get going with it on OSX. Surprisingly, this went super-smoothly.
+
+What I had installed already:
+
+* [Docker][0]
+* [.NET.Core][1]
+* [Project Rider][2]
+
+Just follow the instructions and see if you get everything going. Once in Project Rider I then started a new Dotnet.Core Console application.
+
+For the required postgres instance I use their [official image][3], which allows you to set up a user with associated db by
+setting the environment variables **POSTGRES\_USER** and **POSTGRES\_PASSWORD** to whatever you think is right. Expose the postgres port and mount an appropriate folder if you want to persist the data you store and run the image.
+You can verify that everything is cool by using an application like [pgAdmin][4] and connecting to your instance.
+
+Now to Marten. The [Marten nuget package][5] supports .NET Standard 1.3, so we don't expect troubles. Calling the Marten documentation, we promptly have access to a [Getting started page][6].
+
+I copied the code, started the Console and it all ran successfully. I wish I could write more about the whole process for having something of a blog post. But I can't. And that makes me very happy, as it means that the .NET Core ecosystem is getting interesting beyond Windows and for devs who don't have to be on the cutting edge*) all the time.
+
+<sup>*) that place with failing builds, incompatible APIs and breaking changes</sup>
+
+[0]: https://www.docker.com
+[1]: https://www.microsoft.com/net/core#macos
+[2]: https://www.jetbrains.com/rider/
+[3]: https://hub.docker.com/_/postgres/
+[4]: https://www.pgadmin.org
+[5]: https://www.nuget.org/packages/Marten/
+[6]: http://jasperfx.github.io/marten/getting_started/

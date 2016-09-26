@@ -1,7 +1,7 @@
 ---
 title: "codename reax - redux-ish appflow, rxjs-based"
 layout: post
-tags: [software-development,javascript]
+tags: [software-development,javascript,libs-and-frameworks]
 date: 2016-02-25 14:00:00
 ---
 
