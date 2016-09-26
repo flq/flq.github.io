@@ -26,6 +26,9 @@ version:          1.0.0
 github:
   repo:           https://github.com/flq/flq.github.io
 
+gist:
+  noscript: false
+
 gems:
   - jekyll-redirect-from
   - jekyll-sitemap
