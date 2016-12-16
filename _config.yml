@@ -1,6 +1,6 @@
 markdown:  kramdown
 highlighter:  rouge
-exclude: [run, new]
+exclude: [bin]
 excerpt_separator: <!--more-->
 permalink:        pretty
 
