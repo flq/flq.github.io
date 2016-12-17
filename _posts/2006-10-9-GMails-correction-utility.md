@@ -8,7 +8,4 @@ redirect_from: /go/55/
 
 ...sometimes lacks understanding of the language to check (in this case German). Here comes a strange example:
 
-&nbsp;
-<div style="text-align: center">![Googlemail correction](/public/assets/googlecorrect.gif "Googlemail correction")</div>
-
-&#160;
+![Googlemail correction](/public/assets/googlecorrect.gif "Googlemail correction")

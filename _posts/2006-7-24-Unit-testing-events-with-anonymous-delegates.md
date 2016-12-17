@@ -9,9 +9,9 @@ redirect_from: /go/47/
 The other day I figured out that anonymous delegates can also help you to test an event while staying nicely contained within a single test method. 
 
 The following is one of the unit tests of the FixedUndoStack class which you can find at my downloads section:
-`
-    [Test]
-    public void TestOnPopEvent() {
+
+      [Test]
+      public void TestOnPopEvent() {
 
       string stackElement = "";
       int wasCalled = 0;
@@ -38,7 +38,7 @@ The following is one of the unit tests of the FixedUndoStack class which you can
       stack.Pop();
       Assert.AreEqual(3, wasCalled);
     }
-`
+
 Since anonymous methods run in the context of the enclosing method, you can modify locals of the test function. 
 
 The int wasCalled is used to check whether the event really fired, while the test needs to prepare any ensuing comparisons just before you expect the event.

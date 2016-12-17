@@ -8,7 +8,7 @@ redirect_from: /go/108/
 
 Hopefully everybody who reads this knows more or less what Attributes are in terms of .NET/C# programming. While I was scanning the documentation for that interesting [Monorail project](http://www.castleproject.org/monorail/index.html) (btw, if you ever played with [RoR ](http://www.rubyonrails.org/)you probably feel right at home), I noticed that you can also apply attributes to method parameters. In the following I develop a small example as to how you can make use of such a feat. First let's get the mockery behind us...
 
-`
+```csharp
 class Program {
   static void Main(string[] args) {
     Scientist s = new Scientist();
@@ -33,11 +33,11 @@ class CareerPathAttribute : Attribute {
     PathID = pID;
   }
 }
-`
+```
 
 The **Level** class won't do much in our example, while the **CareerPathAttribute** will be applied to a parameter in the following fashion:
 
-`
+```csharp
 class Scientist : Person {
   public override void Promote([CareerPath("Science")] Level level) {
     base.Promote(level);
@@ -49,13 +49,13 @@ class Manager : Person {
     base.Promote(level);
   }
 }
-`
+```
 
 As you can see, the attribute is written right before the method parameter and parameter type. While you haven't seen the **Person** class (yet), you will notice that the methods override an already defined one. It shows that definition of attributes do not affect the method signature (which makes sense, as the appliance of attributes is fully transparent from a runtime perspective, i.e. you don't call such a method any different than in the case where no attribute would be defined). 
 
 Let us have a look at the **Person** class then...
 
-`
+```csharp
 abstract class Person {
 
   public virtual void Promote(Level level) {
@@ -72,7 +72,7 @@ abstract class Person {
     return o.Length > 0 ? (T)o[0] : default(T);
   }
 }
-`
+```
 
 The inheriting classes then route their respective calls to **Promote** to the base class. The implementation there uses an interesting class called **StackFrame** from the **System.Diagnostics** namespace. It allows access to Reflection info from the point of view of the current stack . Here I use the constructor that allows to specify which frame to skip. In other words I am skipping the current frame, that is, the method I am in when calling "**GetMethod()**". The call to the **FindAttribute**-method then shows where you can actually find the attribute that you place on a method parameter - in the custom attributes of the **ParameterInfo** object. 
 

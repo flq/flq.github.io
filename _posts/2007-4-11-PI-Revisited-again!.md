@@ -10,7 +10,7 @@ What Andre's link [caused](/go/92)...
 
 One idea that came up from a former colleague of mine, Christoph was to rebase the number PI to 27, allowing for a presentation in the form of letters of the alphabet. His first tackle at this was written in ruby:
 
-`
+```ruby
 pi = 14159265358979323846264338327950288419716939937510582097
 494459230781640628620899862803482534211706798214808651328230
 664709384460955058223172535940812848111745028410270193852110
@@ -28,7 +28,7 @@ begin
   text << alphabeth[rest]
 end until pi.zero?
 puts text.reverse.join
-`
+```
 
 A nice way to express what is also presented [here at wikipedia](http://en.wikipedia.org/wiki/Hexadecimal#Converting_from_other_bases).
 

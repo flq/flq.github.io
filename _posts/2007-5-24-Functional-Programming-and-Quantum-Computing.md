@@ -3,7 +3,6 @@ title: "Functional Programming and Quantum Computing"
 layout: post
 tags: [physics, haskell]
 date: 2007-05-24 12:33:10
-redirect_from: /go/89/
 ---
 
 Some effort goes into simulating a Quantum computer on a classical one, omitting the fact that such a simulation becomes arbitrarily slow due to the fact that a qubit encodes more information than a bit.
@@ -18,21 +17,21 @@ Sweet, I thought, maybe this is understandable for me. There is probably the cha
 
 Just as an example from the first pages, the following Haskell code provides the basis to obtain a list of all possible segments of a list of values:
 
-`
-	type Set a = [a]
-	singleton x = [x] 
-	union = (++)
+```haskell
+type Set a = [a]
+singleton x = [x] 
+union = (++)
 
-	prefixes :: [a] -> Set [a]
-	prefixes [] = singleton []
-	prefixes (a : x) = singleton [] `union` map (a :)(prefixes x)
+prefixes :: [a] -> Set [a]
+prefixes [] = singleton []
+prefixes (a : x) = singleton [] `union` map (a :)(prefixes x)
 
-	suffixes :: [a] -> Set [a]
-	suffixes [] = singleton []
-	suffixes(a : x) = singleton (a : x) `union` suffixes x
+suffixes :: [a] -> Set [a]
+suffixes [] = singleton []
+suffixes(a : x) = singleton (a : x) `union` suffixes x
 
-	segments :: [a] -> Set [a]
-	segments = concat . map suffixes . prefixes
-`
+segments :: [a] -> Set [a]
+segments = concat . map suffixes . prefixes
+```
 
 O..M..G . I will probably die a stupid man.

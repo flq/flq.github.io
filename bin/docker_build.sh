@@ -1,1 +1,1 @@
-cd github_pages && docker build -t "rf:jekyll" . && cd ..
+cd github_pages && docker build -t "rf:jekyll" .

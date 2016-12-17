@@ -67,5 +67,5 @@ K2 in metres:<input id="k2" value="12">
 v2 in m/sec:<input id="v2" value="1.2"> </td> <td valign="top">x (x*k1 between 0 and 1):<input id="x" value="0.8">
 <input onclick="calculate();return false;" value=" calculate " type="button">  
 
-## result
-</td></tr></tbody></table></form>
+<h2 id="result">result</h2>
+</td></tr></tbody></table>

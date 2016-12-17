@@ -9,6 +9,5 @@ RUN apk update && apk upgrade && apk add curl wget bash && \
     libxml2 libxml2-dev libxslt libxslt-dev zlib-dev zlib \
     libffi-dev build-base git nodejs && \
     export PATH="/root/.rbenv/bin:$PATH" && \
-    rm -rf /var/cache/apk/* && \
-    # Install Jekyll and required gems
-    gem install github-pages
+    rm -rf /var/cache/apk/*
+RUN gem install github-pages

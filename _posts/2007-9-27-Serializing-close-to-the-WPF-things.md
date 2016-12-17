@@ -15,7 +15,8 @@ In his work, Dan explores how to use attached properties to enhance the function
 Back to the idea. In my client you will have the ability to create Image Buckets which you can enrich with some metadata (like to what Web service you want to upload it, with what titles or tags or whatever - currently only facebook is supported :) - Since the user may want to stop in his actions and return later, I wanted to give the application the ability to persist state. The concept I pursued was to have an attached property that, when applied to an ItemsControl (like e.g. a ListBox) would persist the contents of the ItemsSource without much further ado. A reusable concept seemed appropriate since the ItemsSource will in a WPF application most likely point to actual Business Objects.
 
 The actual attached property is constructed analogously to Dan's Model activation property:
-`
+
+```csharp
   /// <summary>
   /// Attached property that can be used on Itemscontrol elements to persist its ItemsSource
   /// </summary>
@@ -46,14 +47,12 @@ The actual attached property is constructed analogously to Dan's Model activatio
           new ItemsControlPersistenceHandler((string)e.NewValue, element));
     }
   }
-`
+```
 
 What happens is that when the property is used on a DependencyObject, an associated callback instantiates an object of type **ItemsControlPersistenceHandler** which we will get to know later. The value provided is simply a string that is used as a key for serialization/deserialization of any objects encountered in the ItemsSource of the DependencyObject (here an ItemsControl). This is how you then use it in XAML:
 
-`
-<ListBox x:Name="ListOfBuckets" ... local:PersistControl.Persist="buckets"> ...
-`
+    <ListBox x:Name="ListOfBuckets" ... local:PersistControl.Persist="buckets"> ...
 
-Serialization: Ignore events
-Observablecollection: shadow copy
-unloaded: not raised when window closes?!
+* Serialization: Ignore events
+* Observablecollection: shadow copy
+* unloaded: not raised when window closes?!

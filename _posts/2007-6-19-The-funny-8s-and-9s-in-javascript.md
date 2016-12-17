@@ -32,7 +32,7 @@ What is the workaround? The second button makes a call to parseFloat before call
 
 Here the source behind the buttons, so you do not have to rummage around the ugly source code that this CMS produces:
 
-`
+```javascript
 function parse() {
   var i = parseInt(document.getElementById('num').value);
   print(i);
@@ -44,4 +44,4 @@ function parseRight() {
 function print(txt) {
   document.getElementById('parsedOutput').childNodes[0].nodeValue = txt.toString();
 }
-`
+```
