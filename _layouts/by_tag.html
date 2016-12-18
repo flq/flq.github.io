@@ -1,4 +1,40 @@
 <!DOCTYPE html>
+<html lang="en">
+
+  {% include head.html %}
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="three columns">
+          {% include sidebar.html %}
+        </div>
+        <div class="eight columns">
+            <h1>Articles tagged {{ page.tag }}</h1>
+            <ul class="related-posts">
+                {% if site.tags[page.tag] %}
+                    {% for post in site.tags[page.tag] %}
+                        {% capture currentyear %}{{post.date | date: "%Y"}}{% endcapture %}
+                        {% if currentyear != year %}
+                        {% unless forloop.first %}</ul>{% endunless %}
+                        <h3>{{ currentyear }}</h3>
+                        <ul>
+                        {% capture year %}{{currentyear}}{% endcapture %} 
+                        {% endif %}
+                        <li><a href="{{ post.url }}/">{{ post.title }}</a></li>
+                    {% endfor %}
+                {% else %}
+                    <p>There are no posts for this tag.</p>
+                {% endif %}
+            </ul>
+        </div>
+      </div>
+  </body>
+</html>
+
+
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 
   {% include head.html %}
@@ -9,24 +45,7 @@
 
     <div class="content container">
 
-<h1>Articles tagged {{ page.tag }}</h1>
 
-<ul class="related-posts">
-    {% if site.tags[page.tag] %}
-        {% for post in site.tags[page.tag] %}
-            {% capture currentyear %}{{post.date | date: "%Y"}}{% endcapture %}
-            {% if currentyear != year %}
-              {% unless forloop.first %}</ul>{% endunless %}
-              <h1>{{ currentyear }}</h1>
-              <ul>
-              {% capture year %}{{currentyear}}{% endcapture %} 
-            {% endif %}
-            <li><a href="{{ post.url }}/">{{ post.title }}</a></li>
-        {% endfor %}
-    {% else %}
-        <p>There are no posts for this tag.</p>
-    {% endif %}
-</ul>
 
     </div>
 

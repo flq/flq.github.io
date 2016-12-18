@@ -1,0 +1,20 @@
+<div class="row pagination">
+  <div class="six columns center">
+  {% if paginator.next_page %}
+    <a class="button button-primary expand" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
+  {% else %}
+    <a class="button expand">Older</span>
+  {% endif %}
+  </div>
+  <div class="six columns center">
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="button button-primary expand" href="{{ site.baseurl }}">Newer</a>
+    {% else %}
+      <a class="button button-primary expand" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
+    {% endif %}
+  {% else %}
+    <span class="button expand">Newer</span>
+  {% endif %}
+  </div>
+</div>
