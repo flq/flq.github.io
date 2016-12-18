@@ -6,10 +6,10 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="three columns">
+        <div class="{{ page.sidesize | default: 'two' }} columns">
           {% include sidebar.html %}
         </div>
-        <div class="eight columns">
+        <div class="{{ page.mainsize | default: 'ten' }} columns">
           {{ content }}
         </div>
       </div>

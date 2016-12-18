@@ -2,6 +2,10 @@ body {
   font-size: 1.8em;
 }
 
+/*.sidebar {
+  background: linear-gradient(to bottom, white 80%, #aaa);
+}*/
+
 .sidebar h1 {
   font-size: 2.4em;
 }
@@ -9,16 +13,13 @@ body {
 @media (min-width: 550px) {
   .sidebar h1 {
     transform: rotate(-90deg);
+    text-align: right;
     margin-top: 150px;
     margin-bottom: 100px;
   }
-}
 
-@media (min-width: 950px) {
-  .sidebar h1 {
-    transform: none;
-    margin-top: inherit;
-    margin-bottom: inherit;
+  .copyright {
+    margin-top:40px;
   }
 }
 
