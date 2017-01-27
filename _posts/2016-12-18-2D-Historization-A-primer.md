@@ -5,6 +5,11 @@ tags: [software-development, patterns, programming]
 date: 2016-12-18 16:00:00
 ---
 
+> <p><strong>2D Historization series</strong></p>
+> * 2D or bitemporal Historization: A primer
+> * [2D-Historization in a graph database]({% post_url 2017-01-26-2D-Historization-in-a-graph-database %})
+
+
 When it comes to **time** & software systems, there are three major categories:
 
 ##### A system that needs no notion of time
