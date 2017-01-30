@@ -6,6 +6,16 @@ date: 2013-09-17 21:49:28
 redirect_from: /go/230/
 ---
 
+## Functional space-invaders series
+1. A recap of Rob Ashton's lessons - Das Intro
+1. [Drawing a Rectangle]({% post_url 2013-9-18-FunSpIns-Drawing-a-Rectangle %})
+1. [Moving a Rectangle]({% post_url 2013-9-19-FunSpIns-Moving-a-Rectangle %})
+1. [No attributes, No vectors, A tiny Workflow and more squares]({% post_url 2013-9-20-FunSpIns-No-attributes-No-vectors-A-tiny-Workflow-and-more-squares %})
+1. [State, the World, the Loop]({% post_url 2013-9-23-FunSpIns-State-the-World-the-Loop %})
+1. [The hero must move, the enemies must move smarter]({% post_url 2013-9-24-FunSpIns-The-hero-must-move-the-enemies-must-move-smarter %})
+1. [The hero shoots]({% post_url 2013-9-25-FunSpIns-The-hero-shoots %})
+1. [Collisions, the dead, and a (not so) grateful ending]({% post_url 2013-9-26-FunSpIns-Collisions-the-dead-and-a-not-so-grateful-ending %})
+
 A few weeks ago I was considering following [Rob Ashton's footsteps][1] in learning functional programming by programming a game (Space Invaders, or **Fun**ctional **Sp**ace **In**vader**s** or **FunSpIns**, right? *le sigh*)
 However, since I am currently digging deeper into Haskell, that would obviously become my weapon of choice. Looking at possibilities to get Haskell somehow produce something that would do something against an HTML Canvas led me to the [Haskell to JavaScript compiler][2]. However, the easy path stated that it would ideally need the GHC version 7.8. Let's have a look at my version...
 
@@ -27,11 +37,9 @@ The necessary incantations, provided you already have Haskell on your Linux, are
 
 And with that, we are pretty much ready to tackle the stuff that comes...
 
-> You will be able to follow the series through the [fun-spin][10] tag...
-
 ## Disclaimer
 
-I am a functional programming noob. I may be more successful at doing a *GUI interface using visual basic to track the killers IP address*. I have years of imperative languages under my belt, and while we all know what delegates are, that LINQ are actually operations in the monad of Enumeration, that F# preferred to call them computational expressions, and how functional Javascript is, this Haskell stuff, even though it sometimes looks eerily imperative, has completely different underpinnings in terms of theory, philosophy and utter spoon bending, so *bear with me*.
+I am a _functional programming noob_. I may be more successful at doing a *GUI interface using visual basic to track the killers IP address*. I have years of imperative languages under my belt, and while we all know what delegates are, that LINQ are actually operations in the monad of Enumeration, that F# preferred to call them computational expressions, and how functional Javascript is, this Haskell stuff, even though it sometimes looks eerily imperative, has completely different underpinnings in terms of theory, philosophy and utter spoon bending, so *bear with me*.
 
   [1]: http://codeofrob.com/entries/learn-functional-programming-with-me---but-rob,-it-needs-to-be-more-composable.html
   [2]: https://github.com/ghcjs/ghcjs#haskell-to-javascript-compiler

@@ -6,6 +6,16 @@ date: 2013-09-24 14:00:00
 redirect_from: /go/235/
 ---
 
+## Functional space-invaders series
+1. [A recap of Rob Ashton's lessons - Das Intro]({% post_url 2013-9-17-FunSpIns-a-recap-of-Rob-Ashtons-lessons-Das-Intro %})
+1. [Drawing a Rectangle]({% post_url 2013-9-18-FunSpIns-Drawing-a-Rectangle %})
+1. [Moving a Rectangle]({% post_url 2013-9-19-FunSpIns-Moving-a-Rectangle %})
+1. [No attributes, No vectors, A tiny Workflow and more squares]({% post_url 2013-9-20-FunSpIns-No-attributes-No-vectors-A-tiny-Workflow-and-more-squares %})
+1. [State, the World, the Loop]({% post_url 2013-9-23-FunSpIns-State-the-World-the-Loop %})
+1. The hero must move, the enemies must move smarter
+1. [The hero shoots]({% post_url 2013-9-25-FunSpIns-The-hero-shoots %})
+1. [Collisions, the dead, and a (not so) grateful ending]({% post_url 2013-9-26-FunSpIns-Collisions-the-dead-and-a-not-so-grateful-ending %})
+
 > Inspired by Rob Ashton's series "[Learn functional programming with me][1]"
 It is time to feed things back to the actors! The actor signature did change a teeny bit:
 
