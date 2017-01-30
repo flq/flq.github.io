@@ -5,14 +5,15 @@ tags: [software-development, patterns, programming]
 date: 2017-01-27 07:00:00
 ---
 
+## 2D Historization series
+1. [2D or bitemporal Historization: A primer][2]
+1. 2D-Historization in a graph database
+1. [Simplify the bitemporal Neo4J query with a user-defined function][6]
+
 > <em>Note:</em>
 > This text assumes that you know a little bit about graph databases
 > and Neo4J in particular. If you don't know Neo4J, please have a read
 > at [Neo4J's documentation][1]
-
-> <p><strong>2D Historization series</strong></p>
-> * [2D or bitemporal Historization: A primer][2]
-> * 2D-Historization in a graph database
 
 The [introduction to 2D-historization][2] dealt with the theory behind representing
 and reading state changes of your data in a model where we keep the time when
@@ -130,3 +131,4 @@ _Disclaimer: I am no cypher expert. The query expresses the logic outlined in th
 [3]: http://iansrobinson.com/2014/05/13/time-based-versioned-graphs/
 [4]: http://graphaware.com/neo4j/2014/08/20/graphaware-neo4j-timetree.html
 [5]: http://neo4j.com/docs/developer-manual/current/cypher/functions/list/#functions-reduce
+[6]: {% post_url 2017-01-30-Simplifying-the-Neo4J-query-with-a-user-defined-function %}

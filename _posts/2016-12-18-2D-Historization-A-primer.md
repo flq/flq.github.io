@@ -5,9 +5,10 @@ tags: [software-development, patterns, programming]
 date: 2016-12-18 16:00:00
 ---
 
-> <p><strong>2D Historization series</strong></p>
-> * 2D or bitemporal Historization: A primer
-> * [2D-Historization in a graph database]({% post_url 2017-01-26-2D-Historization-in-a-graph-database %})
+## 2D Historization series
+1. 2D or bitemporal Historization: A primer
+1. [2D-Historization in a graph database][2]
+1. [Simplify the bitemporal Neo4J query with a user-defined function][3]
 
 
 When it comes to **time** & software systems, there are three major categories:
@@ -119,3 +120,5 @@ Performing such logic in code, in-memory may prohibit itself when some object un
 However, the logic behind it is fairly straightforward. 
 
 [1]: http://martinfowler.com/eaaDev/timeNarrative.html
+[2]: {% post_url 2017-01-26-2D-Historization-in-a-graph-database %}
+[3]: {% post_url 2017-01-30-Simplifying-the-Neo4J-query-with-a-user-defined-function %}
