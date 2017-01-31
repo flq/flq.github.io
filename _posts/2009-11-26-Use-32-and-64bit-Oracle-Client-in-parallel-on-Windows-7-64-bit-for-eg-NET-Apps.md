@@ -8,7 +8,7 @@ redirect_from: /go/153/
 
 Since you come here probably looking for an answer, let me give it first. After that, if you have time, I'll explain why it turned out to be that sort of hack, i.e. what other approaches didn't work.
 
-## How
+### How
 
 Download and install Oracle Clients 11g (which support lower DB versions) for 32 and 64 bits. I use the Instant clients which come with an install.bat for 32-bit and the OUI for 64-bit.
 

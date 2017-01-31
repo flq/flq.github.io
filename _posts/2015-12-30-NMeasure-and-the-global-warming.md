@@ -71,7 +71,7 @@ in the atmosphere, i.e.
 
 Here we are, one incoherent blog post further, probably none the wiser - but at least I could scratch two itches at once!
 
-## *)
+### *)
 
 A long time ago I was crazy enough to construct a unit system for a species appearing in some of my Sci-Fi stuff. I extracted
 it from an old Excel-sheet of mine into a test harness:
