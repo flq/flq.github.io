@@ -1,0 +1,193 @@
+---
+title: "each_cons - the wise and tall of popular languages"
+layout: post
+tags: [programming, ruby, csharp, fsharp, haskell]
+date: 2017-05-22 16:20:00
+---
+
+A few days ago, Michael Feathers tweeted this:
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The fact that many simple correct Ruby programs become ridiculously complex when translated to other languages means something.</p>&mdash; Michael Feathers (@mfeathers) <a href="https://twitter.com/mfeathers/status/864122686695460866">May 15, 2017</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+Now, I am not a complete [stranger to ruby][1], which is why this statement resonated with me, and upon requesting an example, Michael came up with this:
+
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/fquednau">@fquednau</a> The simple ones are interesting. Try this in C#: ([0] + arr).each_cons(2).count {|x,y| x == 0 &amp;&amp; y == 1 }</p>&mdash; Michael Feathers (@mfeathers) <a href="https://twitter.com/mfeathers/status/864222881538072578">May 15, 2017</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+or
+
+```ruby
+([0] + arr).each_cons(2).count {|x,y| x == 0 && y == 1 }
+```
+
+> [each_cons][2] is a function that provides consecutive elements
+> of a given list. E.g.
+> `[0,1,2,3].each_cons(3).each { |x,y,z| puts "#{x},#{y},#{z}" }`
+> It can be useful for obtaining info about the local structure
+> of a list. Think derivatives, rates of change, etc. and probably
+> a host of other things.
+
+This does indeed show off ruby's expresiveness quite nicely:
+
+* A simple syntax to concatenate lists
+* A rich set of libraries for manipulation of things (I am referring to the _each\_cons_)
+* The syntax of ruby's yields and blocks, which have been used so many times as the syntactical basis for DSLs
+
+The fact that the parameter influences how many items will be yielded into
+your block reminds us why all of us like to write Javascript once in a while.
+
+__What about other languages then?__
+
+### F\#
+
+Let's look at the code which performs (almost) the same job:
+
+```fsharp
+seq { yield 0; yield! {1..4} }
+  |> Seq.pairwise 
+  |> Seq.filter (fun (x,y) -> x = 0 && y = 1)
+  |> Seq.length
+```
+
+It is pretty compact and readable, but even though some things look
+similar, they actually use completely different mechanics of the 
+language
+
+* The first line is a [computational expression to generate sequences][4] which provides
+  us with a pretty syntax for concatenating elements and lists of elements
+* The _pairwise_ is the closest we get to _each\_cons_
+* The _length_ does not have a version where we can provide a filter condition, so we 
+  need to specify the filter beforehand.
+* The _pairwise_ method provides a tuple which is then pattern matched into two arguments in the
+  lambda to _filter_.
+
+Of note is that _pairwise_ will provide exactly 2 consecutive elements of a list, it 
+does not allow a parameter like the ruby version. This makes sense, since F\# is statically typed.
+If you wanted a version that provides 3 consecutive elements, you would have to write a method
+yourself that yields an element of type __(a,a,a)__.
+  
+### C\#
+
+To actually achieve the same level of expressiveness we need to put some work into this:
+
+![](/public/assets/csharp_cons.jpg)
+
+With those two additional extension methods we can now write
+
+```csharp
+0.ToEnumerable().Concat(arr).Windowed().Count(t => t.x == 0 && t.y == 1);
+```
+
+While tuples are now available in c#, you cannot deconstruct them like you can do in most other
+functional languages or even in ES2016 
+(which has actually gone to great lengths to make deconstruction a dependable feature).
+
+While I can kind of forgive a missing _each\_cons_-like BCL method, I write the _ToEnumerable_ again in almost every project. I mean, that method is the damned [unary return operation][6]!
+
+### Kotlin
+
+Xavier Lepaul chimed in with a view on what Kotlin is up to with respect to the challenge:
+
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/mfeathers">@mfeathers</a> <a href="https://twitter.com/fquednau">@fquednau</a> Kotlin is almost there (with <a href="https://t.co/b2TpoX5LqA">https://t.co/b2TpoX5LqA</a>)<br>(listOf(0) + arr).windowed(2).count {(x,y) -&gt; x == 0 &amp;&amp; y == 1}</p>&mdash; Xavier Lepaul (@xlepaul) <a href="https://twitter.com/xlepaul/status/864404258476752896">May 16, 2017</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+```java
+(listOf(0) + arr).windowed(2).count {(x,y) -> x == 0 && y == 1}
+```
+
+This doesn't fall very short of the ruby example, however, the _windowed_ is not available yet in
+Kotlin 1.1 - What I particularly liked is that even though the type signature of _windowed_ is
+
+```java
+fun <T> Iterable<T>.windowed(size: Int, step: Int): List<List<T>>
+```
+i.e. returning a list of lists, one can still deconstruct the list into the x and y you can
+see in the lambda provided to _count_. This works because the deconstruction in kotlin simply 
+starts working when the deconstructed object provides methods named _component1_ down to 
+_componentN_. A quick look at Kotlin's list type...
+
+![](/public/assets/kotlin_destructure.png)
+
+Kudos to the Kotlin team which make a language that feels functional with strategies that are
+very different to a "real" functional language. I have been an outsider to the JVM most of my
+time, but when you get to know Java and Kotlin I really cannot fathom what exactly would make you
+stick to Java.
+
+### Type safety vs elegance?
+
+In order for ruby and Kotlin to shine in this example, both pay up by allowing misunderstandings
+in API use to surface only at runtime. Note that in both languages the compiler will happily allow
+you to capture more or less output than _each\_cons_/_windowed_ actually provides. This seems to be
+the price you need to pay for such an API, since the output _"type"_ is determined by the argument to the windowing function. Now if there was a language where types 
+could be determined programmatically...
+
+### Idris
+
+[Idris][7] is a programming language which is close in spirit to Haskell but adds the capability 
+to define _dependent types_. 
+
+> Disclaimer: I have never worked with Idris before, I just had the vague idea that dependent 
+> types could be what I was looking for in this moment. Most of the things in Idris continue 
+> to be outside my grasp. Many, many thanks go out to __Anton Trunov__ who 
+> [answered][8] my stackoverflow [questions][9].
+
+In this language, we can define the following type signature for a method:
+
+```haskell
+window : (n : Nat) -> List a -> List (Vect n a)
+```
+
+This describes a method that takes a natural number __n__, 
+and a list containing things with type __a__ and then returns a list containing vectors of length __n__. __n__ has now become part of the type definition for __Vect__. With much help
+(I couldn't see how to make the leap from the variable length __List a__ to the type __Vect n a__),
+this is then one possible implementation of _windowed_ in Idris: 
+
+```haskell
+total
+takeExact : (n : Nat) -> (xs : List a) -> Maybe (Vect n a)
+takeExact Z xs = Just []
+takeExact (S n) [] = Nothing
+takeExact (S n) (x :: xs) with (takeExact n xs)
+  takeExact (S n) (x :: xs) | Nothing = Nothing
+  takeExact (S n) (x :: xs) | (Just v) = Just (x :: v)
+
+
+total
+window : (n : Nat) -> List a -> List (Vect n a)
+window n xs with (takeExact n xs)
+  window n xs | Nothing = []
+  window n [] | (Just ys) = []
+  window n (x :: xs) | (Just ys) = ys :: window n xs
+```
+> _total_ tells the Idris compiler to check the method whether it is indeed total as far as 
+> Idris is capable to tell. Total means that this method is guaranteed to return for whatever
+> input that is provided. __Z__ and __S__ are types representing __Zero__ 
+> and __Successor__ within the Natural number type.
+
+Now we can use the window function to write down the example provided.
+
+```haskell
+--with
+condition : Vect 2 Integer -> Bool
+condition [x,y] = x == 0 && y == 1
+
+*hello> length $ filter condition (window 2 $ 0::[1,2,3,4])
+1 : Nat
+```
+
+It is also pretty compact, with the _little_ difference that the filter function provided must
+deconstruct a Vector of type __Vect 2 Integer__, based on the arguments to the _window_ function. That is, in your function you are forced to take the vector as a whole or deconstruct to exactly
+the right size that is provided.
+
+Why is all this interesting? Because it is sometimes plain _fun_ to compare different programming
+languages. They present to you different ways of thinking, different ways to express your intentions. One common theme is that conciseness comes when you get close to functional programming idioms. Also, before this post I didn't think that you could actually expand upon the
+Haskell type system, but you can. Alas, we also have to recognize the great popularity of languages like ruby. Reasoning with types requires much practice, but help you squash bugs before you even get to the runtime. Languages like javascript and ruby reward you quickly when you get your act together, but depend on decent documentation to get API usage right.
+
+Hence, ruby is indeed expressive, but quite a few popular languages have learned to recreate that expressiveness with the possibilities that their respective runtimes provide.
+
+[1]: {% link tag/ruby.md %}
+[2]: https://ruby-doc.org/core-2.1.0/Enumerable.html#method-i-each_cons
+[3]: https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/window-sliding.md
+[4]: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/sequences
+[5]: http://stackoverflow.com/questions/44078891/how-do-i-evaluate-this-recursive-function-in-idris-interactive
+[6]: https://en.wikipedia.org/wiki/Monad_(functional_programming)#Overview
+[7]: http://docs.idris-lang.org
+[8]: http://stackoverflow.com/questions/44078891/how-do-i-evaluate-this-recursive-function-in-idris-interactive
+[9]: http://stackoverflow.com/questions/44079181/idris-vect-fromlist-usage-with-generated-list

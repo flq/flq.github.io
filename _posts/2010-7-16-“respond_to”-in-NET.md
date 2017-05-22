@@ -12,16 +12,17 @@ Introducing this functionality is quite easy in .NET as well by catching the **R
 
 You can find the relevant code as part of the MemBus project or as a gist (shown below, licensed under Apache 2.0). 
 
-Calling code works like that. 
- <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:26829cf6-3076-4799-a41a-d0f165ec15d5" class="wlWriterEditableSmartContent"><pre name="code" class="c#:nogutter">var s = new SampleClass();
-s.RespondsTo(d=&gt;d.Name).ShouldBeTrue();
-s.RespondsTo(d=&gt;d.Name = "Jones").ShouldBeTrue(); //Has a public setter
-s.RespondsTo(d =&gt; d.Birthdate = DateTime.Now).ShouldBeFalse(); //Only has private setter
-s.RespondsTo(d =&gt; d.Name = true).ShouldBeFalse();
-s.RespondsTo(d =&gt; d.SetDate(null)).ShouldBeFalse(); //param is a DateTime, null not allowed
-s.RespondsTo(d =&gt; d.Hello("bla")).ShouldBeTrue();
-s.RespondsTo(d =&gt; d.Hello(1)).ShouldBeFalse(); //param is string
-s.RespondsTo(d =&gt; d.Hello("bla", "bli")).ShouldBeFalse(); //Wrong number of args</pre></div>
+```csharp
+var s = new SampleClass();
+s.RespondsTo(d => d.Name).ShouldBeTrue();
+s.RespondsTo(d => d.Name = "Jones").ShouldBeTrue(); //Has a public setter
+s.RespondsTo(d => d.Birthdate = DateTime.Now).ShouldBeFalse(); //Only has private setter
+s.RespondsTo(d => d.Name = true).ShouldBeFalse();
+s.RespondsTo(d => d.SetDate(null)).ShouldBeFalse(); //param is a DateTime, null not allowed
+s.RespondsTo(d => d.Hello("bla")).ShouldBeTrue();
+s.RespondsTo(d => d.Hello(1)).ShouldBeFalse(); //param is string
+s.RespondsTo(d => d.Hello("bla", "bli")).ShouldBeFalse(); //Wrong number of args
+```
 
 A small part of the code was inspired by a [blog post from Justin Chase](http://justinmchase.com/post/2009/07/02/Member-Exists-e28093-Dynamic-C-40.aspx).
 <script src="http://gist.github.com/478382.js"></script>
