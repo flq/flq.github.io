@@ -23,30 +23,30 @@ a normal part of the document. Everything else remains the same.
 </div>
 <div class="six columns">
 
-<svg id="engine" width="500" height="500">
+<svg width="500" height="500">
 	<defs>
 		<linearGradient id="metallic-2" x1="0%" y1="0%" x2="100%" y2="0%"
 			spreadMethod="pad" gradientUnits="objectBoundingBox">
-			<stop offset="0%" style="stop-color:rgb(254,255,255);stop-opacity:1"/>
-			<stop offset="13%" style="stop-color:rgb(96,96,96);stop-opacity:1"/>
-			<stop offset="26%" style="stop-color:rgb(160,160,160);stop-opacity:1"/>
-			<stop offset="47%" style="stop-color:rgb(225,225,225);stop-opacity:1"/>
-			<stop offset="62%" style="stop-color:rgb(255,255,255);stop-opacity:1"/>
-			<stop offset="80%" style="stop-color:rgb(225,225,225);stop-opacity:1"/>
-			<stop offset="100%" style="stop-color:rgb(96,96,96);stop-opacity:1"/>
+			<stop offset="0%" style="stop-color:rgb(254,255,255);"/>
+			<stop offset="13%" style="stop-color:rgb(96,96,96);"/>
+			<stop offset="26%" style="stop-color:rgb(160,160,160);"/>
+			<stop offset="47%" style="stop-color:rgb(225,225,225);"/>
+			<stop offset="62%" style="stop-color:rgb(255,255,255);"/>
+			<stop offset="80%" style="stop-color:rgb(225,225,225);"/>
+			<stop offset="100%" style="stop-color:rgb(96,96,96);"/>
 		</linearGradient>
 
 		<linearGradient id="metallic-case" x1="0%" y1="0%" x2="100%" y2="0%"
 			spreadMethod="pad" gradientUnits="objectBoundingBox">
-			<stop offset="0%" style="stop-color:rgb(254,255,255);stop-opacity:1"/>
-			<stop offset="50%" style="stop-color:rgb(96,96,96);stop-opacity:1"/>
-			<stop offset="100%" style="stop-color:rgb(225,225,225);stop-opacity:1"/>
+			<stop offset="0%" style="stop-color:rgb(254,255,255);"/>
+			<stop offset="50%" style="stop-color:rgb(96,96,96);"/>
+			<stop offset="100%" style="stop-color:rgb(225,225,225);"/>
 		</linearGradient>
 
 		<radialGradient id="metallic-case2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"
 			spreadMethod="pad" gradientUnits="objectBoundingBox">
-			<stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:1"/>
-			<stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1"/>
+			<stop offset="0%" style="stop-color:rgb(0,0,0);"/>
+			<stop offset="100%" style="stop-color:rgb(255,255,255);"/>
 		</radialGradient>
 
 		<symbol id="case">
@@ -116,7 +116,6 @@ a normal part of the document. Everything else remains the same.
 </svg>
 
 <script>
-  const engine = document.getElementById("engine");
   let currframe = 0;
   const rodlength = 155;
   const shaftradius = 40;
