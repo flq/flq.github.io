@@ -1,7 +1,7 @@
 ---
 title: "Auxerrois"
 layout: post
-tags: [stuff-we-like]
+tags: [stuff-we-like,loosely-coupled]
 date: 2017-01-03 19:00:00
 ---
 

@@ -12,7 +12,7 @@ date: 2017-06-09 09:48:01
 <div class="six columns" markdown="1">
 
 Roughly _eleven or twelve years_ ago, when I was young and seemed to have plenty of time for everything, I played with svg.
-Back then, you needed a bwoser plugin to get it to run. I also thought that Flash was eating svg and svg, even though cool,
+Back then, you needed a browser plugin to get it to run. I also thought that Flash was eating svg and svg, even though cool,
 would not survive.
 
 Fast-forward _eleven or twelve_ years: while preparing for some MS-certification I wanted to refresh my svg knowledge.
