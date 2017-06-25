@@ -1,8 +1,8 @@
 ---
 title: "eleven year old svg engine, reposted"
 layout: post
-tags: [loosely coupled, web]
-date: 2017-06-09 09:48:01
+tags: [programming, web]
+date: 2017-06-24 09:48:01
 ---
 
 <div class="container">
