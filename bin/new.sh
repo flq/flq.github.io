@@ -9,7 +9,7 @@ printf "Tags (csv): "
 read -r tags
 
 titleForFile=$(echo "$title" | 
-	sed 's/[ ?<>*=!'\'']/-/g' | 
+	sed 's/[ ?<>*=!,'\'']/-/g' | 
 	sed -E 's/-+/-/g' | sed -E 's/-$//g')
 
 cat >../_posts/$todayFile-$titleForFile.md <<EOL
