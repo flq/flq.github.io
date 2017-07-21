@@ -4,27 +4,25 @@ exclude: [bin]
 excerpt_separator: <!--more-->
 permalink:        pretty
 
-# Setup
-title:    Realfiction
-tagline:    'intersect'
-description:  'Content from Frank Quednau about programming and fields of interest.'
-url:    http://realfiction.net
-baseurl:  /
+title:       Realfiction
+tagline:     'intersect'
+description: 'Content from Frank Quednau about programming and fields of interest.'
+url:         http://realfiction.net
+baseurl:     /
 
 author:
-  name:        'Frank Quednau'
-  url:            https://twitter.com/fquednau
+  name: 'Frank Quednau'
+  url:  https://twitter.com/fquednau
 
-paginate:         5
+paginate: 5
 
 redcarpet:
   extensions: []
 
-# Custom vars
-version:          1.0.0
+version: 1.0.0
 
 github:
-  repo:           https://github.com/flq/flq.github.io
+  repo: https://github.com/flq/flq.github.io
 
 gist:
   noscript: false
