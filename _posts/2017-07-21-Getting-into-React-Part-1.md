@@ -64,4 +64,4 @@ So, yes, I'll definitely not be able to give you answers to all of that, but, wi
 
 
 [1]: https://github.com/flq/flq.github.io
-[2]: {% post_url 2017-07-21-Getting-into-React-Part-1 %}
+[2]: {% post_url 2017-07-22-Getting-into-react-part-2 %}
