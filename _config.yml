@@ -8,7 +8,7 @@ title:       Realfiction
 tagline:     'intersect'
 description: 'Content from Frank Quednau about programming and fields of interest.'
 url:         http://realfiction.net
-baseurl:     /
+baseurl:     "/"
 
 author:
   name: 'Frank Quednau'
