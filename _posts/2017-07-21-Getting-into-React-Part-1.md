@@ -8,6 +8,7 @@ date: 2017-07-21 15:30:54
 ## "react" series
 1. Getting into React Part 1
 1. [Getting into React Part 2][2]
+1. [Create react app with typescript][3]
 
 > All posts in this series use versions around July 2017, i.e.<br>
 > React: late v15s<br>
@@ -65,3 +66,4 @@ So, yes, I'll definitely not be able to give you answers to all of that, but, wi
 
 [1]: https://github.com/flq/flq.github.io
 [2]: {% post_url 2017-07-22-Getting-into-react-part-2 %}
+[3]: {% post_url 2017-07-23-Create-react-app-with-typescript %}

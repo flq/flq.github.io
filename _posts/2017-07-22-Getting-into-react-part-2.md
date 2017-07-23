@@ -8,6 +8,7 @@ date: 2017-07-22 17:00:00
 ## "react" series
 1. [Getting into React Part 1][3]
 1. Getting into React Part 2
+1. [Create react app with typescript][4]
 
 One thing should be clear right from the start: There is no single path to get your react application up and running. This is simply due to the fact that there is a huge array of alternatives with regard to tooling, runtime dependencies etc. etc.
 If you are really just about to start, it seems that facebook's own [create-react-app][1] is a good starting point. It will hide the scary amount of configuration and wiring together but will let you _materialize_ all that once you want to introduce your own opinions with regard to building your client-side application.
@@ -71,3 +72,4 @@ Personally, I'd be ready to go, but I know that some of my colleagues ❤ Typesc
 [1]: https://github.com/facebookincubator/create-react-app
 [2]: https://github.com/airbnb/enzyme
 [3]: {% post_url 2017-07-21-Getting-into-React-Part-1 %}
+[4]: {% post_url 2017-07-23-Create-react-app-with-typescript %}

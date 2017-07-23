@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  {% if jekyll.environment == "production" %}
   {% include head.html %}
-  {% endif %}
-  {% if jekyll.environment == "development" %}
-  {% include head.local.html %}
-  {% endif %}
-
+  
   <body>
     <div class="container">
       <div class="row">
         <div class="{{ page.sidesize | default: 'two' }} columns">
-          {% if jekyll.environment == "production" %}
           {% include sidebar.html %}
-          {% endif %}
-          {% if jekyll.environment == "development" %}
-          {% include sidebar.local.html %}
-          {% endif %}
         </div>
         <div class="{{ page.mainsize | default: 'ten' }} columns">
           {{ content }}
