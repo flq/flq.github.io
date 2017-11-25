@@ -2,7 +2,7 @@
 title: "In love, until it's my turn"
 layout: post
 tags: [loosely coupled]
-date: 2017-11-24 13:00:00
+date: 2017-11-25 13:00:00
 ---
 
 ![Gustav Quednau](/public/assets/Gustav_1963.jpg)
