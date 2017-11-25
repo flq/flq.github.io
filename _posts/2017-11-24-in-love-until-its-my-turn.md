@@ -37,7 +37,7 @@ Everywhere where
 * The wealthy think that they are actually better than the rest and are entitled to even more
 * Institutions fail to rigorously weed out the stinking filth that always forms at the bottom of any living system and begin to show blind eyes towards certain groups of people
 
-__You will get Nazis__. If you let them prosper, they will __ensnare the people__ by channeling the anger and vile that the above points accumulate in a society. They will tap on the __racism__ that is related to a lack of empathy, exposure to different viewpoints and a terrible legacy of our evolutionary background. They will get __cocky__. They will erode the institutions while sweet-talking you into parting with your morale, your ethics and utimately your soul. They will happily __throw your body into a meat grinder__ if it furthers their Agenda. It is the evil that will consume itself when there is nothing left to burn.
+__You will get Nazis__. If you let them prosper, they will __ensnare you__ by channeling the anger and vile that the above points accumulate in you. They will tap on your __racism__ that is related to a lack of empathy, exposure to different viewpoints and a terrible legacy of our evolutionary background. They will get __cocky__. They will erode the institutions while sweet-talking you into parting with your morale, your ethics and utimately your soul. They will happily __throw your body into a meat grinder__ if it furthers their Agenda. It is the evil that will consume itself when there is nothing left to burn.
 
 Hence, if you
 * consider yourself better because your parents provided you with the bootstraps to bootstrap yourself
