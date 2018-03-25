@@ -1,7 +1,7 @@
 ---
 title: "In love, until it's my turn"
 layout: post
-tags: [loosely coupled]
+tags: [loosely-coupled]
 date: 2017-11-25 13:00:00
 ---
 

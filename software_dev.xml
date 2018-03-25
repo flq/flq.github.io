@@ -15,7 +15,7 @@
  </author>
 
  {% for post in site.posts limit: 10 %}
- {% unless post.tags contains "loosely coupled" %}
+ {% unless post.tags contains "loosely-coupled" %}
  <entry>
    <title>{{ post.title }}</title>
    <link href="{{ site.url }}{{ post.url }}"/>

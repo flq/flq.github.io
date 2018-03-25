@@ -1,7 +1,7 @@
 ---
 title: "Amazing morse writing"
 layout: post
-tags: [loosely coupled]
+tags: [loosely-coupled]
 date: 2017-07-02 20:05:00
 ---
 

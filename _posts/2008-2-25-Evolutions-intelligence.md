@@ -1,7 +1,7 @@
 ---
 title: "Evolution's intelligence"
 layout: post
-tags: [Hesitan-and-Miracles, biology]
+tags: [hesitan-and-miracles, biology]
 date: 2008-02-25 22:58:26
 redirect_from: /go/115/
 ---

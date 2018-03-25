@@ -1,7 +1,7 @@
 ---
 title: "The Ant and the Green Eyed Bug"
 layout: post
-tags: [Hesitan-and-Miracles]
+tags: [hesitan-and-miracles]
 date: 2006-05-25 15:51:53
 redirect_from: /go/4/
 ---
