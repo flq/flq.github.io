@@ -12,47 +12,59 @@ Instead of having doubles and what-have-you floating around, introduce Zipcodes,
 
 Measures are essentially numbers with Units attached to it. Units are things like Kilometers, Meters, Seconds, and many many more. Try typing in “1 yard/second in miles/fortnight” in Google and you will find that “**1 (yard / second) = 687.272727 miles / fortnight**” 
 
-Here you have already learned one interesting concept. Units can be compatible such that a Measure in one Unit is convertible to a measure in another unit without losing its meaning. Compatibility means that the **Physical Units **are the same. In the above example the physical unit of yard / second and mile / fortnight is **Length / Time**.
+Here you have already learned one interesting concept. Units can be compatible such that a Measure in one Unit is convertible to a measure in another unit without losing its meaning. Compatibility means that the **Physical Units** are the same. In the above example the physical unit of yard / second and mile / fortnight is **Length / Time**.
 
 Basic mathematical operations are also applicable to Units. While addition and subtraction have no impact on Units (they are invariant under addition and subtraction), multiplication and division change a Unit:
 
-*   If you multiply meter by meter you get a new Unit, m².  <li>If you divide meter by second, you get a new Unit with its own significance: velocity in m/sec 
+* If you multiply meter by meter you get a new Unit, m².
+* If you divide meter by second, you get a new Unit with its own significance: velocity in m/sec 
 
 Divisions may cancel out Units:
 
-*   m * (inch / m) gives you the unit **Inch**  <li>m/sec * sec/m would give you no unit. 
+* m * (inch / m) gives you the unit **Inch**
+* m/sec * sec/m would give you no unit. 
 
 The rules governing measures and units can also be expressed in software. The current result of this can be found at github as [NMeasure](https://github.com/flq/NMeasure). Let me give you some examples of how to use the stuff.
 
 Any double is explicitly convertible to a Measure:
-  <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:77cf52c5-f56a-4f1b-9dc8-98aabe850052" class="wlWriterEditableSmartContent"><pre name="code" class="c#">var m = (Measure)100;
-m.Unit.IsDimensionless; //true</pre></div>
+
+```csharp
+var m = (Measure)100;
+m.Unit.IsDimensionless; //true
+```
 
 Any measure can be multiplied with Units:
 
-<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:133db494-49ac-4229-a172-2c10da8e6cbd" class="wlWriterEditableSmartContent"><pre name="code" class="c#">var m = (Measure)100 * U.Meter;
+```csharp
+var m = (Measure)100 * U.Meter;
 m.Unit.Equals(Unit.From(U.Meter)); // true</pre></div>
+```
 
-U is a special Enum that contains numerous Unit names, while Unit is our actual Unit class.
+**U** is a special Enum that contains numerous Unit names, while Unit is our actual Unit class.
 
 Basic mathematical operations cause no troubles for NMeasure. Well, almost. For instance, it won’t let you add apples to oranges if you try:
 
-<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:48db11c1-5d02-4fbc-bf58-842c63a83e7f" class="wlWriterEditableSmartContent"><pre name="code" class="c#">var m1 = new Measure(1, U.Foot);
+```csharp
+var m1 = new Measure(1, U.Foot);
 var m2 = new Measure(1, U.Gram);
 //"These measures cannot be sensibly added to a single new measure"
-Assert.Throws&lt;InvalidOperationException&gt;(() =&gt; { var m3 = m1 + m2; });</pre></div>
+Assert.Throws<InvalidOperationException>(() => { var m3 = m1 + m2; });
+```
 
 But multiplication (and division) works:
 
-<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:9a02b615-e422-4ac0-bb54-9cdb7d2d7479" class="wlWriterEditableSmartContent"><pre name="code" class="c#">var m1 = new Measure(6.0, U.Meter);
+```csharp
+var m1 = new Measure(6.0, U.Meter);
 var m2 = new Measure(2.0, U.Second);
 var m3 = m1 / m2;
- m3.Value.IsEqualTo(3.0);
- m3.Unit.IsEqualTo(U.Meter.Per(U.Second));</pre></div>
+m3.Value.IsEqualTo(3.0);
+m3.Unit.IsEqualTo(U.Meter.Per(U.Second));
+```
 
 Of course, the nice stuff is converting, and especially converting without having to write a conversion function between every conceivable conversion. Check out this Unit test that shows part of the Technical DSL to describe Units, their specifics and their conversions:
 
-<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:1bef7c26-36c3-4cf2-a64e-0b295f3db265" class="wlWriterEditableSmartContent"><pre name="code" class="c#">AdHocConfig.Use(c =&gt; c.Unit(U.Millimeter)
+```csharp
+AdHocConfig.Use(c => c.Unit(U.Millimeter)
     .IsPhysicalUnit(U._LENGTH)
     .StartScale()
     .To(U.Centimeter, 10)
@@ -60,6 +72,7 @@ Of course, the nice stuff is converting, and especially converting without havin
     .To(U.Kilometer, 1000));
 var m = new Measure(1.0, U.Kilometer);
 var m2 = m.ConvertTo(U.Millimeter);
-m2.Value.IsEqualTo(1000000);</pre></div>
+m2.Value.IsEqualTo(1000000);
+```
 
 The conversion bit is still work in progress, but as you can see, the rules of calculating with measurements are becoming transparent and explicit!
