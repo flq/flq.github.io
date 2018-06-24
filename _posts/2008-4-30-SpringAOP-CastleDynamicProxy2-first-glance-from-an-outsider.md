@@ -6,7 +6,7 @@ date: 2008-04-30 20:24:37
 redirect_from: /go/120/
 ---
 
-The other day I got a presentation on Spring.NET and that it brings along quite a bit of aspect oriented Zen. Frankly, I do not know much about Spring.NET. I did a [very quick look](http://realfiction.net/go/143) at performance comparison with respect to object instantiation between Spring.Net and my weapon of choice lately: Castle Windsor. Part of the project is the **Castle.DynamicProxy2** (what a name!). It provides a functionality that is similar to the one you can extract from the **Spring.AOP** Assembly.
+The other day I got a presentation on Spring.NET and that it brings along quite a bit of aspect oriented Zen. My weapon of choice lately: Castle Windsor. Part of the project is the **Castle.DynamicProxy2** (what a name!). It provides a functionality that is similar to the one you can extract from the **Spring.AOP** Assembly.
 
 Leaving the funny word "aspect" behind, what do those funny named assemblies give us? They allow to generate **proxies** around our own objects and provide a way to inject behaviour every time our object is used, i.e. when properties / methods are accessed. Injecting behaviour means in both cases to provide a class that implements a specific interface which is passed to the proxy generator. From here on the generated proxy will call your "**Interceptor**" every time the encapsulated object is being used
 
@@ -199,4 +199,4 @@ The second one was already quite quick. Spring.Net beats Castle Windsor when it 
 
 The solution (VS2008) is attached as download, you will have to provide the references yourself. Enjoy.
 
-[![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2frealfiction.net%2f%3fq%3dnode%2f154&bgcolor=0000CC)](http://www.dotnetkicks.com/kick/?url=http%3a%2f%2frealfiction.net%2f%3fq%3dnode%2f154)
+[1]: 
