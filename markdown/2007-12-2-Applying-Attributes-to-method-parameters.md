@@ -1,0 +1,81 @@
+---
+title: "Applying Attributes to method parameters"
+layout: post
+tags: [software-development, dotnet]
+date: 2007-12-02 19:46:23
+redirect_from: /go/108/
+---
+
+Hopefully everybody who reads this knows more or less what Attributes are in terms of .NET/C# programming. While I was scanning the documentation for that interesting [Monorail project](http://www.castleproject.org/monorail/index.html) (btw, if you ever played with [RoR ](http://www.rubyonrails.org/)you probably feel right at home), I noticed that you can also apply attributes to method parameters. In the following I develop a small example as to how you can make use of such a feat. First let's get the mockery behind us...
+
+```csharp
+class Program {
+  static void Main(string[] args) {
+    Scientist s = new Scientist();
+    s.Promote(new Level(2));
+    Manager m = new Manager();
+    m.Promote(new Level(3));
+    Console.ReadLine();
+  }
+}
+
+class Level {
+  int LevelID;
+  public Level(int lID) {
+    LevelID = lID;
+  }
+}
+
+class CareerPathAttribute : Attribute {
+  public string PathID;
+
+  public CareerPathAttribute(string pID) {
+    PathID = pID;
+  }
+}
+```
+
+The **Level** class won't do much in our example, while the **CareerPathAttribute** will be applied to a parameter in the following fashion:
+
+```csharp
+class Scientist : Person {
+  public override void Promote([CareerPath("Science")] Level level) {
+    base.Promote(level);
+  }
+}
+
+class Manager : Person {
+  public override void Promote([CareerPath("Management")] Level level) {
+    base.Promote(level);
+  }
+}
+```
+
+As you can see, the attribute is written right before the method parameter and parameter type. While you haven't seen the **Person** class (yet), you will notice that the methods override an already defined one. It shows that definition of attributes do not affect the method signature (which makes sense, as the appliance of attributes is fully transparent from a runtime perspective, i.e. you don't call such a method any different than in the case where no attribute would be defined). 
+
+Let us have a look at the **Person** class then...
+
+```csharp
+abstract class Person {
+
+  public virtual void Promote(Level level) {
+    // Skipping the current frame, i.e. going to the caller
+    StackFrame sf = new StackFrame(1); 
+    CareerPathAttribute a = FindAttribute<CareerPathAttribute>(sf.GetMethod());
+    if (a != null)
+      Console.WriteLine("field has additional info: " + a.PathID);
+  }
+
+  private static T FindAttribute<T>(MethodBase mb) {
+    object[] o =
+      mb.GetParameters()[0].GetCustomAttributes(typeof(T), false);
+    return o.Length > 0 ? (T)o[0] : default(T);
+  }
+}
+```
+
+The inheriting classes then route their respective calls to **Promote** to the base class. The implementation there uses an interesting class called **StackFrame** from the **System.Diagnostics** namespace. It allows access to Reflection info from the point of view of the current stack . Here I use the constructor that allows to specify which frame to skip. In other words I am skipping the current frame, that is, the method I am in when calling "**GetMethod()**". The call to the **FindAttribute**-method then shows where you can actually find the attribute that you place on a method parameter - in the custom attributes of the **ParameterInfo** object. 
+
+In other words, it is not in any way attached to the instance passed through as argument - which is logical. However, it means that in order to access the custom attribute you actually have to go to the method and parameter where the attribute is defined. This is the reason why I skipped one frame. I.e. I end up with the calling method - in this case blindly trusting that there is a calling method that has at least one parameter.
+
+The strategy illustrated here is admittedly not very convincing - The intent of this attribute means that it could have been placed on the calling method/field itself. However,  it shows that you can for example pass additional information to a base class with a little bit of runtime and reflection information in order to provide a further dimension of decision pointers to some underlying implementation.

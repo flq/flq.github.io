@@ -1,0 +1,18 @@
+---
+title: "A link to an article from Mark Russinovich"
+layout: post
+tags: [windows]
+date: 2007-06-28 10:18:05
+redirect_from: /go/95/
+---
+
+I [once wrote](/go/93) I quite like Vista. Now, a few months later, I can't really say that I hate it, but...
+
+Well, for once there is extremely annoying delay I experience when the file explorer /file open dialog opens. It takes the investigational skills of one [Mark Russinovich](http://en.wikipedia.org/wiki/Mark_Russinovich) to figure out what's going on.
+
+[Read it here](http://blogs.technet.com/markrussinovich/archive/2006/11/27/532465.aspx)
+
+I can only say to the Vista programmers: Such features are absolutely uncalled for. Which customer exactly stated the requirement that he/she would sacrifice a fast file explorer for the sake of displaying the directory string a little nicer? John McEnroe's statement to this:
+> You cannot be serious!
+
+What's up with the periodic disk thrashing that can really get in the way on my 2GB RAM laptop is yet another matter, but I won't go there for now...

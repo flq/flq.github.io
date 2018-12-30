@@ -1,0 +1,100 @@
+---
+title: "So, how expensive is it to let Castle Windsor / Spring.NET make my object?"
+layout: post
+tags: [dotnet, patterns, libs-and-frameworks]
+date: 2007-12-09 16:43:46
+---
+
+Lately I was getting increasingly curious about the overhead of using a [Dependency Injection](http://martinfowler.com/articles/injection.html)-container to provide me with instances of my objects. With overhead I mean if and how much longer it takes for the DI container to provide me with the desired instance. 
+
+Indeed, this is not an overly interesting number. After all, how often do you instantiate an object in your Application's lifecycle and even if you do it very often, how does it compare to other activities of your Software like doing a Database Query?
+
+Even so, I was curious, so here we go. First I needed a simple example. I came up with the usual BankAccount stuff that depends on a Exchange rate facility in order to work correctly. The following image gives you an overview: 
+ ![System overview Bankaccount](/assets/scrshot_bank.png) 
+
+I decided for the possibility of constructor-based injection, such that the normal usage of the BankAccount class would be like that:
+ <pre class="sh_csharp">
+BankAccount b = new BankAccount(new SimpleExchangeRateEngine());
+b.Deposit(new MonetaryValue("EUR", 1000.23M));
+</pre>
+The first DI container I used was the [Castle Project Windsor container](http://www.castleproject.org/container/index.html), which we have started to use on a customer's project. Necessary configuration aspects can be covered in the app.config and the configuration for this specific example looks like this:
+
+    <configuration>
+      <configSections>
+        <sectionGroup name="spring">
+          <section name="context" type="Spring.Context.Support.ContextHandler, Spring.Core"/>
+          <section name="objects" type="Spring.Context.Support.DefaultSectionHandler, Spring.Core" />
+        </sectionGroup>
+      </configSections>
+      <spring>
+        <context>
+          <resource uri="config://spring/objects"/>
+        </context>
+        <objects xmlns="http://www.springframework.net">
+          <object id="ExchangeEngine" type="TheBank.SimpleExchangeRateEngine, TheBank" singleton="false" />
+          <object id="BankAccount" type="TheBank.BankAccount, TheBank" singleton="false">
+            <constructor-arg name="engine" ref="ExchangeEngine"/>
+          </object>
+        </objects>
+      </spring>
+    </configuration>
+
+As you can see, the two important classes that we will be using are registered in the configuration. 
+Interesting in this framework is the fact that you can explicitly state the "service" (i.e. the interface) which a class implements. You can then obtain a reference to an underlying implementation simply by passing an interface to the "Kernel", the part of the DI container that you need to talk to to get the desired object instance. In terms of the given framework this looks like that:
+
+    IWindsorContainer c = new WindsorContainer(new XmlInterpreter());
+    BankAccount b = c.Resolve<BankAccount>();
+
+How did the dependency to the **IExchangeRateEngine** service go into the BankAccount? This is a feature of the framework. It looks at the BankAccount constructor and will find that for the necessary service to be provided there is an entry in the configuration. It instantiates the dependency and passes it to the BankAccount instance.
+
+For testing the construction speed, I wrote a program with two loops: The outer one ten times, the inner ones 10000 times the creation of a BankAccount object in the following ways:
+
+1.  Simple Instantiation with new as already shown
+2.  Instantiation with the Activator: Activator.CreateInstance(typeof(BankAccount), new SimpleExchangeRateEngine());
+3.  DI based creation with Castle Windsor as already shown
+4.  DI based creation with Spring.NET
+
+Just for completeness I had a quick look at [Spring.NET](http://www.springframework.net/) and paced it through pretty much the same routine. The major difference here is that for constructor-based dependency injection you need to explicitly state the constructor argument and what object of the registry should be passed in.
+
+    <configuration>
+      <configSections>
+        <sectionGroup name="spring">
+          <section name="context" type="Spring.Context.Support.ContextHandler, Spring.Core"/>
+          <section name="objects" type="Spring.Context.Support.DefaultSectionHandler, Spring.Core" />
+        </sectionGroup>
+      </configSections>
+      <spring>
+        <context>
+          <resource uri="config://spring/objects"/>
+        </context>
+        <objects xmlns="http://www.springframework.net">
+          <object id="ExchangeEngine" type="TheBank.SimpleExchangeRateEngine, TheBank" singleton="false" />
+          <object id="BankAccount" type="TheBank.BankAccount, TheBank" singleton="false">
+            <constructor-arg name="engine" ref="ExchangeEngine"/>
+          </object>
+        </objects>
+      </spring>
+    </configuration>
+
+A call to this framework looks like this:
+
+    IApplicationContext ctx = ContextRegistry.GetContext();
+    BankAccount b = (BankAccount)ctx.GetObject("BankAccount");
+
+Anyway, I used the **StopWatch** object to time the 10000 instantiation loops and calculated an average. Here are the findings (average min/max values out of the ten times that the whole cycle was repeated, Release build running outside vshost) in milliseconds:
+
+*   Normal construction: 0.0001 / 0.0002
+*   Activator construction: 0.0069 / 0.0071
+*   Container construction (Castle Windsor): 0.1014 / 0.1068
+*   Container construction (Spring.NET): 0.069 / 0.0722
+
+It should be noted that the very first instantiation is the most costly one in any scenario and that I have taken out the first instantiation in the Container case because that one is significantly slower than anything else: 
+
+*   Container construction (Castle Windsor): 55 milliseconds
+*   Container construction (Spring.NET): 45 milliseconds
+
+, a bl... eternity...
+
+However, the Container seems to exist as some kind of singleton, since the recreation of the container did not affect that number (for both containers).
+
+Well, yeah, one can state dramatically that the creation of an object via DI takes about 1000 times longer than by writing a simple "new". But since I am not a very dramatic person, and since us Engineers always have to live with conflicting options, I will not elaborate further.

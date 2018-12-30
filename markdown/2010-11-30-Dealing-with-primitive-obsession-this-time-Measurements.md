@@ -1,0 +1,78 @@
+---
+title: "Dealing with primitive obsession (this time: Measurements)"
+layout: post
+tags: [dotnet, patterns, csharp, own-software]
+date: 2010-11-30 09:00:00
+redirect_from: /go/192/
+---
+
+Jeremy Miller on Twitter pointed out a blog post that aged well, because it is valid information: “[Dealing with primitive obsession](http://grabbagoft.blogspot.com/2007/12/dealing-with-primitive-obsession.html)”. Have a go through. The basic thing is: Value Objects make your code expressive! ([Book of Greg, psalm 11](http://realfiction.net/go/191)).
+
+Instead of having doubles and what-have-you floating around, introduce Zipcodes, or Money, or…Measures. This subject came up at a customer whose software has to deal with measurements. While they may not be moving towards this way to express measurements, I could not resist pushing the idea a bit.
+
+Measures are essentially numbers with Units attached to it. Units are things like Kilometers, Meters, Seconds, and many many more. Try typing in “1 yard/second in miles/fortnight” in Google and you will find that “**1 (yard / second) = 687.272727 miles / fortnight**” 
+
+Here you have already learned one interesting concept. Units can be compatible such that a Measure in one Unit is convertible to a measure in another unit without losing its meaning. Compatibility means that the **Physical Units** are the same. In the above example the physical unit of yard / second and mile / fortnight is **Length / Time**.
+
+Basic mathematical operations are also applicable to Units. While addition and subtraction have no impact on Units (they are invariant under addition and subtraction), multiplication and division change a Unit:
+
+* If you multiply meter by meter you get a new Unit, m².
+* If you divide meter by second, you get a new Unit with its own significance: velocity in m/sec 
+
+Divisions may cancel out Units:
+
+* m * (inch / m) gives you the unit **Inch**
+* m/sec * sec/m would give you no unit. 
+
+The rules governing measures and units can also be expressed in software. The current result of this can be found at github as [NMeasure](https://github.com/flq/NMeasure). Let me give you some examples of how to use the stuff.
+
+Any double is explicitly convertible to a Measure:
+
+```csharp
+var m = (Measure)100;
+m.Unit.IsDimensionless; //true
+```
+
+Any measure can be multiplied with Units:
+
+```csharp
+var m = (Measure)100 * U.Meter;
+m.Unit.Equals(Unit.From(U.Meter)); // true</pre></div>
+```
+
+**U** is a special Enum that contains numerous Unit names, while Unit is our actual Unit class.
+
+Basic mathematical operations cause no troubles for NMeasure. Well, almost. For instance, it won’t let you add apples to oranges if you try:
+
+```csharp
+var m1 = new Measure(1, U.Foot);
+var m2 = new Measure(1, U.Gram);
+//"These measures cannot be sensibly added to a single new measure"
+Assert.Throws<InvalidOperationException>(() => { var m3 = m1 + m2; });
+```
+
+But multiplication (and division) works:
+
+```csharp
+var m1 = new Measure(6.0, U.Meter);
+var m2 = new Measure(2.0, U.Second);
+var m3 = m1 / m2;
+m3.Value.IsEqualTo(3.0);
+m3.Unit.IsEqualTo(U.Meter.Per(U.Second));
+```
+
+Of course, the nice stuff is converting, and especially converting without having to write a conversion function between every conceivable conversion. Check out this Unit test that shows part of the Technical DSL to describe Units, their specifics and their conversions:
+
+```csharp
+AdHocConfig.Use(c => c.Unit(U.Millimeter)
+    .IsPhysicalUnit(U._LENGTH)
+    .StartScale()
+    .To(U.Centimeter, 10)
+    .To(U.Meter, 100)
+    .To(U.Kilometer, 1000));
+var m = new Measure(1.0, U.Kilometer);
+var m2 = m.ConvertTo(U.Millimeter);
+m2.Value.IsEqualTo(1000000);
+```
+
+The conversion bit is still work in progress, but as you can see, the rules of calculating with measurements are becoming transparent and explicit!

@@ -1,0 +1,72 @@
+---
+title: "Extending Caliburn-Micro's view location strategy"
+layout: post
+tags: [software-development, patterns, libs-and-frameworks]
+date: 2012-03-05 14:00:00
+redirect_from: /go/215/
+---
+
+[Scal][1] (containing name parts of __S__tructureMap and __Cal__iburn.Micro) is a project into which flows the way I like to work with Caliburn.Micro (CM). Scal brings together what I like to use in a reasonable sized WPF app - its Nuget dependencies are...manifold:
+
+![Scal dependencies][2]
+
+<sup>(CM is added directly to the Nuget package such as to avoid the install script which would be more confusing than helpful in the context of Scal)</sup>
+
+This post is about an addition in Scal that extends how [Caliburn.Micro][8] typically joins Views to ViewModels. While still being in its infancy, one cannot deny that it is heavily inspired by [FubuMVC][3]'s ability to be able to register how certain properties of ViewModels should be rendered in HTML. This was something that I was missing in CM.
+
+Caliburn's matching of Views to ViewModels is ultimately based on matching the name of the View to the name of the ViewModel. I wanted something that would allow me to choose a View based on other information provided by the ViewModel, e.g. saying that a DateTime property should be rendered in a certain way.
+
+Thankfully, CM has a very interesting way to provide extensibility by providing many methods doing the core work as static Fields of delegate types. That way, you can override CMs behavior in many ways.
+
+In Scal you will find a [ViewLocationManagement][4] that overrides CMs way of getting from ViewModels to Views:
+
+    ViewLocator.LocateForModel = Locate;
+    ...
+    private UIElement Locate(object viewModel, DependencyObject visualParent, object context)
+    {
+        var lCtx = new LocationContext(viewModel, visualParent, context);
+        var view = _locators.Select(l => l.LocateView(lCtx)).MaybeFirst();
+    
+        return view.MustHaveValue(ConstructFailureElement(viewModel));            
+    }
+
+The action of getting the correct UIElement for a Model is now delegated to classes that implement the [IViewLocator][5] interface:
+
+    public interface IViewLocator
+    {
+        Maybe<UIElement> LocateView(LocationContext locationContext);
+    }
+
+The first view locator required in this context is one that provides the default CM functionality. This is easily done by ensuring that the original implementation is not lost:
+
+    _original = ViewLocator.LocateForModel;
+    ...
+    public Maybe<UIElement> LocateView(LocationContext ctx)
+    {
+        var ui = _original(ctx.Model, ctx.VisualParent, ctx.CaliburnContext.Value);
+    
+        if (ui is TextBlock && ((TextBlock)ui).Text.StartsWith("Cannot find view for"))
+            return Maybe<UIElement>.None;
+        return ui.ToMaybe();
+    }
+
+This class contains a strange check with regard to the returning element - unfortunately I rely on a CM _implementation detail_ in how it returns a UIElement when it couldn't locate a View. The [CaliburnMicroLocator][6] ensures this is correctly mapped to _I do not have a UIElement!_
+
+With the interface and a chain of responsibility in place __Scal__ can now allow to extend how Views are located in different ways. For this Scal introduces a place where you can configure such things (Again, inspired by FubuMVC). The Scal [sample app configuration][7] e.g. contains the following lines:
+
+    ViewLocation
+        .ModelsMatching<DateTime>(m => 
+          m.Use((b, ctx) => b.Start<DatePicker>(ctx.Model).StaticStyle("EditableDate").BindSelectedDate()))
+        .ModelsMatching<CustomerNumber>(m => m.FromMatchingDataTemplate());
+    
+The API is rather crude at this point in that it only allows to match on a property type, but it allows you to work even more with _ContentControls_ on the Xaml level and get a more consistent output for things. A future release will allow to check requirements based on the LocationContext. This contains information that should in many cases of CM usage give information about the parent ViewModel, the property being bound and the parent UIElement.
+
+
+  [1]: https://github.com/flq/Scal
+  [2]: /assets/scal_deps.png
+  [3]: https://github.com/DarthFubuMVC/fubumvc
+  [4]: https://github.com/flq/Scal/blob/master/Scal/ViewLocation/ViewLocationManagement.cs
+  [5]: https://github.com/flq/Scal/blob/master/Scal/ViewLocation/IViewLocator.cs
+  [6]: https://github.com/flq/Scal/blob/master/Scal/ViewLocation/CaliburnMicroLocator.cs
+  [7]: https://github.com/flq/Scal/blob/master/SampleApp/AppConfiguration.cs
+  [8]: http://caliburnmicro.codeplex.com/

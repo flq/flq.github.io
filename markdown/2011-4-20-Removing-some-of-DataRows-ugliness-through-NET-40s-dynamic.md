@@ -1,0 +1,118 @@
+---
+title: "Removing some of DataRow's ugliness through .NET 4.0’s dynamic"
+layout: post
+tags: [software-development, patterns, libs-and-frameworks]
+date: 2011-04-20 12:37:00
+---
+
+If you do test your stuff, not having static compilation _at all times_ doesn’t seem too daunting. In such cases (and when you can use .NET 4.0) you can consider using the dynamic capabilities to give yourself a somewhat nicer API to deal with a DataRow (something you may end up with if you don’t want to take on a dependency to_ insert-your-favourite-ORM-tool-here_ for _insert-whatever-reasons-you-have-here_).
+
+First we need the type construction to transpose from _DataRow_ to _dynamic_:
+
+```csharp
+public static class DataRowReaderExtensions
+{
+    public static dynamic AsDynamic(this DataRow row)
+    {
+        return new DataRowReader(row);
+    }
+}
+
+public class DataRowReader : DynamicObject
+{
+    private readonly DataRow _dataRow;
+
+    /// <summary>
+    /// ctor
+    /// </summary>
+    public DataRowReader(DataRow dataRow)
+    {
+        _dataRow = dataRow;
+    }
+    ...
+}
+```
+
+The _DataRowReader_ inherits from _DynamicObject_, which allows us to react to runtime calls to methods, properties, etc. we have **NOT** defined. For example, when somebody accesses a property which does not exist...
+
+```csharp
+public override bool TryGetMember(GetMemberBinder binder, out object result)
+{
+    try
+    {
+        result = _dataRow[binder.Name];
+    }
+    catch (Exception x)
+    {
+        Debug.WriteLine(x.Message);
+        result = null;
+    }
+    return true;
+}
+```
+
+…or tries to write to a property…
+
+```csharp
+public override bool TrySetMember(SetMemberBinder binder, object value)
+{
+    try
+    {
+        _dataRow[binder.Name] = value;
+    }
+    catch (Exception x)
+    {
+        Debug.WriteLine(x.Message);
+    }
+    return true;
+}
+```
+
+…or calls some method on it…
+
+```csharp
+public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
+{
+    result = null;
+    if (binder.Name.StartsWith("Get"))
+        HandleGetCase(binder.Name, out result);
+    if (binder.Name.StartsWith("Has"))
+        HandleHasCase(binder.Name, out result);
+
+    return true;
+}
+
+private void HandleHasCase(string name, out object result)
+{
+    var columnName = name.Replace("Has", "");
+    result = _dataRow.Table.Columns.Contains(columnName);
+}
+
+private void HandleGetCase(string name, out object result)
+{
+    var relation = name.Replace("Get", "").Replace("Childs", "");
+    result = _dataRow.GetChildRows(relation).Select(r =&gt; new DataRowReader(r)).ToArray();
+}
+```
+
+What you can do now is the following:
+
+```csharp
+var _drReader = myRow.AsDynamic();
+var name = _drReader.LastName;
+_drReader.LastName = name;
+//Loads childs through relation "CustomerSystem"
+_drReader.GetCustomerSystemChilds() ;
+//CheckIfAColumnExists
+_drReader.HasLastName;
+```
+
+Sure, the current implementation is pretty crude and can be foiled easily, but you get the idea. 
+
+If you think this further, you may arrive to a point that you consider accessing a DB dynamically in much the same fashion, something like…
+
+```csharp
+var customers = _db.Customers.FindByLastName("Brannigan")
+```
+
+Without ever having to generate code, set up mappings or dance 3 times around the grand DBA Master totem. Luckily, [this is already happening](https://github.com/markrendle/Simple.Data).

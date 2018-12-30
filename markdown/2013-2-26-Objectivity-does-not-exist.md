@@ -1,0 +1,31 @@
+---
+title: "Objectivity does not exist"
+layout: post
+tags: [physics, loosely-coupled]
+date: 2013-02-26 00:00:00
+redirect_from: /go/220/
+---
+
+> Note: This post was originally posted on the 27th August 2012 on the "more" blog that I kept for some time
+The conclusion of this post is: *You cannot claim that the superiority of your argument is based on objectivity*. 
+
+If you agree, I'll save you the time and say that you can go and use your time somewhere else. 
+
+The idea that there is an objective reality that keeps ticking away independently of us is an old one and one that is attractive to many people, as it implies that you are mature enough to relativize your importance in the Cosmos. 
+
+In the meantime, we arrived in the 21st century and we know for roughly 100 years that the foundation of reality has an issue with you being the objective observer of a clockwork universe. Quantum Mechanics told us that whatever subatomic particles actually are, they interact with each other by exchanging other subatomic particles. The important point to note is that you cannot value one side of the interaction more than the other. The source and the target of the interaction are of equal value and equally participate in the ongoing activity - to stretch an old meme: *In Soviet Russia, particles observe you*. 
+
+From this we can deduce two things: 
+
+*   In the quantum world, issuing a particle for interaction severely alters the state of whatever is being interacted with. With an increasing number of particles you may ignore this, and yet we are talking about the currently known foundation of reality, it is nothing that you can escape from.
+*   Every observation you do leaves you **not** with some knowledge of the actual thing you observe but rather about how that thing interacted with you.  
+
+As an example, you don't see the sun as *such*, but rather feel the gravitational pull as well as the photons arriving here. This is not necessarily hair-splitting - consider that e.g. our eyes only see a very small part of the electromagnetic spectrum that our sun radiates. We have developed instruments to reach into other EM frequencies, yet our senses and instruments dictate how we perceive our surroundings. Whatever notion you may have about the world you live in is based on whatever interactions you have with it, and most importantly which interactions are **compatible** with you. Compatibility is another interesting phenomenon - the current physics model knows 4 fundamental forces and some particles do not interact with regard to some forces. Take **neutrinos** for example, they interact through the weak atomic force as well as having some mass (meaning nothing else but that their state is affected by a gravitational field). In other words, they are inexistent to those kinds of interactions in which our lives play themselves out. What has this all to do with objectivity? 
+
+*   for an assessment of a *situation* to take place, you
+*   have to perform an *observation* of the *situation*, hence
+*   you interact with the *situation*, therefore
+*   the *situation* emerges from our interaction with it, that is, 
+*   the senses, instruments and models used to get a hold on the *situation* shape it.
+*   considering that another set of models, instruments and senses may be used to assess a *situation*, it should be evident that
+*   An observation or assessment of a *situation* will always be subjective.

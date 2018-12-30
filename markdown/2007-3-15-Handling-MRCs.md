@@ -1,0 +1,36 @@
+---
+title: "Handling MRCs"
+layout: post
+tags: [sci-fi]
+date: 2007-03-15 21:10:17
+redirect_from: /go/71/
+---
+
+Hopefully this is just enough information to be able to deviate a little bit, since we started talking about untyped matter containment and its key role in today’s technology.
+
+A very early problem in the Iilasian exploration of the MRC’s possibilities was its handling. Remember that one of the main characteristics of the crystals is that they leave most particle streams passing unharmed. Although the MRC is quite visible due to its distorting effect on the spatial coordinates of particles, it would be fatuous to touch a crystal. A finger goes right into the crystal and in practically all cases will not come out in the same way. Especially such complex molecules as they are found in bodies of life forms are rendered completely useless after an interaction with the internal properties of a MRC. We are talking everything from resulting hydrogen to fine coal powder to something that still looks like a finger from the outside but has nothing in common with it from the inside. Imagine the poor scientist where parts of his finger have been rearranged to form a highly toxic compound.
+
+Crystal handling was, and remains, problematic. Even the fairly simple structures of steel clamps are already too elaborate and too dependant on their layout within space-time as that they would survive the contact with a MRC for any time span measured in seconds. The clamps sink into the crystal and may even be able to exert a certain translational force on the crystal but at what a cost. There are all kinds of secondary effects from simple glowing to strong radioactivity. As we already know, the consequences of such effects are type imbalances, i.e. crystal impurities that ultimately lead to the loss of the MRC’s special properties. A crystal begins behaving like ordinary matter or catastrophically explodes because of its unstable condition.
+
+Indeed, MRCs were at the beginning a very elusive thing, often lost and very, very precious.
+
+Nowadays there are two principal ways to handle MRCs, the oldest one an absolute prerequisite to initiate the latter one. 
+The figure on the following page describes the basic steps of the process to form a material that has classical properties on the one side and MRC-like properties on the other. This configuration allows touching one side with any metal or ceramic without any problem while the other side can contact the surface (in the sense of a boundary layer) of a multi-resonance crystal without causing too much disturbance in it. It has been a long way from the development of the principles and the first experiments done in the way outlined in the figure to today’s manufacturing ships using state-of-the-art dynamic multi-layering techniques. The current quality that is reached for such parts in terms of material properties was quite unimaginable in the early days.
+
+![](files/images/saitech1-fig5.gif)
+
+Based on specific PS, type saturation is reached. This leads to the possibility to interact with the MRC via an electromagnetic field (the MRC becomes charged and some of its internal structure obtains a spin) while it is in the process of becoming a normal crystal (e.g. Quartz).
+
+![](files/images/saitech1-fig6.gif)
+
+A very strong electromagnet pushes the MRC in the transient state towards the uninfluenced MRC.
+
+![](files/images/saitech1-fig7.gif)
+
+The saturated MRC must have entered the spatial domain of the other MRC before its transient state terminates. The two crystals bake together with the one side having classical properties and the other side showing more or less the behaviour of a pure MRC.
+
+Even so, the resulting composite is relatively unstable. It is radioactive to a degree that protection for life forms and delicate technical apparatus is required. Then again, what’s the use of Multi-resonance crystals if you cannot get them out of a Pulsar’s orbit? Clamps and anchors are manufactured for handling crystals by providing a proper coating of the parts that are in touch with MRCs. This coating exists in many forms and its properties are defined by the coating’s granularity (Have I done the process shown in the figure with a few big crystals or very many little ones?) and other properties (degree of saturation / pureness of the two input entities and their relation to each other to name but one). Since the coating helps to bridge the complexities of handling an element with very unique properties it is referred to as frequency  bridge coating, or just bridge coating (In the sense of bridging between the interaction frequencies of the 4Band-continuum and the faster ones that can be associated with constant properties of said continuum). 
+
+Mechanical devices handling MRCs at this level (i.e. that are bridge-coated) may be called crystal clamp or maybe referred to as coupler, because it partly couples the elusive pure crystal to the 4Band-based interactions.
+Either way, once you can grab such a crystal, you can also rotate it 
+– Alas, the technology of recognising and harnessing the power of rotating multi-resonance crystals is what really made it possible to construct YHSUU’s DAUGHTER and the subsequent construction of the Iilasian swarm, today’s homeland of the Ii.

@@ -1,0 +1,21 @@
+---
+title: "Spec# - Constraining the domain your c# program operates upon"
+layout: post
+tags: [software-development, dotnet]
+date: 2006-07-01 14:23:49
+redirect_from: /go/37/
+---
+
+I found this at Microsoft&#39;s research downloads: [Spec#](http://research.microsoft.com/specsharp/) is an extension to the c# programming language and brings multiple ways of adding explicit constraints to what is essentially the data your c# program works upon. One nice example from the [overview[pdf]](http://research.microsoft.com/specsharp/papers/krml136.pdf) presented there:
+
+<pre>
+class ArrayList {
+  public virtual void Insert(intindex,object value)
+    requires 0 <= index && index <= Count;
+    requires !IsReadOnly &&!IsFixedSize;
+    ensures Count == old(Count)+1;
+  { ... }
+</pre>
+Means that some preconditions are required: index is bigger than 0 and smaller than the current value of Count. Furthermore the fields IsReadonly and IsFixedSize should be false. The postcondition of the call is that the count field should have increased by 1.
+
+This is just one of the features available. Those who like constraining their objects with pre- and post conditions (values and exceptions), more specific avoidance of null references and ways to state invariants should have fun with this (Does this include me? I s'ppose it depends on the project!)
