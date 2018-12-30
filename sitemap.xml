@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://realfiction.net/2018/12/30/from-jekyll-to-gatsby</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2018/06/24/primitive-confusion</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2018/06/10/typescript-type-shenanigans-conditional-types</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2018/03/25/mob-programming-first-impressions</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -270,13 +271,14 @@
 <url> <loc>https://realfiction.net/2005/12/16/on-afshars-double-slit-experiment</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2005/10/08/resign-patterns</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2004/07/31/an-experiment-thats-causing-somewhat-of-a-stir</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://realfiction.net/tags/meta</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://realfiction.net/tags/web</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/fsharp</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/csharp</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/typescript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/loosely-coupled</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/tags/web</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/dotnet</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/software-development</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -291,7 +293,6 @@
 <url> <loc>https://realfiction.net/tags/site</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/physics</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/own-software</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/tags/meta</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/membus</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/fun-spin</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/geekdom</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
