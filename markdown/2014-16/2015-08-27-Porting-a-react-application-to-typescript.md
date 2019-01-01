@@ -1,7 +1,7 @@
 ---
 title: "Porting a react application to typescript"
 layout: post
-tags: [web, software-development, typescript, javascript, react]
+tags: [web, programming, typescript, javascript, react]
 date: 2015-08-27 22:20:10
 ---
 

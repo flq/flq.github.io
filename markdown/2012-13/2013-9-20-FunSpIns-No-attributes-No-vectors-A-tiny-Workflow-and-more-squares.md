@@ -1,7 +1,7 @@
 ---
 title: "FunSpIns - No attributes, No vectors, A tiny Workflow and more squares"
 layout: post
-tags: [software-development, haskell, fun-spin]
+tags: [programming, haskell, fun-spin]
 date: 2013-09-20 14:00:00
 redirect_from: /go/233/
 ---

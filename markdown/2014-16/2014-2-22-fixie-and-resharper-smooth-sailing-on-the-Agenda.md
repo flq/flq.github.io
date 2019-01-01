@@ -1,9 +1,7 @@
 ---
 title: "fixie and resharper, smooth sailing on the Agenda."
-layout: post
-tags: [software-development]
+tags: [dotnet, programming]
 date: 2014-02-22 20:56:26
-redirect_from: /go/242/
 ---
 
 I was willing to have a play with [fixie](https://github.com/plioi/fixie), a new test runner, but was unimpressed by the situation of how to get fixie tests run in resharper. Yesterday, I tried the internet again:

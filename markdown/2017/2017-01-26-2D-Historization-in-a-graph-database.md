@@ -1,7 +1,7 @@
 ---
 title: "2D-Historization in a graph database"
 layout: post
-tags: [software-development, patterns, programming, neo4j]
+tags: [patterns, programming, neo4j]
 date: 2017-01-27 07:00:00
 ---
 

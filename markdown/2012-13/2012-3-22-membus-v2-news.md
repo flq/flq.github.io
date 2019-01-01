@@ -1,7 +1,7 @@
 ---
 title: "membus v2 news"
 layout: post
-tags: [software-development, dotnet, membus]
+tags: [own-software, dotnet, membus]
 date: 2012-03-22 13:00:00
 ---
 

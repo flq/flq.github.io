@@ -1,7 +1,7 @@
 ---
 title: "Combat fatty WPF VMs - Controller"
 layout: post
-tags: [dotnet, libs-and-frameworks]
+tags: [dotnet, WPF, libs-and-frameworks]
 date: 2013-08-05 20:23:25
 ---
 

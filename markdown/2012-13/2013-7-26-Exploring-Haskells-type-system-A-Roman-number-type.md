@@ -1,7 +1,7 @@
 ---
 title: "Exploring Haskell's type system - A Roman number type"
 layout: post
-tags: [software-development, haskell]
+tags: [programming, haskell]
 date: 2013-07-26 20:50:57
 redirect_from: /go/224/
 ---

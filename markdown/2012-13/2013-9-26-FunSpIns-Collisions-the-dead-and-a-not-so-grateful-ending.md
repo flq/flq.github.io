@@ -1,7 +1,7 @@
 ---
 title: "FunSpIns - Collisions, the dead, and a (not so) grateful ending."
 layout: post
-tags: [software-development, haskell, fun-spin]
+tags: [programming, haskell, fun-spin]
 date: 2013-09-26 14:00:00
 redirect_from: /go/237/
 ---

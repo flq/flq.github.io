@@ -1,7 +1,7 @@
 ---
 title: "Extending Caliburn-Micro's view location strategy"
 layout: post
-tags: [software-development, patterns, libs-and-frameworks]
+tags: [WPF, patterns, libs-and-frameworks]
 date: 2012-03-05 14:00:00
 redirect_from: /go/215/
 ---

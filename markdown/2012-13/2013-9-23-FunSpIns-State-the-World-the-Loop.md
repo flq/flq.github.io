@@ -1,7 +1,7 @@
 ---
 title: "FunSpIns - State, the World, the Loop"
 layout: post
-tags: [software-development, haskell, fun-spin]
+tags: [programming, haskell, fun-spin]
 date: 2013-09-23 14:00:00
 redirect_from: /go/234/
 ---

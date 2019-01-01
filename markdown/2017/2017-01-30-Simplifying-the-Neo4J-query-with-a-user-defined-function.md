@@ -1,7 +1,7 @@
 ---
 title: "Simplify the bitemporal Neo4J query with a user-defined function"
 layout: post
-tags: [software-development, patterns, programming, neo4j]
+tags: [programming, neo4j, java]
 date: 2017-01-30 10:00:00
 ---
 

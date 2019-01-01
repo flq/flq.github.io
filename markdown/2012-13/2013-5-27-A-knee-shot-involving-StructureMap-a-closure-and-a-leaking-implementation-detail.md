@@ -1,7 +1,7 @@
 ---
 title: "A knee-shot involving StructureMap, a closure and a leaking implementation detail"
 layout: post
-tags: [software-development]
+tags: [programming,dotnet]
 date: 2013-05-27 18:41:45
 redirect_from: /go/223/
 ---

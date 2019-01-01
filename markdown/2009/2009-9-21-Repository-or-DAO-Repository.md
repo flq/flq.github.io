@@ -1,9 +1,7 @@
 ---
 title: "Repository or DAO?: Repository"
-layout: post
-tags: [software-development, libs-and-frameworks, csharp, patterns]
+tags: [programming, libs-and-frameworks, csharp, patterns]
 date: 2009-09-21 20:20:51
-redirect_from: /go/149/
 ---
 
 Fine, fine, the title is a blatant copy from [Fabio Maulo](http://fabiomaulo.blogspot.com)'s equally titled [blog post](http://fabiomaulo.blogspot.com/2009/09/repository-or-dao-repository.html).

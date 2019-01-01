@@ -1,9 +1,8 @@
 ---
 title: "Strengtening Caliburn.Micro conversion capabilities with Scal"
 layout: post
-tags: [software-development, dotnet, libs-and-frameworks]
+tags: [own-software, dotnet, csharp, WPF, libs-and-frameworks]
 date: 2012-03-23 12:00:00
-redirect_from: /go/217/
 ---
 
 If one looks into how [Caliburn.Micro][2] performs binding between models and views, a number of methods must be considered that play a role.

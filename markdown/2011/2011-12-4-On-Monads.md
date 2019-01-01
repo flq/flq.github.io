@@ -1,7 +1,7 @@
 ---
 title: "On Monads"
 layout: post
-tags: [software-development, dotnet, haskell]
+tags: [programming, dotnet, haskell]
 date: 2011-12-04 12:00:00
 ---
 

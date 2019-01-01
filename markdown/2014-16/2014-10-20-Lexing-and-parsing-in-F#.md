@@ -1,7 +1,7 @@
 ---
 title: "Lexing and parsing in F#"
 layout: post
-tags: [software-development,fsharp]
+tags: [programming,fsharp]
 date: 2014-10-20 16:41:55
 ---
 

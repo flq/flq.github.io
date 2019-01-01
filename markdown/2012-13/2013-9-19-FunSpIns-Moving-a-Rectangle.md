@@ -1,7 +1,7 @@
 ---
 title: "FunSpIns - Moving a Rectangle"
 layout: post
-tags: [software-development, haskell, fun-spin]
+tags: [programming, haskell, fun-spin]
 date: 2013-09-19 14:00:00
 ---
 
