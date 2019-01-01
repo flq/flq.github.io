@@ -35,13 +35,13 @@ const Layout = ({ children }) => (
         </Helmet>
         <div className="container">
           <div className="row">
-            <div className="two columns">
+            <div className="two columns right-padded">
               <Sidebar
                 title={data.site.siteMetadata.title}
                 description={data.site.siteMetadata.description}
               />
             </div>
-            <div className="ten columns">{children}</div>
+            <div className="nine columns">{children}</div>
           </div>
         </div>
       </>

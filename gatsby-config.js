@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Realfiction',
     description:
-      'Content from Frank Quednau about programming and fields of interest.',
+      'Content from Frank Quednau about dev and fields of interest.',
     siteUrl: 'https://realfiction.net',
   },
   plugins: [

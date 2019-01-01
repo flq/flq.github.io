@@ -2,12 +2,30 @@ body {
   font-size: 1.8em;
 }
 
-/*.sidebar {
-  background: linear-gradient(to bottom, white 80%, #aaa);
-}*/
-
 .sidebar h1 {
   font-size: 2.4em;
+}
+
+.sidebar--sitetitle { 
+  color: #af0000;
+}
+
+.right-padded {
+  padding-right: 2rem;
+}
+
+@media (max-width: 550px) {
+  .sidebar h1 {
+    margin-bottom: 0.5rem;
+  }
+  .sidebar p {
+    margin-bottom: 0.5rem;
+  }
+  .sidebar {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid gray;
+  }
 }
 
 @media (min-width: 550px) {
@@ -54,7 +72,7 @@ nav a {
 
 .teaser .date {
   display: block;
-  margin-top: -30px;
+  margin-top: -20px;
   margin-bottom: 20px;
   text-align: right;
 }
