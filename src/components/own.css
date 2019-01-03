@@ -6,8 +6,22 @@ body {
   font-size: 2.4em;
 }
 
-.sidebar--sitetitle { 
+.sidebar__sitetitle { 
   color: #af0000;
+}
+
+.sidebar__twitter {
+  display: none;
+  margin-top: 2rem;
+}
+
+.footer__twitter {
+  display:none;
+}
+
+.footer__copyright {
+  float: right;
+  font-size: 0.7em;
 }
 
 .right-padded {
@@ -26,6 +40,10 @@ body {
     margin-bottom: 1rem;
     border-bottom: 1px solid gray;
   }
+
+  .footer__twitter {
+    display: inline-block;
+  }
 }
 
 @media (min-width: 550px) {
@@ -34,6 +52,10 @@ body {
     text-align: right;
     margin-top: 150px;
     margin-bottom: 100px;
+  }
+
+  .sidebar__twitter {
+    display: block;
   }
 
   .copyright {

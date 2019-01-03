@@ -9,6 +9,7 @@ import './syntax.css'
 import './own.css'
 
 import Sidebar from './sidebar'
+import Footer from './footer'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -16,7 +17,7 @@ const Layout = ({ children }) => (
       query SiteTitleQuery {
         site {
           siteMetadata {
-            title,
+            title
             description
           }
         }
@@ -27,11 +28,18 @@ const Layout = ({ children }) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: data.site.siteMetadata.description },
+            {
+              name: 'description',
+              content: data.site.siteMetadata.description,
+            },
           ]}
         >
           <html lang="en" />
-          <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"></link>
+          <link
+            href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
+            rel="stylesheet"
+            type="text/css"
+          />
         </Helmet>
         <div className="container">
           <div className="row">
@@ -42,6 +50,9 @@ const Layout = ({ children }) => (
               />
             </div>
             <div className="nine columns">{children}</div>
+          </div>
+          <div className="row">
+            <Footer />
           </div>
         </div>
       </>
