@@ -1,0 +1,40 @@
+---
+title: "Clumsy steps towards writing again"
+tags: [loosely-coupled, meta]
+date: 2019-01-03 15:00:00
+---
+
+_Why all the work_? 
+
+Why switching to a new site generator? 
+
+Is it all just an elaborate strategy for some cultivated procrastination? 
+
+This is the amount of posts that I've written since 2004.
+
+![posts per year](/assets/posts-over-years.png)
+
+I was considering doing some spin doctoring on how things are going downhill, and maybe _they are_! 
+
+One side-effect of crossing my **30ies** and then my **40ies** is that I think a lot more about where to put my energy. There is my family, and there is responsibility. There is very focused product development and then there is that thing that I've written a lot about programming in the previous years, but these days it is _also_ interesting to think about different things - about how software is developed, and on a grander scale, about where we as a whole are going. 
+
+In terms of developing a product, the technical side of things isn't incredibly exciting (or maybe we like to keep it that way) - boring decisions and simple programming is a **good thing** these days. I am not striving for the latest and greatest. I want code to look simple, and boring. If I search for an item, I want to find all occurrences of it. If I have to choose between boilerplate and magic, these days I'd go for boilerplate (unless it gets tedious, but it has to get tedious _first_).
+
+Also, development is not about the tech, it is about people. _People_ write the code, _people_ read the code, _people_ maintain the code. This is hardly interesting material and a lot has been written about it. It's probably a thing about maturity.
+
+I like to compare this journey to the journey of a musician.  You spend many years honing your skills. You want to play fast, clear, crisp, you learn the mechanics, you play _dense_, you _go for it_. With maturity comes a renewed sense for what those skills are actually there for. To have a way to communicate the value, the music, to your audience. With this, you reduce your output to that _which matters_. Less dense, but providing breathing room. Communicating, seemingly effortless, the worth of your music. Or, as a developer, using your skills, not for the sake of satisfying your puzzle-solving addiction, but for improving the value of those using your software.
+
+#### Am I done? through?
+
+I hope not. The questions that go though my mind are ...
+
+* How do you scale a small, professional team to a bigger, still professional team?
+* How can you play out the individual strengths of people while maintaining a team effort?
+* How can you make sure that you deliver on value and not on something else that is irrelevant or not yet relevant with a limited set of resources?
+
+And then there are the things beyond my work bubble that are currently dominating my mind...
+
+* How can a single child learn best about empathy?
+* With what can we replace capitalism?
+
+Between all those things I hope that I'll get down to writing a little bit (more) again.
