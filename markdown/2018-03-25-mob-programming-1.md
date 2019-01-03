@@ -5,7 +5,9 @@ tags: [software-development]
 date: 2018-03-25 13:00:00
 ---
 
-I am currently involved in product development with a small but fine team (4 devs, one product designer). We had to _redo_ one of the core components in order to make it fit for its refined and renewed responsibilities. We did not see how we could work separately or even in pairs on this central junction of the application - the decision was made to go forward with [mob programming](http://mobprogramming.org) 
+I am currently involved in product development with a small but fine team (4 devs, one product designer). We had to _redo_ one of the core components in order to make it fit for its refined and renewed responsibilities. We did not see how we could work separately or even in pairs on this central junction of the application - the decision was made to go forward with [mob programming](http://mobprogramming.org)
+
+![Gustav Quednau](/assets/mob-programming.jpeg)
 
 ## how we did it
 
