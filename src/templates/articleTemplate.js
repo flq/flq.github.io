@@ -8,8 +8,10 @@ export default function Template({
   pageContext,
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, fields, html } = markdownRemark
   const { previous, next } = pageContext
+  const searchLink = fields.slug.replace("/", "%2F");
+
   return (
     <Layout>
       <Helmet
@@ -30,17 +32,20 @@ export default function Template({
           </span>
         </div>
         <div
-          className="blog-post-content"
+          className="blog-post__content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
-        <div className="article-pagination">
+        <div className="blog-post__footer">
+          <a href={`https://mobile.twitter.com/search?q=https%3A%2F%2Frealfiction.net${searchLink}`} target="_blank">Discuss on Twitter &#x21F2;</a>
+        </div>
+        <div className="blog-post__pagination">
           {previous && (
-            <a className="article-pagination--previous" href={previous.fields.slug}>
+            <a className="blog-post__pagination--previous" href={previous.fields.slug}>
               {previous.frontmatter.title}
             </a>
           )}
           {next && (
-            <a className="article-pagination--next" href={next.fields.slug}>
+            <a className="blog-post__pagination--next" href={next.fields.slug}>
               {next.frontmatter.title}
             </a>
           )}
@@ -54,6 +59,9 @@ export const pageQuery = graphql`
   query($title: String!) {
     markdownRemark(frontmatter: { title: { eq: $title } }) {
       html
+      fields {
+        slug
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path

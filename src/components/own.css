@@ -132,7 +132,7 @@ div.seriestoc:before {
   vertical-align: -0.4em;
 }
 
-.blog-post-content > h3:first-of-type {
+.blog-post__content > h3:first-of-type {
   text-align: right;
   border-radius: 25px 25px 0px 0px;
   font-size: 1.2em;
@@ -144,7 +144,7 @@ div.seriestoc:before {
   font-style: italic;
 }
 
-.blog-post-content > ol:first-of-type {
+.blog-post__content > ol:first-of-type {
   list-style-type: upper-roman;
   background: #eff;
   border: #777 1px solid;
@@ -153,7 +153,10 @@ div.seriestoc:before {
   padding: 10px;
   list-style-position: outside;
   padding-left: 45px;
-  
+}
+
+.blog-post__footer {
+  margin: 1rem 0 2rem 0;
 }
 
 .article-tags {
@@ -173,34 +176,34 @@ div.seriestoc:before {
   content: '';
 }
 
-.article-pagination {
+.blog-post__pagination {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
 }
 
-.article-pagination--previous {
+.blog-post__pagination--previous {
   text-decoration: none;
   margin: 0 1rem;
 }
 
-.article-pagination--previous:hover {
+.blog-post__pagination--previous:hover {
   text-decoration: underline;
 }
 
-.article-pagination--previous::before {
+.blog-post__pagination--previous::before {
   content: "\21A4 ";
 }
 
-.article-pagination--next::after {
+.blog-post__pagination--next::after {
   content: " \21A6";
 }
 
-.article-pagination--next {
+.blog-post__pagination--next {
   text-decoration: none;
   margin: 0 1rem;
 }
 
-.article-pagination--next:hover {
+.blog-post__pagination--next:hover {
   text-decoration: underline;
 }
