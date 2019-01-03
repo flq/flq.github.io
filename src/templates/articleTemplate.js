@@ -10,7 +10,7 @@ export default function Template({
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, fields, html } = markdownRemark
   const { previous, next } = pageContext
-  const searchLink = fields.slug.replace("/", "%2F");
+  const searchLink = fields.slug.replace('/', '%2F')
 
   return (
     <Layout>
@@ -36,11 +36,20 @@ export default function Template({
           dangerouslySetInnerHTML={{ __html: html }}
         />
         <div className="blog-post__footer">
-          <a href={`https://mobile.twitter.com/search?q=https%3A%2F%2Frealfiction.net${searchLink}`} target="_blank">Discuss on Twitter &#x21F2;</a>
+          <a
+            href={`https://mobile.twitter.com/search?q=https%3A%2F%2Frealfiction.net${searchLink}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Discuss on Twitter &#x21F2;
+          </a>
         </div>
         <div className="blog-post__pagination">
           {previous && (
-            <a className="blog-post__pagination--previous" href={previous.fields.slug}>
+            <a
+              className="blog-post__pagination--previous"
+              href={previous.fields.slug}
+            >
               {previous.frontmatter.title}
             </a>
           )}

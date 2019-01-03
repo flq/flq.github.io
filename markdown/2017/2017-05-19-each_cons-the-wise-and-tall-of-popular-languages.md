@@ -7,11 +7,12 @@ date: 2017-05-22 16:20:00
 
 A few days ago, Michael Feathers tweeted this:
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The fact that many simple correct Ruby programs become ridiculously complex when translated to other languages means something.</p>&mdash; Michael Feathers (@mfeathers) <a href="https://twitter.com/mfeathers/status/864122686695460866">May 15, 2017</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The fact that many simple correct Ruby programs become ridiculously complex when translated to other languages means something.</p>&mdash; Michael Feathers (@mfeathers) <a href="https://twitter.com/mfeathers/status/864122686695460866">May 15, 2017</a></blockquote>
 
 Now, I am not a complete [stranger to ruby][1], which is why this statement resonated with me, and upon requesting an example, Michael came up with this:
 
-<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/fquednau">@fquednau</a> The simple ones are interesting. Try this in C#: ([0] + arr).each_cons(2).count {|x,y| x == 0 &amp;&amp; y == 1 }</p>&mdash; Michael Feathers (@mfeathers) <a href="https://twitter.com/mfeathers/status/864222881538072578">May 15, 2017</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/fquednau">@fquednau</a> The simple ones are interesting. Try this in C#: ([0] + arr).each_cons(2).count {|x,y| x == 0 &amp;&amp; y == 1 }</p>&mdash; Michael Feathers (@mfeathers) <a href="https://twitter.com/mfeathers/status/864222881538072578">May 15, 2017</a></blockquote>
+
 or
 
 ```ruby
@@ -36,7 +37,7 @@ your block reminds us why all of us like to write Javascript once in a while.
 
 __What about other languages then?__
 
-### F\#
+## F&#35;
 
 Let's look at the code which performs (almost) the same job:
 
@@ -64,7 +65,7 @@ does not allow a parameter like the ruby version. This makes sense, since F\# is
 If you wanted a version that provides 3 consecutive elements, you would have to write a method
 yourself that yields an element of type __(a,a,a)__.
   
-### C\#
+## C&#35;
 
 To actually achieve the same level of expressiveness we need to put some work into this:
 
@@ -82,20 +83,20 @@ functional languages or even in ES2016
 
 While I can kind of forgive a missing _each\_cons_-like BCL method, I write the _ToEnumerable_ again in almost every project. I mean, that method is the damned [unary return operation][6]!
 
-### Kotlin
+## Kotlin
 
 Xavier Lepaul chimed in with a view on what Kotlin is up to with respect to the challenge:
 
-<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/mfeathers">@mfeathers</a> <a href="https://twitter.com/fquednau">@fquednau</a> Kotlin is almost there (with <a href="https://t.co/b2TpoX5LqA">https://t.co/b2TpoX5LqA</a>)<br>(listOf(0) + arr).windowed(2).count {(x,y) -&gt; x == 0 &amp;&amp; y == 1}</p>&mdash; Xavier Lepaul (@xlepaul) <a href="https://twitter.com/xlepaul/status/864404258476752896">May 16, 2017</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/mfeathers">@mfeathers</a> <a href="https://twitter.com/fquednau">@fquednau</a> Kotlin is almost there (with <a href="https://t.co/b2TpoX5LqA">https://t.co/b2TpoX5LqA</a>)<br>(listOf(0) + arr).windowed(2).count {(x,y) -&gt; x == 0 &amp;&amp; y == 1}</p>&mdash; Xavier Lepaul (@xlepaul) <a href="https://twitter.com/xlepaul/status/864404258476752896">May 16, 2017</a></blockquote>
 
-```java
+```kotlin
 (listOf(0) + arr).windowed(2).count {(x,y) -> x == 0 && y == 1}
 ```
 
 This doesn't fall very short of the ruby example, however, the _windowed_ is not available yet in
 Kotlin 1.1 - What I particularly liked is that even though the type signature of _windowed_ is
 
-```java
+```kotlin
 fun <T> Iterable<T>.windowed(size: Int, step: Int): List<List<T>>
 ```
 i.e. returning a list of lists, one can still deconstruct the list into the x and y you can
@@ -110,7 +111,7 @@ very different to a "real" functional language. I have been an outsider to the J
 time, but when you get to know Java and Kotlin I really cannot fathom what exactly would make you
 stick to Java.
 
-### Type safety vs elegance?
+## Type safety vs elegance?
 
 In order for ruby and Kotlin to shine in this example, both pay up by allowing misunderstandings
 in API use to surface only at runtime. Note that in both languages the compiler will happily allow
@@ -118,7 +119,7 @@ you to capture more or less output than _each\_cons_/_windowed_ actually provide
 the price you need to pay for such an API, since the output _"type"_ is determined by the argument to the windowing function. Now if there was a language where types 
 could be determined programmatically...
 
-### Idris
+## Idris
 
 [Idris][7] is a programming language which is close in spirit to Haskell but adds the capability 
 to define _dependent types_. 
@@ -182,7 +183,7 @@ Haskell type system, but you can. Alas, we also have to recognize the great popu
 
 Hence, ruby is indeed expressive, but quite a few popular languages have learned to recreate that expressiveness with the possibilities that their respective runtimes provide.
 
-[1]: {% link tag/ruby.md %}
+[1]: /tags/ruby
 [2]: https://ruby-doc.org/core-2.1.0/Enumerable.html#method-i-each_cons
 [3]: https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/window-sliding.md
 [4]: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/sequences

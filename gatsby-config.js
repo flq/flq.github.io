@@ -27,6 +27,7 @@ module.exports = {
         plugins: ['gatsby-remark-prismjs'],
       },
     },
+    'gatsby-plugin-twitter',
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
