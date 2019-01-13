@@ -1,0 +1,13 @@
+---
+title: "Stuff we like: Great Chocolate!"
+tags: [stuff-we-like]
+date: 2019-01-13 15:00:00
+---
+
+Here's a great company in Switzerland that sells lovely chocolate:
+
+[Cioccolateria Casa Nobile](https://www.casa-nobile.ch/cioccolateria/)
+
+![The local outlet](https://www.casa-nobile.ch/wp-content/uploads/2015/03/Ostervernissage-2016-6085.jpg)
+
+If you like chocolate, do yourself a favor and get some from those people.
