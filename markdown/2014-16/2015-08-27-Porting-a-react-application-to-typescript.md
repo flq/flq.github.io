@@ -27,7 +27,7 @@ It was time to port my stuff to typescript
 
 A good way to use the typescript compiler is to provide it with a `tsconfig.json` file, in which all options and arguments to `tsc` can be placed. The following gist shows mine.
 
-{% gist flq/7e3dc1a86a1e2fb0baeb tsconfig.json %}
+`gist:7e3dc1a86a1e2fb0baeb#tsconfig.json`
 
 * `jsx: react` means that the jsx is converted to javascript in the compilation process. There is also the option to leave the jsx intact and just convert the typescript around and in it to javascript. Chosing this option means that there is no additional compile-step necessary.
 * `target: es5` is the target version to which typescript will compile, in this case Ecmascript version 5. This is because you usually work with es6 idioms, to which typescript attempts to maintain high fidelity.
@@ -37,7 +37,7 @@ At first I was concerned that all files that you want to compile need to be expl
 * `tsd.d.ts` is an aggregation that is created automatically by `tsd` when you install `.d.ts` files.
 * `Externals_shallow.d.ts` a couple of extensions that I made myself on types provided by the `.d.ts` imports in order to support my use cases. As an example, I removed the descriptions for jquery-ui as it did not provide the API that I was talking to for those components in use. Here I chose a very shallow type definition.
 
-{% gist flq/7e3dc1a86a1e2fb0baeb Externals_shallow.d.ts %}
+`gist:7e3dc1a86a1e2fb0baeb#Externals_shallow.d.ts`
 
 Also noteworthy is the fact that if you choose a module system, typescript will *refuse* to create a single output file. In that case you will need to bundle it yourself (to which we come later).
 
@@ -47,7 +47,7 @@ As far as I can tell, importing and exporting follows the es6 nomenclature. Pref
 
 While I was at it, I changed the way I define my react components as seen in this gist:
 
-{% gist flq/7e3dc1a86a1e2fb0baeb ReactComponentBeforeAndAfter.ts %}
+`gist:7e3dc1a86a1e2fb0baeb#ReactComponentBeforeAndAfter.ts`
 
 I have heard of a few feeling molested by the introduction of a class concept in javascript. Having programmed many years in C# so far, with a good part of it in UIs, the abstractions as well as problems that this brings along are well known to me. If there is any place to package code into snippets of behaviour and data, then it is the UI. Hence, using the class construct here feels fairly natural.
 
@@ -59,15 +59,15 @@ I still use browserify for bundling but create a single common bundle (containin
 
 The entry points are the only thing that I register globally:
 
-{% gist flq/7e3dc1a86a1e2fb0baeb EntryPoint.ts %}
+`gist:7e3dc1a86a1e2fb0baeb#EntryPoint.ts`
 
 And that is the code in the gulp file that creates the app bundle:
 
-{% gist flq/7e3dc1a86a1e2fb0baeb GulpfileBundling.js %}
+`gist:7e3dc1a86a1e2fb0baeb#GulpfileBundling.js`
 
 ## Gotchas
 
-### I lost my state!
+#### I lost my state!
 
 In a select few places in the code I was using the react lifecycle hook `getInitialState() : Object` - If I had studied the `.d.ts file for react a bit better, I'd have seen that this hook is not supported for components written as a class. I only noticed through broken behaviour and a very helpful warning of the dev-build of react...
 
@@ -75,9 +75,9 @@ In a select few places in the code I was using the react lifecycle hook `getInit
 
 It turns out that the right way is to initialize the state variable. Since you often derive your state from those properties that you get passed in during initialization, a good place to do that is in the constructor:
 
-{% gist flq/7e3dc1a86a1e2fb0baeb ReactInitialStateBeforeAndAfter.ts %}
+`gist:7e3dc1a86a1e2fb0baeb#ReactInitialStateBeforeAndAfter.ts`
 
-### Once more: the return of the dislocated "this"
+#### Once more: the return of the dislocated "this"
 
 It seems that when you are writing something like `<input type="button" value="hi" onClick={this.handleClick} />` in jsx, the react tooling would automatically add `.bind(this)`to the referenced function. A number of issues with the port to typescript had to with the fact that the typescript compiling wouldn't do this for me, effectively letting my functions end up on the wrong `this`. To mitigate this I need to add the call myself - another source of error which cannot be statically checked.
 

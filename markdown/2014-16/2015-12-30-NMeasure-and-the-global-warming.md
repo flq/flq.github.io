@@ -20,7 +20,7 @@ but I was curious what this number means in terms of additional energy that the 
 
 Before we carry on...
 
-### Disclaimer:
+#### Disclaimer:
 
 * The produced number is pretty much a ballpark figure, because
 * We assume Earth to be a flat sphere (not too bad)
@@ -29,7 +29,7 @@ Before we carry on...
 * We deal purely with averages (coming from a uniform temperature to a new uniform temperature)
 * The calculated energy is not freely available as such, it is just to give you a feel for what is at stake.
 
-### On we go
+#### On we go
 
 The calculation has been kept pretty straightforward:
 
@@ -39,7 +39,7 @@ The calculation has been kept pretty straightforward:
 
 The calculation is shown in the following gist with the aid of NMeasure:
 
-{% gist flq/aaf315d162e7394865b4 Program.cs %}
+`gist:aaf315d162e7394865b4#Program.cs`
 
 NMeasure profits *a lot* from C# 6's ability to use static members of a type (see line 4). The units used
 are static properties of the type *U* (e.g. U.KiloMeter) and it is really tasty to be able to use the units as shown in the 
@@ -71,14 +71,14 @@ in the atmosphere, i.e.
 
 Here we are, one incoherent blog post further, probably none the wiser - but at least I could scratch two itches at once!
 
-### *)
+#### *)
 
 A long time ago I was crazy enough to construct a unit system for a species appearing in some of my Sci-Fi stuff. I extracted
-it from an old Excel-sheet of mine into a test harness:
+it from an old Excel-sheet of mine into a [test harness][5].
 
-{% gist flq/aaf315d162e7394865b4 IiUnitTests.cs %}
 
 [1]: /2010/11/30/dealing-with-primitive-obsession-this-time-measurements
 [2]: https://www.nuget.org/packages/NMeasure/
 [3]: https://www.google.de/search?q=specific+heat+air
 [4]: https://en.wikipedia.org/wiki/List_of_countries_by_electricity_production
+[5]: https://gist.github.com/flq/aaf315d162e7394865b4#file-iiunittests-cs

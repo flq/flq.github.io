@@ -1,8 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Realfiction',
-    description:
-      'Content from Frank Quednau about dev and fields of interest.',
+    description: 'Content from Frank Quednau about dev and fields of interest.',
     siteUrl: 'https://realfiction.net',
   },
   plugins: [
@@ -24,7 +23,16 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: ['gatsby-remark-prismjs'],
+        plugins: [
+          {
+            resolve: 'gatsby-remark-embed-gist',
+            options: {
+              username: 'flq',
+              includeDefaultCss: true,
+            },
+          },
+          'gatsby-remark-prismjs'
+        ],
       },
     },
     {

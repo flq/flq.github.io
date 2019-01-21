@@ -16,7 +16,7 @@ This time it was Haskell's turn - the [last time][2] I delved into Haskell, I ha
 
 ## Behold - the Roman number
 
-[The gist](https://gist.github.com/flq/6273665#file-roman-hs)
+`gist:6273665#roman.hs`
 
 **Disclaimer:** *I may have only implemented a subset of the proper rules of how to write Roman numbers. If you use this type to calculate the altitude of your plane, and it doesn't work, don't sue me, because I give no guarantees as to the 100% correctness of the code*
 
