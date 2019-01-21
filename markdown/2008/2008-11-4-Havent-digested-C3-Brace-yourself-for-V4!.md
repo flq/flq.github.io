@@ -27,7 +27,7 @@ Just now, posts are coming up highlighting information available on new language
 
 6.  Co- and contravariance on generic types: That one is going to hurt your head (Then again, if you have worked with generics you will most certainly have missed it once or twice)! Here is an example (taken straight from Anders' slides):
 
-<csharp>
+```csharp
 public interface IEnumerable<out T> {
   IEnumerator<T> GetEnumerator();
 }
@@ -40,7 +40,7 @@ public interface IComparer<in T> {
 }
 IComparer<object> objComp = GetComparer();
 IComparer<string> strComp = objComp; // No Problem!
-</csharp>
+```
 
 I'd say that's enough for now. Some of this stuff is content that I have been waiting for. I have cursed the invariance of generic types a number of times, and I have been waiting for the marriage of CLR + DLR a long time to get some personal project of mine going. I have never really missed optional and named parameters, but guess that people having to do a lot of COM interop will just love it.
 As a trainer in introduction to .NET with C#, however, this is an utter catastrophe. An introductionary course will now quite easily fill roughly 6-7 days!
