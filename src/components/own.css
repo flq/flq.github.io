@@ -13,6 +13,14 @@ kbd {
 	text-shadow: 0 1px 0 #fff;
 }
 
+figcaption {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  display: block;
+  margin-bottom: 2em;
+}
+
 .sidebar h1 {
   font-size: 2.4em;
 }
