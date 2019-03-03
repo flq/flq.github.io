@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://realfiction.net/2019/03/03/innovation-vs-improvement</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2019/02/24/writing-azure-functions-with-typescript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2019/02/03/typescript-type-shenanigans-2-specify-at-least-one-property</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2019/01/30/xstate-a-typescript-state-machine-with-a-lot-of-features</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -99,7 +100,7 @@
 <url> <loc>https://realfiction.net/2010/11/26/membus-new-features…</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/11/24/øredev-aftermath-improve-your-feedback-with-patrick-kua</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/11/15/øredev-things-from-microsoft</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/2010/11/11/-oslash;redev-keynote-1-nasa-rsquo;s-jeff-norris</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://realfiction.net/2010/11/11/øredev-keynote-1-nasas-jeff-norris</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/10/11/useful-extension-methods-for-points-and-friends-in-wpf</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/10/01/membus-caliburn-micro-lean-screen</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/09/27/membus-using-an-ioc-container-to-provide-subscribers</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -113,7 +114,7 @@
 <url> <loc>https://realfiction.net/2010/08/24/introducing-membus-in-memory-publish-subscribe-messaging</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/08/16/ugly-integration-test-hellip;what-can-i-do-better</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/08/13/resharper-5-0-outgoing-calls-analysis-example-from-nhibernate</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/2010/07/30/wie-ich-rest-meiner-ehefrau-erkl-auml;rte</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://realfiction.net/2010/07/30/wie-ich-rest-meiner-ehefrau-erklärte</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/07/30/wcf-externalize-binding-configuration-only</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/07/16/respond_to-in-net</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/05/26/do-you-think-your-windows-forms-application-has-no-memory-leaks</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -249,9 +250,8 @@
 <url> <loc>https://realfiction.net/2006/06/13/coherence-in-my-blog-a-quantum-worldline</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2006/06/11/the-irregular-physics-fix</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2006/06/09/groundwork</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/2006/06/07/saitron-in-visuals</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/2006/06/07/saitron-gen1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2006/06/07/the-technology-behind-the-saitron</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://realfiction.net/2006/06/07/saitron-in-visuals</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2006/06/06/patching-in-drupal</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2006/06/05/when-your-fictional-creations-take-over</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2006/06/02/resonance-is-but-fundamental</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -277,21 +277,20 @@
 <url> <loc>https://realfiction.net/2005/12/16/on-afshars-double-slit-experiment</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2005/10/08/resign-patterns</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2004/07/31/an-experiment-thats-causing-somewhat-of-a-stir</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://realfiction.net/tags/software-development</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/web</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/azure</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/typescript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://realfiction.net/tags/libs-and-frameworks</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/stuff-we-like</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/loosely-coupled</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/meta</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/fsharp</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/csharp</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/tags/software-development</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/dotnet</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/tags/cloud</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/tags/libs-and-frameworks</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/ruby</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/haskell</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/neo4j</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -309,6 +308,7 @@
 <url> <loc>https://realfiction.net/tags/WPF</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/sci-fi</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/tools</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://realfiction.net/tags/conferences</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/oredev</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/msbuild</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/download</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
