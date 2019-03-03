@@ -1,9 +1,8 @@
 ---
 title: "Links around Øredev 2010"
 layout: post
-tags: [loosely-coupled, oredev]
+tags: [conferences]
 date: 2010-11-29 09:00:00
-redirect_from: /go/189/
 ---
 
 The Swedes don’t seem to be the fastest people on Earth when it comes to making available the videos that were taken from the sessions. But, it seems they are trickling through this channel: [Øredev's videos](http://vimeo.com/user2649908/videos)

@@ -1,7 +1,7 @@
 ---
 title: "Separating MS Bot's soul from its body"
 layout: post
-tags: [dotnet, programming, cloud, libs-and-frameworks]
+tags: [dotnet, programming, azure, libs-and-frameworks]
 date: 2017-06-25 20:00:00
 ---
 
