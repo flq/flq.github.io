@@ -1,10 +1,24 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-
 import Layout from '../components/layout'
 
+const prod = process.env.NODE_ENV === 'development'
+
 const IndexPage = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.allMarkdownRemark.edges.filter(({ node }) => {
+    const value = !prod
+      ? true
+      : node.frontmatter.published
+      ? node.frontmatter.published
+      : true
+    if (value === false) {
+      console.log('IT IS FALSE!')
+    }
+    else {
+      console.log('IT IS TRUE!')
+    }
+    return value
+  })
   return (
     <Layout>
       {posts.map(({ node }) => (
@@ -13,7 +27,7 @@ const IndexPage = ({ data }) => {
             <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
           </h3>
           <span className="date">{node.frontmatter.date}</span>
-          { node.excerpt }
+          {node.excerpt}
         </div>
       ))}
     </Layout>
@@ -26,6 +40,7 @@ export const pageQuery = graphql`
   query {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { published:{eq:true} } }
       limit: 10
     ) {
       edges {
@@ -33,10 +48,12 @@ export const pageQuery = graphql`
           excerpt
           fields {
             slug
+            published
           }
           frontmatter {
             date(formatString: "YYYY-MM-DD")
             title
+            published
           }
         }
       }

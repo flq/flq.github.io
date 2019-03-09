@@ -11,12 +11,14 @@ exports.createPages = ({ actions, graphql }) => {
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
+        filter: { fields: { published:{eq:true} } }
         limit: 1000
       ) {
         edges {
           node {
             fields {
               slug
+              published
             }
             frontmatter {
               title
@@ -44,7 +46,7 @@ exports.createPages = ({ actions, graphql }) => {
         context: {
           title: node.frontmatter.title,
           previous,
-          next
+          next,
         }, // additional data can be passed via context
       })
     })
@@ -67,6 +69,8 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
+const prod = process.env.NODE_ENV === 'production'
+
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
 
@@ -78,6 +82,15 @@ exports.onCreateNode = ({ node, actions }) => {
       name: 'slug',
       node,
       value,
+    })
+    createNodeField({
+      name: 'published',
+      node,
+      value: prod
+        ? node.frontmatter.published !== undefined
+          ? node.frontmatter.published
+          : true
+        : true,
     })
   }
 }
