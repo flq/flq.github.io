@@ -2,7 +2,6 @@
 title: "Use react's context to display an error message somewhere else"
 tags: [programming, javascript, react]
 date: 2019-03-11 19:30:00
-published: false
 ---
 
 > Honestly, the end result seems so trivial that I almost couldn't be bothered
