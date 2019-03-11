@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://realfiction.net/2019/03/11/use-reacts-context-to-display-an-error-message-somewhere-else</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2019/03/03/innovation-vs-improvement</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2019/02/24/writing-azure-functions-with-typescript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2019/02/03/typescript-type-shenanigans-2-specify-at-least-one-property</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -277,19 +278,19 @@
 <url> <loc>https://realfiction.net/2005/12/16/on-afshars-double-slit-experiment</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2005/10/08/resign-patterns</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2004/07/31/an-experiment-thats-causing-somewhat-of-a-stir</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://realfiction.net/tags/programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://realfiction.net/tags/javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://realfiction.net/tags/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/software-development</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/web</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/azure</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/typescript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/tags/programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/libs-and-frameworks</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/stuff-we-like</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/loosely-coupled</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/meta</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/fsharp</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/csharp</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/tags/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/tags/javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/dotnet</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/ruby</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/haskell</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
