@@ -2,23 +2,8 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 
-const prod = process.env.NODE_ENV === 'development'
-
 const IndexPage = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges.filter(({ node }) => {
-    const value = !prod
-      ? true
-      : node.frontmatter.published
-      ? node.frontmatter.published
-      : true
-    if (value === false) {
-      console.log('IT IS FALSE!')
-    }
-    else {
-      console.log('IT IS TRUE!')
-    }
-    return value
-  })
+  const posts = data.allMarkdownRemark.edges
   return (
     <Layout>
       {posts.map(({ node }) => (
