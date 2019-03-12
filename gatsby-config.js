@@ -75,12 +75,16 @@ module.exports = {
                 allMarkdownRemark(
                   limit: 10,
                   sort: { order: DESC, fields: [frontmatter___date] }
+                  filter: { fields: { published:{eq:true} } }
                 ) {
                   edges {
                     node {
                       excerpt
                       html
-                      fields { slug }
+                      fields { 
+                        slug 
+                        published
+                      }
                       frontmatter {
                         title
                         date
