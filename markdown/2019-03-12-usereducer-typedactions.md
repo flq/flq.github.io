@@ -1,8 +1,7 @@
 ---
 title: "Using typed action creators with react's useReducer hook"
 tags: [programming, javascript, react]
-date: 2019-03-12 19:30:00
-published: false
+date: 2019-03-12 17:30:00
 ---
 
 With the advent of react hooks we now have very fast access to CQRS in our UI - dispatch actions (_Command_) and create a new read state (_Query_) for the UI based on the previous state and the action. If you follow e.g. Dan Abramov on twitter you will have seen plenty of examples à la:
