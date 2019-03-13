@@ -62,15 +62,17 @@ function App() {
       <button onClick={() => dispatch({ type: "INCR" })}>Increment</button>
       <button onClick={() => dispatch({ type: "DECR" })}>Decrement</button>
       <button onClick={() => dispatch({ type: "RESET" })}>Reset</button>
-      <button onClick={() => dispatch({ type: "SET", value: 7 })}>Put in the number 7</button>
+      <button onClick={() => dispatch({ type: "SET", value: 7 })}>
+        Put in the number 7
+      </button>
       <h2>Counter is {state.counter}</h2>
     </>
   );
 }
 ```
-VS Code will have you covered quite nicely.
+An IDE like VS Code will have your code completion demands covered quite nicely. All, in all, a nice experience with the compiler helping you along.
 
-If you want to have some more convenience around dispatching actions and defining reducers for those functions, you can also use libraries that are usually used in combination with [redux][1] - since the dispatch and the reducer function from `useReducer` are kind of the same thing™, such libraries that help defining action creators and reducers should work with `useReducer`, too, right?
+If you prefer to dispatch actions with action creators and want to have some help with that, you can also use libraries that are usually used in combination with [redux][1] - since the dispatch and the reducer function from `useReducer` are kind of the same thing™, such libraries that help defining action creators and reducers should work with `useReducer`, too, right?
 
 Personally I know of two libraries that fit the bill, [typesafe-actions][2] and [unionize][3].
 
@@ -107,20 +109,15 @@ const reducer = (s: State, a: ActionType<typeof Actions>) => {
 }
 ```
 
-What we get at this point is compile-time safety around
+The compile-time assurances around state and actions stay preserved.
 
-- the state (what goes in and comes out)
-- an exhaustive match in the switch statement, resulting from the union of all valid actions
-
-While this is undeniably more code than the javascript version, using this in an editor like VS Code is quite a joy.
-
-Let's improve the experience and create a hook that instead of the `dispatch` will give use the action creators already bound to the dispatcher.
+Let's improve the experience and create a hook that instead of the `dispatch` will provide the action creators already bound to the dispatcher.
 
 ```typescript
 import { Reducer, useReducer, useMemo } from 'react'
 import { ActionType } from 'typesafe-actions'
 
-export function useTypesafeReducer<
+export function useTypesafeActions<
   S,
   Actions extends { [key: string]: (...args: any[]) => any }
 >(
@@ -163,7 +160,7 @@ How, is this used then? Based on the previous code that introduced the actions a
 
 ```typescript
 function App() {
-  const [state, actions] = useTypesafeReducer<State, typeof Actions>(
+  const [state, actions] = useTypesafeActions<State, typeof Actions>(
     reducer,
     { counter: 0 },
     Actions
@@ -204,7 +201,7 @@ const reducer = (s: State, a: UnionOf<typeof Actions>) =>
   });
 ```
 
-As you can see, there are neat ways to leverage the redux ecosystem for the new react hooks world. In terms of type-safety and code completion this is a fairly interesting way to work with the new `useReducer` hook.
+As you can see, there are neat ways to leverage the redux ecosystem for the new react hooks world. The `useReducer` hook in Typescript can give you the same assurances with regard to type safety as redux does and with the types being quite similar you can build upon those types with action creator libraries available out there.
 
 [1]: https://redux.js.org/
 [2]: https://www.npmjs.com/package/typesafe-actions
