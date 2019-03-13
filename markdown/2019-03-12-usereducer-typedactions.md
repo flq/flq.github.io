@@ -16,13 +16,67 @@ dispatch({type: "DoSomething"});
 ...
 ```
 
-In the world of Typescript we can provide quite a bit of type safety around dispatching actions and defining reducers for those functions. These libraries are usually used in combination with [redux][1], but since the dispatch and the reducer function from `useReducer` are kind of the same thing™, such libraries that help defining action creators and reducers should work with `useReducer`, too, right?
+In the world of Typescript the type of useReducer allows us to type the `State` as well as the type of the `Action` which is usually a union of all possible actions. As a kind of baseline I'll the canonical react app, the counter :):
 
-Personally I know of two libraries that fit the bill, [typesafe-actions][2] and [unionize][3]. For the example I'll go with the canonical react app, the counter :)
+```typescript
+type State = { counter: number };
+
+type Action<K, V = void> = V extends void ? 
+  { type: K } : 
+  { type: K } & V;
+
+function defaultGuard<S>(state: S, a: never) {
+  return state;
+}
+
+const reducer = (
+  s: State,
+  a: Action<"INCR" | "DECR" | "RESET"> | 
+     Action<"SET", { value: number }>
+) => {
+  switch (a.type) {
+    case "INCR":
+      return { counter: s.counter + 1 };
+    case "DECR":
+      return { counter: s.counter - 1 };
+    case "RESET":
+      return { counter: 0 };
+    case "SET":
+      return { counter: a.value };
+    default:
+      return defaultGuard(s, a);
+  }
+};
+```
+
+`Action` is a type that takes away a little bit of the tediousness of defining the typical actions that you'd write in your application. Once you use `State` and `Action` in your reducer definition you'll get type-safety around the **state** and the encountered **actions**. In addition, you get an exhaustive matching if you either nail down the **return type** of the reducer to the State or use something like the `defaultGuard` which will produce a compile error if there are possible actions that'd end up in the default case.
+
+You can then use the reducer like such:
+
+```typescript
+function App() {
+  const [state, dispatch] = useReducer(reducer, { counter: 0 });
+
+  return (
+    <>
+      <button onClick={() => dispatch({ type: "INCR" })}>Increment</button>
+      <button onClick={() => dispatch({ type: "DECR" })}>Decrement</button>
+      <button onClick={() => dispatch({ type: "RESET" })}>Reset</button>
+      <button onClick={() => dispatch({ type: "SET", value: 7 })}>Put in the number 7</button>
+      <h2>Counter is {state.counter}</h2>
+    </>
+  );
+}
+```
+VS Code will have you covered quite nicely.
+
+If you want to have some more convenience around dispatching actions and defining reducers for those functions, you can also use libraries that are usually used in combination with [redux][1] - since the dispatch and the reducer function from `useReducer` are kind of the same thing™, such libraries that help defining action creators and reducers should work with `useReducer`, too, right?
+
+Personally I know of two libraries that fit the bill, [typesafe-actions][2] and [unionize][3].
 
 ## Using typesafe-actions
 
-Let's define the action creators, state and the reducer:
+Let's define the action creators and the reducer (state stays as before):
 
 ```typescript
 import {
@@ -38,8 +92,6 @@ const Actions = {
   reset: createAction('RESET'),
   setValue: createStandardAction('SET')<number>(),
 }
-
-type State = { counter: number }
 
 const reducer = (s: State, a: ActionType<typeof Actions>) => {
   switch (a.type) {
