@@ -1,6 +1,6 @@
 ---
 title: "Using typed action creators with react's useReducer hook"
-tags: [programming, javascript, react]
+tags: [programming, typescript, react]
 date: 2019-03-12 17:30:00
 ---
 
