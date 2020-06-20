@@ -19,31 +19,35 @@ b.Deposit(new MonetaryValue("EUR", 1000.23M));
 </pre>
 The first DI container I used was the [Castle Project Windsor container](http://www.castleproject.org/container/index.html), which we have started to use on a customer's project. Necessary configuration aspects can be covered in the app.config and the configuration for this specific example looks like this:
 
-    <configuration>
-      <configSections>
-        <sectionGroup name="spring">
-          <section name="context" type="Spring.Context.Support.ContextHandler, Spring.Core"/>
-          <section name="objects" type="Spring.Context.Support.DefaultSectionHandler, Spring.Core" />
-        </sectionGroup>
-      </configSections>
-      <spring>
-        <context>
-          <resource uri="config://spring/objects"/>
-        </context>
-        <objects xmlns="http://www.springframework.net">
-          <object id="ExchangeEngine" type="TheBank.SimpleExchangeRateEngine, TheBank" singleton="false" />
-          <object id="BankAccount" type="TheBank.BankAccount, TheBank" singleton="false">
-            <constructor-arg name="engine" ref="ExchangeEngine"/>
-          </object>
-        </objects>
-      </spring>
-    </configuration>
+```xml
+<configuration>
+  <configSections>
+    <sectionGroup name="spring">
+      <section name="context" type="Spring.Context.Support.ContextHandler, Spring.Core"/>
+      <section name="objects" type="Spring.Context.Support.DefaultSectionHandler, Spring.Core" />
+    </sectionGroup>
+  </configSections>
+  <spring>
+    <context>
+      <resource uri="config://spring/objects"/>
+    </context>
+    <objects xmlns="http://www.springframework.net">
+      <object id="ExchangeEngine" type="TheBank.SimpleExchangeRateEngine, TheBank" singleton="false" />
+      <object id="BankAccount" type="TheBank.BankAccount, TheBank" singleton="false">
+        <constructor-arg name="engine" ref="ExchangeEngine"/>
+      </object>
+    </objects>
+  </spring>
+</configuration>
+```
 
 As you can see, the two important classes that we will be using are registered in the configuration. 
 Interesting in this framework is the fact that you can explicitly state the "service" (i.e. the interface) which a class implements. You can then obtain a reference to an underlying implementation simply by passing an interface to the "Kernel", the part of the DI container that you need to talk to to get the desired object instance. In terms of the given framework this looks like that:
 
-    IWindsorContainer c = new WindsorContainer(new XmlInterpreter());
-    BankAccount b = c.Resolve<BankAccount>();
+```csharp
+IWindsorContainer c = new WindsorContainer(new XmlInterpreter());
+BankAccount b = c.Resolve<BankAccount>();
+```
 
 How did the dependency to the **IExchangeRateEngine** service go into the BankAccount? This is a feature of the framework. It looks at the BankAccount constructor and will find that for the necessary service to be provided there is an entry in the configuration. It instantiates the dependency and passes it to the BankAccount instance.
 
@@ -56,30 +60,34 @@ For testing the construction speed, I wrote a program with two loops: The outer 
 
 Just for completeness I had a quick look at [Spring.NET](http://www.springframework.net/) and paced it through pretty much the same routine. The major difference here is that for constructor-based dependency injection you need to explicitly state the constructor argument and what object of the registry should be passed in.
 
-    <configuration>
-      <configSections>
-        <sectionGroup name="spring">
-          <section name="context" type="Spring.Context.Support.ContextHandler, Spring.Core"/>
-          <section name="objects" type="Spring.Context.Support.DefaultSectionHandler, Spring.Core" />
-        </sectionGroup>
-      </configSections>
-      <spring>
-        <context>
-          <resource uri="config://spring/objects"/>
-        </context>
-        <objects xmlns="http://www.springframework.net">
-          <object id="ExchangeEngine" type="TheBank.SimpleExchangeRateEngine, TheBank" singleton="false" />
-          <object id="BankAccount" type="TheBank.BankAccount, TheBank" singleton="false">
-            <constructor-arg name="engine" ref="ExchangeEngine"/>
-          </object>
-        </objects>
-      </spring>
-    </configuration>
+```xml
+<configuration>
+  <configSections>
+    <sectionGroup name="spring">
+      <section name="context" type="Spring.Context.Support.ContextHandler, Spring.Core"/>
+      <section name="objects" type="Spring.Context.Support.DefaultSectionHandler, Spring.Core" />
+    </sectionGroup>
+  </configSections>
+  <spring>
+    <context>
+      <resource uri="config://spring/objects"/>
+    </context>
+    <objects xmlns="http://www.springframework.net">
+      <object id="ExchangeEngine" type="TheBank.SimpleExchangeRateEngine, TheBank" singleton="false" />
+      <object id="BankAccount" type="TheBank.BankAccount, TheBank" singleton="false">
+        <constructor-arg name="engine" ref="ExchangeEngine"/>
+      </object>
+    </objects>
+  </spring>
+</configuration>
+```
 
 A call to this framework looks like this:
 
-    IApplicationContext ctx = ContextRegistry.GetContext();
-    BankAccount b = (BankAccount)ctx.GetObject("BankAccount");
+```csharp
+IApplicationContext ctx = ContextRegistry.GetContext();
+BankAccount b = (BankAccount)ctx.GetObject("BankAccount");
+```
 
 Anyway, I used the **StopWatch** object to time the 10000 instantiation loops and calculated an average. Here are the findings (average min/max values out of the ten times that the whole cycle was repeated, Release build running outside vshost) in milliseconds:
 

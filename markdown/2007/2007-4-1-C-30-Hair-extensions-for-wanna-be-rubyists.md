@@ -76,11 +76,13 @@ Btw, this cannot be used to open up the innards of a foreign type definition: Th
 
 Now, in your code you can do this:
 
-    using RF.Extensions.Time;
-    ...
-    Console.WriteLine(3.Weeks().Ago);
-    Console.WriteLine(5.Years().FromNow);
-    Console.WriteLine(19.Days().From(new DateTime(2007,1,1)));
+```csharp
+using RF.Extensions.Time;
+...
+Console.WriteLine(3.Weeks().Ago);
+Console.WriteLine(5.Years().FromNow);
+Console.WriteLine(19.Days().From(new DateTime(2007,1,1)));
+```
 
 The second example was the ability to iterate between two integers. This is also an extension to the integer type and it usage will be simplified by the concise syntax that can be used for providing inline expressions. First comes the code that enables it:
 
@@ -105,10 +107,12 @@ This version not only allows you to iterate up and down, but also defines an ove
 
 This stuff is used as such:
 
-    using RF.Extensions.Iteration;
-    ...
-    2.IterateTo(5, i => Console.WriteLine(i));
-    (-10).IterateTo(-12, i => Console.WriteLine(i));
-    2.IterateTo(20, c => c + 2, i => Console.WriteLine(i));
+```csharp
+using RF.Extensions.Iteration;
+...
+2.IterateTo(5, i => Console.WriteLine(i));
+(-10).IterateTo(-12, i => Console.WriteLine(i));
+2.IterateTo(20, c => c + 2, i => Console.WriteLine(i));
+```
 
 Sadly, the usage is not quite as cool as in the Ruby version, yet we have another way to express concise code. I can't wait for nice extension libraries that will provide extensions to well known objects for given scenarios. I'll probably start my own. If anyone has a nice idea that should find its way in the RF extension library, let me know.

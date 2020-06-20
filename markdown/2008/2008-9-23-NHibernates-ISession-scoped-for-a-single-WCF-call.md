@@ -26,7 +26,7 @@ I chose a slightly different route...I stated to my Customer that we will have W
 
 Those assumptions allow you to simplify the procedure somewhat. Since we already use a Custom Instance Provider in order to do Dependency Injection at the service level, that Custom Instance Provider is the perfect place to set things up for a NH Session per call. Let us look at the Instance Provider:
 
-<csharp>
+```csharp
 class ServiceInstanceProvider<CONTRACT> : IInstanceProvider {
   ...
   public object GetInstance(InstanceContext instanceContext, System.ServiceModel.Channels.Message message)
@@ -44,14 +44,14 @@ class ServiceInstanceProvider<CONTRACT> : IInstanceProvider {
       instanceContext.Extensions.Remove(nhSessMgrExtension);
   }
 }
-</csharp>
+```
 
 Strictly speaking, we have a Session / service instance, however, see the above assumptions.
 
 What is used here is one of the several contexts that WCF provides, Off hand you will see the OperationContext, InstanceContext as well as a RequestContext. Since technically I am scoping the NH Session to an instance, I will make an Extension to the InstanceContext with the provided Extension Mechanism ("**Extensions.Add(...)**").
 Let us have a look at that NHContextManager:
 
-<csharp>
+```csharp
 class NHibernateContextManager : IExtension<InstanceContext>
 {
   public ISession Session { get; set; }
@@ -71,13 +71,13 @@ class NHibernateContextManager : IExtension<InstanceContext>
     }
   }
 }
-</csharp>
+```
 
 Attach/Detach need to be implemented by contract. They are called when your extension is added / removed to the Extensions list.
 
 The only thing left in the puzzle is to ensure proper session instantiation and reuse. Let us delegate this to a bit of infrastructure that NHibernate provides to us. We can register a class in the NH configuration that does the job of determining a Session when somebody calls sessionFactory.GetCurrentSession().
 
-<csharp>
+```csharp
 string currentSessionContextImplTypeName = 
   typeof(NHWCFSessionContext).FullName + ", " + 
   typeof(NHWCFSessionContext).Assembly.FullName;
@@ -86,11 +86,11 @@ props.Add("current_session_context_class", currentSessionContextImplTypeName);
 var cfg = new NHibernate.Cfg.Configuration().AddProperties(props)
 ...
 sessionFactory = cfg.BuildSessionFactory();
-</csharp>
+```
 
 That class we register here needs to implement an interface and provide a constructor to which the sessionFactory will be passed. Now we can pull the bits together:
 
-<csharp>
+```csharp
 public class NHWCFSessionContext : ICurrentSessionContext
 {
   public NHWCFSessionContext(ISessionFactory factory) : base()
@@ -116,22 +116,20 @@ Also, this Session Provider only makes sense in a WCF context.");
     return contextManager.Session;
   }
 }
-</csharp>
+```
 
 That is pretty much it. If you have a DI container in use you can now add the bonus of registering some kind of instance provider for the ISession interface. In Ninject this would look like:
 
-<csharp>
+```csharp
 m.Bind<NHibernate.ISession>().ToProvider<NHSessionProvider>();
-</csharp>
+```
 
 And the SessionProvider does nothing but say:
 
-<csharp>
+```csharp
 return sessionFactory.GetCurrentSession();
-</csharp>
+```
 
 If you now instantiate a repository from the DI Container, and that repository has a dependency to ISession, it will get the Session correctly scoped for your WCF call.
 
 A last disclaimer. The lifetime of services and such in WCF is not trivial. There are numerous options and depending on your target application the choices made here may not be your choices and the answer how your NH Session should be scoped is possibly not obvious either. But I hope that with the links provided and the info in here you can do a well-grounded choice.
-
-[![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2frealfiction.net%2f%3fq%3dnode%2f167&bgcolor=0000CC)](http://www.dotnetkicks.com/kick/?url=http%3a%2f%2frealfiction.net%2f%3fq%3dnode%2f167)

@@ -32,7 +32,9 @@ static class GenericExtensions
 
 Now you can write:
 
-    if (someNumber.Between(3,7)) // Do stuff...
-    if (someDate.Between("12.01.1978".AsDate(),"14.03.1988".AsDate())) // Do stuff
+```csharp
+if (someNumber.Between(3,7)) // Do stuff...
+if (someDate.Between("12.01.1978".AsDate(),"14.03.1988".AsDate())) // Do stuff
+```
 
 Does it go too far or do you like this stuff?
