@@ -17,11 +17,13 @@ But apparently, the typescript gods saw [utility in supporting jsx][7] and now, 
 
 It was time to port my stuff to typescript
 
-	git checkout -b ts
-	npm install typescript@next --save-dev
-	npm install tsd --save-dev
-	node_modules/.bin/tsc
-	node_modules/.bin/tsd
+```bash
+git checkout -b ts
+npm install typescript@next --save-dev
+npm install tsd --save-dev
+node_modules/.bin/tsc
+node_modules/.bin/tsd
+```
 
 [tsd][8] is a nice additional utility to manage the download of d.ts files, those files that provide typescript definitions over popular javascript libraries.
 
@@ -83,32 +85,36 @@ It seems that when you are writing something like `<input type="button" value="h
 
 However, I consider react-tools' _correction_ of this to be superior in this situation, such that I have asked the typescript team if this [could be introduced in the parsing of the jsx][10].
 
-### Where is my router?
+#### Where is my router?
 
 I am using react-router for those few routing needs I have. While it somewhat feels like using a railgun to kill a wasp, it does what I need.
 
 One thing you need to do to have access to the router in rendered components is to state what you want in the component's *context*.
 
-	var C = React.createClass({
-	  contextTypes: {
-		router: React.PropTypes.func.isRequired
-	  }
-	  ...
-	});
+```javascript
+var C = React.createClass({
+	contextTypes: {
+	router: React.PropTypes.func.isRequired
+	}
+	...
+});
+```
 
 During the port this information didn't seem to be evaluated anymore. Thanks to [Marius Rumpf][12] I found out that the [contextTypes need to be defined as a static when using the class syntax][11]:
 
-	export class AppFrame extends React.Component<FrameProps,any> {
+```typescript
+export class AppFrame extends React.Component<FrameProps,any> {
 
-	  static contextTypes: React.ValidationMap<any> = {
-	    router: React.PropTypes.func.isRequired
-	  };
-	  ...	
-	}
+	static contextTypes: React.ValidationMap<any> = {
+	router: React.PropTypes.func.isRequired
+	};
+	...	
+}
+```
 
 And presto, router was back on the context.
 
-### Why didn't you warn me that there is stuff that isn't there?
+#### Why didn't you warn me that there is stuff that isn't there?
 
 With great sadness in my heart I learned that `.d.ts` files can define static variables which are then assumed to exist in the context of compilation, the main culprits in my tech mix being jQuery and lodash. Since everything I am programming is a module that gets compiled and bundled up, I have nothing defined globally. While jquery is incidentally available globally (thanks bootstrap, thanks syncfusion), lodash's `_` is not. What happens then is that in a component I can accidentally start using `_` and typescript will not warn me about it, since it sees the _definition_ in lodash's `.d.ts` file.
 
@@ -116,7 +122,7 @@ The resulting **runtime** error is pretty straightforward, but something in me d
 
 My opinion is that `.d.ts` should eschew any kind of global definitions, which would make the whole process much more module friendly. If a developer has an application where certain globals are defined, it is very easy to define jQuery's and lodash's globals yourself.
 
-### Why do we always want to be so clever?
+#### Why do we always want to be so clever?
 
 The remaining errors are simple dev stupidity where in every refactoring you can run into the danger of trying to be clever and replacing code you deem ugly with an alternative that _actually_ does not do the same thing. Not typescript's fault
 
