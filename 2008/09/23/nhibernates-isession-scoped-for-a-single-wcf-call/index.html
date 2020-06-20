@@ -13,96 +13,87 @@
 <li>The scope of a service instance is the same as the scope of a request is the same as the scope we chose for the NHibernate Session.</li>
 </ul>
 <p>Those assumptions allow you to simplify the procedure somewhat. Since we already use a Custom Instance Provider in order to do Dependency Injection at the service level, that Custom Instance Provider is the perfect place to set things up for a NH Session per call. Let us look at the Instance Provider:</p>
-<csharp>
-class ServiceInstanceProvider<CONTRACT> : IInstanceProvider {
-  ...
-  public object GetInstance(InstanceContext instanceContext, System.ServiceModel.Channels.Message message)
-  {
-    var nhSessMgrExtension = instanceContext.Extensions.Find<NHibernateContextManager>();
-    if (nhSessMgrExtension == null)
-      instanceContext.Extensions.Add(new NHibernateContextManager());
-    return kernel.Get<CONTRACT>(); //Ninject Kernel in this case, but irrelevant for this post
-  }
-  ...
-  public void ReleaseInstance(System.ServiceModel.InstanceContext instanceContext, object instance)
-  {
-    var nhSessMgrExtension = instanceContext.Extensions.Find<NHibernateContextManager>();
-    if (nhSessMgrExtension != null)
-      instanceContext.Extensions.Remove(nhSessMgrExtension);
-  }
-}
-</csharp>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">class</span> <span class="token class-name">ServiceInstanceProvider<span class="token punctuation">&lt;</span>CONTRACT<span class="token punctuation">></span></span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">IInstanceProvider</span></span> <span class="token punctuation">{</span>
+  <span class="token range operator">..</span><span class="token punctuation">.</span>
+  <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">object</span></span> <span class="token function">GetInstance</span><span class="token punctuation">(</span><span class="token class-name">InstanceContext</span> instanceContext<span class="token punctuation">,</span> <span class="token class-name">System<span class="token punctuation">.</span>ServiceModel<span class="token punctuation">.</span>Channels<span class="token punctuation">.</span>Message</span> message<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token class-name"><span class="token keyword">var</span></span> nhSessMgrExtension <span class="token operator">=</span> instanceContext<span class="token punctuation">.</span>Extensions<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Find</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>NHibernateContextManager<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>nhSessMgrExtension <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+      instanceContext<span class="token punctuation">.</span>Extensions<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">NHibernateContextManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> kernel<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Get</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>CONTRACT<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Ninject Kernel in this case, but irrelevant for this post</span>
+  <span class="token punctuation">}</span>
+  <span class="token range operator">..</span><span class="token punctuation">.</span>
+  <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">ReleaseInstance</span><span class="token punctuation">(</span><span class="token class-name">System<span class="token punctuation">.</span>ServiceModel<span class="token punctuation">.</span>InstanceContext</span> instanceContext<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">object</span></span> instance<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token class-name"><span class="token keyword">var</span></span> nhSessMgrExtension <span class="token operator">=</span> instanceContext<span class="token punctuation">.</span>Extensions<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Find</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>NHibernateContextManager<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>nhSessMgrExtension <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+      instanceContext<span class="token punctuation">.</span>Extensions<span class="token punctuation">.</span><span class="token function">Remove</span><span class="token punctuation">(</span>nhSessMgrExtension<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
 <p>Strictly speaking, we have a Session / service instance, however, see the above assumptions.</p>
 <p>What is used here is one of the several contexts that WCF provides, Off hand you will see the OperationContext, InstanceContext as well as a RequestContext. Since technically I am scoping the NH Session to an instance, I will make an Extension to the InstanceContext with the provided Extension Mechanism ("<strong>Extensions.Add(...)</strong>").
 Let us have a look at that NHContextManager:</p>
-<csharp>
-class NHibernateContextManager : IExtension<InstanceContext>
-{
-  public ISession Session { get; set; }
-<p>  public void Attach(InstanceContext owner)
-{
-//We have been attached to the Current operation context from the
-// ServiceInstanceProvider
-}</p>
-<p>  public void Detach(InstanceContext owner)
-{
-if (Session != null)
-{
-Session.Flush();
-Session.Close();
-}
-}
-}
-</csharp></p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">class</span> <span class="token class-name">NHibernateContextManager</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">IExtension<span class="token punctuation">&lt;</span>InstanceContext<span class="token punctuation">></span></span></span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token return-type class-name">ISession</span> Session <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Attach</span><span class="token punctuation">(</span><span class="token class-name">InstanceContext</span> owner<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">//We have been attached to the Current operation context from the </span>
+    <span class="token comment">// ServiceInstanceProvider</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Detach</span><span class="token punctuation">(</span><span class="token class-name">InstanceContext</span> owner<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>Session <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      Session<span class="token punctuation">.</span><span class="token function">Flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      Session<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
 <p>Attach/Detach need to be implemented by contract. They are called when your extension is added / removed to the Extensions list.</p>
 <p>The only thing left in the puzzle is to ensure proper session instantiation and reuse. Let us delegate this to a bit of infrastructure that NHibernate provides to us. We can register a class in the NH configuration that does the job of determining a Session when somebody calls sessionFactory.GetCurrentSession().</p>
-<csharp>
-string currentSessionContextImplTypeName = 
-  typeof(NHWCFSessionContext).FullName + ", " + 
-  typeof(NHWCFSessionContext).Assembly.FullName;
-props.Add("current_session_context_class", currentSessionContextImplTypeName);
-...
-var cfg = new NHibernate.Cfg.Configuration().AddProperties(props)
-...
-sessionFactory = cfg.BuildSessionFactory();
-</csharp>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token class-name"><span class="token keyword">string</span></span> currentSessionContextImplTypeName <span class="token operator">=</span> 
+  <span class="token keyword">typeof</span><span class="token punctuation">(</span><span class="token type-expression class-name">NHWCFSessionContext</span><span class="token punctuation">)</span><span class="token punctuation">.</span>FullName <span class="token operator">+</span> <span class="token string">", "</span> <span class="token operator">+</span> 
+  <span class="token keyword">typeof</span><span class="token punctuation">(</span><span class="token type-expression class-name">NHWCFSessionContext</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Assembly<span class="token punctuation">.</span>FullName<span class="token punctuation">;</span>
+props<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token string">"current_session_context_class"</span><span class="token punctuation">,</span> currentSessionContextImplTypeName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token range operator">..</span><span class="token punctuation">.</span>
+<span class="token class-name"><span class="token keyword">var</span></span> cfg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">NHibernate<span class="token punctuation">.</span>Cfg<span class="token punctuation">.</span>Configuration</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">AddProperties</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
+<span class="token range operator">..</span><span class="token punctuation">.</span>
+sessionFactory <span class="token operator">=</span> cfg<span class="token punctuation">.</span><span class="token function">BuildSessionFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
 <p>That class we register here needs to implement an interface and provide a constructor to which the sessionFactory will be passed. Now we can pull the bits together:</p>
-<csharp>
-public class NHWCFSessionContext : ICurrentSessionContext
-{
-  public NHWCFSessionContext(ISessionFactory factory) : base()
-  {
-    this.factory = factory;
-  }
-<p>  public NHibernate.ISession CurrentSession()
-{
-// Get the WCF InstanceContext:
-var contextManager = OperationContext.Current
-.InstanceContext.Extensions.Find<NHibernateContextManager>();
-if (contextManager == null)
-{
-throw new InvalidOperationException(
-@"There is no context manager available.
-Check whether the NHibernateContextManager is added as InstanceContext extension.
-Also, this Session Provider only makes sense in a WCF context.");
-}</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">if (contextManager.Session == null)
-  contextManager.Session = factory.OpenSession();
-return contextManager.Session;</code></pre></div>
-<p>  }
-}
-</csharp></p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NHWCFSessionContext</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">ICurrentSessionContext</span></span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token function">NHWCFSessionContext</span><span class="token punctuation">(</span><span class="token class-name">ISessionFactory</span> factory<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">base</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>factory <span class="token operator">=</span> factory<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token return-type class-name">NHibernate<span class="token punctuation">.</span>ISession</span> <span class="token function">CurrentSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// Get the WCF InstanceContext:</span>
+    <span class="token class-name"><span class="token keyword">var</span></span> contextManager <span class="token operator">=</span> OperationContext<span class="token punctuation">.</span>Current
+      <span class="token punctuation">.</span>InstanceContext<span class="token punctuation">.</span>Extensions<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Find</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>NHibernateContextManager<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>contextManager <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">InvalidOperationException</span><span class="token punctuation">(</span>
+<span class="token string">@"There is no context manager available. 
+Check whether the NHibernateContextManager is added as InstanceContext extension. 
+Also, this Session Provider only makes sense in a WCF context."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>contextManager<span class="token punctuation">.</span>Session <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+      contextManager<span class="token punctuation">.</span>Session <span class="token operator">=</span> factory<span class="token punctuation">.</span><span class="token function">OpenSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> contextManager<span class="token punctuation">.</span>Session<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
 <p>That is pretty much it. If you have a DI container in use you can now add the bonus of registering some kind of instance provider for the ISession interface. In Ninject this would look like:</p>
-<csharp>
-m.Bind<NHibernate.ISession>().ToProvider<NHSessionProvider>();
-</csharp>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp">m<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Bind</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>NHibernate<span class="token punctuation">.</span>ISession<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token generic-method"><span class="token function">ToProvider</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>NHSessionProvider<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
 <p>And the SessionProvider does nothing but say:</p>
-<csharp>
-return sessionFactory.GetCurrentSession();
-</csharp>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">return</span> sessionFactory<span class="token punctuation">.</span><span class="token function">GetCurrentSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
 <p>If you now instantiate a repository from the DI Container, and that repository has a dependency to ISession, it will get the Session correctly scoped for your WCF call.</p>
-<p>A last disclaimer. The lifetime of services and such in WCF is not trivial. There are numerous options and depending on your target application the choices made here may not be your choices and the answer how your NH Session should be scoped is possibly not obvious either. But I hope that with the links provided and the info in here you can do a well-grounded choice.</p>
-<p><a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2frealfiction.net%2f%3fq%3dnode%2f167"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2frealfiction.net%2f%3fq%3dnode%2f167&#x26;bgcolor=0000CC" alt="kick it on DotNetKicks.com"></a></p></div><div class="blog-post__footer"><a href="https://mobile.twitter.com/search?q=https%3A%2F%2Frealfiction.net%2F2008/09/23/nhibernates-isession-scoped-for-a-single-wcf-call" target="_blank" rel="noopener noreferrer">Discuss on Twitter ⇲</a></div><div class="blog-post__pagination"><a class="blog-post__pagination--previous" href="/2008/09/07/spoiled-with-dependency-injection">Spoiled with Dependency Injection</a><a class="blog-post__pagination--next" href="/2008/10/18/update-to-drupal6-commenting-disabled">Update to Drupal6 - Commenting disabled</a></div></article></div></div><div class="row"><div class="footer__twitter"><a href="https://twitter.com/fquednau?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false" data-show-screen-name="false">Follow @fquednau</a> </div><p class="footer__copyright">© Frank Quednau <!-- -->2020</p></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+<p>A last disclaimer. The lifetime of services and such in WCF is not trivial. There are numerous options and depending on your target application the choices made here may not be your choices and the answer how your NH Session should be scoped is possibly not obvious either. But I hope that with the links provided and the info in here you can do a well-grounded choice.</p></div><div class="blog-post__footer"><a href="https://mobile.twitter.com/search?q=https%3A%2F%2Frealfiction.net%2F2008/09/23/nhibernates-isession-scoped-for-a-single-wcf-call" target="_blank" rel="noopener noreferrer">Discuss on Twitter ⇲</a></div><div class="blog-post__pagination"><a class="blog-post__pagination--previous" href="/2008/09/07/spoiled-with-dependency-injection">Spoiled with Dependency Injection</a><a class="blog-post__pagination--next" href="/2008/10/18/update-to-drupal6-commenting-disabled">Update to Drupal6 - Commenting disabled</a></div></article></div></div><div class="row"><div class="footer__twitter"><a href="https://twitter.com/fquednau?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false" data-show-screen-name="false">Follow @fquednau</a> </div><p class="footer__copyright">© Frank Quednau <!-- -->2020</p></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
   window.excludeGAPaths=[/^(?:\/404)$/];
   
   if(true) {

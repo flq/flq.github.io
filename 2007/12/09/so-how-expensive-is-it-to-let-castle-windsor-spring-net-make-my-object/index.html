@@ -10,29 +10,29 @@ BankAccount b = new BankAccount(new SimpleExchangeRateEngine());
 b.Deposit(new MonetaryValue("EUR", 1000.23M));
 </pre>
 <p>The first DI container I used was the <a href="http://www.castleproject.org/container/index.html">Castle Project Windsor container</a>, which we have started to use on a customer's project. Necessary configuration aspects can be covered in the app.config and the configuration for this specific example looks like this:</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&lt;configuration&gt;
-  &lt;configSections&gt;
-    &lt;sectionGroup name=&quot;spring&quot;&gt;
-      &lt;section name=&quot;context&quot; type=&quot;Spring.Context.Support.ContextHandler, Spring.Core&quot;/&gt;
-      &lt;section name=&quot;objects&quot; type=&quot;Spring.Context.Support.DefaultSectionHandler, Spring.Core&quot; /&gt;
-    &lt;/sectionGroup&gt;
-  &lt;/configSections&gt;
-  &lt;spring&gt;
-    &lt;context&gt;
-      &lt;resource uri=&quot;config://spring/objects&quot;/&gt;
-    &lt;/context&gt;
-    &lt;objects xmlns=&quot;http://www.springframework.net&quot;&gt;
-      &lt;object id=&quot;ExchangeEngine&quot; type=&quot;TheBank.SimpleExchangeRateEngine, TheBank&quot; singleton=&quot;false&quot; /&gt;
-      &lt;object id=&quot;BankAccount&quot; type=&quot;TheBank.BankAccount, TheBank&quot; singleton=&quot;false&quot;&gt;
-        &lt;constructor-arg name=&quot;engine&quot; ref=&quot;ExchangeEngine&quot;/&gt;
-      &lt;/object&gt;
-    &lt;/objects&gt;
-  &lt;/spring&gt;
-&lt;/configuration&gt;</code></pre></div>
+<div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configSections</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sectionGroup</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>spring<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>context<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Spring.Context.Support.ContextHandler, Spring.Core<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>objects<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Spring.Context.Support.DefaultSectionHandler, Spring.Core<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sectionGroup</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configSections</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>spring</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>context</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resource</span> <span class="token attr-name">uri</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>config://spring/objects<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>context</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>objects</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.net<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>object</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ExchangeEngine<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>TheBank.SimpleExchangeRateEngine, TheBank<span class="token punctuation">"</span></span> <span class="token attr-name">singleton</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>object</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>BankAccount<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>TheBank.BankAccount, TheBank<span class="token punctuation">"</span></span> <span class="token attr-name">singleton</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>constructor-arg</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>engine<span class="token punctuation">"</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ExchangeEngine<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>object</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>objects</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>spring</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span></code></pre></div>
 <p>As you can see, the two important classes that we will be using are registered in the configuration.
 Interesting in this framework is the fact that you can explicitly state the "service" (i.e. the interface) which a class implements. You can then obtain a reference to an underlying implementation simply by passing an interface to the "Kernel", the part of the DI container that you need to talk to to get the desired object instance. In terms of the given framework this looks like that:</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">IWindsorContainer c = new WindsorContainer(new XmlInterpreter());
-BankAccount b = c.Resolve&lt;BankAccount&gt;();</code></pre></div>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token class-name">IWindsorContainer</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">WindsorContainer</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">XmlInterpreter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">BankAccount</span> b <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Resolve</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>BankAccount<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
 <p>How did the dependency to the <strong>IExchangeRateEngine</strong> service go into the BankAccount? This is a feature of the framework. It looks at the BankAccount constructor and will find that for the necessary service to be provided there is an entry in the configuration. It instantiates the dependency and passes it to the BankAccount instance.</p>
 <p>For testing the construction speed, I wrote a program with two loops: The outer one ten times, the inner ones 10000 times the creation of a BankAccount object in the following ways:</p>
 <ol>
@@ -42,28 +42,28 @@ BankAccount b = c.Resolve&lt;BankAccount&gt;();</code></pre></div>
 <li>DI based creation with Spring.NET</li>
 </ol>
 <p>Just for completeness I had a quick look at <a href="http://www.springframework.net/">Spring.NET</a> and paced it through pretty much the same routine. The major difference here is that for constructor-based dependency injection you need to explicitly state the constructor argument and what object of the registry should be passed in.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&lt;configuration&gt;
-  &lt;configSections&gt;
-    &lt;sectionGroup name=&quot;spring&quot;&gt;
-      &lt;section name=&quot;context&quot; type=&quot;Spring.Context.Support.ContextHandler, Spring.Core&quot;/&gt;
-      &lt;section name=&quot;objects&quot; type=&quot;Spring.Context.Support.DefaultSectionHandler, Spring.Core&quot; /&gt;
-    &lt;/sectionGroup&gt;
-  &lt;/configSections&gt;
-  &lt;spring&gt;
-    &lt;context&gt;
-      &lt;resource uri=&quot;config://spring/objects&quot;/&gt;
-    &lt;/context&gt;
-    &lt;objects xmlns=&quot;http://www.springframework.net&quot;&gt;
-      &lt;object id=&quot;ExchangeEngine&quot; type=&quot;TheBank.SimpleExchangeRateEngine, TheBank&quot; singleton=&quot;false&quot; /&gt;
-      &lt;object id=&quot;BankAccount&quot; type=&quot;TheBank.BankAccount, TheBank&quot; singleton=&quot;false&quot;&gt;
-        &lt;constructor-arg name=&quot;engine&quot; ref=&quot;ExchangeEngine&quot;/&gt;
-      &lt;/object&gt;
-    &lt;/objects&gt;
-  &lt;/spring&gt;
-&lt;/configuration&gt;</code></pre></div>
+<div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configSections</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sectionGroup</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>spring<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>context<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Spring.Context.Support.ContextHandler, Spring.Core<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>objects<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Spring.Context.Support.DefaultSectionHandler, Spring.Core<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sectionGroup</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configSections</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>spring</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>context</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resource</span> <span class="token attr-name">uri</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>config://spring/objects<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>context</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>objects</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.net<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>object</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ExchangeEngine<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>TheBank.SimpleExchangeRateEngine, TheBank<span class="token punctuation">"</span></span> <span class="token attr-name">singleton</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>object</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>BankAccount<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>TheBank.BankAccount, TheBank<span class="token punctuation">"</span></span> <span class="token attr-name">singleton</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>constructor-arg</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>engine<span class="token punctuation">"</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ExchangeEngine<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>object</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>objects</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>spring</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span></code></pre></div>
 <p>A call to this framework looks like this:</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">IApplicationContext ctx = ContextRegistry.GetContext();
-BankAccount b = (BankAccount)ctx.GetObject(&quot;BankAccount&quot;);</code></pre></div>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token class-name">IApplicationContext</span> ctx <span class="token operator">=</span> ContextRegistry<span class="token punctuation">.</span><span class="token function">GetContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">BankAccount</span> b <span class="token operator">=</span> <span class="token punctuation">(</span>BankAccount<span class="token punctuation">)</span>ctx<span class="token punctuation">.</span><span class="token function">GetObject</span><span class="token punctuation">(</span><span class="token string">"BankAccount"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
 <p>Anyway, I used the <strong>StopWatch</strong> object to time the 10000 instantiation loops and calculated an average. Here are the findings (average min/max values out of the ten times that the whole cycle was repeated, Release build running outside vshost) in milliseconds:</p>
 <ul>
 <li>Normal construction: 0.0001 / 0.0002</li>

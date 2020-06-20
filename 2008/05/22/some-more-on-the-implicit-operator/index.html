@@ -7,88 +7,83 @@
 <p> No, you cannot. Within a type you could write as many implicit operator implementations as you like, but any of the two types referenced must be the enclosing type. The compiler will tell you that:
 <code class="language-text">error CS0556: User-defined conversion must convert to or from the enclosing type</code>  </p>
 <p>As an example:</p>
-  <pre class="sh_csharp">
-  class Foo
-  {
-    string Value { get; set; }
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">class</span> <span class="token class-name">Foo</span>
+<span class="token punctuation">{</span>
+  <span class="token return-type class-name"><span class="token keyword">string</span></span> Value <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 
-    public static implicit operator string(Foo theFoo)
-    {
-      return theFoo.Value;
-    }
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">implicit</span> <span class="token keyword">operator</span> <span class="token keyword">string</span><span class="token punctuation">(</span><span class="token class-name">Foo</span> theFoo<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> theFoo<span class="token punctuation">.</span>Value<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-    public static implicit operator Foo(string theValue)
-    {
-      return new Foo() { Value = theValue };
-    }
-  }
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">implicit</span> <span class="token keyword">operator</span> <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> theValue<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> Value <span class="token operator">=</span> theValue <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-  class Bar : Foo {
-  }
-</pre>
+<span class="token keyword">class</span> <span class="token class-name">Bar</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Foo</span></span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre></div>
 <p>The type "Bar" cannot do anything with the operators defined on "Foo", hence you cannot write</p>
 <p><code class="language-text">Bar b = &quot;hi&quot;;</code></p>
 <p>What compiles is this:</p>
-<p><code class="language-text">Bar b = (Bar)(Foo)&quot;hi&quot;;</code></p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token class-name">Bar</span> b <span class="token operator">=</span> <span class="token punctuation">(</span>Bar<span class="token punctuation">)</span><span class="token punctuation">(</span>Foo<span class="token punctuation">)</span><span class="token string">"hi"</span><span class="token punctuation">;</span></code></pre></div>
 <p>But, as you might have guessed, you will get a runtime error. A "Foo" instance cannot be cast to
 a "Bar" instance.</p>
 <ul>
 <li>Any chance to do that with generics?</li>
 </ul>
 <p>This contrived example will not work either:</p>
-<p>`
-class Implicitable&#x3C;T, V> where V : Implicitable&#x3C;T,V>
-{
-T Value { get; set; }</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">public static implicit operator T(V theImplicitable)
-{
-  return theImplicitable.Value;
-}</code></pre></div>
-<p>  }
-`</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">class</span> <span class="token class-name">Implicitable<span class="token punctuation">&lt;</span>T<span class="token punctuation">,</span> V<span class="token punctuation">></span></span> <span class="token keyword">where</span> <span class="token class-name">V</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Implicitable<span class="token punctuation">&lt;</span>T<span class="token punctuation">,</span>V<span class="token punctuation">></span></span></span>
+<span class="token punctuation">{</span>
+  <span class="token return-type class-name">T</span> Value <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">implicit</span> <span class="token keyword">operator</span> <span class="token function">T</span><span class="token punctuation">(</span><span class="token class-name">V</span> theImplicitable<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> theImplicitable<span class="token punctuation">.</span>Value<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
 <p>same error.</p>
 <p>A different restriction with its own error is when you would try this:</p>
-<p>`
-class Bar : Foo
-{
-public static implicit operator Foo(Bar theValue)
-{
-return new Bar() { Value = theValue };
-}
-}</p>
-<p>error CS0553: '...': user-defined conversions to or from a base class are not allowed
-`</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp">  <span class="token keyword">class</span> <span class="token class-name">Bar</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Foo</span></span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">implicit</span> <span class="token keyword">operator</span> <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token class-name">Bar</span> theValue<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> Value <span class="token operator">=</span> theValue <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">error</span> CS0553<span class="token punctuation">:</span> '<span class="token range operator">..</span><span class="token punctuation">.</span>'<span class="token punctuation">:</span> user<span class="token operator">-</span>defined conversions to or <span class="token keyword">from</span> a <span class="token keyword">base</span> <span class="token keyword">class</span> <span class="token class-name">are</span> not allowed</code></pre></div>
 <p>Which makes sense after all, as it kind of leads polymorphism ad absurdum.</p>
 <p>Lately I have come across a pattern where it appears useful to me to provide implicit operators.
 It is the case for generic utility classes that enhance a given type in a sort of decorator style.
-You can find an example here with the <a href="http://realfiction.net/go/153">SingletonOf&#x3C;T></a>. Further examples are</p>
+You can find an example here with the <a href="https://realfiction.net/2008/04/29/singletons-are-boring-hence-factor-out-the-concern">SingletonOf&#x3C;T></a>. Further examples are</p>
 <ul>
-<li>Monitored&#x3C;T> : It provides a decorator around a value of type T that, when changed through a property raises a ValueChanged event.</li>
-<li>Historized&#x3C;T> : It provides a decorator around a value of type T that keeps track in a Dictionary with timestamp when the value is changed and could be rolled back to some point in time.</li>
+<li>Monitored<T> : It provides a decorator around a value of type T that, when changed through a property raises a ValueChanged event.</li>
+<li>Historized&#x3C;T&#x26;> : It provides a decorator around a value of type T that keeps track in a Dictionary with timestamp when the value is changed and could be rolled back to some point in time.</li>
 </ul>
 <p>All of those provide this pattern:</p>
-<p>`
-class Utility<T>
-{
-T Value { get; set; }</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">public static implicit operator T(Utility&lt;T&gt; u)
-{
-  return u.Value;
-}
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">class</span> <span class="token class-name">Utility<span class="token punctuation">&lt;</span>T<span class="token punctuation">></span></span>
+<span class="token punctuation">{</span>
+  <span class="token return-type class-name">T</span> Value <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 
-public static implicit operator Utility&lt;T&gt;(T theValue)
-{
-  return new Utility&lt;T&gt;() { Value = theValue };
-}</code></pre></div>
-<p>  }
-`</p>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">implicit</span> <span class="token keyword">operator</span> <span class="token function">T</span><span class="token punctuation">(</span><span class="token class-name">Utility<span class="token punctuation">&lt;</span>T<span class="token punctuation">></span></span> u<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> u<span class="token punctuation">.</span>Value<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">implicit</span> <span class="token keyword">operator</span> <span class="token generic-method"><span class="token function">Utility</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>T<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token class-name">T</span> theValue<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Utility<span class="token punctuation">&lt;</span>T<span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> Value <span class="token operator">=</span> theValue <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
 <p>The boilerplate enables a simple instantiation like Utility&#x3C;int> i = 3; as well as enables the Utility
 to behave pretty much like the type it decorates, e.g. z = i + 5;
 However, that is at far as it goes. To actually enable their additional behaviour you will have to keep
 the reference alive:</p>
-<p><code class="language-text">Utility&lt;int&gt; i = 3;
-i = 5; //bad
-i.Value = 7; // good</code></p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token class-name">Utility<span class="token punctuation">&lt;</span><span class="token keyword">int</span><span class="token punctuation">></span></span> i <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+i <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment">//bad</span>
+i<span class="token punctuation">.</span>Value <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span> <span class="token comment">// good</span></code></pre></div>
 <p>That's it for now. Next time, the explicit operator :)</p></div><div class="blog-post__footer"><a href="https://mobile.twitter.com/search?q=https%3A%2F%2Frealfiction.net%2F2008/05/22/some-more-on-the-implicit-operator" target="_blank" rel="noopener noreferrer">Discuss on Twitter ⇲</a></div><div class="blog-post__pagination"><a class="blog-post__pagination--previous" href="/2008/05/20/a-simple-way-to-start-your-code-in-a-different-appdomain">A simple way to start your code in a different AppDomain</a><a class="blog-post__pagination--next" href="/2008/06/16/wpf-inotifypropertychanged-proxy-success">WPF + INotifyPropertyChanged Proxy = success!</a></div></article></div></div><div class="row"><div class="footer__twitter"><a href="https://twitter.com/fquednau?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false" data-show-screen-name="false">Follow @fquednau</a> </div><p class="footer__copyright">© Frank Quednau <!-- -->2020</p></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
   window.excludeGAPaths=[/^(?:\/404)$/];
   
