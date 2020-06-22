@@ -1,16 +1,19 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
+import { Disqus } from 'gatsby-plugin-disqus'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
+import useSiteMetadata from '../hooks/useSiteMetadata'
 
 export default function Template({
+  location,
   data, // this prop will be injected by the GraphQL query below.
   pageContext,
 }) {
+  const { siteUrl } = useSiteMetadata();
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, fields, html } = markdownRemark
   const { previous, next } = pageContext
-  const searchLink = fields.slug.replace('/', '%2F')
 
   return (
     <Layout>
@@ -35,15 +38,6 @@ export default function Template({
           className="blog-post__content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
-        <div className="blog-post__footer">
-          <a
-            href={`https://mobile.twitter.com/search?q=https%3A%2F%2Frealfiction.net${searchLink}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Discuss on Twitter &#x21F2;
-          </a>
-        </div>
         <div className="blog-post__pagination">
           {previous && (
             <a
@@ -58,6 +52,9 @@ export default function Template({
               {next.frontmatter.title}
             </a>
           )}
+        </div>
+        <div className="blog-post__footer">
+          <Disqus config={{ url: siteUrl + location.pathname, title: frontmatter.title }} />
         </div>
       </article>
     </Layout>

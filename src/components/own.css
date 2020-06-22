@@ -150,6 +150,10 @@ article iframe {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+article .blog-post__footer iframe {
+  box-shadow: inherit;
+}
+
 article div.highlight {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   scroll-behavior: auto;
