@@ -7,6 +7,7 @@ import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import useSiteMetadata from '../hooks/useSiteMetadata'
 import { YouTubeEmbed } from '../components/YouTubeEmbed'
+import { Tweet } from '../components/Tweet'
 
 export default function Template({
   location,
@@ -17,7 +18,7 @@ export default function Template({
   const { mdx: { body, frontmatter } } = data
   const { previous, next } = pageContext
 
-  const components = useMemo(()=> ({YouTubeEmbed}), [])
+  const components = useMemo(()=> ({YouTubeEmbed, Tweet}), [])
 
   return (
     <Layout>
