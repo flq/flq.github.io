@@ -5,11 +5,11 @@ tags: [programming, web]
 date: 2017-06-24 09:48:01
 ---
 
-<div class="container">
+<div className="container">
 
-<div class="row">
+<div className="row">
 
-<div class="six columns" markdown="1">
+<div className="six columns" markdown="1">
 
 Roughly _eleven or twelve years_ ago, when I was young and seemed to have plenty of time for everything, I played with svg.
 Back then, you needed a browser plugin to get it to run. I also thought that Flash was eating svg and svg, even though cool,
@@ -21,8 +21,9 @@ I only changed the access of svg elements from the global plugin object to __doc
 a normal part of the document. Everything else remains the same.
 
 </div>
-<div class="six columns">
+<div className="six columns">
 
+```xml
 <svg width="500" height="500">
 	<defs>
 		<linearGradient id="metallic-2" x1="0%" y1="0%" x2="100%" y2="0%"
@@ -84,7 +85,6 @@ a normal part of the document. Everything else remains the same.
 				 style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
 		</symbol>
 
-		<!-- crankshaft: 40 long-->
 		<symbol id="crankshaft">
 			<rect x="10" y="30" width="30" height="40"
 				 style="fill:rgb(240,132,16);stroke:rgb(0,0,0);stroke-width:1"/>
@@ -94,7 +94,6 @@ a normal part of the document. Everything else remains the same.
 				 style="fill:rgb(240,132,16);stroke:rgb(0,0,0);stroke-width:2"/>
 		</symbol>
 
-		<!-- rod: 155 long-->
 		<symbol id="connecting_rod">
 			<rect x="10" y="30" width="40" height="155"
 				 style="fill:rgb(149,149,149);stroke:rgb(0,0,0);stroke-width:1"/>
@@ -114,7 +113,9 @@ a normal part of the document. Everything else remains the same.
 	<use id="rod_instance" xlink:href="#connecting_rod" />	
 	<use id="cshaft_instance" xlink:href="#crankshaft" />
 </svg>
+```
 
+```javascript
 <script>
   let currframe = 0;
   const rodlength = 155;
@@ -185,13 +186,14 @@ a normal part of the document. Everything else remains the same.
     return offset + Math.floor(shaftradius - ydisp);
   }
 </script>
+```
 
 </div>
 </div>
 
-<div class="row">
+<div className="row">
 
-<div class="twelve columns">
+<div className="twelve columns">
 
 These days I wouldn't write the animation code as it is (strong coupling of engine logic and state with UI), but it is very charming and comforting that svg is alive and kicking and that 10++-year old code continues to work as intended.
 

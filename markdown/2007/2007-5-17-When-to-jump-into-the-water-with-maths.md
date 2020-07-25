@@ -32,7 +32,7 @@ When we stick in the values of the found polynomial in this equation and after m
 
 So roughly, the quicker you are on the land, the more you should walk along the shore, but it depends on the distance, really. In such a situation it is probably best to fire up your Internet and visit the small Javascript calculation form down here. If you have a slow connection and the guy in the water is drowning, do a good guess. Even better, though, would be to check out what your dog does!
 
-<script language="javascript">
+```javascript
 function calculate() {
   var inputs = {
     k1 : parseFloat(document.getElementById('k1').value),
@@ -59,7 +59,9 @@ function calculate() {
   ' seconds to get to the object. Ideally you would jump in at an x of ' + 
   results.bestx(inputs);
 }
-</script> <table border="0"> <tbody> <tr> <td valign="top" width="10%">K1 in metres:<input id="k1" value="12">
+```
+```html
+<table border="0"> <tbody> <tr> <td valign="top" width="10%">K1 in metres:<input id="k1" value="12">
 K2 in metres:<input id="k2" value="12">
 </td> <td valign="top" width="10%">v1 in m/sec:<input id="v1" value="2">
 v2 in m/sec:<input id="v2" value="1.2"> </td> <td valign="top">x (x*k1 between 0 and 1):<input id="x" value="0.8">
@@ -67,3 +69,4 @@ v2 in m/sec:<input id="v2" value="1.2"> </td> <td valign="top">x (x*k1 between 0
 
 <h2 id="result">result</h2>
 </td></tr></tbody></table>
+```

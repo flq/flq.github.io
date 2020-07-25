@@ -10,9 +10,9 @@ date: 2017-07-21 15:30:54
 1. [Getting into React Part 2][2]
 1. [Create react app with typescript][3]
 
-> All posts in this series use versions around July 2017, i.e.<br>
-> React: late v15s<br>
-> Typescript: v2.3.4<br>
+> All posts in this series use versions around July 2017, i.e.<br/>
+> React: late v15s<br/>
+> Typescript: v2.3.4<br/>
 > etc. - you know things are in flow. While react has been quite stable the past years, you never know.
 > The code you will see is compatible to react v16, though.
 

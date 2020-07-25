@@ -3,7 +3,6 @@ title: "Do you think your Windows.Forms Application has no memory leaks?"
 layout: post
 tags: [software-development, dotnet, windows, csharp]
 date: 2010-05-26 03:10:00
-redirect_from: /go/169/
 ---
 
 If your answer is yes, please read on, because, _once_, I thought so, too.
@@ -26,12 +25,15 @@ The single most useful tool to approach possible issues with memory is a memory 
 
 The most hefty GDI object leak was related to…icons. The following code is _reeally baad_:
 
- <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:c99699f5-203e-48c1-908c-6d82e68ce008" class="wlWriterEditableSmartContent"><pre name="code" class="c#">changeProvider.Icon = 
-  Icon.FromHandle(Resources.data_edit.GetHicon());</pre></div>
+ ```csharp
+ changeProvider.Icon = 
+  Icon.FromHandle(Resources.data_edit.GetHicon());
+```
 
 I really don’t know enough about this sort of resource creation but after some strange behaviour regarding errors, the code was modified to the following (as outlined in the [documentation to GetHicon()](http://msdn.microsoft.com/en-us/library/system.drawing.bitmap.gethicon.aspx)):
 
-<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:0c5123fc-0219-494f-b88a-02105d69d70b" class="wlWriterEditableSmartContent"><pre name="code" class="c#">[System.Runtime.InteropServices.DllImport("user32")]
+```csharp
+[System.Runtime.InteropServices.DllImport("user32")]
 public static extern bool DestroyIcon(IntPtr hIcon);
 ...
 public static Icon RetrieveEditIcon()
@@ -42,7 +44,8 @@ public static Icon RetrieveEditIcon()
   temp.Dispose();
   DestroyIcon(hIcon);
   return ico;
-}</pre></div>
+}
+```
 
 ### 2. The GC-Alloc’d Timer
 
@@ -56,7 +59,8 @@ Such handles can be constructed with the [GCHandle](http://msdn.microsoft.com/en
 
 The basic solution is to ensure explicit disposal of a timer, in our case by listening to the connected control’s Disposed-event. Alas, in some circumstances it appears that the Control’s Dispose was not called, leaving us still with objects dangling off the timer. The final end to this problem was to make the connection between Timer and event handler _weaker_.
 
-<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:1847e869-180d-472a-af31-81db5edffbe2" class="wlWriterEditableSmartContent"><pre name="code" class="c#">private readonly Timer changeDelayTimer;
+```csharp
+private readonly Timer changeDelayTimer;
 ...
 changeDelayTimer = new Timer(onChangeDelayCallback, new WeakReference(this), ...);
 ...
@@ -65,7 +69,8 @@ private static void onChangeDelayCallback(object state)
   var wr = (WeakReference) state;
   if (wr.IsAlive)
    ((TextBoxConnector)wr.Target).HandleTimerSignal();
-}</pre></div>
+}
+```
 
 The timer now references a static handler, and just to be sure, the actual object is only accessible through a WeakReference object. Such a thing allows a targetted object to be collected by the GC. There may still be a minor headache in case that the GC collects the object between the if-statement and the access in the next line, but at least we got rid of the object trees dangling off the timer.
 

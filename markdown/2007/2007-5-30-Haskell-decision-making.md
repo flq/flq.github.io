@@ -114,8 +114,8 @@ This is what gets zipped together with the solutions. The first array only refer
 
 For the first solution ([(0,0,True),(1,1,True)]) the code asks:
 
->Is (0,0,True) element of [(0,0,True),(0,1,False),(0,2,False)] ? Yes!<br>
->Is (1,1,True) element of [(1,0,False),(1,1,True)] ? Yes!
+> Is (0,0,True) element of [(0,0,True),(0,1,False),(0,2,False)] ? Yes!
+> Is (1,1,True) element of [(1,0,False),(1,1,True)] ? Yes!
 
 Hence `[True,True]`.
 

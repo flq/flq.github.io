@@ -3,7 +3,6 @@ title: "Haven't digested C#3? Brace yourself for V4!"
 layout: post
 tags: [software-development, dotnet, csharp]
 date: 2008-11-04 22:37:45
-redirect_from: /go/135/
 ---
 
 After Microsoft's PDC, a whole host of C# 4.0 infos are coming up. Many months ago we were already allowed to peek at Hejlsberg & Team sitting in an old meeting room, talking about what C# 4.0 would be all about (I have lost the link but you [here's](http://channel9.msdn.com/pdc2008/TL16/) his talk at the PDC about the upcoming language - Takes some time, but it's pretty good).
@@ -15,9 +14,8 @@ Major keywords were: Concurrency, 'Declarativeness', Dynamic Features.
 Just now, posts are coming up highlighting information available on new language features - a good moment for me to gather some links...
 
 1.  The dynamic keyword:
-
     For an interesting example introducing the dynamic Keyword, making an XMLNode behave like an instance with properties, [go here](http://mark.michaelis.net/Blog/DynamicallyTypedObjectsWithC40.aspx). Such stuff may allow to do duck typing: Some sort of ad-hoc bolting on of an interface. For some comments on that, [go here](http://msmvps.com/blogs/jon_skeet/archive/2008/10/30/c-4-0-dynamic-lt-t-gt.aspx).
-2.  <p>The Dynamic language runtime appears to become a first class citizen in the CLR. Wonderful new possibilities (and great bugs) are waiting for us to discover!
+2.  The Dynamic language runtime appears to become a first class citizen in the CLR. Wonderful new possibilities (and great bugs) are waiting for us to discover!
 
 3.  Parallel extensions for .NET is most likely becoming a part of the .NET Framework. At some point such things may appear in the language...
 

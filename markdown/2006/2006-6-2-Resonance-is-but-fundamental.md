@@ -5,12 +5,13 @@ tags: [physics]
 date: 2006-06-02 20:44:45
 redirect_from: /go/24/
 ---
+import {YouTubeEmbed} from "../components/YouTubeEmbed";
 
-Two small videos that show off resonance. One uses a magnetic fluid in a rotating and alternating magnetic field, the other one uses supposedly rice on a plate whose vibration is induced acoustically.
-<!--break-->  
 
-<object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/A5OhZ9wT568"></param><embed src="http://www.youtube.com/v/A5OhZ9wT568" type="application/x-shockwave-flash" width="425" height="350"></embed></object>
+Two small videos that show off resonance. One uses a magnetic fluid in a rotating and alternating magnetic field... 
 
-<object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/Zkox6niJ1Wc"></param><embed src="http://www.youtube.com/v/Zkox6niJ1Wc" type="application/x-shockwave-flash" width="425" height="350"></embed></object>
+<YouTubeEmbed link="https://youtube.com/embed/A5OhZ9wT568" />
 
- 
+...the other one uses supposedly rice on a plate whose vibration is induced acoustically.
+
+<YouTubeEmbed link="https://youtube.com/embed/Zkox6niJ1Wc" />

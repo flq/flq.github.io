@@ -7,11 +7,13 @@ date: 2017-05-22 16:20:00
 
 A few days ago, Michael Feathers tweeted this:
 
+```html
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The fact that many simple correct Ruby programs become ridiculously complex when translated to other languages means something.</p>&mdash; Michael Feathers (@mfeathers) <a href="https://twitter.com/mfeathers/status/864122686695460866">May 15, 2017</a></blockquote>
 
 Now, I am not a complete [stranger to ruby][1], which is why this statement resonated with me, and upon requesting an example, Michael came up with this:
 
 <blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/fquednau">@fquednau</a> The simple ones are interesting. Try this in C#: ([0] + arr).each_cons(2).count {|x,y| x == 0 &amp;&amp; y == 1 }</p>&mdash; Michael Feathers (@mfeathers) <a href="https://twitter.com/mfeathers/status/864222881538072578">May 15, 2017</a></blockquote>
+```
 
 or
 
@@ -87,7 +89,9 @@ While I can kind of forgive a missing _each\_cons_-like BCL method, I write the 
 
 Xavier Lepaul chimed in with a view on what Kotlin is up to with respect to the challenge:
 
+```html
 <blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/mfeathers">@mfeathers</a> <a href="https://twitter.com/fquednau">@fquednau</a> Kotlin is almost there (with <a href="https://t.co/b2TpoX5LqA">https://t.co/b2TpoX5LqA</a>)<br>(listOf(0) + arr).windowed(2).count {(x,y) -&gt; x == 0 &amp;&amp; y == 1}</p>&mdash; Xavier Lepaul (@xlepaul) <a href="https://twitter.com/xlepaul/status/864404258476752896">May 16, 2017</a></blockquote>
+```
 
 ```kotlin
 (listOf(0) + arr).windowed(2).count {(x,y) -> x == 0 && y == 1}

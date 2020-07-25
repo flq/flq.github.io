@@ -41,7 +41,8 @@ Even so, neither user nor publisher need really care about this.
 
 Indeed the only bit of infrastructure that bin4net would need is some place to host the torrent files, which, even with metadata, will not be very big. A torrent tracker is readily available with e.g. [openbittorrent.com](http://openbittorrent.com/).
 
- * **A tool for the consumer** to download Open Source Software registered with bin4net. This would be similar to the gem install bit. It would allow to list the available _Gizmos_ (interim name for OSS made available with the mechanism) <li>An **add-in into visual studio** to tap into the local bin4net repository. Admittedly, this is the point where I’m doing most of the hand-waving: I don’t know if you can add to the ‘Add reference…’ mechanics of Visual Studio. I have seen a [project on codeplex](http://npanday.codeplex.com/) which may be doing something like that but haven’t yet looked into it. If it is possible, it would actually allow a scenario where we browse bin4net’s repository from within Visual Studio and trigger the download, add the dependency to the project etc. 
+ * **A tool for the consumer** to download Open Source Software registered with bin4net. This would be similar to the gem install bit. It would allow to list the available _Gizmos_ (interim name for OSS made available with the mechanism) 
+ * An **add-in into visual studio** to tap into the local bin4net repository. Admittedly, this is the point where I’m doing most of the hand-waving: I don’t know if you can add to the ‘Add reference…’ mechanics of Visual Studio. I have seen a [project on codeplex](http://npanday.codeplex.com/) which may be doing something like that but haven’t yet looked into it. If it is possible, it would actually allow a scenario where we browse bin4net’s repository from within Visual Studio and trigger the download, add the dependency to the project etc. 
 
 Here’s a little picture to summarize what we have so far…
 

@@ -13,7 +13,7 @@ For [my new gig][1] I had the chance to look into [Microsoft's Bot framework][2]
 
 The bot API comes in two flavours:
 
-### The IDialog<T> interface
+### The "IDialog Of T" interface
 
 This is the basic building block of bots. Based on this interface you can package your functionality like MS has done it for example with the in-built Form dialog that will ask questions dictated by the shape of a provided object or the [location dialog][4], a pre-canned dialog to collect location data within a conversation with the help of Bing Maps. The type argument of a Dialog refers to its return value. In the case of the location dialog this is e.g. a __Place__ object.
 

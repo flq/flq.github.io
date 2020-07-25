@@ -9,8 +9,8 @@ So, you need a websocket server, like, now. Well, fear no more, here comes __[we
 
 As it says
 
-> WebSockets the UNIX way<br>
-> Full duplex messaging between web browsers and servers
+> WebSockets the UNIX way
+  Full duplex messaging between web browsers and servers
 
 And it's awfully simple to use. STDIN becomes your input, STDOUT is your output. In other words, any old console application can become a Websocket server.
 

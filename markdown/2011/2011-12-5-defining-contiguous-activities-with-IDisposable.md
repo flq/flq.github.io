@@ -3,10 +3,10 @@ title: "defining contiguous activities with IDisposable"
 layout: post
 tags: [software-development, dotnet, patterns, fsharp]
 date: 2011-12-05 08:00:00
-redirect_from: /go/210/
 ---
 
-> "Atomic activities may not be confused with consecutive code" - _Arthur X. Brannigan_<br>
+> "Atomic activities may not be confused with consecutive code" - _Arthur X. Brannigan_
+
 > "Ideally, atomic activities can be read as consecutive code" - _Arthur X. Brannigan_
 
 What Arthur is trying to say is that sometimes you have an atomic activity (something that should happen completely or not at all) whose parts are separated by arbitrary amounts of code. What would be desirable is that such an activity can also be read as such. That is, as a consecutive block of code, even though its parts may run at different points of the program execution. This will also encourage reusability, since a consecutive code block can easily be refactored via _"extract method"_

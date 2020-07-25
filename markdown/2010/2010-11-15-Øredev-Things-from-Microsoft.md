@@ -12,8 +12,13 @@ Several sessions were held by guys from Microsoft, which I want to give you a qu
 
 Let’s face it: To get to HTTPs real capabilities in WCF you have to dig damn deep. Throughout time, the situation has somewhat improved, and letly new stuff is in the cooking at [wcf.codeplex.com](http://wcf.codeplex.com). NIce stuff we can apparently be looking forward include:
 
-*   True REST-style separation of resource and representation. That looked pretty easy todo  <li>Exposure to HttpRequest and –Response Message if you really have to mess around with headers status codes and what have you
-        *   On a per-method level  <li>On a global per-request level <li>Request processors. I love processors. I mean, maybe not that different to IHttpHandler after all? It’s nice when people come back to what works and leave death stars behind.  <li>Code based configuration.  <li>Wasn’t able to show that but there will be convention-based configuration (i.e. Attributes.Evict()) 
+* True REST-style separation of resource and representation. That looked pretty easy todo  
+* Exposure to HttpRequest and –Response Message if you really have to mess around with headers status codes and what have you
+    * On a per-method level  
+    * On a global per-request level 
+* Request processors. I love processors. I mean, maybe not that different to IHttpHandler after all? It’s nice when people come back to what works and leave death stars behind.  
+* Code based configuration.  
+* Wasn’t able to show that but there will be convention-based configuration (i.e. Attributes.Evict()) 
 
 Glenn was also talking about support of a bunch of stuff I hadn’t heard of to this day, and I had to look up, most notably Hypermedia and Entity Tags. [Hypermedia](http://en.wikipedia.org/wiki/Hypermedia) seems to be used as term for the problem that the client is often the one holding the business logic (so you actually checked out your cart? I’ll let you do payment then…) – to put the server back in business you can send links back to the client which represent those resources that move your business process along. [Etags](http://en.wikipedia.org/wiki/HTTP_ETag) seem to be an HTTP mechanism to make request caching just that bit more efficient.
 

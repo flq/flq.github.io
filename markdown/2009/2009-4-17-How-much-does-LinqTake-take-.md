@@ -8,7 +8,7 @@ redirect_from: /go/143/
 
 I wasn't 100% certain how much the "Take" would take from a list with less elements than the number you want to take. It probably says in the docs, but let me assure you that this test succeeds:
 
-<csharp>
+```csharp
 [Test]
 public void TakeTakesAsMuchAsThereIs()
 {
@@ -16,4 +16,4 @@ public void TakeTakesAsMuchAsThereIs()
   var l = stuff.Take(3).ToList();
   Assert.That(l, Has.Count(1));
 }
-</csharp>
+```

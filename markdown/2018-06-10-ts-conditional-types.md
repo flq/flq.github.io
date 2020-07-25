@@ -17,7 +17,7 @@ What does it do? - Given some type, it recursively turns itself and all of its p
 
 You don´t have to remember that. It has no relevance to what follows. It's _just_ a cool and useful type that shows off all the parts that Typescript has learned in the past year or so.
 
-<hr>
+<hr/>
 
 Right. [Conditional Types][2]. To me it always helps to have some example. This one also involves some react. Sorry. 
 

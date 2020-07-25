@@ -70,7 +70,7 @@ public static Vector Rotate(this Vector origin, double angle)
 }
 ```
 
-In combination with a different point source that takes an IEnumerable<T> and provides a conversion to an IEnumerable<Point> you can create arcs and circles of points quite easily:
+In combination with a different point source that takes an `IEnumerable<T>` and provides a conversion to an `IEnumerable<Point>` you can create arcs and circles of points quite easily:
 
 ```csharp
 var radius = new Vector(0.0, 10.0);

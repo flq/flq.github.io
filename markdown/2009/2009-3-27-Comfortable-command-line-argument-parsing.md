@@ -10,7 +10,7 @@ Once in a while you may want to write a command line tool which may have to acce
 
 An example is within the docs, in the following an example of how I intend to use it for a tool to be built that will extract information via the Team Foundation Server API:
 
-<csharp>
+```csharp
 struct Args
 {
   public bool ShowHelp;
@@ -23,11 +23,11 @@ struct Args
                          ShowHelp, IncludeBugs, FSId);
   }
 }
-</csharp>
+```
 
 This is a simple structure to capture the input from the arguments. Now comes the usage of the Options class:
 
-<csharp>
+```csharp
 Args args = new Args();
 var options =
   new OptionSet
@@ -36,11 +36,11 @@ var options =
       {"b|includeBugs", "Also consider bugs for scanning", v => args.IncludeBugs = v != null},
       {"fsid=", "Specify the functional spec ID, e.g. XYZ2", v => args.FSId = v}
     };
-</csharp>
+```
 
 This tells the Options API which args can be accepted. Finally comes the parsing, with **input** being the string array containing any arguments passed in...
 
-<csharp>
+```csharp
 try
 {
   options.Parse(input);
@@ -52,29 +52,31 @@ catch (OptionException)
 }
 
 if (args.ShowHelp) showHelp(options);
-</csharp>
+```
 
 Finally the showHelp method which uses the Options' **WriteOptionDescriptions** method...
 
-<csharp>
+```csharp
 private static void showHelp(OptionSet options)
 {
   Console.WriteLine("Intended usage:");
   options.WriteOptionDescriptions(Console.Out);
 }
-</csharp>
+```
 
 Based on this program, the showHelp method prints out the following:
 
-`
+```
 Intended usage:
   -h, --help, -?             Prints out usage
   -b, --includeBugs          Also consider bug items for scanning
       --fsid=VALUE           Specify the functional spec ID, e.g. XYZ2
-`
+```
 
 This style of parsing and obtaining the values allows the user to use the tool without thinking much about it. It will parse...
 
+```
 tool /h, tool --help or tool -?, tool /b /fsid:Bla or tool --includeBugs -fsid=Bla
+```
 
 Not bad, and readily available...

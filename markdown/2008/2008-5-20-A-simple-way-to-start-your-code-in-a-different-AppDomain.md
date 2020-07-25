@@ -21,10 +21,10 @@ If you can answer any or all of the questions with yes, chances are that AppDoma
 
 Especially if question 3 gets a yes, you may just want want to start an AppDomain as if it were some other executable. This is easily done with the following code:
 
-`
+```csharp
 AppDomain dmn = AppDomain.CreateDomain("mydomain");
 dmn.ExecuteAssembly("MyExe.exe");
-`
+```
 
 Your executable will need an entry point as e.g. a Console application would have. This scenario does not give you a lot of advantage towards just starting the executable. If you want to e.g. instantiate a WCF ServiceHost in the other domain, you may still need to block the entry point in order for your executable to stay alive.
 The following code allows you to specify a hook, an entry point much like an application entry point, however, you do not need to deal with the following:
@@ -35,7 +35,7 @@ The following code allows you to specify a hook, an entry point much like an app
 
 The AppDomainExpander does that...
 
-`
+```csharp
 class AppDomainExpander<T> where T : DomainLifetimeHook, new()
 {
     public void Create()
@@ -51,26 +51,26 @@ class AppDomainExpander<T> where T : DomainLifetimeHook, new()
         inner.Create();
     }
 }
-`
+```
 
 You can see that the code refers to a DomainCommunicator, which is a private inner class of the Expander. I will come to this type in a minute.
 
 When you instantiate the Expander you need to provide a type argument that specifies something that derives from the DomainLifetimeHook. That type looks as follows:
 
-`
+```csharp
 abstract class DomainLifetimeHook
 {
   internal abstract void Start();
   internal abstract void Stop();
 }
-`
+```
 
 Those methods will already be called inside the new AppDomain, namely when it fires up and when it Unloads.
 The DomainCommunicator then is the class that gets instantiated in the new AppDomain. Since it is an inner class of the Expander it can easily refer to the type argument provided during its instantiation. The generic constraint that T has a default constructor allows the communicator to create an instance of it and call its start method in the beginning.
 
 By attaching the event handler to the AppDomain Unload event two things are achieved: There is a defined point when Stop is called on the instantiated Hook and the DomainCommunicator instance is being referenced by the newly created AppDomain. Since T is an instance variable of the Communicator, Ts lifetime is now driven by the AppDomain:
 
-`
+```csharp
     class DomainCommunicator : MarshalByRefObject
     {
         T domainHook;
@@ -91,11 +91,11 @@ By attaching the event handler to the AppDomain Unload event two things are achi
             AppDomain.CurrentDomain.DomainUnload -= new EventHandler(OnDomainUnload);
         }
     }
-`
+```
 
 Now, letting code run in a different AppDomain is as easy as writing this:
 
-`
+```csharp
 var expander = new AppDomainExpander<DataPointMSMQHook>();
 expander.Create();
-`
+```

@@ -20,7 +20,8 @@ What follows are the necessary bits that were required to get an ASP.NET MVC App
 *   Get your web.config beefed up. I am not fully certain yet what is definitely required since nerddinner's web.config looks seriously complicated. I already removed half of the stuff contained therein and things still work :)
 *   Set up your global.asax and ensure that you have at least the standard URL route of controller/action/value with a suitable default (Most projects have a HomeController with an Index-Action)
 Example:
-<csharp>
+
+```csharp
 void RegisterRoutes(RouteCollection routes)
 {
     routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
@@ -35,16 +36,17 @@ protected void Application_Start(object sender, EventArgs e)
 {
     RegisterRoutes(RouteTable.Routes);
 }
-</csharp>
+```
 
 *   Set up a Default.aspx that is pretty much empty, but has the following code in the Page.Load event handler:
-<csharp>
+
+```csharp
 public void Page_Load(object sender, System.EventArgs e) {
     HttpContext.Current.RewritePath(Request.ApplicationPath, false);
     IHttpHandler httpHandler = new MvcHttpHandler();
     httpHandler.ProcessRequest(HttpContext.Current);
 }
-</csharp>
+```
 
 This apparently ensures that calling the home of a web site kicks off the MVC stuff.
 

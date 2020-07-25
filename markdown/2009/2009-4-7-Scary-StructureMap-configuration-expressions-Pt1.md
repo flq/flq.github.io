@@ -7,7 +7,8 @@ redirect_from: /go/142/
 ---
 
 "Most scary StructureMap Configuration Expression"&trade; so far...
-<csharp>
+
+```csharp
 ForRequestedType<ISession>()
   .InterceptConstructionWith(wcfCachePolicy)
   .AddInstances(instanceExpression =>
@@ -23,6 +24,6 @@ ForRequestedType<ISession>()
                         ConstructedBy(
                         ctx =>ctx.GetInstance<ISessionFactory>().OpenSession());
                     }));
-</csharp>
+```
 
 The idea: In order to correctly talk to a decidedly legacy-i Database correct, write operations need to set a number of session variables for the used connection. This is done by an NHibernate Session interceptor. The convention is then that the Repository using the NHibernate session does not contain the text "ReadOnly" in its class name. If it does, the repository promises to only read the database which is unlikely (I hope) to trigger any..err..triggers. In this case the Interceptor isn't necessary.

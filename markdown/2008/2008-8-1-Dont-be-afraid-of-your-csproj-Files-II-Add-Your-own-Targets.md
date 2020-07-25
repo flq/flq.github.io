@@ -10,12 +10,12 @@ In my [first post](http://realfiction.net/go/162) on csproj-fun I had an example
 
 The only thing you need to do is to place the tasks in the AfterBuild target into some different target, like so:
 
-<xmlcode>
+```xml
   <Target Name="Merge" [DependsOnTarget="Build"]>
     ...
     <ILMerge InputAssemblies="@(DllOutput)" ... />
   </Target>
-</xmlcode>
+```
 
 This target will now reside in your csproj file, and indeed Visual Studio would merely change the location within the file, if anything. The Visual Studio compile run will not bother with your Target. No build-relevant task depends on it. If you wish, you can make your new Target depend on the build. That way your project will be built before your target is executed.
 
@@ -24,9 +24,9 @@ Question is, how can you put your new target to use?
 Sadly, Visual Studio has no direct support of Targets defined in a csproj that are not connected to the build process.
 What you can do is to use the VS200x command prompt, go to the folder that contains the csproj file and type
 
-`
+```
 msbuild /t:Merge
-`
+```
 
 Not too bad, but still somewhat clumsy. A more comfortable and integrated way to call your target is to do the following:
 
@@ -41,9 +41,10 @@ Note that msbuild is found in any framework directory. Also note that the used v
 ![](/assets/usemsbuild.png)
 Here you can type your arguments, i.e. calling a specific target. The checkbox we chose to see the output gives us a nice output in the corresponding Visual Studio window.
 Just as a reminder, you can parameterize your MSBuild task. You can then pass parameters through the command line arguments as such:
-`
+
+```
 /p:Var1=AAA;Var2=BBB 
-`
+```
 
 Admittedly, I would prefer a solution that is part of Visual Studio. I would like to right-click on a project file in the solution explorer and enter the submenu "Targets" (which only exists if there are custom targets in the csproj file) and choose "Merge" in this case.
 

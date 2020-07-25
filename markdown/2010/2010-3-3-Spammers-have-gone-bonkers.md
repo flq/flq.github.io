@@ -8,7 +8,10 @@ redirect_from: /go/158/
 
 Stuff I had to do in the past 24hours to sustain the onslaught of comment spamming:
 
-*   Add the IP-Address of the “commenter” to the Mollom check (Essential!)  <li>Ensure that disabling commenting is honoured by all parts of Rf.Site  <li>Honour the “unsure” judgement from Mollom and add a feature to put those comments into a moderation queue.  <li>Add logging to the application to check what is happening. 
+* Add the IP-Address of the “commenter” to the Mollom check (Essential!)
+* Ensure that disabling commenting is honoured by all parts of Rf.Site  
+* Honour the “unsure” judgement from Mollom and add a feature to put those comments into a moderation queue
+* Add logging to the application to check what is happening. 
 
 Especially from the logging I can tell that Spammers are really trying to get in. This is a small chart showing what was happening tonight:
 

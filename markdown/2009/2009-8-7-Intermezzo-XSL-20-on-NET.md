@@ -15,7 +15,8 @@ Once you download, the funny packaging that includes a _netmodule_ (when have yo
 Thanks to the docs and this [very helpful code example](http://onlamp.com/lpt/wlg/9272) I was able to get my Xsl Transformation up and running.
 
 You do have to get used to the API, though, which may be pretty modular, but could be a lot better. Here is my current version (takes an input xml, an xsl and an out file as strings):
-<csharp>
+
+```csharp
 using Saxon.Api;
 ...
 var p = new Processor();
@@ -37,6 +38,6 @@ using (var fsOut = File.Create(outFile))
   s.SetOutputStream(fsOut);
   t.Run(s);
 }
-</csharp>
+```
 
 Plenty of code, you may say, but it gets the job done.

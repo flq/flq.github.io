@@ -12,7 +12,7 @@ After having used NDepend for some like, I like to keep a bare minimum of rules 
 
 ![Capture](/assets/Capture.png "Capture") 
 
-*   A large type (currently LOC &gt; 400 or IL Instruction&gt; 2500) is most likely doing too much.Doing too much?
+*   A large type (currently LOC &gt; 400 or IL Instruction &gt; 2500) is most likely doing too much.Doing too much?
 It means there are too many reasons why a type may change
 *   A cohesive type is ideally one where all instance fields are used by all methods. If we are getting poor cohesion it is again a sign that a type is doing too much.
 *   Outgoing (or efferent) coupling is a metric that states how many other types a type is using. Coupling is in general a pretty bad thing. While without any coupling obviously nothing happens, excessive coupling does what it also does in nature: It reduces degrees of freedom. I n programming those are usually needed for the ability to change code without breaking too much.
@@ -40,7 +40,10 @@ It means there are too many reasons why a type may change
 I haven’t seen a simple way to get my own set of CQL queries into an NDepend project, so here’s what I do to get them into a new project.
 
 *   An NDepend project file is an XML file. I extract the node containing the CQL Queries and store it in its own file.
-*   The following Powershell function will then inject that file into some other NDepend project: <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:5a7b9c19-23ca-47bc-b1db-44e5b14a8073" class="wlWriterEditableSmartContent"><pre name="code" class="js">function ReplaceNode([string]$projectName) {
+*   The following Powershell function will then inject that file into some other NDepend project: 
+
+```javascript
+function ReplaceNode([string]$projectName) {
   $here = pwd
   $xml = New-Object -TypeName System.Xml.XmlDocument
   $xml.Load("$here\$projectName.ndproj")
@@ -52,6 +55,7 @@ I haven’t seen a simple way to get my own set of CQL queries into an NDepend p
   $imported = $xml.ImportNode($newNode,$true)
   $oldNode.ParentNode.ReplaceChild($imported,$oldNode)
   $xml.Save("$here\$projectName.ndproj")
-}</pre></div>
+}
+```
 
 It assumes you are in the directory that contains your new NDepend project, requires you to enter the name and has the location of your CQL queries hard coded.

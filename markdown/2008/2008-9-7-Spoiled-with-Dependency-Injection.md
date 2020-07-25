@@ -7,10 +7,12 @@ redirect_from: /go/132/
 ---
 
 <div class="messages status">
+
 The incredible truth is that there are constantly synchronicities. While I was quickly jotting down the contenders for the Dependency Injection throne in .NET, others make full-blown, multi-part comparisons. Need an example? Go here:
 
-*   [Comparing .NET DI (IoC) Frameworks, Part 1](http://blog.ashmind.com/index.php/2008/08/19/comparing-net-di-ioc-frameworks-part-1/)
-*   [Comparing .NET DI (IoC) Frameworks, Part 2](http://blog.ashmind.com/index.php/2008/09/08/comparing-net-di-ioc-frameworks-part-2/)
+* [Comparing .NET DI (IoC) Frameworks, Part 1](http://blog.ashmind.com/index.php/2008/08/19/comparing-net-di-ioc-frameworks-part-1/)
+* [Comparing .NET DI (IoC) Frameworks, Part 2](http://blog.ashmind.com/index.php/2008/09/08/comparing-net-di-ioc-frameworks-part-2/)
+
 </div>
 
 There are a number of reasons why [Dependency Injection](http://www.martinfowler.com/articles/injection.html) is a good thing, and many people of high esteem have written about it. Hopefully only those developers completely cut off from modern-day communications are left with a good excuse not to know about this subject.
@@ -40,7 +42,8 @@ There is not much I can tell about this one, apart from the fact that I know the
 # [Ninject](http://ninject.org/)
 
 This is a recent addition to the landscape, a system developed by [Nate Kohari](http://kohari.org/). This is one container that leaves behind XML files for a fluent API to be talked to with your MSIL beautifier of choice. Additionally, the introduction of something Nate calls **contextual binding** makes for some interesting functionality:
-`
+
+```csharp
 // Adding some spice to the "Bind" call Ninject provides in its "Modules"
 protected ViewModelSetup<M> RegisterModel<M>(string modelID) where M : IViewModel
 {
@@ -53,7 +56,7 @@ public ViewModelSetup<M> WithControls(ControlMap controlMap)
   module.Bind<ControlMap>().ToConstant(controlMap).ForMembersOf<M>();
   return this;
 }
-`
+```
 
 This is just one example of a number of possibilities. The idea is to provide dependencies based on the context of your request, be it that you add your own stuff to a present context object or that it allows you to state things like "Dependency d should be satisfied with object x provided that the target parameter y is decorated with attribute A.".
 
@@ -73,7 +76,8 @@ During the past half a year I tried once or twice to break into its mindset. The
 *   Attributes PluginFamily and Plugin allow for easy implementations of ...plugins (doh!).
 *   Defining autowiring capabilities based on your own implementation of a TypeScanner, thereby allowing you to state conventions on how to bind together stuff, is just plain neat. Why shouldn't a FunkDataSet be automatically bound to a FunkModel, if it is depending on one? (Yeah, go flak me for using the D-word!)
 *   Jeremy and colleagues seem to be working away towards version 2.5 of StructureMap which seems to fully embrace 3.5 framework capabilities. I haven't looked much at the code yet, but some parts make heavy use of Expressions which should allow you to write some really expressive ;) code.
-<p>StructureMap also has a user group over [here](http://groups.google.com/group/structuremap-users).
+
+StructureMap also has a user group over [here](http://groups.google.com/group/structuremap-users).
 
 # [AutoFac](http://code.google.com/p/autofac/)
 
@@ -86,5 +90,3 @@ Same goes to Unity. No hands-on experience yet. I should certainly note that thi
 * * *
 
 I hope you enjoyed this post and feel free to comment about your own experiences with any of the listed frameworks or if I did completely miss some offering.
-
-[![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2frealfiction.net%2f%3fq%3dnode%2f166&bgcolor=0000CC)](http://www.dotnetkicks.com/kick/?url=http%3a%2f%2frealfiction.net%2f%3fq%3dnode%2f166)

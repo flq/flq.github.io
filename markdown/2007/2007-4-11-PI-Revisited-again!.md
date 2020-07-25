@@ -3,7 +3,6 @@ title: "PI Revisited - again!"
 layout: post
 tags: [software-development, geekdom, mathematics]
 date: 2007-04-11 20:11:02
-redirect_from: /go/80/
 ---
 
 What Andre's link [caused](/go/92)...
@@ -33,6 +32,6 @@ puts text.reverse.join
 A nice way to express what is also presented [here at wikipedia](http://en.wikipedia.org/wiki/Hexadecimal#Converting_from_other_bases).
 
 After doing some research as to how I could rebase arbitrarily large numbers, my search was suddenly halted by a uber-geek page. Once more I had to accept that whatever silly way to waste your time you come up with, someone has done it before you, and even added some icing to the cake. May I present to you [Dr. Mike's Math](http://ww
-w.dr-mikes-maths.com/pisearch.html), where you can search for arbitrary strings within the first 31,415,929 digits of &Pi;. That's a good start, I'd say! This is so geeky, I would think it is correct.</p>
+w.dr-mikes-maths.com/pisearch.html), where you can search for arbitrary strings within the first 31,415,929 digits of &Pi;. That's a good start, I'd say! This is so geeky, I would think it is correct.
 
 Consequently, this case is closed. Really. I swear by [e<sup>_i_&pi;</sup>](http://www.math.utoronto.ca/mathnet/questionCorner/epii.html)!

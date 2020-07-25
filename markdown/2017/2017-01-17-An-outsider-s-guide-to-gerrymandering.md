@@ -5,7 +5,7 @@ tags: [loosely-coupled, mathematics]
 date: 2017-01-18 20:00:00
 ---
 
-> <strong><em>(partisan)</em> gerrymandering</strong><br>
+> **(partisan)** gerrymandering
 > manipulate the boundaries of 
 > (an electoral constituency) so as to favour one party or class.
 
@@ -22,7 +22,7 @@ To gain a first insight into **redistricting** I looked [into the writings][1] o
 
 Here is a list of concepts I required clarification about:
 
-* **Federal** vs. **State** powers / laws.<br>
+* **Federal** vs. **State** powers / laws.<br/>
   Federal powers are those given to the US as a whole, while State powers refer to those
   given to each state. E.g. only federal powers allow to maintain an Army. The Federal Bureau
   of Investigation is an agency transcending states.

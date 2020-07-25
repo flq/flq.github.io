@@ -10,11 +10,11 @@ redirect_from: /go/130/
 
 Consider the following situation: You want to test an application that uses plugins. The dependencies look as such:
 
-`
+```yaml
 RF.CsProjTests.Console
   - RF.CsProjTests.PluginA
   - RF.CsProjTests.PluginB
-`
+```
 
 Maybe you want to be able to test Console either with A or B. You can do that with Visual Studio's configuration manager. Here you will find **Debug** and **Release** configurations by default, but nobody stops you from adding your own configuration. It can usually be found on the toolbar as a dropdown list, which also contains the entry "**Configuration Manager...**"
 
@@ -32,13 +32,13 @@ And presto, a new configuration has been created for you. For this example confi
 
 However, after having done that, and considering that you never ever compiled Plugin B, you will get an unfriendly error message from Visual Studio:
 
-`
+```
 Metadata file 'C:\dotnet\...\RF.CsProjTests.PluginB.dll' could not be found
-`
+```
 
 Which may never be found, since it will never be compiled. This situation can be remedied, if we have a look into the csproj file and see that project references enter the game via the item group mechanism:
 
-<xmlcode>
+```xml
   <ItemGroup>
     <ProjectReference Include="..\RF.CsProjTests.PluginA\RF.CsProjTests.PluginA.csproj">
       <Project>{7D3042B7-F44A-496B-9C51-07DC1D202D8D}</Project>
@@ -49,11 +49,11 @@ Which may never be found, since it will never be compiled. This situation can be
       <Name>RF.CsProjTests.PluginB</Name>
     </ProjectReference>
   </ItemGroup>
-</xmlcode>
+```
 
 After inhaling some of msbuild's capabilities and indeed just by looking some way up inside the csproj file one notices that item groups may be defined or not depending on a condition defined on them. Putting this together with the fact that the name of the configuration is available within the csproj-msbuild context, one can redefine the above Item group in the following way:
 
-<xmlcode>
+```xml
   <ItemGroup Condition=" '$(Configuration)' == 'WithPluginA' ">
     <ProjectReference Include="..\RF.CsProjTests.PluginA\RF.CsProjTests.PluginA.csproj">
       <Project>{7D3042B7-F44A-496B-9C51-07DC1D202D8D}</Project>
@@ -66,7 +66,7 @@ After inhaling some of msbuild's capabilities and indeed just by looking some wa
       <Name>RF.CsProjTests.PluginB</Name>
     </ProjectReference>
   </ItemGroup>
-</xmlcode>
+```
 
 While Visual Studio still shows both project references in the solution explorer, the compilation will indeed only consider the item group that is available by comparing the **$(Configuration)** variable to the appropriate configuration name. 
 
@@ -80,13 +80,13 @@ Here the configuration is a compiled class and one way is probably to use the #i
 
 A different way altogether is to create two identical types (same name), put them into different files and separating out the file reference in the csproj file accordingly:
 
-<xmlcode>
+```xml
   <ItemGroup Condition=" '$(Configuration)' != 'ProdBuild' ">
     <Compile Include="Modules\DebugModule.cs" />
   </ItemGroup>
   <ItemGroup Condition=" '$(Configuration)' == 'ProdBuild' ">
     <Compile Include="Modules\ProdModule.cs" />
   </ItemGroup>
-</xmlcode>
+```
 
 Visual Studio will adhere. Indeed when you switch the configuration the syntax highlighting will disappear shortly afterwards for the file that is currently not part of the active build. It is up to you whether you like this or not, but it's an interesting tool in the box

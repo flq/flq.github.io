@@ -34,7 +34,7 @@ In here you will be able to put any tasks you may want to perform at those event
 
 Here is an example of defining an AfterBuild command that tags the project's build output for the current configuration and merges it into one assembly via ILMerge to some previously created directory:
 
-`
+```xml
 <Project ...>
   <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
   ...
@@ -54,7 +54,7 @@ Here is an example of defining an AfterBuild command that tags the project's bui
   </Target>
   ...
 </Project>
-`
+```
 
 For this to run you'll need [ILMerge ](http://research.microsoft.com/~mbarnett/ILMerge.aspx)as well as the 
 [msbuildtasks](http://msbuildtasks.tigris.org/) from the tigris community.

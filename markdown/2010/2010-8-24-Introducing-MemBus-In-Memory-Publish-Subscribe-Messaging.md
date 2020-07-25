@@ -26,19 +26,18 @@ It is a [messaging framework available at github](http://github.com/flq/MemBus) 
 
 MemBus simply allows you to use the messaging paradigm while staying internal to your App. By the way, this concept has a lot of similarities to what people call **Event Aggregator**, however, I prefer to think of this pattern in a “bus/messaging”-way.
 
-As a final note to this introduction here’s the most simple code possible with MemBus:
- <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:e0bae41d-f35c-435b-a0de-b0c71e28e966" class="wlWriterEditableSmartContent"><pre name="code" class="c#">var bus = BusSetup.StartWith&lt;Conservative&gt;().Construct();
+```csharp
+var bus = BusSetup.StartWith&lt;Conservative&gt;().Construct();
 using (bus.Subscribe&lt;MessageA&gt;(Console.WriteLine))
-    bus.Publish(new MessageA());</pre></div>
+    bus.Publish(new MessageA());
+```
 
 The following posts will show you in what different ways you can setup MemBus in order to support different scenarios.
 
-<div class="alert">
-
-*   [Introducing MemBus: Constructing it](/go/176) 
-<li>[Introducing MemBus: Construction Variants](/go/177) 
-<li>[MemBus: A more complex rich client setup](/go/178) 
-<li>[Membus: Performance considerations](/go/179) 
-<li>[Using MemBus](/go/180) 
-<li>[MemBus extension points](/go/181)
-<li>[MemBus: Using an IoC Container to provide subscribers](/go/183)</div>[![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2frealfiction.net%2fgo%2f175)](http://www.dotnetkicks.com/kick/?url=http%3a%2f%2frealfiction.net%2fgo%2f175) [![Shout it](http://dotnetshoutout.com/image.axd?url=http%3A%2F%2Frealfiction.net%2Fgo%2F175)](http://dotnetshoutout.com/Introducing-MemBus-In-Memory-PublishSubscribe-Messaging)
+* [Introducing MemBus: Constructing it](/go/176) 
+* [Introducing MemBus: Construction Variants](/go/177) 
+* [MemBus: A more complex rich client setup](/go/178) 
+* [Membus: Performance considerations](/go/179) 
+* [Using MemBus](/go/180) 
+* [MemBus extension points](/go/181)
+* [MemBus: Using an IoC Container to provide subscribers](/go/183)

@@ -16,14 +16,14 @@ Once the file is read I have an array of Drawings. The first analysis I did was 
 
 The used LINQ query looks like this:
 
-<csharp>
+```csharp
 var result = from d in drawings
              group d by d.Numbers.Count()
              into g select g;
 
 foreach (var a in result)
   Console.WriteLine("{0} entries have {1} numbers", a.Count(), a.Key);
-</csharp>
+```
 
 Which gave me...
 
@@ -34,7 +34,7 @@ Which gave me...
 
 Ergo, a few entries had the _Zusatzzahl_ missing, but I can live with that. Next was a quick check which number is drawn most (and least)...
 
-<csharp>
+```csharp
 var result =
   from d in drawings
   from n in d
@@ -42,7 +42,7 @@ var result =
   into numbers
     orderby numbers.Count() descending
     select numbers;
-</csharp>
+```
 
 The most popular number so far has been 32 (420 times), the least popular 13 (313 times).
 
@@ -56,7 +56,7 @@ This query is a little bit lengthy because it contains the following information
 
 It's late, so maybe there is a more elegant solution, but I came up with this (please note that **nums** are the numbers typed in to be matched):
 
-<csharp>
+```csharp
 var result =
   from drawing in drawings
   let matches = drawing.Where(d => nums.Contains(d))
@@ -77,7 +77,7 @@ var result =
                Hits = m.Count(),
                DrawDate = date
              };
-</csharp>
+```
 
 That provides a bit more fun. The output looks e.g. like this:
 

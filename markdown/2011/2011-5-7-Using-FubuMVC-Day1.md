@@ -27,7 +27,10 @@ Did I mention it wasn’t my best day? First I got confused
 The point is, _the action was already wired as Home-Action, and is hence not considered by other policies that dictate how actions are exposed via urls_. Does it mean that one action is only reachable through one route? Somehow I doubt it, but right now I don’t know.
 *   by the Input Models of the controllers/actions. I could see in sample apps that form element values were transferred into the input model, but what with url routes, stuff we know from asp.net mvc like “_/customer/{id}_” ...*   ~16.00 – Interactions with committers to the fubumvc framework, Robert and [Jeremy Miller](http://twitter.com/#!/jeremydmiller), who kicked in delayed (timezone, that strange thing that imposes a rhythm on the Internet) – result is [a gist](https://gist.github.com/958950) which may be deleted sooner or later.
 *   ~16.00 - 16.10 Got the shit beaten out of me at table footie (10:1, 10:3) – WTF?! Seems my mind was hard on fubu.
-*   ~17.00 Fumbling with understanding input models. That’s an area where I find some guidance in docs/blog posts/sample apps lacking. Well, the result was that by all the magic for one day I lost the instinct to judge whether a framework could or could not do a certain thing. I _forgot fubu to tell how to map a UrlPattern to an action_. Such a pattern then defines how values of the route end up in an input model. One simple way to do that is to use the UrlPattern attribute on an action: <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:a9fc1f2d-0984-4841-9243-18b538fd9cc8" class="wlWriterEditableSmartContent"><pre name="code" class="c#">[UrlPattern("gna/{HelpId}")]
+*   ~17.00 Fumbling with understanding input models. That’s an area where I find some guidance in docs/blog posts/sample apps lacking. Well, the result was that by all the magic for one day I lost the instinct to judge whether a framework could or could not do a certain thing. I _forgot fubu to tell how to map a UrlPattern to an action_. Such a pattern then defines how values of the route end up in an input model. One simple way to do that is to use the UrlPattern attribute on an action: 
+
+```csharp
+[UrlPattern("gna/{HelpId}")]
 public HelpViewModel SomethingElse(UrlHelpInput input)
 {
     return new HelpViewModel { Title = "Hello from Controller! " + input.HelpId };
@@ -37,7 +40,8 @@ public class UrlHelpInput
 {
       [RouteInput]
       public string HelpId { get; set; }
-}</pre></div>
+}
+```
 
 Now that worked!
 
@@ -45,7 +49,8 @@ Now that worked!
 
 The following was just hacked into the UrlPolicy I had defined to dice routes out of the application’s actions:
 
-<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:812469c5-0cb0-4c63-8c15-c81123a09de7:0a335876-2fea-499c-a9f9-d5571f041ec0" class="wlWriterEditableSmartContent"><pre name="code" class="c#">public class TheAppUrlPolicy : IUrlPolicy
+```csharp
+public class TheAppUrlPolicy : IUrlPolicy
 {
     public bool Matches(ActionCall call, IConfigurationObserver log)
     {
@@ -72,17 +77,17 @@ The following was just hacked into the UrlPolicy I had defined to dice routes ou
         foreach (var p in props)
             route.Input.AddRouteInput(new RouteParameter(new SingleProperty(p)), true);
     }
-}</pre></div>
+}
+```
 
 The IUrlPolicy is a fubu mvc interface and (an) implementator(s) can be registered at bootstrap-time. The basic code is copied form the HelloSpark-App, line 14 introduces a check whether the action has an input model defined and whether it starts with “Url”. If that’s the case, we iterate over all properties with getter and setter that are attributed with _RouteInput_ and we add it to the defined route through a method available on the route definition. And you know what? That works. With that I concluded my first day with fubu.
 
 ### Conlusion
 
 *   steep learning curve! If aspnet mvc costs you work, I’d say don’t bother. The “getting into” phase is a bit rougher than some other stuff out there
-*   That says nothing about the quality of the code. Just turn on diagnostics and go to /_fubu.*   Do you want freedom in shaping your app the way you want it to? Do you hate cruft and incantations? Then that may just be for you!
+*   That says nothing about the quality of the code. Just turn on diagnostics and go to /_fubu.
+*   Do you want freedom in shaping your app the way you want it to? Do you hate cruft and incantations? Then that may just be for you!
 *   On several occasions I had to look into the code to understand what something may do or why something doesn’t work. If you are afraid of doing that, or loathe navigating a highly structured codebase, then this may not be for you (right now, with regard to documentation).
 *   I got help from several people on twitter who I know to be contributors or at least users of fubumbc. I hope I didn’t stretch their patience too much (I mean, we all have work to do, right?) but I have found it helpful and a good experience. Thank you!
-
-&nbsp;
 
 Looking forward now to getting an app done with fubumvc. I’ve already spotted a couple of interfaces that tickled my fancy!

@@ -17,7 +17,8 @@ Is it service location for lazy loading of dependencies then? Fair enough, but t
 First off: Having source code available for MVC is terrific. Best documentation there is. It seems to me that the developers have made an effort to provide decent code. I.e. understandable, a little bit of duct tape, and abstractions where you might expect them. You can agree or disagree with decisions taken for that framework, but code availability and a clean layout are really major selling points in my eyes.
 
 In the MVC source code I found the notion of the _Action Invoker_. This is the code responsible for calling the appropriate action for an incoming request. The Controller class already has a way in place to exchange the Action Invoker. To trigger it, I need to do this:
-`
+
+```csharp
 public class ActionDispatcher : Controller
 {
   public ActionDispatcher(IActionInvoker invoker)
@@ -25,20 +26,20 @@ public class ActionDispatcher : Controller
     ActionInvoker = invoker;
   }
 }
-`
+```
 
 How this controller can be instantiated has already been [explained here](http://haacked.com/archive/2007/12/07/tdd-and-dependency-injection-with-asp.net-mvc.aspx)
 
 In my DI container of choice, I then register what IActionInvoker is:
 
-`
+```csharp
 ForRequestedType<IActionInvoker>()
   .TheDefaultIsConcreteType<UrlToClassActionInvoker>();
-`
+```
 
 How does said action invoker look like? Here's the main method:
 
-`
+```csharp
 public bool InvokeAction(
   ControllerContext controllerContext, 
   string actionName)
@@ -51,22 +52,22 @@ public bool InvokeAction(
   result.ExecuteResult(controllerContext);
   return true;
 }
-`
+```
 
 _IAction_ is my own abstraction and looks like that:
 
-`
+```csharp
 public interface IAction
 {
   ActionResult Execute();
 }
-`
+```
 
 The _instanceKey_ essentially concatenates the request such that Content/Entry becomes ContentEntry.
 
 What is needed now is to register all _IAction_ implementations based on said convention...
 
-`
+```csharp
 Scan(
   s =>
   {
@@ -74,13 +75,14 @@ Scan(
     s.AddAllTypesOf<IAction>()
       .NameBy(t => t.Name.Replace("Action", ""));
   });
-`
+```
 
 Now, if I want to handle a call to _Entry_ under _Content_, I specify 
 an Action called _ContentEntryAction_.
 
 Arguments to those actions are encapsulated as concrete classes. Since the _ControllerContext_ is provided to StructureMap when obtaining an _IAction_ instance, any class can express a dependency to this concrete instance and obtain the one added for this specific instance resolution. Since the Arguments class is also a concrete class, there is no need to explicitly register those in StructureMap. I have e.g. these Arguments...
-`
+
+```csharp
 public class RequestByIDActionArgs
 {
   public RequestByIDActionArgs() { }
@@ -93,10 +95,11 @@ public class RequestByIDActionArgs
 
   public int Id { get; set; }
 }
-`
+```
+
 Which are then fed to the action through the constructor:
 
-`
+```csharp
 public class ContentEntryAction : AbstractAction
 {
   private readonly RequestByIDActionArgs args;
@@ -116,7 +119,7 @@ public class ContentEntryAction : AbstractAction
     return createResult(new ContentViewModel(content));
   }
 }
-`
+```
 
 I am aware that for now I've cut myself off from all features that come into MVC through the ActionInvoker abstraction. As far as I can understand the code this is the handling of all those cutesy filters, authorizations and similar attributes with which you can decorate your controller methods. I'll see how to reintroduce them once I need it. 
 

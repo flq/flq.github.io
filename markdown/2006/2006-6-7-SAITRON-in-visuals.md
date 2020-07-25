@@ -7,7 +7,7 @@ date: 2006-06-07 18:59:41
 
 Oh, yes! Finally, some visual information about the most sophisticated **KAZOON class activity-centric ship** of the swarm surrounding the SIX-FOLDED STAR OF YHLASUU. KAZOON simply meaning that the ship has a length of half a ship's length - If that does not make sense to you it is because you are not aware that a ship's length is a standardized measure in the World of the Ii.
 
-<p>The whole story was kicked off during a couple of late night sessions with my partner-in-crime Andre Heimann. Pretty much at the beginning stood the concept of a very cool ship: Powerful and stylish, as we had the imagination that movement beyond the speed of light would also impose some kind of drag in the flight's direction. Since I was in the middle of my 4-month break between studies and first job, I sat down, took my copy of Rhino 3D and started drawing up the SAITRON.
+The whole story was kicked off during a couple of late night sessions with my partner-in-crime Andre Heimann. Pretty much at the beginning stood the concept of a very cool ship: Powerful and stylish, as we had the imagination that movement beyond the speed of light would also impose some kind of drag in the flight's direction. Since I was in the middle of my 4-month break between studies and first job, I sat down, took my copy of Rhino 3D and started drawing up the SAITRON.
 
 ![SAITRON gen1: Generation 1 of the SAITRON](/assets/ship-gen1.gif )
 

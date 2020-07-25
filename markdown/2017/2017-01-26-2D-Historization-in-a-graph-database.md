@@ -37,11 +37,12 @@ In here we find the following principles when representing data in the graph:
 
 Here is some cypher to create an example:
 
-```cypher
+```sql
 CREATE (p:Person { id: 112245 })
 CREATE (pd:PersonData { name: 'Joe Bloggs' })-[:EXPANDS { recorded: 10, actual: 10}]->(p)
 CREATE (pd2:PersonData { name: 'Joe Gonzalez' })-[:EXPANDS { recorded: 20, actual: 30}]->(p)
 ```
+
 Consider the _actual_ and _recorded_ values to be e.g. days since inception...
 
 ![](/assets/2DHistory3.png)
