@@ -12,7 +12,7 @@ export default function Template({
 }) {
   const { siteUrl } = useSiteMetadata();
   const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter, fields, html } = markdownRemark
+  const { frontmatter, html } = markdownRemark
   const { previous, next } = pageContext
 
   return (
@@ -38,6 +38,7 @@ export default function Template({
           className="blog-post__content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        <h2>Previous &amp; Next</h2>
         <div className="blog-post__pagination">
           {previous && (
             <a
@@ -53,6 +54,7 @@ export default function Template({
             </a>
           )}
         </div>
+        <h2>Comments</h2>
         <div className="blog-post__footer">
           <Disqus config={{ url: siteUrl + location.pathname, title: frontmatter.title }} />
         </div>
