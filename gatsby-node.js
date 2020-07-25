@@ -9,7 +9,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         sort: { order: DESC, fields: [frontmatter___date] }
         filter: { fields: { published:{eq:true} } }
         limit: 1000
@@ -34,7 +34,7 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const { edges } = result.data.allMarkdownRemark
+    const { edges } = result.data.allMdx
 
     // Content pages
     edges.forEach(({ node }, index) => {
@@ -74,7 +74,7 @@ const prod = process.env.NODE_ENV === 'production'
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const value = `/${slugifyDate(node.frontmatter.date)}/${slugify(
       node.frontmatter.title
     )}`

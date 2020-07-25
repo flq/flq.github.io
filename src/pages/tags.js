@@ -4,7 +4,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 
 const TagsPage = ({ data }) => {
-  const edges = data.allMarkdownRemark.edges
+  const edges = data.allMdx.edges
   const allTags = Object.keys(
     edges.reduce((agg, val) => {
       val.node.frontmatter.tags.forEach(tag => (agg[tag] = ''))
@@ -34,7 +34,7 @@ export default TagsPage
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark {
+    allMdx {
       edges {
         node {
           frontmatter {

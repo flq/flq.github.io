@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 
 export default function Template({ data, pageContext }) {
-  const { edges } = data.allMarkdownRemark
+  const { edges } = data.allMdx
   const { tag } = pageContext
   const header = `Articles tagged «${tag}»`
   return (
@@ -25,7 +25,7 @@ export default function Template({ data, pageContext }) {
 
 export const pageQuery = graphql`
   query($tag: String!) {
-    allMarkdownRemark(
+    allMdx(
       filter: { frontmatter: { tags: { in: [$tag] } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {

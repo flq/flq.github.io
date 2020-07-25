@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 
 const IndexPage = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.allMdx.edges
   return (
     <Layout>
       {posts.map(({ node }) => (
@@ -23,7 +23,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(
+    allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { fields: { published:{eq:true} } }
       limit: 10

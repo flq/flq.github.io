@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { graphql, Link } from 'gatsby'
 import { Disqus } from 'gatsby-plugin-disqus'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXProvider } from "@mdx-js/react"
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import useSiteMetadata from '../hooks/useSiteMetadata'
+import { YouTubeEmbed } from '../components/YouTubeEmbed'
 
 export default function Template({
   location,
@@ -11,9 +14,10 @@ export default function Template({
   pageContext,
 }) {
   const { siteUrl } = useSiteMetadata();
-  const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark
+  const { mdx: { body, frontmatter } } = data
   const { previous, next } = pageContext
+
+  const components = useMemo(()=> ({YouTubeEmbed}), [])
 
   return (
     <Layout>
@@ -34,10 +38,9 @@ export default function Template({
             ))}
           </span>
         </div>
-        <div
-          className="blog-post__content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        <MDXProvider components={components}>
+          <MDXRenderer className="blog-post__content">{body}</MDXRenderer>
+        </MDXProvider>
         <h2>Previous &amp; Next</h2>
         <div className="blog-post__pagination">
           {previous && (
@@ -65,8 +68,8 @@ export default function Template({
 
 export const pageQuery = graphql`
   query($title: String!) {
-    markdownRemark(frontmatter: { title: { eq: $title } }) {
-      html
+    mdx(frontmatter: { title: { eq: $title } }) {
+      body
       fields {
         slug
       }

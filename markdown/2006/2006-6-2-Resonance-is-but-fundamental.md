@@ -5,8 +5,6 @@ tags: [physics]
 date: 2006-06-02 20:44:45
 redirect_from: /go/24/
 ---
-import {YouTubeEmbed} from "../components/YouTubeEmbed";
-
 
 Two small videos that show off resonance. One uses a magnetic fluid in a rotating and alternating magnetic field... 
 
