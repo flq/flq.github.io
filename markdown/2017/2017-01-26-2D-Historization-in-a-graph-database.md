@@ -3,12 +3,10 @@ title: "2D-Historization in a graph database"
 layout: post
 tags: [patterns, programming, neo4j]
 date: 2017-01-27 07:00:00
+topic: "neo-bitemp"
 ---
 
-### 2D Historization series
-1. [2D or bitemporal Historization: A primer][2]
-1. 2D-Historization in a graph database
-1. [Simplify the bitemporal Neo4J query with a user-defined function][6]
+<TopicToc topicId="neo-bitemp" header="2D Historization series" />
 
 > <em>Note:</em>
 > This text assumes that you know a little bit about graph databases
@@ -132,4 +130,3 @@ _Disclaimer: I am no cypher expert. The query expresses the logic outlined in th
 [3]: http://iansrobinson.com/2014/05/13/time-based-versioned-graphs/
 [4]: http://graphaware.com/neo4j/2014/08/20/graphaware-neo4j-timetree.html
 [5]: http://neo4j.com/docs/developer-manual/current/cypher/functions/list/#functions-reduce
-[6]: /2017/01/30/simplify-the-bitemporal-neo4j-query-with-a-user-defined-function

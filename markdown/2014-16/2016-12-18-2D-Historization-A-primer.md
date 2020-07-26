@@ -3,13 +3,10 @@ title: "2D or bitemporal Historization: A primer"
 layout: post
 tags: [software-development, patterns, fsharp, neo4j]
 date: 2016-12-18 16:00:00
+topic: "neo-bitemp"
 ---
 
-### 2D Historization series
-1. 2D or bitemporal Historization: A primer
-1. [2D-Historization in a graph database][2]
-1. [Simplify the bitemporal Neo4J query with a user-defined function][3]
-
+<TopicToc topicId="neo-bitemp" header="2D Historization series" />
 
 When it comes to **time** & software systems, there are three major categories:
 

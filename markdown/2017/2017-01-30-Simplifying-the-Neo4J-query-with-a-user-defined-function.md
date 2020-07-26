@@ -3,7 +3,10 @@ title: "Simplify the bitemporal Neo4J query with a user-defined function"
 layout: post
 tags: [programming, neo4j, java]
 date: 2017-01-30 10:00:00
+topic: "neo-bitemp"
 ---
+
+<TopicToc topicId="neo-bitemp" header="2D Historization series" />
 
 ### 2D Historization series
 1. [2D or bitemporal Historization: A primer][1]
@@ -15,7 +18,7 @@ correctly describing the historical events from the first post into a Cypher que
 
 To remind you, it looks like this:
 
-```
+```sql
 MATCH (pd:PersonData)-[r]-(p) 
 WHERE p.id = 665544 AND r.recorded <= 30
 WITH { data: pd, recorded: r.recorded, actual: r.actual } as data
@@ -116,7 +119,7 @@ within the given set.
 By compiling our UDF and adding the resulting jar to Neo4J's **plugins** folder,
 we can start using it:
 
-``` cypher
+``` sql
 MATCH (pd:PersonData)-[r]-(p) 
 WHERE p.id = 665544 AND r.recorded <= 30
 WITH collect({ data: pd, recorded: r.recorded, actual: r.actual }) AS data
@@ -162,7 +165,7 @@ today.
 
 With that we can get the current state of our person:
 
-```
+```sql
 MATCH (pd:PersonData)-[r]-(p {id: 665544})
 WITH p, collect({ data: pd, recorded: r.recorded, actual: r.actual }) as data
 RETURN p, bitemp.current(data).data
