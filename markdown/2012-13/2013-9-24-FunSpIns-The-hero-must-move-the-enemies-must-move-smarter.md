@@ -1,20 +1,12 @@
 ---
 title: "FunSpIns - The hero must move, the enemies must move smarter."
 layout: post
-tags: [programming, haskell, fun-spin]
+tags: [programming, haskell]
 date: 2013-09-24 14:00:00
-redirect_from: /go/235/
+topic: "fun-spin"
 ---
 
-### Functional space-invaders series
-1. [A recap of Rob Ashton's lessons - Das Intro](/2013/09/17/funspins-a-recap-of-rob-ashtons-lessons-das-intro)
-1. [Drawing a Rectangle](/2013/09/18/funspins-drawing-a-rectangle)
-1. [Moving a Rectangle](/2013/09/19/funspins-moving-a-rectangle)
-1. [No attributes, No vectors, A tiny Workflow and more squares](/2013/09/20/funspins-no-attributes-no-vectors-a-tiny-workflow-and-more-squares)
-1. [State, the World, the Loop](/2013/09/23/funspins-state-the-world-the-loop)
-1. The hero must move, the enemies must move smarter
-1. [The hero shoots](/2013/09/25/funspins-the-hero-shoots)
-1. [Collisions, the dead, and a (not so) grateful ending](/2013/09/26/funspins-collisions-the-dead-and-a-not-so-grateful-ending)
+<TopicToc topicId="fun-spin" header="Functional space-invaders series" />
 
 > Inspired by Rob Ashton's series "[Learn functional programming with me][1]"
 It is time to feed things back to the actors! The actor signature did change a teeny bit:

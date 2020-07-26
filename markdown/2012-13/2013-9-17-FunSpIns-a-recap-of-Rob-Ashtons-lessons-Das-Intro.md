@@ -1,20 +1,12 @@
 ---
 title: "FunSpIns - a recap of Rob Ashton's lessons - Das Intro"
 layout: post
-tags: [programming, haskell, fun-spin]
+tags: [programming, haskell]
 date: 2013-09-17 21:49:28
-redirect_from: /go/230/
+topic: "fun-spin"
 ---
 
-### Functional space-invaders series
-1. A recap of Rob Ashton's lessons - Das Intro
-1. [Drawing a Rectangle](/2013/09/18/funspins-drawing-a-rectangle)
-1. [Moving a Rectangle](/2013/09/19/funspins-moving-a-rectangle)
-1. [No attributes, No vectors, A tiny Workflow and more squares](/2013/09/20/funspins-no-attributes-no-vectors-a-tiny-workflow-and-more-squares)
-1. [State, the World, the Loop](/2013/09/23/funspins-state-the-world-the-loop)
-1. [The hero must move, the enemies must move smarter](/2013/09/24/funspins-the-hero-must-move-the-enemies-must-move-smarter)
-1. [The hero shoots](/2013/09/25/funspins-the-hero-shoots)
-1. [Collisions, the dead, and a (not so) grateful ending](/2013/09/26/funspins-collisions-the-dead-and-a-not-so-grateful-ending)
+<TopicToc topicId="fun-spin" header="Functional space-invaders series" />
 
 A few weeks ago I was considering following [Rob Ashton's footsteps][1] in learning functional programming by programming a game (Space Invaders, or **Fun**ctional **Sp**ace **In**vader**s** or **FunSpIns**, right? *le sigh*)
 However, since I am currently digging deeper into Haskell, that would obviously become my weapon of choice. Looking at possibilities to get Haskell somehow produce something that would do something against an HTML Canvas led me to the [Haskell to JavaScript compiler][2]. However, the easy path stated that it would ideally need the GHC version 7.8. Let's have a look at my version...
