@@ -18,13 +18,13 @@
     "gatsby-plugin-react-helmet": "^3.3.4",
     "gatsby-plugin-sharp": "^2.6.11",
     "gatsby-plugin-sitemap": "^2.4.5",
-    "gatsby-remark-embed-gist": "^1.1.9",
     "gatsby-remark-prismjs": "^3.5.4",
     "gatsby-source-filesystem": "^2.3.11",
     "gatsby-transformer-sharp": "^2.5.5",
     "prismjs": "^1.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-gist": "^1.2.2",
     "react-helmet": "^5.2.0"
   },
   "keywords": [

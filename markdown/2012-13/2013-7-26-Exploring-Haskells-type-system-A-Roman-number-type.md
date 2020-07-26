@@ -3,7 +3,6 @@ title: "Exploring Haskell's type system - A Roman number type"
 layout: post
 tags: [programming, haskell]
 date: 2013-07-26 20:50:57
-redirect_from: /go/224/
 ---
 
 Once in a while I need a break from my day-to-day job in C# land. Don't get me wrong, I like the language, but it doesn't cover _all_ of my intellectual needs.
@@ -16,7 +15,7 @@ This time it was Haskell's turn - the [last time][2] I delved into Haskell, I ha
 
 ## Behold - the Roman number
 
-`gist:6273665#roman.hs`
+<Gist id="6273665" file="roman.hs" />
 
 **Disclaimer:** *I may have only implemented a subset of the proper rules of how to write Roman numbers. If you use this type to calculate the altitude of your plane, and it doesn't work, don't sue me, because I give no guarantees as to the 100% correctness of the code*
 

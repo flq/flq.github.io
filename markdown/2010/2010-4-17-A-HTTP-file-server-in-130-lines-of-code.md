@@ -106,4 +106,4 @@ private static string getcontentType(string extension)
 
 And for those who want to play with this, here’s the full monty:
 
-`gist:369432`
+<Gist id="369432" />

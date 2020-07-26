@@ -39,7 +39,7 @@ The calculation has been kept pretty straightforward:
 
 The calculation is shown in the following gist with the aid of NMeasure:
 
-`gist:aaf315d162e7394865b4#Program.cs`
+<Gist id="aaf315d162e7394865b4" file="Program.cs" />
 
 NMeasure profits *a lot* from C# 6's ability to use static members of a type (see line 4). The units used
 are static properties of the type *U* (e.g. U.KiloMeter) and it is really tasty to be able to use the units as shown in the 

@@ -2,8 +2,9 @@ import React, { useMemo } from 'react'
 import { graphql, Link } from 'gatsby'
 import { Disqus } from 'gatsby-plugin-disqus'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { MDXProvider } from "@mdx-js/react"
 import Helmet from 'react-helmet'
+import { MDXProvider } from "@mdx-js/react"
+import Gist from "react-gist";
 import Layout from '../components/layout'
 import useSiteMetadata from '../hooks/useSiteMetadata'
 import { YouTubeEmbed } from '../components/YouTubeEmbed'
@@ -19,7 +20,7 @@ export default function Template({
   const { mdx: { body, frontmatter } } = data
   const { previous, next } = pageContext
 
-  const components = useMemo(()=> ({YouTubeEmbed, Tweet, TopicToc}), [])
+  const components = useMemo(()=> ({YouTubeEmbed, Tweet, TopicToc, Gist}), [])
 
   return (
     <Layout>

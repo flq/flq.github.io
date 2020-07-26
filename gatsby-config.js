@@ -25,13 +25,6 @@ module.exports = {
       options: {
         extensions: [`.md`, `.mdx`],
         gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-embed-gist',
-            options: {
-              username: 'flq',
-              includeDefaultCss: true,
-            },
-          },
           'gatsby-remark-prismjs'
         ],
       },
