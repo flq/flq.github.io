@@ -3,6 +3,7 @@ title: "MemBus extension points"
 layout: post
 tags: [own-software, patterns, csharp, membus]
 date: 2010-09-20 06:08:00
+topic: "membus"
 ---
 
 ## ISubscription

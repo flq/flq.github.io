@@ -3,7 +3,7 @@ title: "Introducing MemBus: Construction Variants"
 layout: post
 tags: [csharp, membus]
 date: 2010-09-02 14:16:00
-redirect_from: /go/177/
+topic: "membus"
 ---
 
 I have used the “Conservative” class several times now. It is a concrete example of how to set up MemBus. Let us have a look at what it does:

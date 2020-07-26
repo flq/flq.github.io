@@ -3,7 +3,7 @@ title: "Using MemBus"
 layout: post
 tags: [patterns, csharp, membus]
 date: 2010-09-15 07:25:00
-redirect_from: /go/180/
+topic: "membus"
 ---
 
 Usage of MemBus always goes through the IBus interface:

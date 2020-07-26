@@ -1,5 +1,5 @@
 ---
-title: "Ugly integration test&hellip;what can I do better?"
+title: "Ugly integration test - what can I do better?"
 layout: post
 tags: [software-development, dotnet, patterns]
 date: 2010-08-16 09:08:00
@@ -16,20 +16,20 @@ IBus bus = null;
 var resetEvent = new ManualResetEvent(false);
 
 var uiThread = new Thread(
-    () =&gt;
+    () =>
         {
             SynchronizationContext.SetSynchronizationContext(
                 new DispatcherSynchronizationContext(Dispatcher.CurrentDispatcher));
             var frame = new DispatcherFrame();
             threadId = Thread.CurrentThread.ManagedThreadId;
-            bus = BusSetup.StartWith&lt;RichClientFrontend&gt;().Construct();
-            bus.Subscribe&lt;MessageB&gt;(
-                msg =&gt;
+            bus = BusSetup.StartWith<RichClientFrontend>().Construct();
+            bus.Subscribe<MessageB>(
+                msg =>
                     {
                         threadIdFromTest = Thread.CurrentThread.ManagedThreadId;
                         frame.Continue = false;
                     },
-                c =&gt; c.DispatchOnUiThread());
+                c => c.DispatchOnUiThread());
             resetEvent.Set();
             Dispatcher.PushFrame(frame);
         });

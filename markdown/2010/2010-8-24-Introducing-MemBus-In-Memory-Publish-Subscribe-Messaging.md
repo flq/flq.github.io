@@ -27,17 +27,11 @@ It is a [messaging framework available at github](http://github.com/flq/MemBus) 
 MemBus simply allows you to use the messaging paradigm while staying internal to your App. By the way, this concept has a lot of similarities to what people call **Event Aggregator**, however, I prefer to think of this pattern in a “bus/messaging”-way.
 
 ```csharp
-var bus = BusSetup.StartWith&lt;Conservative&gt;().Construct();
-using (bus.Subscribe&lt;MessageA&gt;(Console.WriteLine))
+var bus = BusSetup.StartWith<Conservative>().Construct();
+using (bus.Subscribe<MessageA>(Console.WriteLine))
     bus.Publish(new MessageA());
 ```
 
 The following posts will show you in what different ways you can setup MemBus in order to support different scenarios.
 
-* [Introducing MemBus: Constructing it](/go/176) 
-* [Introducing MemBus: Construction Variants](/go/177) 
-* [MemBus: A more complex rich client setup](/go/178) 
-* [Membus: Performance considerations](/go/179) 
-* [Using MemBus](/go/180) 
-* [MemBus extension points](/go/181)
-* [MemBus: Using an IoC Container to provide subscribers](/go/183)
+<TopicToc topicId="membus" title="Helpful articles on this blog" />

@@ -3,7 +3,7 @@ title: "Introducing MemBus: Constructing it"
 layout: post
 tags: [software-development, dotnet, patterns, membus]
 date: 2010-08-30 08:01:00
-redirect_from: /go/176/
+topic: "membus"
 ---
 
 as you might have guessed, MemBus isn’t a single class. A number of different responsibilities are tucked nicely behind the IBus interface. Those responsibilities want to be configured, which is done through the **BusSetup** class.
