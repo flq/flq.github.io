@@ -97,7 +97,6 @@
 <url> <loc>https://realfiction.net/2011/02/14/coding-katas-–-improving-the-mechanics-of-coding</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2011/01/31/suggestions-to-improve-your-wpf-viewmodels</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2011/01/03/creating-and-then-using-a-local-openwrap-repository</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/2010/12/20/comparison-of-code-metrics-in-openwrap-and-nuget</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/12/19/my-bare-minimum-ndepend-rules-and-how-to-get-them-into-a-new-project</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/11/30/dealing-with-primitive-obsession-this-time-measurements</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/11/29/links-around-øredev-2010</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -117,7 +116,7 @@
 <url> <loc>https://realfiction.net/2010/09/02/introducing-membus-construction-variants</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/08/30/introducing-membus-constructing-it</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/08/24/introducing-membus-in-memory-publish-subscribe-messaging</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/2010/08/16/ugly-integration-test-hellip;what-can-i-do-better</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://realfiction.net/2010/08/16/ugly-integration-test-what-can-i-do-better</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/08/13/resharper-5-0-outgoing-calls-analysis-example-from-nhibernate</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/07/30/wie-ich-rest-meiner-ehefrau-erklärte</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/2010/07/30/wcf-externalize-binding-configuration-only</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -305,7 +304,6 @@
 <url> <loc>https://realfiction.net/tags/own-software</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/physics</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/membus</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://realfiction.net/tags/fun-spin</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/geekdom</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/humour</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://realfiction.net/tags/windows</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
