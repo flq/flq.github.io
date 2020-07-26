@@ -192,7 +192,7 @@ div.seriestoc:before {
   vertical-align: -0.4em;
 }
 
-.blog-post__content > h3:first-of-type {
+h3.seriestoc {
   text-align: right;
   border-radius: 25px 25px 0px 0px;
   font-size: 1.2em;
@@ -204,7 +204,7 @@ div.seriestoc:before {
   font-style: italic;
 }
 
-.blog-post__content > ol:first-of-type {
+ol.seriestoc {
   list-style-type: upper-roman;
   background: #eff;
   border: #777 1px solid;

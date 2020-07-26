@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 import useSiteMetadata from '../hooks/useSiteMetadata'
 import { YouTubeEmbed } from '../components/YouTubeEmbed'
 import { Tweet } from '../components/Tweet'
+import { TopicToc } from '../components/TopicToc'
 
 export default function Template({
   location,
@@ -18,7 +19,7 @@ export default function Template({
   const { mdx: { body, frontmatter } } = data
   const { previous, next } = pageContext
 
-  const components = useMemo(()=> ({YouTubeEmbed, Tweet}), [])
+  const components = useMemo(()=> ({YouTubeEmbed, Tweet, TopicToc}), [])
 
   return (
     <Layout>
