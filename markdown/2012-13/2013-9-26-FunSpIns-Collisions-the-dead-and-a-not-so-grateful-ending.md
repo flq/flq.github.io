@@ -45,7 +45,7 @@ newState = w
 		heroShots = shotsLeft,
 		mIA = (mIA w) ++ deadEnemies
 	}
-`` 
+```
 
 The enemy grid is now constructed as follows
 
@@ -103,6 +103,10 @@ What I would personally take away from this series...
 * Even though the line count is not that high, there is quite some scope for improvement.
 * You can go pretty far in Haskell without Monads, Monad Transformers, Applicatives, Functors and with a fairly high percentage of pure functions. Granted, I do get the feeling I am missing out on a lot of toys...
 * The record syntax in Haskell is indeed somewhat clumsy, I hope to do a refactoring with Lenses, which would be a sort of Appendix blog post coming up.
+
+Finally, this is the complete code in one gist.
+
+<Gist id="6515336" />
 
 
 

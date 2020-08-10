@@ -65,7 +65,9 @@ to have an entry point - leering a bit at animal machine's series, we can get us
 Woa, OK - main is a thing that runs in an IO context and returns nothing ( hence the **()** ). 
 **>>=** has a type definition of
 
-    Monad m => m a -> (a -> m b) -> m b
+```haskell
+Monad m => m a -> (a -> m b) -> m b
+```
 
 Which reads along the lines of
 

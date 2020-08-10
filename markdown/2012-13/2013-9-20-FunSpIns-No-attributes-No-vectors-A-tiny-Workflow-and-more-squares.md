@@ -18,10 +18,10 @@ When it comes to the working workflow in Haskell, my tool of choice right now is
 As to drawing lots of enemies, functional approaches should be somewhat similar. The permutation thing that Rob does with the **(for [x [...]] [y [...]])** is also achieved with list comprehensions, just that you have to specify two ranges to feed the output. Here is a function to give us a grid of squares:
 
 ```haskell
-	enemyGrid (originX,originY) (rows, cols) = 
-	  map toRect [ (x, y) | x <- take cols [originX,originX+60..], y <- take rows [originY,originY+30..]]
-	  where
-	    toRect (x,y) = Rect x y 20 10
+enemyGrid (originX,originY) (rows, cols) = 
+	map toRect [ (x, y) | x <- take cols [originX,originX+60..], y <- take rows [originY,originY+30..]]
+	where
+		toRect (x,y) = Rect x y 20 10
 ```
 
 Providing two comma-separated values to the Haskell range (the **[n..m]** thing, or here, the **[n, n+s, ..]**) defines the step of the range. Due to the lazy nature of Haskell,

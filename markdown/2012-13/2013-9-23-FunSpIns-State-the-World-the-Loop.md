@@ -52,15 +52,15 @@ A few words to Haskell's record-style syntax are probably in order right now. in
 Our enemy grid function now looks like this:
 
 ```haskell
-	moveEnemyGrid :: World -> (World,[Rect])
-	moveEnemyGrid w = (newState w, enemies)
-	  where
-	    newState w = w { enemyGridOrigin = newOrigin (enemyGridOrigin w) }
-	    newOrigin (x,y) = (x+5,y)
-	    enemies = enemyGrid (enemyGridOrigin w) (3, 5)
-	    enemyGrid (originX,originY) (rows, cols) = 
-	      map enemy [ (x, y) | x <- take cols [originX,originX+60..], y <- take rows [originY,originY+30..]]
-	    enemy (x,y) = Rect x y 20 10
+  moveEnemyGrid :: World -> (World,[Rect])
+  moveEnemyGrid w = (newState w, enemies)
+	where
+      newState w = w { enemyGridOrigin = newOrigin (enemyGridOrigin w) }
+	  newOrigin (x,y) = (x+5,y)
+	  enemies = enemyGrid (enemyGridOrigin w) (3, 5)
+	  enemyGrid (originX,originY) (rows, cols) = 
+	    map enemy [ (x, y) | x <- take cols [originX,originX+60..], y <- take rows [originY,originY+30..]]
+	  enemy (x,y) = Rect x y 20 10
 ```
  
 You may see that so far this is pretty much just a proof of concept. We change the enemy origin's x-value by 5 and otherwise output

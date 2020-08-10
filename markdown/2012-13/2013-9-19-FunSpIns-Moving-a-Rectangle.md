@@ -76,11 +76,13 @@ rather **[IO sth]**, an array of things in the IO context. What I wanted was act
 
 > Once you get the hang out of it, Haskell errors can be quite understandable. This one was...
 
-    Couldn't match expected type `IO a0' with actual type `[b0]'
-	In the return type of a call of `map'
-    In a stmt of a 'do' block:
-	...
- 
+```cli
+Couldn't match expected type `IO a0' with actual type `[b0]'
+In the return type of a call of `map'
+In a stmt of a 'do' block:
+... 
+ ```
+
 Thankfully there is a version of **map** with the kind of signature that we need:
 
 	mapM :: Monad m => (a -> m b) -> [a] -> m [b]
@@ -89,25 +91,27 @@ Thankfully there is a version of **map** with the kind of signature that we need
 
 Bingo, small change and here's the full program:
 
-	module Main where
+```haskell
+module Main where
 
-	  import Graphics.UI.SDL as FX
-	
-	  main :: IO ()
-	  main = do
-	    init
-	    canvas <- FX.getVideoSurface
-	    mapM (fillDo canvas) [Rect x 25 50 50 | x <- [1..450]]
-	    delay 1000
-	    FX.quit
-	    where
-	      fillDo canvas rect = do 
-	        FX.fillRect canvas Nothing (Pixel 0)
-	        FX.fillRect canvas (Just rect) (Pixel 0xFFFFFF)
-	        FX.flip canvas
-	      init = do
-	        FX.init [InitVideo]
-	        FX.setVideoMode 640 480 32 []
+	import Graphics.UI.SDL as FX
+
+	main :: IO ()
+	main = do
+	init
+	canvas <- FX.getVideoSurface
+	mapM (fillDo canvas) [Rect x 25 50 50 | x <- [1..450]]
+	delay 1000
+	FX.quit
+	where
+		fillDo canvas rect = do 
+		FX.fillRect canvas Nothing (Pixel 0)
+		FX.fillRect canvas (Just rect) (Pixel 0xFFFFFF)
+		FX.flip canvas
+		init = do
+		FX.init [InitVideo]
+		FX.setVideoMode 640 480 32 []
+```
 
 So far I do not want to go full steam ahead and implement the **logic/render/repeat** thing, since, to be honest, I don't quite see where this is heading. Even so,  there is some potential looming for separating logic from rendering as the production of the rectangle *"path"* can be looked at independent of *IO*. 
 
