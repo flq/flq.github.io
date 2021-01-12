@@ -279,3 +279,23 @@ code.language-text {
   display: inline;
   white-space: normal;
 }
+
+.alpha {
+  margin-right: 20%;
+}
+
+.beta {
+  margin-left: 20%;
+}
+
+.alpha::before {
+  content: "α: «";
+}
+
+.alpha::after, .beta::after {
+  content: "»";
+}
+
+.beta::before {
+  content: "β: «";
+}

@@ -3,8 +3,10 @@ title: "Mr Evolute"
 layout: post
 tags: [hesitan-and-miracles]
 date: 2007-06-08 20:39:55
-redirect_from: /go/93/
+topic: "hesitan"
 ---
+
+<TopicToc topicId="hesitan" header="Hesitan & Miracles" />
 
 Can you remember that sad time when some people suddenly thought that it's desperately necessary that God made Earth in a couple of thousand years?
 

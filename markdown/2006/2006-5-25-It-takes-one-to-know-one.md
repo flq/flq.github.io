@@ -3,10 +3,10 @@ title: "It takes one to know one"
 layout: post
 tags: [hesitan-and-miracles]
 date: 2006-05-25 15:58:28
-redirect_from: /go/5/
+topic: "hesitan"
 ---
 
-      
+<TopicToc topicId="hesitan" header="Hesitan & Miracles" />
 
 Have you ever thought on which energy level you are?
 

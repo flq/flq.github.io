@@ -3,8 +3,10 @@ title: "Hesitan & Miracles"
 layout: post
 tags: [hesitan-and-miracles]
 date: 2006-05-25 15:29:33
-redirect_from: /go/3/
+topic: "hesitan"
 ---
+
+<TopicToc topicId="hesitan" header="Hesitan & Miracles" />
 
  ![Parmenides getting the most out of virtual jourmalism](/assets/parmenides.gif)  A dialogue may, at its best, shed light upon a subject from at least two spots - 
  at worst it could be the senseless mumble of two dim-witted dodderers. 
