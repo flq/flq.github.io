@@ -3,12 +3,14 @@ title: "Introducing the realfiction builder...MsBuild without XML"
 layout: post
 tags: [own-software, software-development, msbuild]
 date: 2010-03-08 05:05:00
-redirect_from: /go/160/
+topic: rfb
 ---
 
-I have previously [talked about](/go/144) using rake for building .NET apps. While I do like ruby, I’m not a big fan of the whole idea. It takes time to set up the correct environment, problems no .NET developer is aware of lurk around corners. If you want to learn ruby, that’s fine. But do you want to learn a language just to get some build scripts going?
+<TopicToc topicId="rfb" header="realfiction builder" />
 
-On the other hand I can understand if you can’t stand XML anymore. I’d go as far as saying that you need to have loved something to truly hate it. Which is why I kicked off **rfb**. The _realfiction builder_ parses a syntax that is much lighter on the eye, but nonetheless gives you access to the MsBuild capabilities (well, currently not all, but it does run the [Rf.Sites build script](http://github.com/flq/Rf.Sites/blob/master/build.rfb)). Follow the link. The syntax is fairly self-explanatory. Nonetheless here a small introduction:
+I have previously [talked about](2009/06/01/fashion-of-the-week-building-with-rake) using rake for building .NET apps. While I do like ruby, I’m not a big fan of the whole idea. It takes time to set up the correct environment, problems no .NET developer is aware of lurk around corners. If you want to learn ruby, that’s fine. But do you want to learn a language just to get some build scripts going?
+
+On the other hand I can understand if you can’t stand XML anymore. I’d go as far as saying that you need to have loved something to truly hate it. Which is why I kicked off **rfb**. The _realfiction builder_ parses a syntax that is much lighter on the eye, but nonetheless gives you access to the MsBuild capabilities (well, currently not all, but it does run the [Rf.Sites build script](https://github.com/flq/Rf.Sites/tree/3cc1e9654bccd799ca7548028e68b03191eaa381)). The syntax is fairly self-explanatory. Nonetheless here a small introduction:
 
 ```powershell
 Project "Default"
