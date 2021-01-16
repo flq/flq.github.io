@@ -1,0 +1,34 @@
+---
+title: "Saving music tapes from oblivion"
+tags: [loosely-coupled]
+date: 2021-01-14 23:40:00
+---
+
+Remember tapes? 2 Sides, usually 60 or 90 minutes, a rich bouquet of noise under your music (of course back then it was _just fine_), record stuff, copy stuff...in short, freedom. As things go, tape players are dying out. It was time to do something about some tapes in my posession, about 30-40 years old which I don't want to be forgotten just yet.
+
+Thankfully, my Mum has a tape player left, and it still works and, most importantly, it has a micro jack output for headphones (another thing dying out 😅).
+
+![My Mum's trusty Sony tape player](/assets/tpe-1.jpg)
+<figcaption>My Mum's good old Sony tape player with mini jack output.</figcaption>
+
+With the aid of a Y-cable that I have from **micro jack** to a **pair of chinch**, and **2 adapters from chinch to jack** (still got all those things from my synth music making times - it's all junk until it isn't), I was able to bring it into the magical Focusrite box I got about 7 years ago. It's breaking my heart that Big Sur will not support the "latest" driver of that hardware, which means that my MBP will stay on Catalina for the foreseeable future.
+
+![The Saffire Soundbox from 2013](/assets/tpe-2.jpg)
+<figcaption>Focusrite Saffire Pro 24 DSP (from about 2013).</figcaption>
+
+From there the next step is into [Ableton Live][ableton], which is somewhat overpowered for recording a bunch of tapes, but hey, I have the license, so I might as well use it :)
+
+![Ableton Live as the Recorder](/assets/tpe-3.jpg)
+<figcaption>Ableton Live recording on a 2014 or 15 MBP.</figcaption>
+
+Whether I can do any sensible post processing there I am not sure yet. At least I can cut the songs up and export.
+
+![izotope](/assets/tpe-4.jpg)
+<figcaption>iZotope RX 8 for noise removal etc.</figcaption>
+
+[iZotope's RX8][izotope] I just bought today which for little money supposedly gives you a tool to perform audio repairs like removing noise and the like - and boy, some tapes do need it! Some preliminary experiments look promising, but that kind of software isn't always self-explanatory so I'll have to play a bit more with it.
+
+Today I recorded the first bunch of tapes, tomorrow the next, saving a couple of valuable (you know, in the sense of crazy memories) recordings into the 21st century, the age of ageless data. 
+
+[ableton]: https://www.ableton.com/en/live/
+[izotope]: www.izotope.com/en/products/rx.htm
