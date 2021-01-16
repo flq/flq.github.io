@@ -8,32 +8,37 @@ topic: "hesitan"
 
 <TopicToc topicId="hesitan" header="Hesitan & Miracles" />
 
-Can you remember that sad time when some people suddenly thought that it's desperately necessary that God made Earth in a couple of thousand years?
+<Alpha>Can you remember that sad time when some people suddenly thought that it's desperately necessary that God made Earth in a couple of thousand years?</Alpha>
 
-You mean that intelligent creator business?
+<Beta>You mean that intelligent creator business?</Beta>
 
-Yeah...
+<Alpha>Yeah...</Alpha>
 
-Well, do you remember how that weird group, how did they call themselves...
+<Beta>Well, do you remember how that weird group, how did they call themselves...</Beta>
 
-The evoluzzers
+<Alpha>The creationists</Alpha>
 
-Yeah, those.
+<Beta>Yeah, those.</Beta>
 
-That was pretty amazing. Did they actually manage the reality hack they intended to do?
+<Alpha>That was pretty amazing. Did they actually manage the reality hack they intended to do?</Alpha>
 
-You don't kow? Rumour has it that they failed miserably. There was no indication that they actually created the species on Earth.
+<Beta>You don't kow? Rumour has it that they failed miserably. There was no indication that they actually created the species on Earth.</Beta>
 
-Quite. Considering that it's an ongoing, constant creation, they would still have to be around...
+<Alpha>Quite. Considering that it's an ongoing, constant creation, they would still have to be around...</Alpha>
 
-Well, unless they created a self-sustained reality hack.
+<Beta>Well, unless they created a self-sustained reality hack.</Beta>
 
-You mean, they could have implemented evolution?
+<Alpha>You mean, they could have implemented evolution?</Alpha>
 
-Hmm...interesting. However, that would probably prove that the Evoluzzers did not implement Evolution. Evolution is far more intelligent than any human being.
+<Beta>Hmm...interesting. However, that would probably prove that the Evoluzzers did not implement Evolution. Evolution is far more intelligent than any human being.</Beta>
 
-An Intelligent creator after all?
+<Alpha>An Intelligent creator after all?</Alpha>
 
-Not at all, my dear hesitant friend. The question is, what is intelligence anyway?
+<Beta>Not at all, my dear hesitant friend. The question is, what is intelligence anyway?</Beta>
 
-Let me check on the wicked pedia. Right. There is a ton of definitions, really.
+<Alpha>Let me check on the wicked pedia. Right. There is a ton of definitions, really.</Alpha>
+
+<hr/>
+
+Here ends this dialogue...who knows what happened? 
+The argument was finalized in a ["normal" post](/2008/02/25/evolutions-intelligence) sometime later.
