@@ -175,6 +175,29 @@ blockquote:before {
   vertical-align: -0.4em;
 }
 
+div.info {
+  background: #C6F8FF;
+  border-left: 10px solid #6484D0;
+  padding: 0.5em 10px;
+  margin-bottom:2.5rem;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.info p {
+  margin-top: 1em;
+  quotes: '\201C''\201D''\2018''\2019';
+}
+
+div.info:before {
+  color: #0079A4;
+  content: '\24D8';
+  font-size: 2em;
+  font-family: helvetica;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
 div.seriestoc {
   background: #f9f9f9;
   border-left: 10px solid #ccc;
