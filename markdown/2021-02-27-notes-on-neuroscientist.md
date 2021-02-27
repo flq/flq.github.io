@@ -1,7 +1,7 @@
 ---
 title: "Notes on Interview with Neuroscientist Dr. Andrew Huberman"
 tags: [human-condition, biology]
-date: 2021-02-19 21:00:00
+date: 2021-02-27 19:00:00
 ---
 
 <YouTubeEmbed link="https://www.youtube.com/embed/SwQhKFMxmDY" />
