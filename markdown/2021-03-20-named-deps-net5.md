@@ -34,8 +34,7 @@ svcs.AddAll<IDependency>(
 );
 ```
 
-It would not only register all implementations of `IDependency` but register the referenced delegate which
-could then be injected and used in the code to get access to `IDependency` instances by name. The idea was to compile a switch expression that would perform the lookup that Steve coded manually in the blog post. Alas, what looks so _"easy"_ in the post actually involves a closure over a `IServiceProvider` instance. You might recall that the C# compiler does [plenty of things to support closures][eric]. This added difficulty was doing my head in and I really didn't want to start recreating compiler code, so I gave up on it and was thrown back to good ol' classes.
+It would not only register all implementations of `IDependency` but register the referenced delegate which could then be injected and used in the code to get access to `IDependency` instances by name. The idea was to compile a switch expression that would perform the lookup that Steve coded manually in the blog post. Alas, what looks so _"easy"_ in the post actually involves a closure over a `IServiceProvider` instance. You might recall that the C# compiler does [plenty of things to support closures][eric]. This added difficulty was doing my head in and I really didn't want to start recreating compiler code, so I gave up on it and was thrown back to good ol' classes.
 
 ## Attempt N<sup>o</sup> 2
 
@@ -100,7 +99,7 @@ var someNamedDependency = lookup["CoolName"]
   ?? throw new ArgumentException("No dependency named CoolName");
 ```
 
-The relevant interface is still easy enough to mock in some test should you wish to do so, and it is also straightforward to find in the code which was an excellent point in Steve's point that one should support in solving looking up dependencies by name. 
+The relevant interface is still easy enough to mock in some test should you wish to do so. Finally, it is also straightforward to find its usage in the code, which was an excellent point being made in Steve's post. 
 
 [1]: https://stevetalkscode.co.uk/named-dependencies-part-2
 [eric]: https://stackoverflow.com/a/14586368/51428
