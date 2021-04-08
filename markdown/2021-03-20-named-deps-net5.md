@@ -10,7 +10,7 @@ In some research I came across Steve Collins' blog post on ["Getting named depen
 
 <Info>
 
-Steve will be doing a webinar in the context of Jetbrains' work in the .NET ecosystem. See https://info.jetbrains.com/dotnet-webinar-april-2021.html (8th April)
+Steve did a webinar in the context of Jetbrains' work in the .NET ecosystem. [See the recording on youtube][recording].
 
 </Info>
 
@@ -105,3 +105,4 @@ The relevant interface is still easy enough to mock in some test should you wish
 [eric]: https://stackoverflow.com/a/14586368/51428
 [ahead intranet]: https://aheadintranet.com
 [Autofac]: https://autofac.org/
+[recording]: https://www.youtube.com/watch?v=0x2KW-dJDQU
