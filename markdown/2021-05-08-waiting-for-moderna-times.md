@@ -1,8 +1,10 @@
 ---
-title: "Waiting for moderna times"
+title: "Waiting for moderna times - Tab cleanup"
 tags: [loosely-coupled, biology, physics]
 date: 2021-05-08 11:00:00
 ---
+
+While I'm waiting for my jabs, I shouldn't forget cleaning up my browsers once in a while and feed my blog.
 
 ## 75 years ago, WW2 ended
 
@@ -21,6 +23,14 @@ Thankfully, MOND is far from dead and in fact in many circumstances explains obs
 <figcaption>Dark Matter: The Situation has Changed</figcaption>
 
 
-## 
+## I should have loved biology...
+
+...is a sentiment that I definitely share with James Somers, an argument that he outlines in his [equally named post][2]. The things I've learned through following posts and tweets from experts in the fields of Immunology and Virology, Vaccines, DNA, RNA, and mRNA have left me in awe at the wonderful machinery of life, a machinaery that begins in brownian motion and molecular mechanical devices and ends in human minds designing mRNA to combat a new pathogen. Fantastic! We need to touch the emotions of kids when we introduce such things in school - facts are fantastic, but they must be connected to our emotions, to our spiritual self, if you feel. It is, after all, nothing but a miracle that if you throw quadrillions of molecular devices together, and connect them through thousands of different interactions you get complex life.
+
+## Interview with Kent Beck
+
+Mr. Beck is probably someone who comes closest to be a person that inspires me - here's an interview with him I had [hanging around in my tabs][3].
 
 [speech]: https://www.bundespraesident.de/SharedDocs/Reden/DE/Richard-von-Weizsaecker/Reden/1985/05/19850508_Rede.html
+[2]: https://jsomers.net/i-should-have-loved-biology/
+[3]: https://builtin.com/software-engineering-perspectives/kent-beck-geeks-gusto-globalization
