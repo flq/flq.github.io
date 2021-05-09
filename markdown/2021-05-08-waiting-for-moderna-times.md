@@ -6,7 +6,7 @@ date: 2021-05-08 11:00:00
 
 While I'm waiting for my jabs, I shouldn't forget cleaning up my browsers once in a while and feed my blog.
 
-## 75 years ago, WW2 ended
+## 76 years ago, WW2 ended
 
 Today I was pointed to a famous speech of former President Richard von Weizsäcker he held on the 8th of May 1945 - back then, it was already 40 years ago, that the second world war ended. [The speech][speech] is about 45 minutes long (and in German), but if you're a frequent podcast listener, you can put the speed at 1.5 and listen to the memorable speech in about half an hour.
 
