@@ -35,7 +35,7 @@ const injectTwitterScript = () => {
 }
 
 let injectedTwitterScript = false
-exports.onRouteUpdate = function() {
+exports.onRouteUpdate = function () {
   if (!injectedTwitterScript) {
     injectTwitterScript()
     injectedTwitterScript = true

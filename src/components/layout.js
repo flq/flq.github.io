@@ -1,64 +1,44 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import useSiteTitle from './useSiteTitle'
 
 import './normalize.css'
-import './skeleton.css'
-import './syntax.css'
-import './own.css'
+import './base.css'
+import * as styles from './layout.module.css'
 
-import Sidebar from './sidebar'
+import SiteHeader from './siteHeader'
 import Footer from './footer'
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-            description
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            {
-              name: 'description',
-              content: data.site.siteMetadata.description,
-            },
-          ]}
-        >
-          <html lang="en" />
-          <link
-            href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
-            rel="stylesheet"
-            type="text/css"
-          />
-        </Helmet>
-        <div className="container">
-          <div className="row">
-            <div className="two columns right-padded">
-              <Sidebar
-                title={data.site.siteMetadata.title}
-                description={data.site.siteMetadata.description}
-              />
-            </div>
-            <div className="nine columns">{children}</div>
-          </div>
-          <div className="row">
-            <Footer />
-          </div>
-        </div>
-      </>
-    )}
-  />
-)
+const Layout = ({ children }) => {
+  const { title, description } = useSiteTitle()
+  return (
+    <>
+      <Helmet
+        title={title}
+        meta={[
+          {
+            name: 'description',
+            content: description,
+          },
+        ]}
+      >
+        <html lang="en" />
+        <link
+          href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
+          rel="stylesheet"
+          type="text/css"
+        />
+      </Helmet>
+
+      <div className="layout">
+        <SiteHeader />
+        <main class={styles.main}>{children}</main>
+        <Footer />
+      </div>
+    </>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
