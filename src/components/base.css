@@ -3,6 +3,7 @@
     --background: white;
     --sidePadding: 0.75rem;
     --mainShadow: 0px 5px 7px 0px rgba(0,0,0,0.55);
+    --lightSeparator: 1px solid lightgray;
 }
 
 body {
