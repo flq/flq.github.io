@@ -1,19 +1,14 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
+import PostExcerpt from '../components/postExcerpt'
 
 const IndexPage = ({ data }) => {
   const posts = data.allMdx.edges
   return (
     <Layout>
-      {posts.map(({ node }) => (
-        <div className="teaser" key={node.fields.slug}>
-          <h3>
-            <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
-          </h3>
-          <span className="date">{node.frontmatter.date}</span>
-          {node.excerpt}
-        </div>
+      {posts.map(({ node: { fields: { slug }, frontmatter: { date, title }, excerpt } }) => (
+        <PostExcerpt key={slug} slug={slug} title={title} date={date} excerpt={excerpt} />
       ))}
     </Layout>
   )
@@ -25,7 +20,7 @@ export const pageQuery = graphql`
   query {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { published:{eq:true} } }
+      filter: { fields: { published: { eq: true } } }
       limit: 10
     ) {
       edges {

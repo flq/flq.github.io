@@ -15,6 +15,7 @@
 
 .siteHeader {
     margin: 0 1rem 0 0;
+    font-size: 2.2rem;
 }
 
 .mainLink, .siteLink {
@@ -27,7 +28,7 @@
 }
 
 .mainLink, .mainLink:visited, .siteLink, .siteLink:visited {
-    color: var(--linkColor);
+    color: var(--linkColorMain);
 }
 
 .siteLink:not(:first-child)::before {

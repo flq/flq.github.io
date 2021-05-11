@@ -1,0 +1,29 @@
+.article {
+    margin-bottom: 3rem;
+}
+
+.header {
+    font-size: 1.7rem;
+    margin: 0;
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.header a:hover {
+    text-decoration: underline;
+}
+
+.date {
+    font-size: 1.4rem;
+    color: gray;
+    display: block;
+    text-align: right;
+    margin: 0;
+}
+
+.excerpt {
+    font-size: 1.4rem;
+    margin: 0.25rem;
+}
