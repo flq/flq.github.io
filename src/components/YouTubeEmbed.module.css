@@ -1,0 +1,8 @@
+.frame {
+  display: block;
+  margin: 20px auto;
+  width: 516px;
+  height: 315px;
+  max-width: 100%;
+  box-shadow: var(--standardShadow);
+}
