@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
 
       <div className="layout">
         <SiteHeader />
-        <main class={styles.main}>{children}</main>
+        <main className={styles.main}>{children}</main>
         <Footer />
       </div>
     </>

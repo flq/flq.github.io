@@ -1,31 +1,9 @@
-.article {
-    margin-bottom: 3rem;
-}
-
-.headerContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.header {
-    font-size: 1.7rem;
-    line-height: 2rem;
-    margin: 0 0 0 0.5rem;
-}
-
-.header a {
-    text-decoration: none;
-}
-
-.header a:hover {
-    text-decoration: underline;
-}
+@value mobile from "./breakpoints.css";
 
 .dateContainer {
     align-self: flex-start;
     display: inline-grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 0 auto;
     grid-template-rows: auto auto;
     border: 1px solid var(--linkColorMain);;
     border-radius: 5px;
@@ -42,7 +20,7 @@
 }
 
 .date {
-    display: block;
+    display: flex;
     grid-column: 2;
     grid-row: 2;
     background-color: var(--linkColorMain);
@@ -52,10 +30,13 @@
     line-height: 1.2rem;
     text-align: center;
     justify-self: stretch;
+    justify-content: center;
+    align-items: center;
 }
 
 .year {
     display: block;
+    visibility: hidden;
     writing-mode: vertical-lr;
     grid-column: 1;
     grid-row: 1 / span 2;
@@ -67,3 +48,13 @@
     font-size: 1.4rem;
     margin: 0.25rem;
 }
+
+@media mobile {
+    .dateContainer {
+        grid-template-columns: auto auto;
+    }
+
+    .year {
+        visibility: visible;
+    }
+  }
