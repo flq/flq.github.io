@@ -1,3 +1,24 @@
+@value ipad, desktop from "./breakpoints.css";
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .main {
     padding: 6rem 0 1rem 0;
+    width: 100%;
+}
+
+@media ipad {
+    .main {
+        width: 90%;
+    }
+}
+
+@media desktop {
+    .main {
+        width: 70%;
+    }
 }

@@ -7,18 +7,20 @@ const SiteHeader = () => {
   const { title } = useSiteTitle()
   return (
     <nav className={styles.siteNav}>
-      <h1 className={styles.siteHeader}>
-        <a className={styles.mainLink} href="/">
-          {title}
-        </a>
-      </h1>
-      <div>
-        <Link className={styles.siteLink} to="/tags">
-          Tags
-        </Link>
-        <Link className={styles.siteLink} to="/about">
-          About
-        </Link>
+      <div className={styles.centering}>
+        <h1 className={styles.siteHeader}>
+          <a className={styles.mainLink} href="/">
+            {title}
+          </a>
+        </h1>
+        <div>
+          <Link className={styles.siteLink} to="/tags">
+            Tags
+          </Link>
+          <Link className={styles.siteLink} to="/about">
+            About
+          </Link>
+        </div>
       </div>
     </nav>
   )

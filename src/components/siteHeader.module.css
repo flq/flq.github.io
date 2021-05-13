@@ -1,8 +1,9 @@
+@value ipad, desktop from "./breakpoints.css";
+
 .siteNav {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
+    justify-content: center;
     padding: 0.5rem var(--sidePadding);
     box-shadow: var(--mainShadow);
     background-color: var(--background);
@@ -11,6 +12,14 @@
     top: 0;
     right: 0;
     left: 0;
+}
+
+.centering {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .siteHeader {
@@ -36,4 +45,16 @@
     margin: 0 0.25rem;
     text-decoration: none;
     display: inline-block;
+}
+
+@media ipad {
+    .centering {
+        width: 90%;
+    }
+}
+
+@media desktop {
+    .centering {
+        width: 70%;
+    }
 }
