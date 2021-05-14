@@ -1,8 +1,12 @@
+.tags {
+    margin-top: 0.5rem;
+}
+
 .tag {
     background-color: var(--linkColor);
     color: var(--linkColorMainContrast);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-top: 0;
     padding: 0.25rem;
     border-top-right-radius: 10px;
@@ -14,9 +18,10 @@
 .tagOuter {
     display: inline-flex;
     margin: 0;
-    margin-right: 0.75rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
     padding: 0;
-    line-height: 1rem;
+    line-height: 1.1rem;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top-left-radius: 5px;

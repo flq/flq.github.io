@@ -2,7 +2,7 @@
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: auto auto;
-    column-gap: 0.5rem;
+    column-gap: 0.25rem;
     font-size: 1.2rem;
     margin-bottom: 2rem;
 }
