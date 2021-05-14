@@ -1,12 +1,13 @@
 import React, { useMemo } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { Disqus } from 'gatsby-plugin-disqus'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Helmet from 'react-helmet'
-import { MDXProvider } from "@mdx-js/react"
-import Gist from "react-gist";
+import { MDXProvider } from '@mdx-js/react'
+import Gist from 'react-gist'
 import Layout from '../components/layout'
 import useSiteMetadata from '../hooks/useSiteMetadata'
+import Tag from '../components/Tag'
 import { YouTubeEmbed } from '../components/YouTubeEmbed'
 import { Tweet } from '../components/Tweet'
 import { Info } from '../components/Info'
@@ -18,11 +19,16 @@ export default function Template({
   data, // this prop will be injected by the GraphQL query below.
   pageContext,
 }) {
-  const { siteUrl } = useSiteMetadata();
-  const { mdx: { body, frontmatter } } = data
+  const { siteUrl } = useSiteMetadata()
+  const {
+    mdx: { body, frontmatter },
+  } = data
   const { previous, next } = pageContext
 
-  const components = useMemo(()=> ({YouTubeEmbed, Tweet, Info, TopicToc, Gist, Alpha, Beta}), [])
+  const components = useMemo(
+    () => ({ YouTubeEmbed, Tweet, Info, TopicToc, Gist, Alpha, Beta }),
+    []
+  )
 
   return (
     <Layout>
@@ -36,10 +42,8 @@ export default function Template({
         <div className="page-info">
           <span>{frontmatter.date}</span> in
           <span className="article-tags">
-            {frontmatter.tags.map(t => (
-              <Link key={t} className="article-tags--tag" to={`/tags/${t}`}>
-                {t}
-              </Link>
+            {frontmatter.tags.map((t) => (
+              <Tag key={t} tag={t} />
             ))}
           </span>
         </div>
@@ -64,7 +68,12 @@ export default function Template({
         </div>
         <h2>Comments</h2>
         <div className="blog-post__footer">
-          <Disqus config={{ url: siteUrl + location.pathname, title: frontmatter.title }} />
+          <Disqus
+            config={{
+              url: siteUrl + location.pathname,
+              title: frontmatter.title,
+            }}
+          />
         </div>
       </article>
     </Layout>
