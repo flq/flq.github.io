@@ -14,7 +14,7 @@
 .tagOuter {
     display: inline-flex;
     margin: 0;
-    margin-left: 0.75rem;
+    margin-right: 0.75rem;
     padding: 0;
     line-height: 1rem;
     border-top-right-radius: 10px;

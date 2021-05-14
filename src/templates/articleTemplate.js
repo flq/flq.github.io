@@ -7,12 +7,14 @@ import { MDXProvider } from '@mdx-js/react'
 import Gist from 'react-gist'
 import Layout from '../components/layout'
 import useSiteMetadata from '../hooks/useSiteMetadata'
-import Tag from '../components/Tag'
+import Tags from '../components/Tag'
 import { YouTubeEmbed } from '../components/YouTubeEmbed'
 import { Tweet } from '../components/Tweet'
 import { Info } from '../components/Info'
+import DateDisplay from '../components/DateDisplay'
 import { TopicToc } from '../components/TopicToc'
 import { Alpha, Beta } from '../components/Discussion'
+import * as styles from './articleTemplate.module.css'
 
 export default function Template({
   location,
@@ -38,15 +40,11 @@ export default function Template({
       />
 
       <article>
-        <h1>{frontmatter.title}</h1>
-        <div className="page-info">
-          <span>{frontmatter.date}</span> in
-          <span className="article-tags">
-            {frontmatter.tags.map((t) => (
-              <Tag key={t} tag={t} />
-            ))}
-          </span>
-        </div>
+        <header className={styles.header}>
+          <DateDisplay className={styles.date} dateStr={frontmatter.date} />
+          <h1 className={styles.h1}>{frontmatter.title}</h1>
+          <Tags className={styles.tags} tags={frontmatter.tags} />
+        </header>
         <MDXProvider components={components}>
           <MDXRenderer className="blog-post__content">{body}</MDXRenderer>
         </MDXProvider>
@@ -88,7 +86,7 @@ export const pageQuery = graphql`
         slug
       }
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY-MM-DD")
         path
         title
         tags

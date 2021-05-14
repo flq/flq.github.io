@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react'
+import classnames from "classnames"
 import * as styles from './DateDisplay.module.css'
 
-export default function DateDisplay({ dateStr }) {
+export default function DateDisplay({ dateStr, className }) {
     const [date, month, year] = useMemo(() => {
       const d = new Date(dateStr)
       return [
@@ -11,7 +12,7 @@ export default function DateDisplay({ dateStr }) {
       ]
     }, [dateStr])
     return (
-      <time className={styles.dateContainer} datetime={dateStr}>
+      <time className={classnames(styles.dateContainer, className)} datetime={dateStr}>
         <span className={styles.month}>{month}</span>
         <span className={styles.date}>{date}</span>
         <span className={styles.year}>{year}</span>
