@@ -1,0 +1,36 @@
+.tag {
+    background-color: var(--linkColor);
+    color: var(--linkColorMainContrast);
+    text-decoration: none;
+    font-size: 1rem;
+    margin-top: 0;
+    padding: 0.25rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.tagOuter {
+    display: inline-flex;
+    margin: 0;
+    margin-left: 0.75rem;
+    padding: 0;
+    line-height: 1rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: 5px 5px 8px -8px rgba(0,0,0,0.91);
+}
+
+.tagOuter:hover {
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #7791b3 0px 0px 15px;
+}
+
+.tag::after {
+    margin-left: 0.75rem;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    content: "•";
+}
