@@ -12,7 +12,7 @@ export default function DateDisplay({ dateStr, className }) {
       ]
     }, [dateStr])
     return (
-      <time className={classnames(styles.dateContainer, className)} datetime={dateStr}>
+      <time className={classnames(styles.dateContainer, className)} dateTime={dateStr}>
         <span className={styles.month}>{month}</span>
         <span className={styles.date}>{date}</span>
         <span className={styles.year}>{year}</span>

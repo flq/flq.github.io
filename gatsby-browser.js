@@ -3,7 +3,7 @@
  *
  */
 
-require('prismjs/themes/prism-coy.css')
+require('prismjs/themes/prism-okaidia.css')
 
 // This code is taken from
 // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-twitter

@@ -6,7 +6,7 @@ export function YouTubeEmbed({ link }) {
         title={`Youtube embed for ${link}`}
         className={styles.frame}
         src={link} 
-        frameborder="0" 
+        frameBorder="0" 
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen></iframe>)
+        allowFullScreen></iframe>)
 }

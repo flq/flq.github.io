@@ -26,7 +26,11 @@ One could expand the state of the UI with an additional property denoting that s
 
 While this certainly works, there is no quick way to consolidate into the type that the sub-state is only valid for one of the main states and not for the other.
 
-> Well, there is. [The last post][previous] dealt with using discriminated unions for the state type as well. This has its own drawbacks, though - dealing with the type can become cumbersome.
+<Info>
+
+Well, there is. [The last post][previous] dealt with using discriminated unions for the state type as well. This has its own drawbacks, though - dealing with the type can become cumbersome.
+
+</Info>
 
 So, here's another way to represent the dependency between main and sub-state, namely via tuples:
 
