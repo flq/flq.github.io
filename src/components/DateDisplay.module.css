@@ -51,7 +51,7 @@
 
 @media mobile {
   .dateContainer {
-    grid-template-columns: auto auto;
+    grid-template-columns: 1.5rem 3rem;
   }
 
   .year {
