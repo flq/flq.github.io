@@ -1,0 +1,16 @@
+.columnList {
+    display: grid;
+    list-style: circle inside;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fill, 300px);
+    max-width: 100%;
+    font-size: 1.2rem;
+}
+
+.columnList a {
+    text-decoration: none;
+}
+
+.columnList a:hover {
+    text-decoration: underline;
+}

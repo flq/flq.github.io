@@ -1,0 +1,12 @@
+.articleList {
+    font-size: 1.2rem;
+    list-style: circle inside;
+}
+
+.articleList a, .articleListHeader a {
+    text-decoration: none;
+}
+
+.articleList a:hover, .articleListHeader a:hover {
+    text-decoration: underline;
+}

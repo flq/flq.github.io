@@ -7,7 +7,7 @@ import './normalize.css'
 import './base.css'
 import * as styles from './layout.module.css'
 
-import SiteHeader from './siteHeader'
+import SiteHeader from './SiteHeader'
 import Footer from './footer'
 
 const Layout = ({ children }) => {
@@ -24,10 +24,14 @@ const Layout = ({ children }) => {
         ]}
       >
         <html lang="en" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
           rel="stylesheet"
-          type="text/css"
+        />
+        <link
+          href="//fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap"
+          rel="stylesheet"
         />
       </Helmet>
 

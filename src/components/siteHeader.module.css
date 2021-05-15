@@ -23,6 +23,10 @@
 }
 
 .siteHeader {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    letter-spacing: 0.01rem;
+    text-shadow: 2px 1px 1px #999;
     margin: 0 1rem 0 0;
     font-size: 2.2rem;
 }

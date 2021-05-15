@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import useSiteTitle from './useSiteTitle'
-import * as styles from './siteHeader.module.css'
+import * as styles from './SiteHeader.module.css'
 
 const SiteHeader = () => {
   const { title } = useSiteTitle()
