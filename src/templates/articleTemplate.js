@@ -15,6 +15,7 @@ import DateDisplay from '../components/DateDisplay'
 import { TopicToc } from '../components/TopicToc'
 import { Alpha, Beta } from '../components/Discussion'
 import * as styles from './articleTemplate.module.css'
+import PreviousAndNext from '../components/PreviousAndNext'
 
 export default function Template({
   location,
@@ -48,22 +49,9 @@ export default function Template({
         <MDXProvider components={components}>
           <MDXRenderer className="blog-post__content">{body}</MDXRenderer>
         </MDXProvider>
-        <h2>Previous &amp; Next</h2>
-        <div className="blog-post__pagination">
-          {previous && (
-            <a
-              className="blog-post__pagination--previous"
-              href={previous.fields.slug}
-            >
-              {previous.frontmatter.title}
-            </a>
-          )}
-          {next && (
-            <a className="blog-post__pagination--next" href={next.fields.slug}>
-              {next.frontmatter.title}
-            </a>
-          )}
-        </div>
+        <PreviousAndNext 
+          previous={previous && { slug: previous.fields.slug, title: previous.frontmatter.title }}
+          next={next && { slug: next.fields.slug, title: next.frontmatter.title }} />
         <h2>Comments</h2>
         <div className="blog-post__footer">
           <Disqus

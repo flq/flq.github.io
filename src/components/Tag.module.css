@@ -30,7 +30,7 @@
 }
 
 .tagOuter:hover {
-    text-shadow: #FFF 0px 0px 5px, #7791b3 0px 0px 10px;
+    text-shadow: var(--linkHoverHighlight);
 }
 
 .tag::after {
