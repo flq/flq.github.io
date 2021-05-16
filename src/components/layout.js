@@ -8,7 +8,7 @@ import './base.css'
 import * as styles from './layout.module.css'
 
 import SiteHeader from './SiteHeader'
-import Footer from './footer'
+import Footer from './Footer'
 
 const Layout = ({ children }) => {
   const { title, description } = useSiteTitle()
