@@ -113,5 +113,5 @@ function slugify(value) {
  * @param {string} value
  */
 function slugifyDate(value) {
-  return format(value, 'YYYY/MM/DD')
+  return format(new Date(value), 'yyyy/MM/dd')
 }
