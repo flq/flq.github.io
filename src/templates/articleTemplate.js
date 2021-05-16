@@ -16,7 +16,6 @@ import * as styles from './articleTemplate.module.css'
 import PreviousAndNext from '../components/PreviousAndNext'
 
 export default function Template({
-  location,
   data, // this prop will be injected by the GraphQL query below.
   pageContext,
 }) {
@@ -46,10 +45,10 @@ export default function Template({
         <MDXProvider components={components}>
           <MDXRenderer className="blog-post__content">{body}</MDXRenderer>
         </MDXProvider>
-        <PreviousAndNext 
+      </article>
+      <PreviousAndNext 
           previous={previous && { slug: previous.fields.slug, title: previous.frontmatter.title }}
           next={next && { slug: next.fields.slug, title: next.frontmatter.title }} />
-      </article>
     </Layout>
   )
 }
