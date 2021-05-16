@@ -1,0 +1,20 @@
+.alpha {
+  margin-right: 20%;
+}
+
+.beta {
+  margin-left: 20%;
+}
+
+.alpha::before {
+  content: 'η: «';
+}
+
+.alpha::after,
+.beta::after {
+  content: '»';
+}
+
+.beta::before {
+  content: 'μ: «';
+}
