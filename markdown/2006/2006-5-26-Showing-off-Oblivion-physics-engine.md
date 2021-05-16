@@ -8,4 +8,4 @@ redirect_from: /go/14/
 
 Too much time on your hands? Well, why not do your own Domino days in some virtual reality? 
 
-<object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/UyHiIeBsc9E"></param><embed src="http://www.youtube.com/v/UyHiIeBsc9E" type="application/x-shockwave-flash" width="425" height="350"></embed></object>
+<YouTubeEmbed link="https://www.youtube.com/embed/UyHiIeBsc9E" />
