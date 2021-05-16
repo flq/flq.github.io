@@ -1,12 +1,10 @@
 import React, { useMemo } from 'react'
 import { graphql } from 'gatsby'
-import { Disqus } from 'gatsby-plugin-disqus'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Helmet from 'react-helmet'
 import { MDXProvider } from '@mdx-js/react'
 import Gist from 'react-gist'
 import Layout from '../components/layout'
-import useSiteMetadata from '../hooks/useSiteMetadata'
 import Tags from '../components/Tag'
 import { YouTubeEmbed } from '../components/YouTubeEmbed'
 import { Tweet } from '../components/Tweet'
@@ -22,7 +20,6 @@ export default function Template({
   data, // this prop will be injected by the GraphQL query below.
   pageContext,
 }) {
-  const { siteUrl } = useSiteMetadata()
   const {
     mdx: { body, frontmatter },
   } = data
@@ -52,15 +49,6 @@ export default function Template({
         <PreviousAndNext 
           previous={previous && { slug: previous.fields.slug, title: previous.frontmatter.title }}
           next={next && { slug: next.fields.slug, title: next.frontmatter.title }} />
-        <h2>Comments</h2>
-        <div className="blog-post__footer">
-          <Disqus
-            config={{
-              url: siteUrl + location.pathname,
-              title: frontmatter.title,
-            }}
-          />
-        </div>
       </article>
     </Layout>
   )

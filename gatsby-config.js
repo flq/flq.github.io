@@ -108,12 +108,6 @@ module.exports = {
         icon: 'src/images/icon.png',
       },
     },
-    'gatsby-plugin-sitemap',
-    {
-      resolve: `gatsby-plugin-disqus`,
-      options: {
-        shortname: `realfiction`
-      }
-    }
+    'gatsby-plugin-sitemap'
   ],
 }
