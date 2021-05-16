@@ -1,10 +1,20 @@
 import React from 'react'
 import * as styles from './Footer.module.css'
 
-const Footer = () => (
-  <footer className={styles.footer}>
-      &copy; Frank Quednau {new Date().getFullYear()}
-  </footer>
-)
-
-export default Footer
+export default function Footer() {
+  return (
+    <footer className={styles.footer}>
+      <a
+        rel="license noopener noreferrer"
+        target="_new"
+        href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+      >
+        <img
+          alt="Creative Commons License"
+          src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"
+        />
+      </a>
+      <p>Frank Quednau {new Date().getFullYear()}</p>
+    </footer>
+  )
+}
