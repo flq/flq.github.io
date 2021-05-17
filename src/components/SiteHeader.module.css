@@ -46,6 +46,7 @@
 
 .siteLink:not(:first-child)::before {
     content: " | ";
+    color: black;
     margin: 0 0.25rem;
     text-decoration: none;
     display: inline-block;

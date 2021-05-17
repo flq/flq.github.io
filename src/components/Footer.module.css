@@ -1,7 +1,7 @@
 @value ipad, desktop, largeDesktop from "./breakpoints.css";
 
 .main {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     padding-top: 0.5rem;
