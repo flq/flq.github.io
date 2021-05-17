@@ -7,7 +7,7 @@ const SiteHeader = () => {
   const { title } = useSiteTitle()
   return (
     <nav className={styles.siteNav}>
-      <div className={styles.centering}>
+      <div className={styles.main}>
         <h1 className={styles.siteHeader}>
           <a className={styles.mainLink} href="/">
             {title}

@@ -1,4 +1,4 @@
-@value ipad, desktop from "./breakpoints.css";
+@value ipad, desktop, largeDesktop from "./breakpoints.css";
 
 .siteNav {
     display: flex;
@@ -14,7 +14,7 @@
     left: 0;
 }
 
-.centering {
+.main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -52,13 +52,19 @@
 }
 
 @media ipad {
-    .centering {
+    .main {
         width: 90%;
     }
 }
 
 @media desktop {
-    .centering {
+    .main {
         width: 70%;
+    }
+}
+
+@media largeDesktop {
+    .main {
+        width: 55%;
     }
 }

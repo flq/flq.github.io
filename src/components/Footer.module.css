@@ -1,4 +1,6 @@
-.footer {
+@value ipad, desktop, largeDesktop from "./breakpoints.css";
+
+.main {
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -10,11 +12,29 @@
     border-top: var(--lightSeparator);
 }
 
-.footer img {
+.main img {
     margin: 0.25rem;
     box-shadow: none;
 }
 
-.footer p {
+.main p {
     margin: 0.25rem;
+}
+
+@media ipad {
+    .main {
+        width: 90%;
+    }
+}
+
+@media desktop {
+    .main {
+        width: 70%;
+    }
+}
+
+@media largeDesktop {
+    .main {
+        width: 55%;
+    }
 }

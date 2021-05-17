@@ -3,7 +3,7 @@ import * as styles from './Footer.module.css'
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.main}>
       <a
         rel="license noopener noreferrer"
         target="_new"
