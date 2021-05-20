@@ -1,4 +1,6 @@
 @value mobile: (min-width: 500px);
 @value ipad: (min-width: 768px);
 @value desktop: (min-width: 1200px);
-@value largeDesktop: (min-width: 2300px);
+@value largeDesktop: (min-width: 2000px);
+
+@value mainSizeLargeDesktop: 1060px;

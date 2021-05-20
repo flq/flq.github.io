@@ -1,4 +1,4 @@
-@value ipad, desktop, largeDesktop from "./breakpoints.css";
+@value ipad, desktop, largeDesktop, mainSizeLargeDesktop from "./breakpoints.css";
 
 .layout {
     display: flex;
@@ -25,6 +25,6 @@
 
 @media largeDesktop {
     .main {
-        width: 50%;
+        width: mainSizeLargeDesktop;
     }
 }

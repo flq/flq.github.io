@@ -56,6 +56,10 @@ blockquote:before {
   vertical-align: -0.4em;
 }
 
+pre[class*="language-"] {
+  font-size: 1rem;
+}
+
 h1 {
   font-size: 2.1rem;
   line-height: 1.2;
