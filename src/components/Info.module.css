@@ -1,38 +1,32 @@
-@value ipad, desktop from "./breakpoints.css";
-
 .infoContainer {
   display: flex;
   justify-content: center;
 }
 
 .info {
+  position: relative;
   background: rgb(198, 248, 255);
   border-left: 10px solid var(--linkColor);
   padding: 1rem 0.25rem;
   margin-bottom: 2.5rem;
   box-shadow: var(--standardShadow);
-  width: 95%;
+  
+  padding-left: 60px;
   quotes: '\201C''\201D''\2018''\2019';
 }
 
+.info > p {
+  margin: 0;
+}
+
 div.info:before {
+  position: absolute;
+  left: 5px;
   color: var(--linkColor);
   content: '\24D8';
-  font-size: 2em;
+  font-size: 1.8em;
   font-family: helvetica;
-  line-height: 0.1em;
+  
   margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
-
-@media ipad {
-    .info {
-        width: 80%;
-    }
-}
-
-@media desktop {
-    .info {
-        width: 70%;
-    }
+  vertical-align: -0.2em;
 }

@@ -58,6 +58,11 @@ blockquote:before {
 
 pre[class*="language-"] {
   font-size: 1rem;
+  box-shadow: var(--standardShadow);
+}
+
+a {
+  text-decoration-style: dotted;
 }
 
 h1 {
