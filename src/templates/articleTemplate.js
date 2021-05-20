@@ -20,7 +20,7 @@ export default function Template({
   pageContext,
 }) {
   const {
-    mdx: { body, frontmatter },
+    mdx: { excerpt, body, frontmatter },
   } = data
   const { previous, next } = pageContext
 
@@ -33,7 +33,14 @@ export default function Template({
     <Layout>
       <Helmet
         title={frontmatter.title}
-        meta={[{ name: 'keywords', content: frontmatter.tags.join(', ') }]}
+        meta={[
+          { name: 'keywords', content: frontmatter.tags.join(', ') },
+          { name: 'twitter:card', content: "summary" },
+          { name: 'twitter:title', content: frontmatter.title },
+          { name: 'twitter:site:id', content: "fquednau" },
+          { name: 'twitter:description', content: excerpt },
+          { name: 'twitter:image', content: "https://realfiction.net/icons/icon-72x72.png" },
+        ]}
       />
 
       <article>
@@ -56,6 +63,7 @@ export default function Template({
 export const pageQuery = graphql`
   query($title: String!) {
     mdx(frontmatter: { title: { eq: $title } }) {
+      excerpt(pruneLength: 150)
       body
       fields {
         slug
