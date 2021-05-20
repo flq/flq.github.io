@@ -35,7 +35,6 @@
     "start:prod": "yarn run build && gatsby serve",
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
     "publish": "gh-pages -d public -b master",
     "deploy": "gatsby build && yarn run publish"
