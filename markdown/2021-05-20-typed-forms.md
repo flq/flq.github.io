@@ -35,7 +35,7 @@ The `TypedFormEvent` is the same as the React event, but adds the elements you s
 
 <Info>
 
-Please excuse my use of single-lettered type arguments. I know Kent's position on that one 😅. I've been using generics in C# since roughly 2008 and some old habits die hard, I sometimes _actually get confused_ when I read full type names as generic type arguments. I do add more info at times, but when the type in question is actually irrelevant, I do use single-lettered types. Please forgive me using **T** as "some type" and **K** as "type of some type's keys".
+Please excuse my use of single-lettered type arguments. I know Kent's position on that one 😅. I've been using generics in C# since roughly 2008 and some old habits die hard, I sometimes _get confused_ when I read full type names as generic type arguments. I do add more info at times, but when the type in question is actually irrelevant, I use single-lettered types. I'll be using **T** as "some type" and **K** as "type of some type's keys".
 
 </Info>
 
