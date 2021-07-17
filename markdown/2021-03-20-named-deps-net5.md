@@ -101,8 +101,15 @@ var someNamedDependency = lookup["CoolName"]
 
 The relevant interface is still easy enough to mock in some test should you wish to do so. Finally, it is also straightforward to find its usage in the code, which was an excellent point being made in Steve's post. 
 
+## Addendum
+
+This blog post contains quite some hand-waiving. If you're interested in the concrete code of my proof of concept, check out [this gist][gist]:
+
+<Gist id="a4ee6064cec34adbf08632796fd75904" />
+
 [1]: https://stevetalkscode.co.uk/named-dependencies-part-2
 [eric]: https://stackoverflow.com/a/14586368/51428
 [ahead intranet]: https://aheadintranet.com
 [Autofac]: https://autofac.org/
 [recording]: https://www.youtube.com/watch?v=0x2KW-dJDQU
+[gist]: https://gist.github.com/flq/a4ee6064cec34adbf08632796fd75904

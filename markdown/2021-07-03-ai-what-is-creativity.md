@@ -22,11 +22,16 @@ Some results are quite stunning and if nobody would tell you who created what an
 
 In [AI Designs Quantum Physics Experiments Beyond What Any Human Has Conceived][science], Quantum physicists have trained a system, based on the knowledge on how to "compose" certain types of quantum entanglement experiments. This it apparently can do better than the creators of said system. Again, an amazing read.
 
+## The Software
+
+Last week, [github copilot][gh] was introduced, and it looks like quite a few developers that could try it out were quite impressed! Follow the link to learn about it.
+
 ## Creativity
 
 One day, my son looks at a traffic sign that was lying on the pavement. He put himself on top of it, imagining that the whole thing is now a surfboard. One bypasser remarked "Oh, how creative he is". I didn't say much, kind of disagreed internally, but maybe there isn't much more to creativity than simply forgetting about the rules and trying stuff out until something sticks and is considered brilliant and creative by others.
 
-Are those systems creative in their own right, or still just tools? What if we completely overestimate what *we* are - maybe we are just also just tools - tools of *evolution*. It's our damn precious **egos** that make us think that we are somehow more special than those AIs doing interesting things for us. Strip that away from us and we're still all trying stuff out in that crazy lottery game called life, one iteration at a time.
+Are those systems creative in their own right, or still just tools? What if we completely overestimate what *we* are - maybe we are also just tools (_pun aside_) - tools of *evolution*. Maybe it is our damn precious **egos** that make us think that we are more special than those AIs doing interesting things for us. Strip that away from us and we're still all trying stuff out in that crazy lottery game called life, one iteration at a time.
 
 [art]: https://ml.berkeley.edu/blog/posts/clip-art/
 [science]: https://www.scientificamerican.com/article/ai-designs-quantum-physics-experiments-beyond-what-any-human-has-conceived/
+[gh]: https://copilot.github.com/
