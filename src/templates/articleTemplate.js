@@ -6,14 +6,16 @@ import { MDXProvider } from '@mdx-js/react'
 import Gist from 'react-gist'
 import Layout from '../components/layout'
 import Tags from '../components/Tag'
+import DateDisplay from '../components/DateDisplay'
+import * as styles from './articleTemplate.module.css'
+import PreviousAndNext from '../components/PreviousAndNext'
+
+import { Alpha, Beta } from '../components/Discussion'
 import { YouTubeEmbed } from '../components/YouTubeEmbed'
 import { Tweet } from '../components/Tweet'
 import { Info } from '../components/Info'
-import DateDisplay from '../components/DateDisplay'
 import { TopicToc } from '../components/TopicToc'
-import { Alpha, Beta } from '../components/Discussion'
-import * as styles from './articleTemplate.module.css'
-import PreviousAndNext from '../components/PreviousAndNext'
+import { Math } from '../components/Math'
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -25,7 +27,7 @@ export default function Template({
   const { previous, next } = pageContext
 
   const components = useMemo(
-    () => ({ YouTubeEmbed, Tweet, Info, TopicToc, Gist, Alpha, Beta }),
+    () => ({ YouTubeEmbed, Tweet, Info, TopicToc, Gist, Alpha, Beta, Math }),
     []
   )
 
