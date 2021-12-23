@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-templates-tag-template-js","path":"/tags/conferences","result":{"data":{"allMdx":{"edges":[{"node":{"fields":{"slug":"/2010/11/29/links-around-øredev-2010"},"frontmatter":{"title":"Links around Øredev 2010"}}},{"node":{"fields":{"slug":"/2010/11/24/øredev-aftermath-improve-your-feedback-with-patrick-kua"},"frontmatter":{"title":"Øredev aftermath: Improve your Feedback with Patrick Kua"}}},{"node":{"fields":{"slug":"/2010/11/11/øredev-keynote-1-nasas-jeff-norris"},"frontmatter":{"title":"Øredev keynote #1: NASA's Jeff Norris"}}}]}},"pageContext":{"tag":"conferences"}},"staticQueryHashes":["256249292"]}
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/conferences",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"fields":{"slug":"/2010/11/29/links-around-øredev-2010"},"frontmatter":{"title":"Links around Øredev 2010"}}},{"node":{"fields":{"slug":"/2010/11/24/øredev-aftermath-improve-your-feedback-with-patrick-kua"},"frontmatter":{"title":"Øredev aftermath: Improve your Feedback with Patrick Kua"}}},{"node":{"fields":{"slug":"/2010/11/11/øredev-keynote-1-nasas-jeff-norris"},"frontmatter":{"title":"Øredev keynote #1: NASA's Jeff Norris"}}}]}},"pageContext":{"tag":"conferences"}},
+    "staticQueryHashes": ["256249292"]}

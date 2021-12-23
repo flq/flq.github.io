@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-templates-tag-template-js","path":"/tags/human-condition","result":{"data":{"allMdx":{"edges":[{"node":{"fields":{"slug":"/2021/02/27/notes-on-interview-with-neuroscientist-dr-andrew-huberman"},"frontmatter":{"title":"Notes on Interview with Neuroscientist Dr. Andrew Huberman"}}},{"node":{"fields":{"slug":"/2021/01/31/resource-based-economy"},"frontmatter":{"title":"Resource-based economy"}}}]}},"pageContext":{"tag":"human-condition"}},"staticQueryHashes":["256249292"]}
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/human-condition",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"fields":{"slug":"/2021/02/27/notes-on-interview-with-neuroscientist-dr-andrew-huberman"},"frontmatter":{"title":"Notes on Interview with Neuroscientist Dr. Andrew Huberman"}}},{"node":{"fields":{"slug":"/2021/01/31/resource-based-economy"},"frontmatter":{"title":"Resource-based economy"}}}]}},"pageContext":{"tag":"human-condition"}},
+    "staticQueryHashes": ["256249292"]}
