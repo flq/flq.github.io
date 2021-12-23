@@ -13,7 +13,7 @@ If you agree, I'll save you the time and say that you can go and use your time s
 
 The idea that there is an objective reality that keeps ticking away independently of us is an old one and one that is attractive to many people, as it implies that you are mature enough to relativize your importance in the Cosmos. 
 
-In the meantime, we arrived in the 21st century and we know for roughly 100 years that the foundation of reality has an issue with you being the objective observer of a clockwork universe. Quantum Mechanics told us that whatever subatomic particles actually are, they interact with each other by exchanging other subatomic particles. The important point to note is that you cannot value one side of the interaction more than the other. The source and the target of the interaction are of equal value and equally participate in the ongoing activity - to stretch an old meme: *In Soviet Russia, particles observe you*. 
+In the meantime, we arrived in the 21st century and we've known for roughly 100 years that the idea of you being the objective observer of a clockwork universe is riddled with difficulties. Quantum Mechanics taught us that whatever subatomic particles actually are, they interact with each other by exchanging other subatomic particles. The important point to note is that you cannot value one side of the interaction more than the other. The source and the target of the interaction are of equal value and equally participate in the ongoing activity.
 
 From this we can deduce two things: 
 
