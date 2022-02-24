@@ -35,18 +35,25 @@ Also, I think fundamentally, only a democracy is capable to **respect basic huma
 
 ## Placing money over values
 
-Unfortunately, in the frenzy of globalization, we forgot a little detail - much of the world isn't democratic. We made business with countries that would routinely violate very basic values. Human rights, slavery, oppression. Countries like Germany, who only a few decades ago had learned what happens when you let a small group of fanatics use and abuse the power of a nation through fear and oppression would do business with what were essentially notorious and corrupt abusers of power. And of course, the people doing business were just meeting other people - in an exchange of goods. And sure, you could not inflict your democratic values to all other nations. After all, the belief, especially after the fall of the Soviet Union was, that our system was superior anyway, and the world would automatically come to terms with it and adopt it. 
+Unfortunately, in the frenzy of globalization, we forgot a _little_ detail - much of the world isn't democratic. We made business with countries that would routinely violate very basic values. Human rights, slavery, oppression. Countries like Germany, who only a few decades ago had learned what happens when you let a small group of fanatics use and abuse the power of a nation through fear and oppression would do business with what were essentially notorious and corrupt abusers of power. And of course, the people doing business were just meeting other people - in an exchange of goods. And sure, you could not inflict your democratic values to all other nations. After all, the belief, especially after the fall of the Soviet Union was, that our system was superior anyway, and the world would automatically come to terms with it and adopt it. 
 
 **Alas, this approach has failed.**
 
 ## Democracy is not a sure-fire success
 
-in-group out-group. democracy must be learned. it is the hardest way to wield power.
+Democracy is **hard**. It requires you to listen to people whose viewpoints might go diamterically opposite to yours. I think we all agree that if you believe in democracy you must **draw a hard line towards any groups that actively oppose democracy itself**. Self-defence is and will always be the highest value for everyone. But even so, finding solutions within the context of assuming that a compromise is the correct way to do it, requires learning, and training. These skills are part of us, but they need to be honed and need nurturing to see that they do work.
 
-then you have people 
+Here, in this area, we have failed miserably lately. Partly thinking that our democracy is secure, partly becoming very comfortable in our wealth, we are now in a situation were our core values have been gradually slipping away. 
 
+The discourse in Germany around people unwilling to vaccinate has been **abysmal** - instead of this being about the crazy situation in which our health service workers had been put in, it became some weird clash of, I don't know, frantic ideology war, in which a perfectly diverse and inhomogeneous group, the unvaccinated, were lumped together into a single group and treated accordingly. By definition of democracy, this was mostly undemocratic. Remember, democracy is **hard**. It requires you to identify different interests, understand their needs, and seek solutions with those who are willing to participate in a democratic process, thereby strengthening bonds and expanding your horizon. We seen to have trouble doing this lately. 
 
+Now guess **who** is happily pouring gasoline into the fire we have caused by letting the core strength of democracy become a weakness through lack of education and lack of communicating to our diverse ethnicities that coexist here in Germany what the core values of this country after WW2 were at some point.
 
+Yes, the very same person who caused this avalanche of words.
+
+## Too much power drives every man mad 
+
+Validimir Putin has been in power since 1999. As such, he is a dictator, whatever shallow institutions may be around him. They constitute a collection of yea-sayers and lickspittles. 23 years of this, just imagine how corrupt and distorted your mind must be. Putin probably genuinely believes that he is the only one who can fix all the shortcomings of his great nation. He has a deep dislike of democratic powers and thinks the system is inferior. His attack on Ukraine, beyond being an atrocity is an attack on the core values that once existed and in some ways may still exist, in western nations. I cannot interpret it any other way, considering that he has been working for years on sawing distrust and malice through social media in the populace of democratic nations.
 
 
 China - wealth yes, but at the cost of other groups. A lack of diversity will make you weak.
