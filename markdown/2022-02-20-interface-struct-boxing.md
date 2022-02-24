@@ -28,7 +28,7 @@ static string SwitchOnValue2(IPrimitive<string> value) =>
   // identical to the first version
 ```
 Notice the different argument type and the first version being generic while the second isn't.
-With the wonderful [BenchmarkDotNet][1] set up two benchmarks that would call each version with the same structs...
+With the wonderful [BenchmarkDotNet][1], I set up two benchmarks that would call each version with the same structs...
 
 ```csharp
 [Benchmark]
@@ -55,7 +55,7 @@ Once the benachmark program did its job, I was rewarded with a great confirmatio
 | CallingTheSwitch2 | 20.872 ns | 0.4560 ns | 0.5068 ns | 0.0102 |      48 B |
 ```
 
-The generic method will not do any boxing, T really is the struct and the fact that
+The generic method will not do any boxing, **T** really is the struct and the fact that
 you used an interface for constraining the value is irrelevant.
 In the second case however, using the Interface requires a boxing operation of the struct
 with allocation and a significant performance penalty.
