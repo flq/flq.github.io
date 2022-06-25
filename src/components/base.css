@@ -4,6 +4,8 @@
   --linkColor: #1eaedb;
   --linkHoverHighlight: #FFF 0px 0px 5px, #7791b3 0px 0px 10px;
   --background: white;
+  --backgroundHeader: white;
+  --text: black;
   --sidePadding: 0.75rem;
   --topShadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.55);
   --lightSeparator: 1px solid lightgray;
@@ -11,8 +13,19 @@
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #110011;
+    --backgroundHeader: black;
+    --text: #d8d7d3;
+    --topShadow: 0px 5px 7px 0px rgba(200, 20, 20, 0.55);
+  }
+}
+
 body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  background: var(--background);
+  color: var(--text);
   line-height: 1.6;
   font-weight: 400;
   font-family: Raleway, HelveticaNeue, Helvetica Neue, Helvetica, Arial,
