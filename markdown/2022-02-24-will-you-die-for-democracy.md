@@ -2,7 +2,7 @@
 title: "How far will you go to defend democracy?"
 layout: post
 tags: [human-condition]
-date: 2022-02-24 22:00:00
+date: 2022-06-25 23:00:00
 ---
 
 <Alpha>How do you stop a bully?</Alpha>
@@ -13,7 +13,7 @@ My Dad, born 1937, was of the conviction that people like Nazis only understood 
 
 I think that right after World War 2 there were many people in Europe who were convinced that democratic institutions, and tying together nations into checks & balances, diplomacy were the way forward to avoid such immense bloodshed as the one that took place from 1938 to 45. The **EU** was formed. The **NATO** was formed. The **UN** was formed. Looking from my place in time here, it looks like the political elite, by extension of the highest sovereign in a democratic nation, the populace, was willing to seek better ways to deal with conflicts.
 
-### And boy, did it work!
+### And it worked!
 
 The world connected, the economies connected, many, many people got wealthy and rich. The world economy, innovation, it all knew only one direction...↗️
 
@@ -55,14 +55,8 @@ Yes, the very same person who caused this avalanche of words.
 
 Validimir Putin has been in power since 1999. As such, he is a dictator, whatever shallow institutions may be around him. They constitute a collection of yea-sayers and lickspittles. 23 years of this, just imagine how corrupt and distorted your mind must be. Putin probably genuinely believes that he is the only one who can fix all the shortcomings of his great nation. He has a deep dislike of democratic powers and thinks the system is inferior. His attack on Ukraine, beyond being an atrocity is an attack on the core values that once existed and in some ways may still exist, in western nations. I cannot interpret it any other way, considering that he has been working for years on sawing distrust and malice through social media in the populace of democratic nations.
 
+## ...
 
-China - wealth yes, but at the cost of other groups. A lack of diversity will make you weak.
-
-
-## When money replaces values
-
-In the past years I often had the feeling that we had crossed peak capitalism. The truth is though that many people have simply become **capitalism extremists**. They are not guided by any values that inform their decision, they are driven by becoming rich. Since capitalism was only ever a tool to let us work together at scale, you suddenly have people that literally worship a hammer - and do not care anymore if the neighbour's house gets built with it or not.
-
-Money was never the key to success. It was the **motivation** to _where_ it should flow. Peak capitalism was a phase where the individual search for wealth and the needs of humanity as a whole did not sufficiently align anymore.
-
-## When a single person dictates policy
+<Info>
+I wrote this the 24th of February (Putin invading Ukraine) and never finished it. Most things have already been said at nauseam in the (social) media in the past months. Incredible that this has been going on so long already, I am sorry for the Ukrainian people and I wish more people would be aware of what is at stake.
+</Info>
