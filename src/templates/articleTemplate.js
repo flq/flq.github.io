@@ -14,6 +14,7 @@ import { Alpha, Beta } from '../components/Discussion'
 import { YouTubeEmbed } from '../components/YouTubeEmbed'
 import { Tweet } from '../components/Tweet'
 import { Info } from '../components/Info'
+import { GHEmbed } from '../components/GHEmbed'
 import { TopicToc } from '../components/TopicToc'
 import { Math } from '../components/Math'
 
@@ -27,7 +28,7 @@ export default function Template({
   const { previous, next } = pageContext
 
   const components = useMemo(
-    () => ({ YouTubeEmbed, Tweet, Info, TopicToc, Gist, Alpha, Beta, Math }),
+    () => ({ YouTubeEmbed, Tweet, Info, TopicToc, Gist, Alpha, Beta, Math, GHEmbed }),
     []
   )
 
