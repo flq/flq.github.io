@@ -42,7 +42,7 @@ export function GHEmbed({
       )
     )
     return () => (script.innerHTML = '')
-  }, [repo, file, branch, user])
+  }, [repo, file, branch, user, start, end])
 
   return <div ref={scriptTarget} />
 }
