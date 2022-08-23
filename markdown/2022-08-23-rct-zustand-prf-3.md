@@ -2,7 +2,7 @@
 title: "Using zustand in react - performance gains (Pt. 2)"
 layout: post
 tags: [tools, typescript, react]
-date: 2022-08-23 15:00:00
+date: 2022-08-23 21:45:00
 topic: "zustand-perf"
 ---
 
