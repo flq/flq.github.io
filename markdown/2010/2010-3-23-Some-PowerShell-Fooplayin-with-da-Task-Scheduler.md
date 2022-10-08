@@ -25,13 +25,13 @@ $tasks = $ST.GetFolder("\").GetTasks(0) |
   where { $_.Enabled -eq $true -and $_.Name.StartsWith("Some.Pattern") }
 ```
 
-Tasks are obviously objects with properties and methods, hence we may just want to look at their names
+Tasks are obviously objects with properties and methods, hence we may want to look at their names
 
 ```powershell
 $tasks | select name</pre></div>
 ```
 
-Now, we can just disable them.
+Now, we can disable them.
 
 ```powershell
 $tasks | foreach { $_.Enabled = $false }

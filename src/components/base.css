@@ -54,6 +54,12 @@ img {
   box-shadow: var(--standardShadow);
 }
 
+@media (min-width: 768px) {
+  img {
+    max-width: 80%;
+  } 
+}
+
 blockquote {
   background: var(--highlight-background);
   border-left: 10px solid #ccc;
@@ -62,10 +68,15 @@ blockquote {
   color: var(--text);
 }
 
+blockquote p {
+  margin: 0;
+  font-size: 0.8em;
+}
+
 blockquote:before {
   color: #ccc;
   content: '\201D';
-  font-size: 4em;
+  font-size: 3em;
   font-family: helvetica;
   line-height: 0.1em;
   margin-right: 0.25em;

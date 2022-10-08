@@ -9,7 +9,6 @@
   color: black;
   border-left: 10px solid var(--linkColor);
   padding: 1rem 0.25rem;
-  margin-bottom: 2.5rem;
   box-shadow: var(--standardShadow);
   
   padding-left: 60px;
