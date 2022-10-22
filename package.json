@@ -20,7 +20,6 @@
     "gatsby-plugin-sitemap": "^5.24.0",
     "gatsby-remark-prismjs": "^6.24.0",
     "gatsby-source-filesystem": "^4.24.0",
-    "gatsby-transformer-sharp": "^4.24.0",
     "postscribe": "^2.0.8",
     "prismjs": "^1.29.0",
     "react": "^17.0.2",
