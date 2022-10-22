@@ -1,0 +1,38 @@
+@value desktop, ipad from "../components/breakpoints.css";
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    list-style: none;
+}
+
+@media ipad {
+    .list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media desktop {
+    .list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.year {
+    display: flex;
+    flex-flow: column;
+    text-decoration: none;
+    border: 1px solid var(--separatorColor);
+    padding: 0.5rem;
+}
+
+.year span:first-child {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.year span:last-child {
+    text-align: right;
+    font-size: smaller;
+  }

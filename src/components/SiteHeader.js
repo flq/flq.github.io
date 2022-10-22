@@ -14,6 +14,9 @@ const SiteHeader = () => {
           </a>
         </h1>
         <div>
+          <Link className={styles.siteLink} to="/archive">
+            Archive
+          </Link>
           <Link className={styles.siteLink} to="/tags">
             Tags
           </Link>
