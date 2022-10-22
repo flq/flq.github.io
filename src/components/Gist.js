@@ -17,7 +17,7 @@ export function Gist({ id, file }) {
             )
         )
         return () => (script.innerHTML = '')
-    }, [id], file)
+    }, [id, file])
 
     return <div ref={scriptTarget} />
 }

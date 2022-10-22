@@ -3,6 +3,7 @@ title: "Careful, mate"
 layout: post
 tags: [human-condition, humour]
 date: 2022-10-08 22:15:00
+leadImage: /assets/careful-mate.jpg
 ---
 
 This image comes up on a regular basis in the interwebs, and I wanted to keep it on my blog, because to me it carries a lot of truth. Simplified, sure, but it shows the most powerful tool the powerful have to protect their oftentimes ill-deserved riches. Framing the discussion. The worst we can do is to accept such framings without asking where they came from.
