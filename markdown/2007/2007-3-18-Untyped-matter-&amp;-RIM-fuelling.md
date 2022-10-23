@@ -1,10 +1,12 @@
 ---
-title: "Untyped matter &amp; RIM fuelling"
+title: "Untyped matter and RIM fuelling"
 layout: post
 tags: [sci-fi]
 date: 2007-03-18 10:40:47
-redirect_from: /go/75/
+topic: "saitron-tech"
 ---
+
+<TopicToc topicId="saitron-tech" header="Tech of the Ii: Multi-resonance Crystals" />
 
 _Untyped matter – matter that is defined in space and time but does not bear any other characteristics of the 4Band continuum, i.e. it has no electrical charge or strong atomic force ‘colour’, it has no mass and no spin. A volume containing untyped matter may also be described as a vacuum whose inherent energy is much greater than the one encountered in our 4Band universe._
 

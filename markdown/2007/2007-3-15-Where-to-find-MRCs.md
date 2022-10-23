@@ -3,12 +3,14 @@ title: "Where to find MRCs"
 layout: post
 tags: [sci-fi]
 date: 2007-03-15 21:00:12
-redirect_from: /go/70/
+topic: "saitron-tech"
 ---
+
+<TopicToc topicId="saitron-tech" header="Tech of the Ii: Multi-resonance Crystals" />
 
 MRCs form in the vicinity of pulsars. Pulsars have extremely strong magnetic fields rotating at considerable speeds. Given these pre-conditions and some other conditions that the surrounding material must fulfil (e.g. its distance from the pulsar, its distribution and its heat), Multi-resonance crystals are formed within a torus-shaped area surrounding the pulsar and its main particle jet. This describes an ideal situation as seen in the figure. Often the magnetic axis will not be perpendicular to the rotational axis, so that the particle streams arising from the rotating neutron star hits possible particles orbiting the Pulsar only at specific locations, turning the ideal resonance ring to resonance spots.
 
-![](files/images/saitech1-fig4.gif)
+![](/assets/saitech1-fig4.gif)
 
 The above picture simplifies the actual situation massively. The particle jet that reaches velocities well into a two digit percentage of the speed of light twists and bends while it is ferociously pulled along by the neutron star’s rotation. In a certain area that surrounds the star around its rotational axis, MRCs form due to the exotic and complex interactions bringing particles into strong entanglement to each other. In certain spots (and only for very limited amounts of time) it leads to the formation of matter that has a completely new state altogether. Those new-found properties are so astonishing that all possible classical measurements hardly describe the crystal’s surface and tell almost nothing about what is going on in the inside. Talking about this being crystalline hardly describes it since the properties of MRCs have little to do with the usual properties that we use to describe typed matter. Yet we will stick to the word for lack of a better term.
 

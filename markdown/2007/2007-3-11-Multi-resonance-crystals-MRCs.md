@@ -3,12 +3,14 @@ title: "Multi-resonance crystals (MRCs)"
 layout: post
 tags: [sci-fi]
 date: 2007-03-11 21:26:10
-redirect_from: /go/69/
+topic: "saitron-tech"
 ---
+
+<TopicToc topicId="saitron-tech" header="Tech of the Ii: Multi-resonance Crystals" />
 
 Looking at multi-resonance crystals as a black box the following diagram describes the crystal’s ability:
 
-![](files/images/saitech1-fig1.gif)
+![](/assets/saitech1-fig1.gif)
 
 The word crystal is somewhat misleading. It merely describes that the internal structure of this spatial entity is very ordered, its complexity arises from the intricate arrangement of very simple causal fields. Why I am using such weird words? Why not calling it a quantum field or something the like? Well, those fields are usually based and calibrated on certain characteristics of entities moving through the Spacetime continuum. In other words, their mass, their charge, their Spacetime relation to other entities with compatible properties, are the cornerstones of such fields. The activities that ensue in a MRC go beyond such concepts. Even those cornerstones are put into question within the realm of a MRC. A thing like charge becomes a variable much like a spatial coordinate that can also be altered through the interaction with other entities  representing charge or spin or other parameters that define a particle. It is therefore appropriate to just talk of causality, or causal effects, since causality is definitely given inside the MRC.
 
@@ -24,14 +26,14 @@ First experiments suggest that a MRC appears completely non-existent to the sub-
 
 Consider the simple experiment where a MRC is shot at with photons at a very small rate:
 
-![](files/images/saitech1-fig2.gif)
+![](/assets/saitech1-fig2.gif)
 
 The MRC appears as if it is not there, the photons pass through it and all is good. 
 When the number of particles shot at the crystal exceeds a certain amount at a given time, a number of strange observations can be undertaken. They all have in common that the spatial description of the particle shot at it becomes detached from its other characteristics, those that are relevant with respect to electromagnetic or gravitational forces.
 
 A classical experiment is the following:
 
-![](files/images/saitech1-fig3.gif)
+![](/assets/saitech1-fig3.gif)
 
 Given a certain rate of photons and electrons shot at two distinct points of the MRC, the flow of photons and electrons behind the crystal is interchanged. With yet another set of initial parameters, the flow of electrons and photons can be mixed. 
 This gets complicated beyond any level you could think of in the next four hours. Even so it should be noted that all theories used for the classification and predictions regarding the crystal’s possibilities and the critical type saturation point all have an empiric core and can only be calculated in a tolerable amount of time through the use of Frequentors, the Iilasian computing devices. Their technological principles are based on the MRC’s properties, which should not come as a surprise to you.

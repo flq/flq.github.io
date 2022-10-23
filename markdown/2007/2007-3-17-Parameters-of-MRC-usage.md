@@ -3,14 +3,16 @@ title: "Parameters of MRC usage"
 layout: post
 tags: [sci-fi]
 date: 2007-03-17 20:10:09
-redirect_from: /go/73/
+topic: "saitron-tech"
 ---
+
+<TopicToc topicId="saitron-tech" header="Tech of the Ii: Multi-resonance Crystals" />
 
 The resulting type<sup>*)</sup> imbalance is however constrained to the physical geometry of the Multi-resonance crystals. It means that the resulting unhinged state of the MRC is not measurable as such from the outside. For any repeatedly used particle resonance<sup>**)</sup>  a saturation point is reached after which the given resonance (e.g. electron and proton to photon) cannot be sustained any longer. After this point the crystal’s reactions are notoriously difficult to predict. The MRC begins to interact with its surroundings and can do so on any level of fundamental forces. Under certain conditions it can even exert a field of strong nuclear force on its surroundings. This is the reason why almost all applications of the MRC are based on its reactions in a non-saturated state.
 
 Just to avoid misunderstandings, the following diagram attempts to put the most important parameters concerning the described system into relation. Please bear in mind that most of those parameters are spanned by an n-dimensional solution domain and that not all relevant parameters are included, especially not when considering the MRC properties when being used beyond the type saturation point.
 
-![](files/images/saitech1-fig4b.png)
+![](/assets/saitech1-fig4b.png)
 
 You can imagine that whole books can be written about MRCs, with them being the foundation of Iilasian technology. Even now, 32’637 Ii-Years   (roughly 26 and a half human millenia) after the DAUGHTER’s departure from the dying sun Yhsuu, improvements are still achieved in usage and yield of MRCs. Operating the crystals within the specifications required by Iilasian technology signifies a constant degradation of the Crystal’s useful properties. Furthermore the so called fully balanced crystal is only a mathematical ideal since no crystal that can be found in the orbit of a pulsar is perfectly balanced. Said crystals are being arbitrarily bombarded with all kinds of particles. Indeed, the lifespan of such crystals in the vicinity of neutron stars is limited to a few weeks, months at best, depending on the characteristics of the neutron star. While most particles will simply pass through the crystal unchanged, some combinations of the bombardment will result in a resonance and generate a corresponding particle stream, thus resulting in the crystal becoming type-imbalanced. This degradation can also be described as the degradation from a pure crystal to an impure one.
 

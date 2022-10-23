@@ -3,8 +3,10 @@ title: "Handling MRCs"
 layout: post
 tags: [sci-fi]
 date: 2007-03-15 21:10:17
-redirect_from: /go/71/
+topic: "saitron-tech"
 ---
+
+<TopicToc topicId="saitron-tech" header="Tech of the Ii: Multi-resonance Crystals" />
 
 Hopefully this is just enough information to be able to deviate a little bit, since we started talking about untyped matter containment and its key role in today’s technology.
 
@@ -17,15 +19,15 @@ Indeed, MRCs were at the beginning a very elusive thing, often lost and very, ve
 Nowadays there are two principal ways to handle MRCs, the oldest one an absolute prerequisite to initiate the latter one. 
 The figure on the following page describes the basic steps of the process to form a material that has classical properties on the one side and MRC-like properties on the other. This configuration allows touching one side with any metal or ceramic without any problem while the other side can contact the surface (in the sense of a boundary layer) of a multi-resonance crystal without causing too much disturbance in it. It has been a long way from the development of the principles and the first experiments done in the way outlined in the figure to today’s manufacturing ships using state-of-the-art dynamic multi-layering techniques. The current quality that is reached for such parts in terms of material properties was quite unimaginable in the early days.
 
-![](files/images/saitech1-fig5.gif)
+![](/assets/saitech1-fig5.gif)
 
 Based on specific PS, type saturation is reached. This leads to the possibility to interact with the MRC via an electromagnetic field (the MRC becomes charged and some of its internal structure obtains a spin) while it is in the process of becoming a normal crystal (e.g. Quartz).
 
-![](files/images/saitech1-fig6.gif)
+![](/assets/saitech1-fig6.gif)
 
 A very strong electromagnet pushes the MRC in the transient state towards the uninfluenced MRC.
 
-![](files/images/saitech1-fig7.gif)
+![](/assets/saitech1-fig7.gif)
 
 The saturated MRC must have entered the spatial domain of the other MRC before its transient state terminates. The two crystals bake together with the one side having classical properties and the other side showing more or less the behaviour of a pure MRC.
 
