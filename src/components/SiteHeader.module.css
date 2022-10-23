@@ -46,8 +46,8 @@
 
 .siteLink:not(:first-child)::before {
     content: " | ";
-    color: black;
-    margin: 0 0.25rem;
+    color: var(--linkColorMain);
+    margin: 0 0.5rem;
     text-decoration: none;
     display: inline-block;
 }
