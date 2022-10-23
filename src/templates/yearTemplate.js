@@ -3,12 +3,13 @@ import { graphql, Link } from 'gatsby'
 import format from 'date-fns/format'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
+import PreviousAndNext from '../components/PreviousAndNext'
 import * as styles from './yearTemplate.module.css'
 
-export default function Template({ data, pageContext }) {
-  const { edges } = data.allMdx
-  const { year } = pageContext
-  const header = `Articles from the year «${year}»`
+const SMALLEST_YEAR = 2004
+const LARGEST_YEAR = 2022
+
+export default function Template({ data: { allMdx: { edges } }, pageContext: { year } }) {
 
   const months = useMemo(() => {
 
@@ -28,6 +29,8 @@ export default function Template({ data, pageContext }) {
     return groups;
 
   }, [edges]);
+  const header = `Articles from the year «${year}»`
+  const yearAsNumber = Number(year);
 
   return (
     <Layout>
@@ -48,6 +51,9 @@ export default function Template({ data, pageContext }) {
           </ul>
         </>))}
       </nav>
+      <PreviousAndNext
+        previous={yearAsNumber > SMALLEST_YEAR && { slug: `/years/${yearAsNumber - 1}`, title: `${yearAsNumber - 1}` }}
+        next={yearAsNumber < LARGEST_YEAR && { slug: `/years/${yearAsNumber + 1}`, title: `${yearAsNumber + 1}` }} />
     </Layout>
   )
 }
