@@ -24,15 +24,20 @@
     flex-flow: column;
     text-decoration: none;
     border: 1px solid var(--separatorColor);
+    border-radius: 5px;
     padding: 0.5rem;
 }
 
 .year span:first-child {
-  font-weight: bold;
-  font-size: larger;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.year:hover span:first-child {
+    text-decoration: underline;
 }
 
 .year span:last-child {
     text-align: right;
     font-size: smaller;
-  }
+}

@@ -6,6 +6,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   const articleTemplate = path.resolve('src/templates/articleTemplate.js')
   const tagTemplate = path.resolve('src/templates/tagTemplate.js')
+  const yearTemplate = path.resolve('src/templates/yearTemplate.js')
 
   return graphql(`
     {
@@ -63,6 +64,25 @@ exports.createPages = ({ actions, graphql }) => {
         component: tagTemplate,
         context: {
           tag,
+        },
+      })
+    })
+
+    // Year pages
+    const allYears = edges.reduce((agg, val) => {
+      const year = new Date(val.node.frontmatter.date);
+      agg[year.getFullYear()] = ""
+      return agg
+    }, {})
+
+    Object.keys(allYears).forEach(year => {
+      createPage({
+        path: `years/${year}`,
+        component: yearTemplate,
+        context: {
+          year,
+          yearStart: `${year}-01-01`,
+          yearEnd: `${year}-12-31`,
         },
       })
     })
