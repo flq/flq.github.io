@@ -1,4 +1,7 @@
-@value ipad, desktop, largeDesktop, mainSizeLargeDesktop from "./breakpoints.css";
+@value ipad,
+desktop,
+largeDesktop,
+mainSizeLargeDesktop from "./breakpoints.css";
 
 .siteNav {
     display: flex;
@@ -22,36 +25,6 @@
     width: 100%;
 }
 
-.siteHeader {
-    font-family: 'Lora', serif;
-    font-style: italic;
-    letter-spacing: 0.01rem;
-    text-shadow: 2px 1px 1px #999;
-    margin: 0 1rem 0 0;
-    font-size: 2.2rem;
-}
-
-.mainLink, .siteLink {
-    text-decoration: none;
-    display: inline-block;
-}
-
-.mainLink:hover, .siteLink:hover {
-    text-decoration: underline;
-}
-
-.mainLink, .mainLink:visited, .siteLink, .siteLink:visited {
-    color: var(--linkColorMain);
-}
-
-.siteLink:not(:first-child)::before {
-    content: " | ";
-    color: var(--linkColorMain);
-    margin: 0 0.5rem;
-    text-decoration: none;
-    display: inline-block;
-}
-
 @media ipad {
     .main {
         width: 90%;
@@ -68,4 +41,51 @@
     .main {
         width: mainSizeLargeDesktop;
     }
+}
+
+.siteHeader {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    letter-spacing: 0.01rem;
+    text-shadow: 2px 1px 1px #999;
+    margin: 0 1rem 0 0;
+    font-size: 2.2rem;
+}
+
+.mainLink,
+.siteLink {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.mainLink:hover,
+.siteLink:hover {
+    text-decoration: underline;
+}
+
+.mainLink,
+.mainLink:visited,
+.siteLink,
+.siteLink:visited {
+    color: var(--linkColorMain);
+}
+
+.siteLink:not(:first-child)::before {
+    content: " | ";
+    color: var(--linkColorMain);
+    margin: 0 0.5rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.visuallyHidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
 }

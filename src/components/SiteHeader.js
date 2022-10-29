@@ -23,6 +23,7 @@ const SiteHeader = () => {
           <Link className={styles.siteLink} to="/about">
             About
           </Link>
+          <a rel="me" className={styles.visuallyHidden} href="https://mas.to/@flq">My profile in the Fediverse</a>
         </div>
       </div>
     </nav>
