@@ -1,14 +1,12 @@
 ---
 title: "Create react app with typescript"
 layout: post
-tags: [programming, web, typescript, react]
+tags: [programming, typescript, react]
 date: 2017-07-23 19:00:00
+topic: "react-intro"
 ---
 
-### "react" series
-1. [Getting into React Part 1][3]
-1. [Getting into React Part 2][4]
-1. Create react app with typescript
+<TopicToc topicId="react-intro" header="Getting into react" />
 
 When I set out to use Typescript in the context of a react application, I was thinking of using some minimal boilerplate
 like [this one here][1] to get going, but then figured out that create-react-app probably has a way to plug in. Io and behold, the analog to create-react-app for typescript can be found [here][2] and is used as follows:
@@ -37,5 +35,3 @@ So, we're off to a good start and we may finally be able to leave the realm of h
 
 [1]: https://github.com/Glavin001/react-hot-ts
 [2]: https://github.com/wmonk/create-react-app-typescript
-[3]: /2017/07/21/getting-into-react-part-1
-[4]: /2017/07/22/getting-into-react-part-2

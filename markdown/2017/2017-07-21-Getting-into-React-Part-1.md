@@ -1,14 +1,12 @@
 ---
 title: "Getting into React Part 1"
 layout: post
-tags: [programming, web, react, javascript]
+tags: [programming, react, javascript]
 date: 2017-07-21 15:30:54
+topic: "react-intro"
 ---
 
-### "react" series
-1. Getting into React Part 1
-1. [Getting into React Part 2][2]
-1. [Create react app with typescript][3]
+<TopicToc topicId="react-intro" header="Getting into react" />
 
 > All posts in this series use versions around July 2017, i.e.<br/>
 > React: late v15s<br/>
@@ -65,5 +63,3 @@ So, yes, I'll definitely not be able to give you answers to all of that, but, wi
 
 
 [1]: https://github.com/flq/flq.github.io
-[2]: /2017/07/22/getting-into-react-part-2
-[3]: /2017/07/23/create-react-app-with-typescript
