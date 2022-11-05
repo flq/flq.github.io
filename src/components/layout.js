@@ -25,6 +25,7 @@ const Layout = ({ children }) => {
       >
         <html lang="en" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel="me" href="https://freiburg.social/@flq" />
         <link
           href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
           rel="stylesheet"
