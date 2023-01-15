@@ -36,7 +36,8 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"src/**/*.js\"",
     "publish": "gh-pages -d public -b master",
-    "deploy": "gatsby build && yarn run publish"
+    "deploy": "gatsby build && yarn run publish",
+    "info": "gatsby info --clipboard"
   },
   "devDependencies": {
     "gh-pages": "^3.2.3",

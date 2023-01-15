@@ -7,7 +7,8 @@ exports.createPages = ({ actions, graphql }) => {
   const articleTemplate = path.resolve('src/templates/articleTemplate.js')
   const tagTemplate = path.resolve('src/templates/tagTemplate.js')
   const yearTemplate = path.resolve('src/templates/yearTemplate.js')
-
+  const Webfinger = path.resolve('src/components/webfinger.js')
+  
   return graphql(`
     {
       allMdx(
@@ -36,6 +37,12 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const { edges } = result.data.allMdx
+
+    // Finger page
+    createPage( {
+      path: "/.well-known/webfinger",
+      component: Webfinger
+    })
 
     // Content pages
     edges.forEach(({ node }, index) => {
