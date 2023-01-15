@@ -38,12 +38,6 @@ exports.createPages = ({ actions, graphql }) => {
 
     const { edges } = result.data.allMdx
 
-    // Finger page
-    createPage( {
-      path: "/.well-known/webfinger",
-      component: Webfinger
-    })
-
     // Content pages
     edges.forEach(({ node }, index) => {
       const previous = index === edges.length - 1 ? null : edges[index + 1].node
