@@ -1,7 +1,7 @@
 ---
 title: "react-redux in a real application - prelude"
 layout: post
-tags: [web, programming, react, javascript]
+tags: [programming, react, javascript]
 date: 2017-07-26 19:38:41
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Getting FubuMVC from github and building it from the command line"
 layout: post
-tags: [ruby, dotnet, web, libs-and-frameworks]
+tags: [ruby, dotnet, libs-and-frameworks]
 date: 2010-02-06 09:46:00
 redirect_from: /go/155/
 ---

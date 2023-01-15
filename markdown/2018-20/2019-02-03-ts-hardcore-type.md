@@ -1,6 +1,6 @@
 ---
 title: "Typescript type shenanigans 2: specify at least one property"
-tags: [web, typescript]
+tags: [typescript]
 date: 2019-02-03 19:00:00
 ---
 

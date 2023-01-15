@@ -1,7 +1,7 @@
 ---
 title: "remorse - the overall application structure"
 layout: post
-tags: [web, programming, react, javascript]
+tags: [programming, react, javascript]
 date: 2017-07-28 17:50:01
 ---
 
