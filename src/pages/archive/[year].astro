@@ -7,21 +7,23 @@ interface Props {
 
 export async function getStaticPaths() {
     const articles = await getCollection("blog");
-    const allTags = [...new Set(articles.flatMap((entry) => entry.data.tags))];
-    return allTags.map((tag) => ({
-        params: { tag },
+    const allYears = [
+        ...new Set(articles.flatMap((entry) => entry.data.date.getFullYear())),
+    ];
+    return allYears.map((year) => ({
+        params: { year },
         props: {
-            entries: articles.filter((a) => a.data.tags.some((t) => t == tag)),
+            entries: articles.filter((a) => a.data.date.getFullYear() === year),
         },
     }));
 }
-const { tag } = Astro.params;
+const { year } = Astro.params;
 const { entries } = Astro.props;
 ---
 
 <SimpleLinkList
-    title={tag!}
-    back={{ link: "/tags", text: "All Tags" }}
+    title={year!}
+    back={{ link: "/archive", text: "Archive" }}
     entries={entries.map(({ slug, data: { title: text } }) => ({
         link: `/posts/${slug}`,
         text,

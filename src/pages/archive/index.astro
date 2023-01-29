@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/main.astro";
+
+const articles = await getCollection("blog");
+const allYears = articles.reduce((agg, val) => {
+    const year = val.data.date.getFullYear().toString();
+    if (agg[year]) agg[year]++;
+    else agg[year] = 1;
+    return agg;
+}, {} as Record<string, number>);
+---
+
+<style lang="scss">
+    @import "../../styles/imports.scss";
+    ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+        list-style: none;
+        @media (min-width: $iPad) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media (min-width: $desktop) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    a {
+        display: flex;
+        flex-flow: column;
+        text-decoration: none;
+        border: 1px solid var(--separatorColor);
+        border-radius: 5px;
+        padding: 0.5rem;
+
+        & span:first-child {
+            font-weight: bold;
+            font-size: larger;
+        }
+
+        &:hover span:first-child {
+            text-decoration: underline;
+        }
+
+        & span:last-child {
+            text-align: right;
+            font-size: smaller;
+        }
+    }
+</style>
+<Layout title="archive">
+    <h1>Archive</h1>
+    <ul>
+        {
+            Object.keys(allYears)
+                .sort((b, a) => a.toLowerCase().localeCompare(b.toLowerCase()))
+                .map((year) => (
+                    <li>
+                        <a href={`/archive/${year}`}>
+                            <span>{year}</span>
+                            <span>({allYears[year]} posts)</span>
+                        </a>
+                    </li>
+                ))
+        }
+    </ul>
+</Layout>

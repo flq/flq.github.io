@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/main.astro";
+interface Link {
+    link: string;
+    text: string;
+}
+interface Props {
+    title: string;
+    back: Link;
+    entries: Link[];
+}
+
+const {
+    title,
+    back: { link: backLink, text: backText },
+    entries,
+} = Astro.props;
+---
+
+<style lang="scss">
+    @import "../styles/imports.scss";
+    h2 a,
+    ul a {
+        @include underlined-links;
+    }
+
+    ul {
+        font-size: 1.2rem;
+        list-style: circle inside;
+    }
+</style>
+<Layout title={title}>
+    <h1>{title}</h1>
+    <nav>
+        <h2>
+            <a href={backLink}>&#8612; {backText}</a>
+        </h2>
+    </nav>
+    <ul>
+        {
+            entries.map(({ link, text }) => (
+                <li>
+                    <a href={link}>{text}</a>
+                </li>
+            ))
+        }
+    </ul>
+</Layout>
