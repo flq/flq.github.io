@@ -1,0 +1,56 @@
+---
+interface Props {
+    meta?: { name: string; content: string }[];
+    title?: string;
+}
+import "prismjs/themes/prism-okaidia.css";
+import "../styles/normalize.css";
+import "../styles/base.css";
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+const title = "realfiction";
+const { meta = [], title: pageTitle } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <title>{`${title}${pageTitle ? " - " + pageTitle : ""}`}</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/favicon.png" type="image/png">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {
+            meta.map(({ name, content }) => (
+                <meta name={name} content={content} />
+            ))
+        }
+        <link rel="me" href="https://freiburg.social/@flq" />
+        <link
+            href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
+            rel="stylesheet"
+        />
+        <link
+            href="//fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap"
+            rel="stylesheet"
+        />
+        <style lang="scss">
+            @import "../styles/imports.scss";
+
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            main {
+                padding: 5rem 0 1rem 0;
+                @include widths;
+            }
+        </style>
+    </head>
+    <body>
+        <Header title={title} />
+        <main><slot /></main>
+        <Footer />
+    </body>
+</html>

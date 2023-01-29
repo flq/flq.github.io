@@ -1,0 +1,48 @@
+<style lang="scss">
+    @import "../styles/imports.scss";
+    footer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        padding-top: 0.5rem;
+        margin-bottom: 2rem;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        border-top: var(--lightSeparator);
+
+        @media (min-width: $iPad) {
+            width: 90%;
+        }
+        @media (min-width: $desktop) {
+            width: 70%;
+        }
+        @media (min-width: $largeDesktop) {
+            width: 55%;
+        }
+
+    }
+
+    .main img {
+        margin: 0.25rem;
+        box-shadow: none;
+    }
+
+    .main p {
+        margin: 0.25rem;
+    }
+</style>
+
+<footer>
+    <a
+        rel="license noopener noreferrer"
+        target="_new"
+        href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+    >
+        <img
+            alt="Creative Commons License"
+            src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"
+        />
+    </a>
+    <p>Frank Quednau {new Date().getFullYear()}</p>
+</footer>

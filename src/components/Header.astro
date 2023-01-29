@@ -1,0 +1,90 @@
+---
+export interface Props {
+    title: string;
+}
+const { title } = Astro.props;
+---
+
+<style lang="scss">
+    @import "../styles/imports.scss";
+    nav {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        padding: 0.5rem var(--sidePadding);
+        box-shadow: var(--topShadow);
+        background-color: var(--backgroundHeader);
+        z-index: 10;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        @include widths;
+    }
+
+    h1 {
+        font-family: "Lora", serif;
+        font-style: italic;
+        letter-spacing: 0.01rem;
+        text-shadow: 2px 1px 1px #999;
+        margin: 0 1rem 0 0;
+        font-size: 2.2rem;
+    }
+
+    a {
+        text-decoration: none;
+        display: inline-block;
+        color: var(--linkColorMain);
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    a:visited {
+        color: var(--linkColorMain);
+    }
+
+    a:not(:first-child)::before {
+        content: " | ";
+        color: var(--linkColorMain);
+        margin: 0 0.5rem;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .visuallyHidden {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+    }
+</style>
+<nav>
+    <div class="main">
+        <h1>
+            <a href="/">
+                {title}
+            </a>
+        </h1>
+        <div>
+            <a href="/archive">Archive</a>
+            <a href="/tags">Tags</a>
+            <a href="/about">About</a>
+            <a rel="me" class="visuallyHidden" href="https://mas.to/@flq">
+                My profile in the Fediverse
+            </a>
+        </div>
+    </div>
+</nav>

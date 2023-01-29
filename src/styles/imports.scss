@@ -1,0 +1,27 @@
+$iPad: 768px;
+$mobile: 500px;
+$desktop: 1200px;
+$largeDesktop: 2000px;
+
+@mixin underlined-links {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+@mixin widths {
+    width: 100%;
+
+    @media (min-width:$iPad) {
+        width: 90%;
+    }
+
+    @media (min-width:$desktop) {
+        width: 70%;
+    }
+
+    @media (min-width:$largeDesktop) {
+        width: var(--mainSizeLargeDesktop);
+    }
+}

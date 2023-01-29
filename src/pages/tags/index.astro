@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/main.astro";
+
+const articles = await getCollection("blog");
+const allTags = [...new Set(articles.flatMap((entry) => entry.data.tags))];
+---
+
+<style>
+    ul {
+        display: grid;
+        list-style: circle inside;
+        grid-auto-flow: row;
+        grid-template-columns: repeat(auto-fill, 300px);
+        max-width: 100%;
+        font-size: 1.2rem;
+    }
+
+    ul a {
+        text-decoration: none;
+    }
+
+    ul a:hover {
+        text-decoration: underline;
+    }
+</style>
+<Layout title="tags">
+    <h1>All known tags</h1>
+    <ul>
+        {
+            allTags.map((tag) => (
+                <li>
+                    <a href={`/tags/${tag}`}>{tag}</a>
+                </li>
+            ))
+        }
+    </ul>
+</Layout>

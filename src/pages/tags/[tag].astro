@@ -1,0 +1,51 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/main.astro";
+import type Slug from "../posts/[slug].astro";
+interface Props {
+    entries: CollectionEntry<"blog">[];
+}
+
+export async function getStaticPaths() {
+    const articles = await getCollection("blog");
+    const allTags = [...new Set(articles.flatMap((entry) => entry.data.tags))];
+    return allTags.map((tag) => ({
+        params: { tag },
+        props: {
+            entries: articles.filter((a) => a.data.tags.some((t) => t == tag)),
+        },
+    }));
+}
+const { tag } = Astro.params;
+const { entries } = Astro.props;
+---
+
+<style lang="scss">
+    @import "../../styles/imports.scss";
+    h2 a,
+    ul a {
+        @include underlined-links;
+    }
+
+    ul {
+        font-size: 1.2rem;
+        list-style: circle inside;
+    }
+</style>
+<Layout title={tag}>
+    <h1>{tag}</h1>
+    <nav>
+        <h2>
+            <a href="/tags">&#8612; All Tags</a>
+        </h2>
+    </nav>
+    <ul>
+        {
+            entries.map(({ slug, data: { title } }) => (
+                <li>
+                    <a href={`/posts/${slug}`}>{title}</a>
+                </li>
+            ))
+        }
+    </ul>
+</Layout>
