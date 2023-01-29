@@ -36,7 +36,7 @@ const [date, month, year] = [
         grid-row: 1;
     }
 
-    .date {
+    .day {
         display: flex;
         grid-column: 2;
         grid-row: 2;
@@ -67,6 +67,6 @@ const [date, month, year] = [
 
 <time class={className} datetime={dateStr}>
     <span class="month">{month}</span>
-    <span class="date">{date}</span>
+    <span class="day">{date}</span>
     <span class="year">{year}</span>
 </time>

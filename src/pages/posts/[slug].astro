@@ -4,7 +4,11 @@ import Layout from "../../layouts/main.astro";
 import Date from "../../components/Date.astro";
 import Tags from "../../components/Tags.astro";
 
-import Tweet from "../../components/Tweet.astro";
+import Tweet from "../../components/mdx/Tweet.astro";
+import YouTubeEmbed from "../../components/mdx/YouTubeEmbed.astro";
+import Info from "../../components/mdx/Info.astro";
+import Alpha from "../../components/mdx/Alpha.astro";
+import Beta from "../../components/mdx/Beta.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -15,10 +19,10 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const blogPost = await getEntryBySlug('blog', entry.slug);
 // TODO: Wait for fix to get frontmatter
-const { Content } = await blogPost?.render()!;
-
+// const blogPost = await getEntryBySlug("blog", entry.slug);
+// const { Content } = await blogPost?.render()!;
+const { Content } = await entry.render();
 ---
 
 <style>
@@ -44,20 +48,26 @@ const { Content } = await blogPost?.render()!;
   }
 </style>
 
-<Layout meta={[
-  { name: 'keywords', content: entry.data.tags.join(', ') },
-  { name: 'twitter:card', content: "summary" },
-  { name: 'twitter:title', content: entry.data.title },
-  { name: 'twitter:site:id', content: "fquednau" },
-  { name: 'twitter:description', content: "" },
-  { name: 'twitter:image', content: "https://realfiction.net/icons/icon-72x72.png" },
-]}>
+<Layout
+  title={entry.data.title}
+  meta={[
+    { name: "keywords", content: entry.data.tags.join(", ") },
+    { name: "twitter:card", content: "summary" },
+    { name: "twitter:title", content: entry.data.title },
+    { name: "twitter:site:id", content: "fquednau" },
+    { name: "twitter:description", content: "" },
+    {
+      name: "twitter:image",
+      content: "https://realfiction.net/icons/icon-72x72.png",
+    },
+  ]}
+>
   <article>
     <header>
-      <Date date={entry.data.date} />
+      <Date class="date" date={entry.data.date} />
       <h1>{entry.data.title}</h1>
       <Tags tags={entry.data.tags} />
     </header>
-    <Content components={{ Tweet }} />
+    <Content components={{ Tweet, YouTubeEmbed, Info, Alpha, Beta }} />
   </article>
 </Layout>

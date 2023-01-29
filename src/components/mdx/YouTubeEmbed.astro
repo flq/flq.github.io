@@ -1,0 +1,21 @@
+---
+const { link } = Astro.props;
+---
+
+<style>
+    iframe {
+        display: block;
+        margin: 20px auto;
+        width: 516px;
+        height: 315px;
+        max-width: 100%;
+        box-shadow: var(--standardShadow);
+    }
+</style>
+
+<iframe
+    title={`Youtube embed for ${link}`}
+    src={link}
+    frame-border="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allow-fullscreen></iframe>
