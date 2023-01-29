@@ -39,7 +39,7 @@ Inside the Web hook action use the following settings:
 1. Content Type is **application/x-www-form-urlencoded**
 1. In the additional headers you put: 
 
-```http
+```plaintext
 Authorization: Bearer Your-access-token
 Idempotency-Key: {{EntryUrl}}
 ```
@@ -48,7 +48,7 @@ The last one is optional, but if anything goes wrong it should ensure that if fo
 
 5. The body of the message could look something like this:
 
-```bash
+```plaintext
 status=#blog:<<<{{EntryTitle}}>>>. Go to <<<{{EntryUrl}}>>> to read
 ```
 
