@@ -1,0 +1,83 @@
+---
+title: "Using zustand in react - performance gains (Pt. 1)"
+slug: using-zustand-in-react-performance-gains-pt-1
+tags: [tools, typescript, react]
+date: 2022-08-22 15:00:00
+topic: "zustand-perf"
+---
+
+<TopicToc topicId="zustand-perf" header="Performance Gains Pt I" />
+
+Let's try to make sure that when the user interacts with the header, the items won't render. For this we make use of the zustand hook overload that allows us to pass a selector into it:
+
+```typescript
+export function HeaderDisplay() {
+  const { title, changeHeader } = useAppStore(({ header, changeHeader }) => ({
+    title: header.title,
+    changeHeader,
+  }));
+  return (
+    <header className={styles.header}>
+      <label>This is the data header:</label>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => changeHeader(e.target.value)}
+      />
+    </header>
+  );
+}
+```
+
+You can see in the first line the use of the selector. We only select the things that we really need. That should help, _should it not_?
+
+When we check with the profile we will see that **nothing has changed**. Items keep rendering for naught.
+
+Let's try this for selecting from the store:
+
+```typescript
+const {
+    header: { title },
+    changeHeader,
+  } = useAppStore(({ header, changeHeader }) => ({
+    header,
+    changeHeader,
+  }));
+```
+
+The difference being that we select from the store's **1st level properties** and deconstruct what we need outside of the store's selector. Any change?
+
+**Nope.**
+
+_(This one surprised me, I was under the impression that this works)._
+
+So, what exactly entails Zustand's promise that when you use selectors you can make sure only those parts of the app render that need re-rendering?
+
+<Info>
+
+* Make sure that you only select from the store's top-level.
+* If you select first-level properties from the store, use the hook several times.
+* Any component that uses the hook without any selector will always re-render when the store changes.
+
+</Info>
+
+With this knowledge, we need to rewrite Header, Items and Item:
+
+## Header
+<GHEmbed repo="zustand-playground" branch="header-o12n" file="src/HeaderDisplay.tsx" start={5} end={8} />
+
+## Items
+<GHEmbed repo="zustand-playground" branch="header-o12n" file="src/Items.tsx" start={6} end={7} />
+
+## Item
+<GHEmbed repo="zustand-playground" branch="header-o12n" file="src/Items.tsx" start={18} end={18} />
+
+Once you run the profiler again, on my hardware I immediately notice that the snappiness of the app is as it should be when editing the header. And indeed, the profiler confirms what is happening.
+
+![Header still takes a minuscule amount to render, but the Item components are now completely passive](/assets/zustand-pg3.png)
+<figcaption>The items do not render anymore</figcaption>
+
+In the next post we'll try and see whether we can avoid all 4'000 components from rerendering when we change the checkbox of a single item.
+
+![Editing a single item makes the Items component re-render](/assets/zustand-pg4.png)
+<figcaption>Toggling a single item still has a major impact</figcaption>

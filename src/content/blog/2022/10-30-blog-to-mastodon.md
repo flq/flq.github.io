@@ -1,0 +1,58 @@
+---
+title: "From your blog to Mastodon via IFTTT"
+slug: from-your-blog-to-mastodon-via-ifttt
+tags: [web]
+date: 2022-10-30 18:00:00
+---
+
+There is actually a post on this [over here](rss-mastodon), but I find it more confusing than anything else, with scratched out info and stuff, so I decided to put up my own info here.
+
+For this post, I assume that your blog has an RSS feed and that you have an account on some Mastodon instance.
+
+## 1. Set up on Mastodon
+
+1. Under your profile settings you will find a section **Development** where you can set up an **Application**
+   1. Give it a name
+   1. Tick, the checkboxes that define which permissions said application will have. For posting statuses you need the **write:statuses** permission
+1. Submit
+
+The application will now provide you with an access token. You'll need that later in IFTTT
+
+![screenshot of application settings](/assets/mastodon-setup1.webp)
+<figcaption>You'll need the access token</figcaption>
+
+## 2. Set up on IFTTT
+
+<Info>Note: There are other services that work like ifttt, eg Zapier, but set-up should be similar</Info>
+
+Set up an applet that overall looks like this:
+
+![screenshot of IFTTT applet](/assets/mastodon-setup2.webp)
+<figcaption>Set up of your IFTTT applet</figcaption>
+
+For the first part, if you're looking here I assume you've set up a connection to your blog's RSS feed at some point, so you can reuse that part. There is no in-built integration for Mastodon on IFTTT, so a web hook integration is what you need.
+
+Inside the Web hook action use the following settings:
+
+1. URL is `https://your-mastodon-instance.com/api/v1/statuses`
+1. Method is **POST**
+1. Content Type is **application/x-www-form-urlencoded**
+1. In the additional headers you put: 
+
+```http
+Authorization: Bearer Your-access-token
+Idempotency-Key: {{EntryUrl}}
+```
+
+The last one is optional, but if anything goes wrong it should ensure that if for some reason IFTTT attempts to call the API again, the status creation would not be created. As far as I know, IFTTT does not repeat failed calls, but your mileage may vary.
+
+5. The body of the message could look something like this:
+
+```bash
+status=#blog:<<<{{EntryTitle}}>>>. Go to <<<{{EntryUrl}}>>> to read
+```
+
+6. Store your applet, activate it, and you **should be in business**.
+
+
+[rss-mastodon]: https://hyperborea.org/journal/2017/12/mastodon-ifttt/
