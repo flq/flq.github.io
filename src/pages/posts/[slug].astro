@@ -9,6 +9,8 @@ import YouTubeEmbed from "../../components/mdx/YouTubeEmbed.astro";
 import Info from "../../components/mdx/Info.astro";
 import Alpha from "../../components/mdx/Alpha.astro";
 import Beta from "../../components/mdx/Beta.astro";
+import TopicToc from "../../components/mdx/TopicToc.astro";
+import GHEmbed from "../../components/mdx/GHEmbed.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -68,6 +70,8 @@ const { Content } = await entry.render();
       <h1>{entry.data.title}</h1>
       <Tags tags={entry.data.tags} />
     </header>
-    <Content components={{ Tweet, YouTubeEmbed, Info, Alpha, Beta }} />
+    <Content
+      components={{ Tweet, YouTubeEmbed, Info, Alpha, Beta, TopicToc, GHEmbed }}
+    />
   </article>
 </Layout>

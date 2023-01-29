@@ -5,8 +5,6 @@ export function extractExcerptPlugin() {
         const textOnPage = toString(tree);
         const truncatedText = truncateToNearestWord(textOnPage, 200);
         file.data.astro.frontmatter.excerpt = truncatedText;
-        console.log("FRONTMATTER");
-        console.log(file.data.astro.frontmatter);
     }
 }
 

@@ -1,0 +1,29 @@
+---
+interface Props {
+  repo: string;
+  file: string;
+  start?: number;
+  end?: number;
+  branch?: string;
+  user?: string;
+}
+
+const { user = "flq", repo, branch = "develop", file, start, end } = Astro.props;
+const lines = start && end ? `#L${start}-L${end}` : ''
+
+const query = new URLSearchParams({
+  target: `https://github.com/${user}/${repo}/blob/${branch}/${file}${lines}`,
+  style: "night-owl",
+  showBorder: "on",
+  showLineNumbers: "on",
+  showFileMeta: "on",
+  showCopy: "on",
+});
+
+
+---
+
+<script
+  cross-origin="anonymous"
+  src={`https://emgithub.com/embed.js?${query.toString()}`}
+></script>

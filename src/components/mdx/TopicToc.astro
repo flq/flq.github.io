@@ -1,0 +1,57 @@
+---
+import { getCollection } from "astro:content";
+import type Slug from "../../pages/posts/[slug].astro";
+interface Props {
+    header: string;
+    topicId: string;
+}
+const { topicId, header } = Astro.props;
+const articles = await getCollection("blog");
+const entries = articles.filter((a) => a.data.topic == topicId);
+---
+
+<style>
+    nav {
+        border-radius: 25px;
+        background: #f9f9f9;
+        box-shadow: var(--standardShadow);
+    }
+
+    h3 {
+        text-align: right;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        font-size: 1.2em;
+        background-color: #777;
+        color: white;
+        padding: 2px 0px;
+        margin-bottom: 0;
+        padding-right: 20px;
+        font-style: italic;
+    }
+
+    ol {
+        list-style-type: upper-roman;
+        margin-top: 0;
+        margin: 1rem;
+        padding-bottom: 1rem;
+        list-style-position: outside;
+    }
+</style>
+
+<nav>
+    <h3>{header}</h3>
+    <ol>
+        {
+            entries.map(({ slug, data: { title } }) => {
+                return (
+                    <li>
+                        
+                            <a href={`/posts/${slug}`}>{title}</a>
+                        
+                    </li>
+                );
+            })
+        }
+    </ol>
+</nav>
