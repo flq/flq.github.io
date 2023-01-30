@@ -20,5 +20,5 @@ function truncateToNearestWord(str, num) {
         return str.substring(0, num);
     }
     // Otherwise, return the substring up to the nearest whole word
-    return str.substring(0, lastSpace);
+    return str.substring(0, lastSpace) + "…";
 }  

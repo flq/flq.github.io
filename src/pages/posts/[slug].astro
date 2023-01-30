@@ -21,10 +21,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-// TODO: Wait for fix to get frontmatter
-// const blogPost = await getEntryBySlug("blog", entry.slug);
-// const { Content } = await blogPost?.render()!;
-const { Content } = await entry.render();
+const { Content, remarkPluginFrontmatter: { excerpt }  } = await entry.render();
 ---
 
 <style>
@@ -57,7 +54,7 @@ const { Content } = await entry.render();
     { name: "twitter:card", content: "summary" },
     { name: "twitter:title", content: entry.data.title },
     { name: "twitter:site:id", content: "fquednau" },
-    { name: "twitter:description", content: "" },
+    { name: "twitter:description", content: excerpt },
     {
       name: "twitter:image",
       content: "https://realfiction.net/icons/icon-72x72.png",
