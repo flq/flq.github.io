@@ -1,10 +1,10 @@
 ---
 interface Props {
-    date: string;
+    date: Date;
     class?: string;
 }
-const { date: dateStr, class: className } = Astro.props;
-const d = new Date(dateStr);
+const { date: d, class: className } = Astro.props;
+
 const [date, month, year] = [
     d.getDate(),
     d.toLocaleString("en", { month: "short" }),
@@ -65,7 +65,7 @@ const [date, month, year] = [
     }
 </style>
 
-<time class={className} datetime={dateStr}>
+<time class={className} datetime={date.toString()}>
     <span class="month">{month}</span>
     <span class="day">{date}</span>
     <span class="year">{year}</span>

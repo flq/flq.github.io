@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import Date from "../components/Date.astro";
 
 interface Props {
     entry: CollectionEntry<"blog">;
@@ -14,4 +15,47 @@ const {
     slug,
 } = entry;
 ---
-<li><a href={`/posts/${slug}`}><h3>{title}</h3><p>{excerpt}</p></a></li>
+
+<style>
+    article {
+        margin-bottom: 3rem;
+    }
+
+    article:last-of-type {
+        margin-bottom: 0;
+    }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+        line-height: 2rem;
+        margin: 0 0 0 0.5rem;
+    }
+
+    h2 a {
+        text-decoration: none;
+    }
+
+    h2 a:hover {
+        text-decoration: underline;
+    }
+
+    p {
+        font-size: 1.4rem;
+        margin: 0.25rem;
+    }
+</style>
+<article role="listitem">
+    <header>
+        <Date date={date} />
+        <h2>
+            <a href={`/posts/${slug}`}>{title}</a>
+        </h2>
+    </header>
+    <p>{excerpt}</p>
+</article>

@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntryBySlug } from "astro:content";
+import { CollectionEntry, getCollection, getEntryBySlug } from "astro:content";
 import Layout from "../../layouts/main.astro";
 import Date from "../../components/Date.astro";
 import Tags from "../../components/Tags.astro";
@@ -11,6 +11,10 @@ import Alpha from "../../components/mdx/Alpha.astro";
 import Beta from "../../components/mdx/Beta.astro";
 import TopicToc from "../../components/mdx/TopicToc.astro";
 import GHEmbed from "../../components/mdx/GHEmbed.astro";
+
+export interface Props {
+  entry: CollectionEntry<"blog">
+}
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
