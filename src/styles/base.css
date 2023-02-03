@@ -22,7 +22,8 @@
     --backgroundHeader: black;
     --text: #d8d7d3;
     --separatorColor: rgba(200, 20, 20, 0.55);
-    --highlight-background: #222222
+    --highlight-background: #222222;
+    --standardShadow: 5px 5px 15px -1px rgba(179, 210, 54, 0.5);
   }
 }
 
@@ -90,6 +91,20 @@ pre[class*="language-"] {
   box-shadow: var(--standardShadow);
 }
 
+code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  background: #5b5e4fff;
+  color: #f8f8f2;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+}
+
+code.hljs {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1rem;
+  box-shadow: var(--standardShadow);
+}
+
 a {
   text-decoration-style: dotted;
 }
@@ -135,13 +150,4 @@ h4 {
   h4 {
     font-size: 1.7rem;
   }
-}
-
-/*
-  For GHEmbed
-*/
-
-code.hljs {
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 1rem;
 }

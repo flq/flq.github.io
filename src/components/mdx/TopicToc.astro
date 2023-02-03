@@ -1,33 +1,35 @@
 ---
 import { getCollection } from "astro:content";
-import type Slug from "../../pages/posts/[slug].astro";
+
 interface Props {
-    header: string;
+    active: string;
     topicId: string;
 }
-const { topicId, header } = Astro.props;
+const { topicId, active } = Astro.props;
 const articles = await getCollection("blog");
 const entries = articles.filter((a) => a.data.topic == topicId);
 ---
 
-<style>
+<style lang="scss">
     nav {
         border-radius: 25px;
         background: #f9f9f9;
         box-shadow: var(--standardShadow);
+        @media (prefers-color-scheme: dark) {
+            background: #272822;
+        }
     }
 
     h3 {
-        text-align: right;
+        text-align: center;
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
         font-size: 1.2em;
-        background-color: #777;
+        background-color: var(--linkColor);
         color: white;
         padding: 2px 0px;
         margin-bottom: 0;
         padding-right: 20px;
-        font-style: italic;
     }
 
     ol {
@@ -40,15 +42,17 @@ const entries = articles.filter((a) => a.data.topic == topicId);
 </style>
 
 <nav>
-    <h3>{header}</h3>
+    <h3>In this series</h3>
     <ol>
         {
             entries.map(({ slug, data: { title } }) => {
                 return (
                     <li>
-                        
+                        {title == active ? (
+                            <span>{title}</span>
+                        ) : (
                             <a href={`/posts/${slug}`}>{title}</a>
-                        
+                        )}
                     </li>
                 );
             })
