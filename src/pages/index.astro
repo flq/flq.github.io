@@ -1,11 +1,9 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "../layouts/main.astro";
 import Entry from "../components/HomePageEntry.astro";
-const blogEntries = await getCollection("blog");
-const entries = blogEntries
-	.sort(({data: { date: b }}, { data: { date: a} }) => (a as any) - (b as any))
-	.slice(0, 10)
+import query from "../components/mainPageQuery";
+
+const entries = await query();
 ---
 
 <Layout>
