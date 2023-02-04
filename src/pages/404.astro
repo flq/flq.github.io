@@ -4,17 +4,33 @@ import Layout from "../layouts/main.astro";
 
 <script is:inline>
     window.addEventListener("DOMContentLoaded", (event) => {
-        let path = window.location.pathname;
-        let lastPart = path.slice(path.lastIndexOf("/") + 1).replaceAll("-", " ");
-        var query = new URLSearchParams({
-            q: lastPart + " site:realfiction.net"
+        let { pathname } = window.location;
+        let lastPart = pathname
+            .slice(pathname.lastIndexOf("/") + 1)
+            .replaceAll("-", " ");
+        let q = lastPart + " site:realfiction.net";
+        let query = new URLSearchParams({
+            q,
         });
         document
             .querySelector("#googlelink")
-            .setAttribute("href", "https://google.com/search?" + query.toString());
+            .setAttribute(
+                "href",
+                "https://google.com/search?" + query.toString()
+            );
+        document.querySelector(
+            "#googlelinkexplain"
+        ).innerHTML = `the link will search for '${q}'`;
     });
 </script>
 <style>
+    .center {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+    }
     a {
         display: inline-block;
         background-color: var(--linkColorMain);
@@ -23,13 +39,22 @@ import Layout from "../layouts/main.astro";
         padding: 0 1rem;
         border-radius: 5px;
     }
-    .center {
-        display: flex;
-        justify-content: center;
+    span {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        font-style: italic;
+    }
+
+    div img {
+        box-shadow: none;
+        margin: 0;
     }
 </style>
 <Layout skipFooter>
-    <h1>sorry, this place does not exist!</h1>
+    <div class="center">
+        <img src="/assets/404.webp" alt="404, Not found">
+    </div>
+    <h1>sorry, this page does not exist!</h1>
     <p>
         It's most likely my fault, though, because I'm getting old and keeping
         the URLs stable while I mess around with my website is probably asking
@@ -41,5 +66,6 @@ import Layout from "../layouts/main.astro";
     </p>
     <div class="center">
         <a id="googlelink">Search for this page on google</a>
+        <span id="googlelinkexplain"></span>
     </div>
 </Layout>
