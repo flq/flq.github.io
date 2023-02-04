@@ -2,6 +2,7 @@
 interface Props {
     meta?: { name: string; content: string }[];
     title?: string;
+    skipFooter?: boolean;
 }
 import "prismjs/themes/prism-okaidia.css";
 import "../styles/normalize.css";
@@ -10,7 +11,7 @@ import "../styles/base.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 const title = "realfiction";
-const { meta = [], title: pageTitle } = Astro.props;
+const { meta = [], title: pageTitle, skipFooter } = Astro.props;
 ---
 
 <html lang="en">
@@ -51,6 +52,6 @@ const { meta = [], title: pageTitle } = Astro.props;
     <body>
         <Header title={title} />
         <main><slot /></main>
-        <Footer />
+        {!skipFooter && <Footer />}
     </body>
 </html>

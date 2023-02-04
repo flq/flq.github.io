@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/main.astro";
+---
+
+<script is:inline>
+    window.addEventListener("DOMContentLoaded", (event) => {
+        let path = window.location.pathname;
+        let lastPart = path.slice(path.lastIndexOf("/") + 1).replaceAll("-", " ");
+        var query = new URLSearchParams({
+            q: lastPart + " site:realfiction.net"
+        });
+        document
+            .querySelector("#googlelink")
+            .setAttribute("href", "https://google.com/search?" + query.toString());
+    });
+</script>
+<style>
+    a {
+        display: inline-block;
+        background-color: var(--linkColorMain);
+        color: var(--linkColorMainContrast);
+        text-decoration: none;
+        padding: 0 1rem;
+        border-radius: 5px;
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+<Layout skipFooter>
+    <h1>sorry, this place does not exist!</h1>
+    <p>
+        It's most likely my fault, though, because I'm getting old and keeping
+        the URLs stable while I mess around with my website is probably asking
+        too much!
+    </p>
+    <p>
+        Even so, I have an up to date site map and if you follow this google
+        search, chances are that you'll get to where you wanted to go.
+    </p>
+    <div class="center">
+        <a id="googlelink">Search for this page on google</a>
+    </div>
+</Layout>
