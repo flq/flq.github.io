@@ -1,0 +1,23 @@
+---
+import katex from "katex";
+interface Props {
+    exp: string;
+}
+
+const { exp } = Astro.props;
+const math = katex.renderToString(exp);
+---
+
+<style>
+    :global(.katex-html) {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
+</style>
+
+<Fragment set:html={math} />

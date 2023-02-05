@@ -12,6 +12,7 @@ import Beta from "../../components/mdx/Beta.astro";
 import TopicToc from "../../components/mdx/TopicToc.astro";
 import GHEmbed from "../../components/mdx/GHEmbed.astro";
 import Gist from "../../components/mdx/Gist.astro";
+import Math from "../../components/mdx/Math.astro";
 
 export interface Props {
   entry: CollectionEntry<"blog">
@@ -73,7 +74,7 @@ const { Content, remarkPluginFrontmatter: { excerpt }  } = await entry.render();
       <Tags tags={entry.data.tags} />
     </header>
     <Content
-      components={{ Tweet, YouTubeEmbed, Info, Alpha, Beta, TopicToc, GHEmbed, Gist }}
+      components={{ Tweet, YouTubeEmbed, Info, Alpha, Beta, TopicToc, GHEmbed, Gist, Math }}
     />
   </article>
 </Layout>
