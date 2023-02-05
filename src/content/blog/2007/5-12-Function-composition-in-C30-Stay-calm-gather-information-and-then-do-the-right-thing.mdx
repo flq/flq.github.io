@@ -5,7 +5,7 @@ date: 2007-05-12 21:11:20
 slug: function-composition-in-c-3-0-stay-calm-gather-information-and-then-do-the-right-thing
 ---
 
-In the [last post](/go/117) I was talking about how we could create the natural Haskell function composition operator into C# and my first solution (also contained as the _Functional_ assembly in the attached solution) was one based on the possibilities provided by the 2.0 Version of the .NET framework. It worked, but it was clumsy, with a lot infrastructure to support a single requirement.
+In the [last post](/posts/how-much-haskell-can-i-squeeze-out-of-c) I was talking about how we could create the natural Haskell function composition operator into C# and my first solution (also contained as the _Functional_ assembly in the attached solution) was one based on the possibilities provided by the 2.0 Version of the .NET framework. It worked, but it was clumsy, with a lot infrastructure to support a single requirement.
 
 Luckily I am already delving a bit into LINQ and the technologies behind it and respective implementations in different domains, e.g. [DLINQ](http://www.google.de/search?hl=en&q=DLINQ+overview&btnG=Search) for doing strongly typed queries against DBs. If creating the query would already do anything against the DB, all hell would break loose considering that (D)LINQ allows for joins between objects. It would be bad news if you'd have to do the join in your application and not your DB.
 

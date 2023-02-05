@@ -1,0 +1,33 @@
+---
+title: "Singletons are boring, hence factor out the concern"
+tags: [software-development, dotnet, patterns]
+date: 2008-04-29 14:16:54
+slug: singletons-are-boring-hence-factor-out-the-concern
+---
+
+[dotnetkicks](http://www.dotnetkicks.com) has an astonishing amount of entries related to ["The Singleton"&reg;][1]...
+
+Regardless of whether Singletons are considered harmful or not, I could not resist but provide you with my own take on factoring out the need to get a Singleton which doesn't feel like a Singleton at all. We can single-ton out any classes that provide a default constructor. Due to the reflection spice you can provide a private one as well. Takes somewhat longer, but you're only doing it once, don't you ;) ?
+
+```csharp
+class SingletonOf<T> where T : class
+{
+	static T instance = (T)Activator.CreateInstance(typeof(T), true);
+
+	public static implicit operator T (SingletonOf<T> singleton) {
+		return SingletonOf<T>.instance;
+	}
+}
+```
+
+The implicit operator makes it possible to do this:
+
+```csharp
+Person p = new SingletonOf<Person>();
+Person p2 = new SingletonOf<Person>();
+Debug.Assert(object.ReferenceEquals(p, p2), "W00t?! They should be equal!");
+```
+
+Doesn't it look funny? I find it quite likeable and you definitely don't pollute the class in question with some singleton boilerplate. I would like to say "Go forth and multiply" but it seems wholly inappropriate for the issue at hand...
+
+[1]: http://www.dotnetkicks.com/search?q=singleton

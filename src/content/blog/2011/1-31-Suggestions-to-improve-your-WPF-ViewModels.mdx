@@ -1,0 +1,74 @@
+---
+title: "Suggestions to improve your WPF ViewModels"
+tags: [dotnet, patterns, libs-and-frameworks]
+date: 2011-01-31 13:00:00
+slug: suggestions-to-improve-your-wpf-viewmodels
+---
+
+Throughout the years where I have been working on WPF projects, I have seen a fair share of classes used as ViewModels (VM) that have been lacking in revealing their intended and proper usage, such that their resistance to maintenance is increased. I think that the following suggestions help to make ViewModels that still work well and are more explicit about their functionality.
+
+### Don’t slap setters on everything / Use the Binding Mode
+
+Many properties of VM will only get read from WPF and will not be written to neither from WPF nor from your own code external to the VM. One obvious example is something like this:
+ 
+ ```csharp
+ public ObservableCollection<string> Names {
+  get { ... }
+  set { ... /*Maybe even OnPropertyChanged?*/ }
+}
+```
+
+Will you really set a new ObservableCollection to your ViewModel? What is WPF supposed to make out of that?
+
+If your intent is that a collection is exposed, which cannot be exchanged from the outside, use the **Mode** property when defining the **Binding** in WPF:
+
+```xml
+<ItemsControl ItemsSource="{Binding Names, Mode=OneWay}" />
+```
+
+**OneWay** states that changes can only flow from the source to the representation (i.e. WPF). Hence, a setter is not required and WPF honours that! In my experience there are many properties which are controlled purely from inside the VM, e.g. booleans regarding visibility of items, etc. Bind to these with OneWay and those properties can be read-only.
+
+While not as useful as OneWay, the other modes can also communicate intent to fellow developers.
+
+*   OneTime – The Property will be read once and cannot be updated anymore.
+*   OneWayToSource – Changes only flow from UI to VM. While you still need get/set, Notifying of Property Changed doesn’t make any sense on such a property.
+*   TwoWay – The default which does not have to be set explicitly
+
+### BooleanToVisibility conversion? Don’t write it for the 13th time
+
+Out of sheer curiosity I went to the object browser and did a “find derived types” with Resharper on the IValueConverter:
+
+![image](/assets/image_17963921-3cc2-4611-8fdd-46b5a341ae61.png "image") 
+
+I don’t know about you but I have written a **BooleanToVisibilityConverter** very often! This one is a bit like the System.IO.Path type.
+
+### Your VM properties need only expose what you need for your coding
+
+A small example: Imagine that for your coding, the list of names exposed above only ever gets enumerated, but the contents of the collection is controlled by the VM. In this case, expose the collection as...
+
+```csharp
+public IEnumerable<string> Names { 
+  get { ... }
+}
+```
+
+Regarding the WPF capabilities with regard to interacting with **INotifyPropertyChanged** and **INotifyCollectionChanged**, these interfaces will be discovered regardless of the actual property type you expose in your VM. 
+
+By the way, if you still want Notify and Collection capabilities you can use the ReadOnlyObservableCollection which you can use as such:
+
+```csharp
+private ObservableCollection<string> col = new ObservableCollection<string>();
+
+public ReadOnlyObservableCollection<string> Names { get; private set; }
+
+public ctor()
+{
+  Names = new ReadOnlyObservableCollection<string>(col);
+}
+```
+
+Changed events are still exposed, but Names cannot be used to add new elements from outside the VM. This is hardly a hassle, and it means that you as a developer has much tighter control on e.g. who adds items to your collections. Try to “Find All References…“ on who adds to a collection of a VM when the default way is to use **VM.Collection.Add(…)**
+
+&nbsp;
+
+These suggestions do not change the VMs functionality but they reduce the VMs surface, which in my book isn’t a bad thing.

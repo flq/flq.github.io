@@ -28,13 +28,14 @@ Well, it certainly isn't the greatest accomplishment of all time. What it does i
 
 It takes an array and creates a new array that is doubled in length and contains every previous element twice in the same order (Note that a string in Haskell is an array of chars). We could debate about its usefulness, but the seriously nice think is the **dot** operator that combines any two functions, in this case the **concat** and **map** function. Let's look at their types...
 
-    *Main> :t concat
-    concat :: [[a]] -> [a]
-    *Main> :t map
-    map :: (a -> b) -> [a] -> [b]
-    *Main> :t scaleBy2
-    scaleBy2 :: [a] -> [a]
-
+```haskell
+*Main> :t concat
+concat :: [[a]] -> [a]
+*Main> :t map
+map :: (a -> b) -> [a] -> [b]
+*Main> :t scaleBy2
+scaleBy2 :: [a] -> [a]
+```
 
 In each check, the resulting type of the last mapping is essentially the function's return type.
 
@@ -77,6 +78,6 @@ Also interesting that in the case of using the **StrToArray** function, the comp
 
 Anyhow, regenerating some of Haskell's behaviour has taught me quite a bit on Haskell's power. Providing said infrastructure did cost quite some effort and at one point which you will find easily in the code through the comments the infrastructure must leave the type safe scenario. I think the code explains it better but basically it is related to the fact that at any point you don't know the input type of the previous method (Well, of course you do, but you can't code it statically with this strategy [prove me otherwise]). While some object already exists, certain parameters, be it type or otherwise, only spring to life _afterwards_. They are unknown at the point of object creation. This makes a number of things that look almost simplistic in a functional notation rather tedious in the world of imperative programming in which C# undeniably lives. In Haskell, on the other hand, the complete problem domain is known in its completeness at any point in time. Can't quite believe it myself yet, but this small example tells some of that story.
 
-However, there is a new way in C# to alleviate the issue of not knowing enough about the problem at a given point in time. The buzzword is _deferred execution_ and the [next post](/go/118) will show how this brilliant stuff makes implementing the infrastructure for the FuncCombinator as easy as Lego.
+However, there is a new way in C# to alleviate the issue of not knowing enough about the problem at a given point in time. The buzzword is _deferred execution_ and the [next post](/posts/function-composition-in-c-3-0-stay-calm-gather-information-and-then-do-the-right-thing) will show how this brilliant stuff makes implementing the infrastructure for the FuncCombinator as easy as Lego.
 
 (Attachment in the next post...)

@@ -1,0 +1,37 @@
+---
+title: "MemBus 3.0"
+tags: [own-software, membus]
+date: 2013-12-25 14:00:00
+slug: membus-3-0
+---
+
+MemBus finally got the maintenance it deserves.
+What's new?
+
+## Portable Class Library
+
+The latest incarnation of MemBus requires .NET 4.5 to run. It targets a Pcl profile for standard Windows and Windows Store profile. Expect the WP8 to also be targetted in a future minor release. The only thing stopping me for now is the missing **ConcurrentDictionary** - I will need a replacement for that. There are some [promising leads][1], but I need a proper testbed to see what performance impact a switch in that area of the code has.
+
+To people sticking to previous versions of the .NET framework I am afraid that things will just stay as they were pre-V3.
+
+## New publishing features.
+
+The **IPublisher** interface now provides additional publishing capabilities via
+
+* An Observable - MemBus will start consuming the observable and feeding the resulting messages into its infrastructure.
+* In an awaitable fashion. Here, configuration of how to process certain messages is short-circuited such that the awaitable pattern works as expected, i.e. the *continuation* will be called once all subscriptions have processed the message that was sent.
+
+## FlexibleSubscriptionAdapter
+
+All possibilities to configure method registration has been merged into a single *"RegisterMethods"* call. This is because the signature of the method sufficiently defines what you want to happen. Allowed are the following method signatures...
+
+* T Method(Z msg): This method receives messages and can send one out as a reaction. If the return value implements IEnumerable it will be enumerated and all messages will be put onto the bus.
+* void Method(Z msg): Just accepts messages.
+* void Method(IObservable&lt;T&gt; msgs) : Get an observable from MemBus much like you would call *Observe* on the Bus.
+* IObservable&lt;Z&gt; Method(IObservable&lt;T&gt; msgs): Return an Observable after accepting one from MemBus. This is ideal to set up some transformations, e.g. with the set of methods provided by the Rx libraries.
+* IObservable&lt;Z&gt; Method() : Provide observables to MemBus, much like calling Publish with an observable. Ideal to set up message sources with MemBus, e.g. a Timer.
+
+I hope you'll enjoy the new capabilities. Next on the roadmap is, as mentioned, the WP8 profile and then some investigations how well MemBus plays together with [ReactiveUI][2]
+
+[1]: http://stackoverflow.com/questions/18367839/alternative-to-concurrentdictionary-for-portable-class-library
+[2]: https://github.com/reactiveui/ReactiveUI

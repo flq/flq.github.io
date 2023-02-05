@@ -1,0 +1,16 @@
+---
+title: "WPF + INotifyPropertyChanged Proxy = success!"
+tags: [dotnet, libs-and-frameworks]
+date: 2008-06-16 14:04:18
+slug: wpf-inotifypropertychanged-proxy-success
+---
+
+Remember the [Epic fail](http://realfiction.net/go/156) that was building a simple class and a proxy on top to save on doing the PropertyChanged-mechanics?
+
+It now works in WPF, too, which, I hope you'll agree, is pretty cool.
+
+After some research I found in the Discussion Forum of the Castle team that the issue [cropped up beforehand](http://forum.castleproject.org/viewtopic.php?t=3145) and has already been fixed!
+
+Thing is, the "official" 1.0 Release Candidate 3 download is quite stale and does in no way reflect the stuff you would get from the trunk
+
+I used the version that came along with NHibernate2 Alpha1 - Here the relevant Castle.Core and DynamicProxy2 assemblies are recent enough to incorporate the fix described in the discussion forum - It means that the example you can download in the above post works without issues. Nice!

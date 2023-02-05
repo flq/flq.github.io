@@ -1,0 +1,55 @@
+---
+title: "A custom ModelBinder in FubuMVC to access JSON dynamically"
+tags: [software-development, web, libs-and-frameworks]
+date: 2011-11-21 20:46:00
+slug: a-custom-modelbinder-in-fubumvc-to-access-json-dynamically
+---
+
+One aspect of my new web site is the admin interface which allows me to write new posts and post them to my site via a simple HTTP-based 
+interface. The posting of a new entry happens with the HTTP content-type _application/json_.
+
+Short of specifying what exactly the structure of the JSON should be, I wanted to keep this fairly dynamic. Literally. 
+This meant to somehow translate the incoming request to a dynamic object that allows access to the parsed JSON. The parse and access bit was relatively simple to come up with by using [DynamicJson][1]. The project boils down to a single class inheriting from _DynamicObject_, allowing Json to be parsed and accessed in C# syntax style.
+
+Armed with that, the ideal situation from a FubuMVC perspective would be that the input model of an Action is an object of type _dynamic_:
+
+    [UrlRegistryCategory("Admin")]
+    public void Post(dynamic content)
+    {
+        var newId = _contentAdministration.InsertContent(content);
+        _request.Set(new InsertInfo(_urls.UrlFor(new ContentId(newId), "Admin")));
+    }
+
+One way to give Fubu the chance to handle this kind of input model is to provide custom model binding capabilities, wired up in the Fuburegistry with `Models.BindModelsWith<T>() where T : IModelBinder`. An implementation of _IModelBinder_ requires us to match for what types of models this new binding occurs. It turns out that the dynamic input object comes along as an object of type..._object_.
+
+    public bool Matches(Type type)
+    {
+        return type == typeof(object);
+    }
+
+As soon as that's clear to FubuMVC, our Model binder gets the chance to do its work, i.e. to translate the bits of the current request to a model that will be passed on to any interested Action.
+
+    public object Bind(Type type, IBindingContext context)
+    {
+        var rd = context.Service<IRequestData>();
+        var cType = (string)rd.Value("Content-Type");
+        if (!new[] { "application/json", "application/jsonrequest", "application/x-javascript" }.Any(ct => ct.Equals(cType)))
+            throw new DynamicBindException("Content-Type");
+        var data = context.Service<IStreamingData>().InputText();
+        try
+        {
+            return DynamicJson.Parse(data);
+        }
+        catch
+        {
+            throw new DynamicBindException("Parse");
+        }
+    }
+
+The _binding context_ allows us to access all those dependencies that are valid in the scope of the application as well as the scope of the current request.
+_IRequestData_ is an abstraction that allows us to access relevant information about the current request. In the above example we attempt to read the Content-Type part of the HTTP header of the incoming request and only carry on when the content type fits to what the type for which we will do the conversion. _IStreamingData_ gives us access to the incoming request text
+
+The shown implementation is harsh in that it will only work with the shown content type. One could imagine an implementation that can also handle XML Content and
+create _DynamicObject_ instance that supports accessing the data stored in the XML dynamically.
+
+  [1]: http://dynamicjson.codeplex.com/
