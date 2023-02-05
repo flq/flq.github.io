@@ -1,0 +1,116 @@
+---
+title: "Named injected dependencies in .NET 5 / Core"
+tags: [dotnet, software-development, programming]
+date: 2021-03-20 17:30:00
+slug: named-injected-dependencies-in-net-5-core
+---
+
+At [ahead intranet] we like to keep the number of moving parts low in our code. This would also mean to come back to the default dependency injection container that comes with .NET Core / .NET 5 applications (right now we're using [Autofac]). So far, however, we are using some container features that have no direct translation to the default one, most notably having named or keyed dependencies.
+
+In some research I came across Steve Collins' blog post on ["Getting named dependencies by Name or Key using the .NET Core Container"][1]
+
+<Info>
+
+Steve did a webinar in the context of Jetbrains' work in the .NET ecosystem. [See the recording on youtube][recording].
+
+</Info>
+
+There he shows how to inject a named delegate of the form
+
+```csharp
+delegate IDependency UseMeToGetNamedDependency(string key);
+```
+
+go and have a read!
+
+## Attempt N<sup>o</sup> 1
+
+Yesterday I tried to adapt his approach into a more generic fashion in that, given the following API:
+
+```csharp
+IServiceCollection svcs;
+svcs.AddAll<IDependency>(
+  naming: type => type.Name.Replace("Dependency", ""), 
+  lookupDelegate: typeof(UseMeToGetNamedDependency)
+);
+```
+
+It would not only register all implementations of `IDependency` but register the referenced delegate which could then be injected and used in the code to get access to `IDependency` instances by name. The idea was to compile a switch expression that would perform the lookup that Steve coded manually in the blog post. Alas, what looks so _"easy"_ in the post actually involves a closure over a `IServiceProvider` instance. You might recall that the C# compiler does [plenty of things to support closures][eric]. This added difficulty was doing my head in and I really didn't want to start recreating compiler code, so I gave up on it and was thrown back to good ol' classes.
+
+## Attempt N<sup>o</sup> 2
+
+Introducing an interface like this:
+
+```csharp
+public interface INamedLookup<out T>
+{
+  T this[string name] { get; }
+}
+```
+
+It is possible to implement this interface, where the implementation has a dependency on `IServiceProvider` - there is our closure 😅.
+
+```csharp
+IServiceCollection svcs;
+svcs.AddAll<IDependency>(
+  naming: type => type.Name.Replace("Dependency", "")
+);
+```
+
+The `AddAll` code already already knows what `IDependency` are available. Providing the optional naming function triggers it to create a dictionary of names against concrete implementations:
+
+```csharp
+
+var candidates = assemblies.SelectMany(a => a.DefinedTypes)
+    .Where(t => t.InstantiableAndImplementing<T>())
+    .ToList();
+// ...
+// naming is the function of type Func<Type,string> that we passed in.
+var namingDictionary = candidates.ToDictionary(naming);
+NamedLookupInfo.RegisterMap(targetType, namingDictionary);
+```
+Then the code will also register all concrete implementations of `IDependency`. The implementation of `INamedLookup` can now use the stored dictionary to instantiate concrete implementations based on the provided name:
+
+```csharp
+public class NamedLookup<T> : INamedLookup<T>
+{
+    private readonly IServiceProvider serviceProvider;
+    private readonly IReadOnlyDictionary<string, TypeInfo> serviceMap;
+
+    public NamedLookup(IServiceProvider serviceProvider)
+    {
+        this.serviceProvider = serviceProvider;
+        if (!NamedLookupInfo.TryGetValue(typeof(T), out serviceMap))
+            throw new ArgumentException(
+              $"There is no service map for return type {typeof(T).Name} registered");
+    }
+
+    public T this[string name] => serviceMap
+        .TryGetValue(name, out var serviceType)
+        ? (T) serviceProvider.GetService(serviceType)
+        : default;
+}
+```
+
+This named lookup type is also registered in the container against the `INamedLookup<T>` interface.
+Any classes can now take a dependency on `INamedLookup<IDependency>` and access named dependencies like so:
+
+```csharp
+var someNamedDependency = lookup["CoolName"] 
+  ?? throw new ArgumentException("No dependency named CoolName");
+```
+
+The relevant interface is still easy enough to mock in some test should you wish to do so. Finally, it is also straightforward to find its usage in the code, which was an excellent point being made in Steve's post. 
+
+## Addendum
+
+This blog post contains quite some hand-waiving. If you're interested in the concrete code of my proof of concept, check out [this gist][gist]:
+
+<Gist id="a4ee6064cec34adbf08632796fd75904" />
+
+[1]: https://stevetalkscode.co.uk/named-dependencies-part-2
+[eric]: https://stackoverflow.com/a/14586368/51428
+[ahead intranet]: https://aheadintranet.com
+[Autofac]: https://autofac.org/
+[recording]: https://www.youtube.com/watch?v=0x2KW-dJDQU
+[gist]: https://gist.github.com/flq/a4ee6064cec34adbf08632796fd75904

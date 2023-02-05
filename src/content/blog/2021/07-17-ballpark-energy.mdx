@@ -1,0 +1,60 @@
+---
+title: "Climate crisis - plenty of energy"
+tags: [physics, mathematics]
+date: 2021-07-17 21:00:00
+slug: climate-crisis-plenty-of-energy
+---
+
+> The calculations originally appeared in [this post here][1], but had my .NET NMeasure library as the focus. I wanted to extract the calculations into its own post to have it readily available.
+
+You may have heard about the global warming summit and that scientists have basically agreed with each other that we should try really hard to avoid the atmosphere to heat up an additional 2 degrees on average. It doesn't sound much, but I was curious what this number means in terms of additional energy that the atmosphere would contain.
+
+<Info>
+
+## Disclaimer:
+
+The produced number is pretty much a ballpark figure, because
+* We assume Earth to be a flat sphere (not too bad)
+* We only consider the volume from 0-2km above sea level
+  * at constant density (that will introduce an error in the 2-digit percentage range)
+* We deal purely with averages (coming from a uniform temperature to a new uniform temperature)
+* The calculated energy is not freely available as such, it is just to give you a feel for what is at stake.
+
+</Info>
+
+The calculation has been kept pretty straightforward:
+
+* We take the volume of the low atmosphere
+* We look up the [specific heat of air][2] in the proper temperature range (assuming today's average temperature of 14°C) with constant volume. 
+* We multiply it all through and get a number.
+
+Let's start with the constants we're using
+
+<Math exp={'r_e = 6371km'} />
+<figcaption>Radius of Earth</figcaption>
+<Math exp={'r_a = 6373km'} />
+<figcaption>Radius of upper boundary of the air layer we will consider</figcaption>
+<Math exp={'\\rho_a = 1.225\\frac{kg}{m^3}'} />
+<figcaption>Density of air</figcaption>
+<Math exp={'CV_a = 718\\frac{J}{kgK}'} />
+<figcaption>Specific heat of air</figcaption>
+
+The volume of the considered air layer is:
+<Math exp={'V_a = \\frac{4}{3}\\pi(r_a^2-r_e^2)'} />
+
+Getting the surplus _Joules_ by increasing the temperature of that air layer by 2 degrees gives us:
+
+<Math exp={'E = V_a \\times \\rho_a \\times CV_a \\times 2K'} />
+
+Gives us a number in Gigajoules of
+
+<Math exp={'1.795 \\times 10^{12} GJ'} />
+
+Sounds quite a lot, and it is. If we compare this to the [World's energy production][3] we see that in order to make this amount of energy available, our current worldwide energy production would have to run for almost *19 years*.
+
+So, this is very roughly the amount of additional energy we're pumping into our lower athmosphere. Leave it to climate experts to figure out what exactly we can expect from that, but do you really think our climate will soak this amount of energy up and do, like, _nothing_?
+
+
+[1]: /2015/12/30/nmeasure-and-the-global-warming
+[2]: https://www.google.de/search?q=specific+heat+air
+[3]: https://en.wikipedia.org/wiki/List_of_countries_by_electricity_production
