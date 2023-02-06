@@ -49,7 +49,7 @@ figcaption {
   margin-bottom: 2em;
 }
 
-img {
+img, .giphy-embed {
   display: block;
   margin: 20px auto;
   max-width: 100%;
