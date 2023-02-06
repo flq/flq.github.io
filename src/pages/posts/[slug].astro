@@ -13,21 +13,43 @@ import TopicToc from "../../components/mdx/TopicToc.astro";
 import GHEmbed from "../../components/mdx/GHEmbed.astro";
 import Gist from "../../components/mdx/Gist.astro";
 import Math from "../../components/mdx/Math.astro";
+import { windowIterator } from "../../components/windowIterator";
 
 export interface Props {
-  entry: CollectionEntry<"blog">
+  entry: CollectionEntry<"blog">;
+  previous: { slug: string; title: string } | undefined;
+  next: { slug: string; title: string } | undefined;
 }
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+  function* create(entries: CollectionEntry<"blog">[]) {
+    for (let [entry, prev, next] of windowIterator(entries)) {
+
+      yield {
+        params: { slug: entry.slug },
+        props: {
+          entry,
+          previous: prev
+            ? { slug: `/posts/${prev.slug}`, title: prev.data.title }
+            : undefined,
+          next: next
+            ? { slug: `/posts/${next.slug}`, title: next.data.title }
+            : undefined,
+        },
+      };
+    }
+  }
+  const result = Array.from(create(blogEntries));
+  console.log(result[0]);
+  return result;
 }
 
-const { entry } = Astro.props;
-const { Content, remarkPluginFrontmatter: { excerpt }  } = await entry.render();
+const { entry, previous, next } = Astro.props;
+const {
+  Content,
+  remarkPluginFrontmatter: { excerpt },
+} = await entry.render();
 ---
 
 <style>
@@ -50,6 +72,31 @@ const { Content, remarkPluginFrontmatter: { excerpt }  } = await entry.render();
     grid-column: 2;
     grid-row: 1;
     justify-self: end;
+  }
+
+  nav.bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+
+  nav.bottom a {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border: 1px solid var(--linkColor);
+  }
+
+  a[data-previous] {
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+
+  a[data-next] {
+    justify-self: stretch;
+    text-align: right;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
   }
 </style>
 
@@ -74,7 +121,25 @@ const { Content, remarkPluginFrontmatter: { excerpt }  } = await entry.render();
       <Tags tags={entry.data.tags} />
     </header>
     <Content
-      components={{ Tweet, YouTubeEmbed, Info, Alpha, Beta, TopicToc, GHEmbed, Gist, Math }}
+      components={{
+        Tweet,
+        YouTubeEmbed,
+        Info,
+        Alpha,
+        Beta,
+        TopicToc,
+        GHEmbed,
+        Gist,
+        Math,
+      }}
     />
   </article>
+  {
+    (previous || next) && (
+      <nav class="bottom">
+        {previous && <a data-previous href={previous.slug}>{previous.title}</a>}
+        {next && <a data-next href={next.slug}>{next.title}</a>}
+      </nav>
+    )
+  }
 </Layout>
