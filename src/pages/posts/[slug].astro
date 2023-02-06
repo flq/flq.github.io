@@ -25,7 +25,6 @@ export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
   function* create(entries: CollectionEntry<"blog">[]) {
     for (let [entry, prev, next] of windowIterator(entries)) {
-
       yield {
         params: { slug: entry.slug },
         props: {
@@ -40,9 +39,7 @@ export async function getStaticPaths() {
       };
     }
   }
-  const result = Array.from(create(blogEntries));
-  console.log(result[0]);
-  return result;
+  return Array.from(create(blogEntries));
 }
 
 const { entry, previous, next } = Astro.props;
@@ -137,8 +134,16 @@ const {
   {
     (previous || next) && (
       <nav class="bottom">
-        {previous && <a data-previous href={previous.slug}>{previous.title}</a>}
-        {next && <a data-next href={next.slug}>{next.title}</a>}
+        {previous && (
+          <a data-previous href={previous.slug}>
+            {previous.title}
+          </a>
+        )}
+        {next && (
+          <a data-next href={next.slug}>
+            {next.title}
+          </a>
+        )}
       </nav>
     )
   }
