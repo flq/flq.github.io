@@ -1,0 +1,74 @@
+---
+title: "From a .NET App inside a VM to a Postgres instance on the OSX host"
+tags: [programming]
+date: 2015-03-02 22:43:47
+slug: from-a-net-app-inside-a-vm-to-a-postgres-instance-on-the-osx-host
+---
+
+While trying out persistence strategies for a .NET app I am mostly developing inside a VM, I was interested
+in looking at alternatives to RavenDB. Trouble is that RavenDB is not that lightweight in terms of startup,
+and I can't get it to run outside the VM.
+
+Many cool kids are playing with Postgres now - It may be that MySQL is simply a dead horse, or that Postgres' capabilities
+in storing and retrieving JSON can be on a par with document databases under certain circumstances.
+
+Hence I would like to give Postgres a spin, with the thought that the DB would be running on OSX while I develop the remaining parts in the VM.
+
+## Install Postgres
+
+Being a newbie, I went for the [install of a *.app][1], a very, very simple way to get started with Postgres on OSX.
+It starts up very quick, and you've got something running in a minute.
+
+You can start talking to the instance with the CLI _psql_, but with my SQL-foo currently being a bit rusty, I wanted a little bit of GUI. I settled for [pgadmin][2].
+
+## No rights for nobody
+
+My Postgres instance would only want to talk to things running on the same machine. In order for the VM to be able to talk
+to the instance, the DB must be configured appropriately - this required modifications in configuration files.
+
+Where those are [can be asked][3] e.g. via _psql_
+
+    SHOW config_file;
+
+Which hopefully gives you a path where the config is located 
+(mine was _~/Library/Application Support/Postgres/var-9.4/postgresql.conf_).
+
+Here I changed __postgresql.conf__ to contain the line
+
+    listen_addresses = '*'
+
+When it is missing, te default is localhost.
+
+The file __pg_hba.conf__ was modified to contain a line with regard to the ability who can connect how from where to what.
+
+    host  all  all 0.0.0.0/0 trust
+
+> This is certainly not a setup for a production machine, obviously. The documentation of the configs are pretty good
+> so it should give you enough hints to restrict access far more intelligently than the wildcard I essentially defined.
+
+Finally I created a user with the GUI and [granted that user connect right][4] to the DB I want to play with.
+
+    GRANT CONNECT ON DATABASE db TO user;
+
+On the VMWare I downloaded the Nugets __Dapper__ and __Npgsql__.
+
+And finally...
+
+```csharp
+var b = new NpgsqlConnectionStringBuilder();
+b.UserName = "user";
+b.Password = "pwd";
+b.Database = "myDB";
+b.Host = "Franks-MBP";
+b.Port = 5432;
+var c = new NpgsqlConnection(b);
+c.Open();
+c.Close();
+```
+
+And the test is green.
+
+[1]: http://postgresapp.com/
+[2]: http://www.pgadmin.org/
+[3]: http://stackoverflow.com/questions/3602450/where-are-my-postgres-conf-files
+[4]: https://wiki.postgresql.org/images/d/d1/Managing_rights_in_postgresql.pdf
