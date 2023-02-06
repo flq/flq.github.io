@@ -1,0 +1,175 @@
+---
+title: "Simplify the bitemporal Neo4J query with a user-defined function"
+tags: [programming, neo4j, java]
+date: 2017-01-30 10:00:00
+topic: "neo-bitemp"
+slug: simplify-the-bitemporal-neo4j-query-with-a-user-defined-function
+---
+
+<TopicToc topicId="neo-bitemp" active="Simplify the bitemporal Neo4J query with a user-defined function" />
+
+In the previous post we have seen how we can translate the logic of
+correctly describing the historical events from the first post into a Cypher query.
+
+To remind you, it looks like this:
+
+```sql
+MATCH (pd:PersonData)-[r]-(p) 
+WHERE p.id = 665544 AND r.recorded <= 30
+WITH { data: pd, recorded: r.recorded, actual: r.actual } as data
+WITH data ORDER BY data.recorded DESC
+WITH reduce(relevant = [], d in collect(data) | 
+CASE 
+WHEN last(relevant) IS NULL OR d.actual < last(relevant).actual THEN relevant+d 
+ELSE relevant END) 
+AS data
+UNWIND data AS final 
+RETURN final.actual, final.data
+```
+
+It is certainly a bit unwieldy, considering that you want historical data 
+maybe not only from a single node, but other ones, too.
+A good idea seems to be to let the query writer pick out those nodes that require
+consideration and then have a function that contains the logic of picking up
+the correct ones. Let us do just that.
+
+In Neo4J you can also [write "stored procedures"][3] and "user-defined functions" (**UDF**).
+Depending on your upbringing you may dislike the idea of putting "logic" into the
+database engine. However, there are two differences to stored procedures and functions
+as we know them from Oracle and Sql server:
+
+* We can write the Neo4J code to be run as procedure / function in Java 
+  (or some other JVM language). Depending on how you write the other parts
+  of your application this may considerably help in traslating your skills to the
+  DB.
+* Neo4J [provides infrastructure][4] that allows you to fire up an embedded instance
+  and use it within your tests to actually **test your procedures / functions**
+  close to real-life scenarios.
+
+With that in mind you may feel that not much speaks against encapsulating some
+technical aspect of your DB model into a function.
+
+The implementation of the UDF is pretty straightforward:
+
+``` java
+
+import org.neo4j.graphdb.GraphDatabaseService;
+import org.neo4j.procedure.Name;
+import org.neo4j.procedure.UserFunction;
+...
+
+public class Bitemp
+{
+
+  @Context
+  public GraphDatabaseService db;
+
+  /**
+    * Creates a bitemporal projection for a list of maps
+    * @param data a list of maps of the form { data: node, recorded: int, actual: int }
+    * @return The stream of resulting paths throughout the object.
+    */
+  @UserFunction("bitemp.projection")
+  public List<Map> bitempProjection(
+          @Name("data") List<Map> data)
+  {
+
+      List<Map> sorted = StreamSupport.stream(data.spliterator(), false)
+              .sorted((o1, o2) -> (int) ((Long) o2.get("recorded") - (Long) o1.get("recorded")))
+              .collect(Collectors.toList());
+
+      ArrayList<Map> result = new ArrayList<>();
+      for (Map n : sorted) {
+          if (result.size() == 0)
+          {
+              result.add(n);
+              continue;
+          }
+          Map reference = result.get(result.size() - 1);
+          if ((long)n.get("actual") < (long)reference.get("actual"))
+              result.add(n);
+      }
+
+      return result;
+  }
+}
+```
+
+Of note is the  `UserFunction`-annotation, which did not exist until recent
+versions of Neo4J.
+Before you had to define your user procedures as, well, procedures, making the
+call of your procedures from within Cypher a little bit more involved (`CALL...YIELD`).
+
+Also remember that all numbers defined on nodes / relationships will appear as 
+**Long**s.
+
+Finally, there is a `sort`-method on the `List`-interface, however, the implementation
+that Neo4J passes to you appears to not implement it, hence the external sort
+via the `Stream`-utilities.
+
+The function assumes that you send in data of a certain shape. It will then
+be able to sort the nodes correctly and dismiss those nodes that are "invisible"
+within the given set.
+
+By compiling our UDF and adding the resulting jar to Neo4J's **plugins** folder,
+we can start using it:
+
+``` sql
+MATCH (pd:PersonData)-[r]-(p) 
+WHERE p.id = 665544 AND r.recorded <= 30
+WITH collect({ data: pd, recorded: r.recorded, actual: r.actual }) AS data
+UNWIND bitemp.projection(data) AS final
+RETURN final.actual, final.data
+``` 
+
+As you can see we have a nice distribution of responsibilities:
+Query the correct set of data you are interested in, and use the function
+to project them correctly.
+
+For completeness' sake we can also provide a function that gives us the current
+state for some query:
+
+``` java
+/**
+  * Returns the current state out of a list of maps
+  * @param data a list of maps of the form { data: node, recorded: int, actual: int }
+  * @return The Map that is currently valid or none if nothing is valid right now.
+  */
+@UserFunction("bitemp.current")
+public Map bitempCurrent(@Name("data") List<Map> data)
+{
+    long today = getTodaysActual();
+    return StreamSupport.stream(bitempProjection(data).spliterator(), false)
+            .filter(n ->  (long)n.get("actual") <= today)
+            .findFirst()
+            .orElse(null);
+}
+
+private long getTodaysActual() {
+    Node n = db.findNodes(Label.label("Today")).next();
+    return (Long)n.getProperty("value");
+}
+```
+
+This function uses the previously established UDF as well as a node labelled
+**"Today"** which should contain the numeric value of today (this can obviously
+be solved differently, typically by using something like Epoch in seconds).
+Since the data already comes out newest to oldest from the `bitempProjection`-
+method, we can just pick the first item where the actual date is smaller than
+today.
+
+With that we can get the current state of our person:
+
+```sql
+MATCH (pd:PersonData)-[r]-(p {id: 665544})
+WITH p, collect({ data: pd, recorded: r.recorded, actual: r.actual }) as data
+RETURN p, bitemp.current(data).data
+```
+
+![](/assets/2DHistory6.png)
+
+
+[1]: /2016/12/18/2d-or-bitemporal-historization-a-primer
+[2]: /2017/01/27/2d-historization-in-a-graph-database
+[3]: http://neo4j.com/docs/developer-manual/current/extending-neo4j/procedures/
+[4]: http://neo4j.com/docs/developer-manual/current/extending-neo4j/procedures/#_writing_integration_tests
