@@ -21,54 +21,60 @@ What is this unobtrusive java scripting anyway? It all boils down to separation 
 
 The idea is simple. I add some metadata to the HTML which I can find once the DOM is fully setup on the client-side.
 
-
-    <input type="text" validation="numeric" >
-    <input type="text" validation="/cool/i" >
-
+```html
+<input type="text" validation="numeric" >
+<input type="text" validation="/cool/i" >
+```
 
 The validation attribute is not part of the known HTML attributes, but it is part of the DOM accessible by javascript. I am not sure how people's opinion is on doing this sort of thing, but from a functional perspective it works pretty well. If you feel this is slightly hackish you could write your document as XHTML, add a new XML-namespace and use elements of that namespace in your document:
 
-
-    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:rf="http://rf.scripting/validation">
-    ...
-    <rf:validation type="numeric">
-      <input type="text" />
-    </rf:validation>
+```html
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:rf="http://rf.scripting/validation">
+...
+<rf:validation type="numeric">
+  <input type="text" />
+</rf:validation>
+```
 
 
 Since all javascript that would be hacked right into HTML reacts to events probably triggered by the page's user, I may as well attach the event handlers after the DOM has loaded and before the user interacts with it. The jQuery library allows us to do the outlined things quite easily. jQuery provides the **ready** function to which you can pass a function that is called at the right moment. This is a perfect hook to attach your javascript in said unobtrusive fashion:
 
-    validator = new Validation(errorFeedback,passFeedback);
-    $(document).ready(validator.setup);
+```js
+validator = new Validation(errorFeedback,passFeedback);
+$(document).ready(validator.setup);
+```
 
 validator is the "instance" of the _Validation_ function which we'll look at later. Its constructor would like two arguments: functions that will be called either when an input field passes validation or when it fails. Here we also have separation of concerns: The validation system has nothing to do with the display of possible validation failures, so we provide it with the means to display or remove visual cues about the error. In this example, these are the functions:
 
+```js
+function errorFeedback(element,msg) {
+  $(element).removeClass("ok").addClass("error").attr("title",msg);
+}
 
-    function errorFeedback(element,msg) {
-    	$(element).removeClass("ok").addClass("error").attr("title",msg);
-    }
-
-    function passFeedback(element) {
-    	$(element).removeClass("error").addClass("ok").removeAttr("title");
-    }
+function passFeedback(element) {
+  $(element).removeClass("error").addClass("ok").removeAttr("title");
+}
+```
 
 Here, jQuery helps to streamline the necessary DOM modifications to display/clear an error.
 
 Back to the validator. We passed something called setup to the ready function. Let us have a look:
 
-    function Validation(errorStyler,passStyler) {
+```js
+function Validation(errorStyler,passStyler) {
 
-      validationFeedBack.errorFeedbackFunc = errorStyler;
-      validationFeedBack.passFeedbackFunc = passStyler;
+  validationFeedBack.errorFeedbackFunc = errorStyler;
+  validationFeedBack.passFeedbackFunc = passStyler;
 
-      this.setup = function() {
-        $("input[type='text'][validation]").each(function(idx) {
-          $(this).blur(
-            new Validation.validatorCallBack(Validation.returnValidator(this))
-          );
-        });
-      }
-    }
+  this.setup = function() {
+    $("input[type='text'][validation]").each(function(idx) {
+      $(this).blur(
+        new Validation.validatorCallBack(Validation.returnValidator(this))
+      );
+    });
+  }
+}
+```
 
 One can see that setup is a function itself. As it does not really refer to its outside scope (seeing that _setup _is an inner function of _validation_) it could be outside. In fact, setup cannot easily refer to this scope because the "this" keyword will refer to an altogether different scope once things get actually called.
 
@@ -76,51 +82,55 @@ So what **setup** does is to iterate over all input fields with a validation att
 
 We know that **blur** necessitates a function, let's then look at what is called in turn. First the `returnValidator`-call:
 
-
-    Validation.returnValidator = function(inspectedElement) {
-      var identifier = $(inspectedElement).attr("validation")
-      if (identifier == 'numeric')
-        return Validation.numericValidator;
-      else if (identifier.substr(0,1) == '/')
-        return Validation.regexValidator;
-      else
-        return Validation.nullCallback;
-    }
+```js
+Validation.returnValidator = function(inspectedElement) {
+  var identifier = $(inspectedElement).attr("validation")
+  if (identifier == 'numeric')
+    return Validation.numericValidator;
+  else if (identifier.substr(0,1) == '/')
+    return Validation.regexValidator;
+  else
+    return Validation.nullCallback;
+}
+```
 
 Here we have a hard-coded interpretation of what is contained in the validation attribute of the inspected input field. One could think of some approach using eval, but even though I'm no expert in hacking into a javascript application it sounds to me like this would be open to abuse by using some tool in your browser to change the contents of the attribute to whatever you like. The `returnValidator` therefore returns functions. They fit to the desired type of validation. Here are those implemented in the example:
 
+```js
+Validation.numericValidator = function(inputElement) {
+  if (isNaN(inputElement.value))
+    throw "Input is not a number";
+}
 
-    Validation.numericValidator = function(inputElement) {
-      if (isNaN(inputElement.value))
-        throw "Input is not a number";
-    }
+Validation.regexValidator = function(inputElement){
+  var regexstring = $(inputElement).attr("validation");
+  var re = eval(regexstring);
+  if (!re.test(inputElement.value))
+    throw "Field failed to match pattern " + regexstring;
+}
 
-    Validation.regexValidator = function(inputElement){
-      var regexstring = $(inputElement).attr("validation");
-      var re = eval(regexstring);
-      if (!re.test(inputElement.value))
-        throw "Field failed to match pattern " + regexstring;
-    }
-
-    Validation.nullCallback = function(inputElement) {
-      // Unrecognized validation
-    }
+Validation.nullCallback = function(inputElement) {
+  // Unrecognized validation
+}
+```
 
 The setup implementation now obtained a validation function, but it does some more. It wraps it into a call to   `Validation.validatorCallBack`, whose implementation looks like this:
 
-    Validation.validatorCallBack = function(validatorFunc) {
-      var valFunc = validatorFunc;
+```js
+Validation.validatorCallBack = function(validatorFunc) {
+  var valFunc = validatorFunc;
 
-      return function(eventObj){
-        try {
-          valFunc(this);
-          validationFeedBack.passFeedbackFunc(this);
-        }
-        catch (x) {
-          validationFeedBack.errorFeedbackFunc(this,x);
-        }
-      }
+  return function(eventObj){
+    try {
+      valFunc(this);
+      validationFeedBack.passFeedbackFunc(this);
     }
+    catch (x) {
+      validationFeedBack.errorFeedbackFunc(this,x);
+    }
+  }
+}
+```
 
 Here I make use of a closure. We return once more a function that is defined in the scope of an outer function. Once that inner function is called (when the input field blurs) it will be able to refer to values defined in said scope. That way we can actually remember the validation function and call it once the `validatorCallback` return function is called. If you think I've written the word function too much, don't worry, it'll probably pass after a while.
 

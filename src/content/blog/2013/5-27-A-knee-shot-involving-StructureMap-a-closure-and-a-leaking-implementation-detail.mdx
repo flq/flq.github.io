@@ -17,9 +17,11 @@ Every once in a while objects that are instantiated together by your DI Containe
 
 After a row of refactoring (that's where the nitwit part comes in), the definition of a certain service registration looked like this:
 
-    configurationExpression
-		.For<IFoo>()
-		.Use(ctx => new Foo(ctx.GetInstance<IDependency>, /* some other stuff */));
+```csharp
+configurationExpression
+	.For<IFoo>()
+	.Use(ctx => new Foo(ctx.GetInstance<IDependency>, /* some other stuff */));
+```
 
 Note the subtle use of a method group where a Func is expected in **Foo**'s constructor.
 

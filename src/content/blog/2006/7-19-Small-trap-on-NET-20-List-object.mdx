@@ -6,16 +6,17 @@ slug: small-trap-on-net-2-0-list-object
 ---
 
 Consider the following small c# 2.0 program:
-
-    class Program {
-      static void Main(string[] args) {
-        List<int> l = new List<int>();
-        int i = 0;
-        bool truth = l.TrueForAll(delegate(int z) { i++; return false; });
-        Console.WriteLine("i is {0} and truth is {1}", i, truth);
-        Console.ReadKey();
-      }
-    }
+```csharp
+class Program {
+  static void Main(string[] args) {
+    List<int> l = new List<int>();
+    int i = 0;
+    bool truth = l.TrueForAll(delegate(int z) { i++; return false; });
+    Console.WriteLine("i is {0} and truth is {1}", i, truth);
+    Console.ReadKey();
+  }
+}
+```
 
 The delegate passed into the _TrueForAll_ method has to return either true or false and is called for each element of the list. If all calls return true, the _TrueForAll_ method will itself return true.
 
@@ -27,32 +28,34 @@ Indeed, what is it supposed to return, since after all no answer can be given, a
 
 In my concrete trap, I was asking whether a list HasData, which in turned was supposed to ask each of its elements if it contains any data...
 
-    class Program {
+```csharp
+class Program {
 
-      static void Main(string[] args) {
-        DataHolderSet set = new DataHolderSet();
-        Console.WriteLine("set has data? {0}", set.HasData);
-        Console.ReadKey();
-      }
-    }
+  static void Main(string[] args) {
+    DataHolderSet set = new DataHolderSet();
+    Console.WriteLine("set has data? {0}", set.HasData);
+    Console.ReadKey();
+  }
+}
 
-    interface IDataHolder {
-      bool HasData { get; }
-    }
+interface IDataHolder {
+  bool HasData { get; }
+}
 
-    class DataHolder : IDataHolder {
-      public bool HasData {
-        get { return false; }
-      }
-    }
+class DataHolder : IDataHolder {
+  public bool HasData {
+    get { return false; }
+  }
+}
 
-    class DataHolderSet : List<IDataHolder>, IDataHolder {
-      public bool HasData {
-        get { 
-          return TrueForAll(delegate(IDataHolder z) 
-          { return z.HasData; }); 
-        }
-      }
+class DataHolderSet : List<IDataHolder>, IDataHolder {
+  public bool HasData {
+    get { 
+      return TrueForAll(delegate(IDataHolder z) 
+      { return z.HasData; }); 
     }
+  }
+}
+```
 
 Obviously we get true, although I have lured myself into expecting that the response should be false. Anyway, just something to be aware of...

@@ -7,7 +7,7 @@ slug: how-can-i-get-rid-of-this-goto
 
 Help! It's late and I don't see a good way to get rid of this goto construct:
 
-`
+```csharp
 private void advanceTheTimeCursor(
   Func<DateTime> nextTime, 
   Action uponSuccessfulAdvancement)
@@ -19,6 +19,6 @@ private void advanceTheTimeCursor(
     pastToPresentCursor = t;
   goto loop;
 }
-`
+```
 
 I kinda like it, but somebody said somewhere gotos are considered harmful...

@@ -50,7 +50,9 @@ The actual attached property is constructed analogously to Dan's Model activatio
 
 What happens is that when the property is used on a DependencyObject, an associated callback instantiates an object of type **ItemsControlPersistenceHandler** which we will get to know later. The value provided is simply a string that is used as a key for serialization/deserialization of any objects encountered in the ItemsSource of the DependencyObject (here an ItemsControl). This is how you then use it in XAML:
 
-    <ListBox x:Name="ListOfBuckets" ... local:PersistControl.Persist="buckets"> ...
+```xml
+<ListBox x:Name="ListOfBuckets" ... local:PersistControl.Persist="buckets"> ...
+```
 
 * Serialization: Ignore events
 * Observablecollection: shadow copy

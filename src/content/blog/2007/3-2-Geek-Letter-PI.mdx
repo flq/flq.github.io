@@ -15,76 +15,80 @@ A first search with Firefox brought nothing. Of course, the page is formatted, h
 
 Therefore, the first step was to get the number in a usable format. The following code would do just that:
 
-    class PiFromHtmlPage {
-      public static void Extract() {
-        using (StreamReader sr = File.OpenText(@"index1.html"))
-          using (StreamWriter sw = File.CreateText(@"output.txt")) 
-            while (!sr.EndOfStream) sw.Write(sr.ReadLine().Trim());
-      }
-    }
+```csharp
+class PiFromHtmlPage {
+  public static void Extract() {
+    using (StreamReader sr = File.OpenText(@"index1.html"))
+      using (StreamWriter sw = File.CreateText(@"output.txt")) 
+        while (!sr.EndOfStream) sw.Write(sr.ReadLine().Trim());
+  }
+}
+```
 
 First you need to remove the html stuff though (pre tags and the like).
 With that in hand I wrote the program to look for my name (and of course other words). The following class does that job:
 
+```csharp
+namespace ConsoleApplication1 {
+  delegate void InfoPrinter(int idx, int offset);
 
-    namespace ConsoleApplication1 {
-      delegate void InfoPrinter(int idx, int offset);
+  class NameFinder {
+    string numbers;
 
-      class NameFinder {
-        string numbers;
+    public NameFinder(string numbers) {
+      this.numbers = numbers;
+    }
 
-        public NameFinder(string numbers) {
-          this.numbers = numbers;
-        }
+    public void FindMatch(string name, Action<string> namePrint, InfoPrinter print) {
+      //unicode -> int gives 97 for a :: Level to 0 by subtracting that
+      int[] nameArr = Array.ConvertAll<char,int>(name.ToLower().ToCharArray(), 
+        delegate(char c) { return (int)c - 97; });
+      // Improve probability of finding a name a bit
+      // by offsetting each char as number of the name by what-have-you.
 
-        public void FindMatch(string name, Action<string> namePrint, InfoPrinter print) {
-          //unicode -> int gives 97 for a :: Level to 0 by subtracting that
-          int[] nameArr = Array.ConvertAll<char,int>(name.ToLower().ToCharArray(), 
-            delegate(char c) { return (int)c - 97; });
-          // Improve probability of finding a name a bit
-          // by offsetting each char as number of the name by what-have-you.
-
-          for (int i = 0; i <= 100; i++) {
-            StringBuilder b = new StringBuilder();
-            Array.ForEach<int>(nameArr, delegate(int j) { b.Append(j + i); });
-            namePrint(b.ToString()); // "ab" with offset 1 => "12"
-            Regex r = new Regex(b.ToString());
-            MatchCollection mc = r.Matches(numbers, 0);
-            for (int k = 0; k < mc.Count; k++) print(mc[k].Index, i);
-          }
-        }
+      for (int i = 0; i <= 100; i++) {
+        StringBuilder b = new StringBuilder();
+        Array.ForEach<int>(nameArr, delegate(int j) { b.Append(j + i); });
+        namePrint(b.ToString()); // "ab" with offset 1 => "12"
+        Regex r = new Regex(b.ToString());
+        MatchCollection mc = r.Matches(numbers, 0);
+        for (int k = 0; k < mc.Count; k++) print(mc[k].Index, i);
       }
     }
+  }
+}
+```
 
 The class is instantiated with the large number PI as a string. When _FindMatch_ is called, the word gets stored as an array of integers. Then several passes are done, every time each integer is offset by a fixed amount...That way one should have a slightly bigger chance of finding a word while preserving the alphabet characteristics of the word.
 
 Finally, here's the program that wraps it all up for usability:
 
+```csharp
+namespace ConsoleApplication1 {
+  class Program {
+    static void Main(string[] args) {
+      PiFromHtmlPage.Extract();
+      //pi.txt lies in bin/debug
+      string pi = string.Empty;
+      using (StreamReader sr = File.OpenText("pi.txt"))
+        pi = sr.ReadToEnd();
 
-    namespace ConsoleApplication1 {
-      class Program {
-        static void Main(string[] args) {
-          PiFromHtmlPage.Extract();
-          //pi.txt lies in bin/debug
-          string pi = string.Empty;
-          using (StreamReader sr = File.OpenText("pi.txt"))
-            pi = sr.ReadToEnd();
+      NameFinder n = new NameFinder(pi);
 
-          NameFinder n = new NameFinder(pi);
-
-          while (true) {
-            Console.Write("Give us a word (write x to break): ");
-            string w = Console.ReadLine();
-            if (w == "x") break;
-            n.FindMatch(w,
-              delegate(string name) { Console.WriteLine("Your word now looks like " + name); },
-              delegate(int idx, int offset) {
-                Console.WriteLine("name was found at index {0} with offset {1}", idx, offset);
-              });
-          }
-        }
+      while (true) {
+        Console.Write("Give us a word (write x to break): ");
+        string w = Console.ReadLine();
+        if (w == "x") break;
+        n.FindMatch(w,
+          delegate(string name) { Console.WriteLine("Your word now looks like " + name); },
+          delegate(int idx, int offset) {
+            Console.WriteLine("name was found at index {0} with offset {1}", idx, offset);
+          });
       }
     }
+  }
+}
+```
 
 Soo, **is my name in there?** ...Here some findings:
 

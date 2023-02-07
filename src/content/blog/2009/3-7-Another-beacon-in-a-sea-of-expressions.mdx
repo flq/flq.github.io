@@ -9,7 +9,9 @@ A prosaic introduction to the subject of .NET expressions. These were introduced
 
 In my current project I am using expressions to be able to analyze what the user of some API wants to express. From the expression
 
-    Expression<Function<Person,object>> e = p => p. FirstName + "," + p.LastName
+```csharp
+Expression<Function<Person,object>> e = p => p. FirstName + "," + p.LastName
+```
 
 I want to know that properties _FirstName_ and _LastName_ are being used to generate the return value. While developing the things for this to work I came across two things that really helped me:
 
@@ -50,26 +52,30 @@ protected override Expression VisitMemberAccess(MemberExpression m)
 
 As a last example, to show off the tree modifying features of the class to change an expression, the following 2 methods change
 
-`Expression<Func<SomeDataSet,object>> e = ds => ds.Master[0].FirstName + "," + ds.Master[0].GetAddresses()[0].City;`
+```csharp
+Expression<Func<SomeDataSet,object>> e = ds => ds.Master[0].FirstName + "," + ds.Master[0].GetAddresses()[0].City;
+```
 to 
-`Expression<Func<DataRow,object>> e = r => ((MasterRow)r).FirstName + "," + ((MasterRow)r).GetAddresses()[0].City;`
 
+```csharp
+Expression<Func<DataRow,object>> e = r => ((MasterRow)r).FirstName + "," + ((MasterRow)r).GetAddresses()[0].City;
 
-    protected override Expression VisitMethodCall(MethodCallExpression m)
-    {
-      if (m.Method.Name == "get_Item")
-        return Expression.Convert(dataRowParameter, m.Type);
-      return base.VisitMethodCall(m);
-    }
+protected override Expression VisitMethodCall(MethodCallExpression m)
+{
+  if (m.Method.Name == "get_Item")
+    return Expression.Convert(dataRowParameter, m.Type);
+  return base.VisitMethodCall(m);
+}
 
-    protected override Expression VisitLambda(LambdaExpression lambda)
-    {
-      if (visitedMainLambdaBody) 
-        return base.VisitLambda(lambda);
-      visitedMainLambdaBody = true; // sort of. This is somewhat recursive...
-      Expression body = Visit(lambda.Body);
-      List<ParameterExpression> @params =
-        new List<ParameterExpression> { dataRowParameter };
+protected override Expression VisitLambda(LambdaExpression lambda)
+{
+  if (visitedMainLambdaBody) 
+    return base.VisitLambda(lambda);
+  visitedMainLambdaBody = true; // sort of. This is somewhat recursive...
+  Expression body = Visit(lambda.Body);
+  List<ParameterExpression> @params =
+    new List<ParameterExpression> { dataRowParameter };
 
-      return Expression.Lambda<Func<DataRow, object>>(body, @params);
-    }
+  return Expression.Lambda<Func<DataRow, object>>(body, @params);
+}
+```

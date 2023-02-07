@@ -11,7 +11,7 @@ I was pointed to the injection container [NInject](http://ninject.org/), and how
 
 Instead of using an XML-file you perform a programmatic binding within a special class that is treated by the kernel as a module:
 
-`
+```csharp
   class BankAccountModule : StandardModule
   {
     public override void Load()
@@ -20,19 +20,19 @@ Instead of using an XML-file you perform a programmatic binding within a special
       Bind<BankAccount>().ToSelf();
     }
   }
-`
+```
 
 Instantiation of the kernel looks like this:
 
-`
+```csharp
 IKernel c = new Ninject.Core.StandardKernel(new BankAccountModule());
-`
+```
 
 And getting a BankAccount reference looks like that:
 
-`
+```csharp
 BankAccount acc = c.Get<BankAccount>();
-`
+```
 
 The time we get (for reference the Spring.NET time run today as well)
 

@@ -16,12 +16,14 @@ What I do miss is some way to define **records** as they are known in **F#**.
 
 For your reference, an example how it could look in C#:
 
-    class Customer = { 
-      First : string; 
-      Last: string; 
-      SSN: uint32; 
-      AccountNumber : uint32; 
-    }
+```csharp
+class Customer = { 
+  First : string; 
+  Last: string; 
+  SSN: uint32; 
+  AccountNumber : uint32; 
+}
+```
 
 this gives you
 
@@ -35,15 +37,19 @@ I would find this useful in many cases.
 
 One thing I find annoying is that I cannot treat a constructor as a method group. If C# had chosen a ctor syntax  + instantiation somewhat like ruby...
 
-    class Customer {
-      public new(string name) { ... }
-    }
-    
-    var c = Customer.new("Arthur")
+```csharp
+class Customer {
+  public new(string name) { ... }
+}
+
+var c = Customer.new("Arthur")
+```
 
 Then this syntax would lend easily to a statement like that
 
-    DB.Query<Name>().Select(Customer.new) // instead of (s => new Customer(s))
+```csharp
+DB.Query<Name>().Select(Customer.new) // instead of (s => new Customer(s))
+```
     
 Not sure what the right approach would be for C# but it sure would help in my code ;)
 
@@ -54,23 +60,25 @@ Not sure what the right approach would be for C# but it sure would help in my co
 
 Apparently this is *"on the radar"* - many people probably mean different things with that, my personal interpretation is something like
     
-    class Event1 = {
-      long CorrelationId;
-    }
-    
-    class Event2 = {
-      long CorrelationId;
-    }
-    
-    // Structural Typing:
-    public void DoCorrelationStuff<T>(T thing) where T : { long CorrelationId; } 
-    {
-      Debug.WriteLine(thing.CorrelationId);
-    }
-    
-    //Can be used like
-    DoCorrelationStuff(new Event1(12334343));
-    DoCorrelationStuff(new Event1(15334746));
+```csharp
+class Event1 = {
+  long CorrelationId;
+}
+
+class Event2 = {
+  long CorrelationId;
+}
+
+// Structural Typing:
+public void DoCorrelationStuff<T>(T thing) where T : { long CorrelationId; } 
+{
+  Debug.WriteLine(thing.CorrelationId);
+}
+
+//Can be used like
+DoCorrelationStuff(new Event1(12334343));
+DoCorrelationStuff(new Event1(15334746));
+```
 
 We shall see how far off I am ;)
 
@@ -82,12 +90,14 @@ The reason being that with null things you don't only want to access it, but do 
 
 This is something I've never heard off but which could be interesting from optimization perspectives (mark it experimental).
 
-    private double _foo;
-    
-    public pure double Bla(double val) {
-      //Compute something out of val.
-      Debug.WriteLine(_foo); //Error: Cannot read state outside of a pure scope.
-    }
+```csharp
+private double _foo;
+
+public pure double Bla(double val) {
+  //Compute something out of val.
+  Debug.WriteLine(_foo); //Error: Cannot read state outside of a pure scope.
+}
+```
 
 The idea is something borrowed from Haskell. However, while in Haskell purity is opt-out, I would define it as opt-in. This would mean for a method, that
 
