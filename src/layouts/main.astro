@@ -20,6 +20,7 @@ const { meta = [], title: pageTitle, skipFooter } = Astro.props;
         <meta charset="utf-8" />
         <link rel="icon" href="/favicon.png" type="image/png">
         <link rel="me" href="https://freiburg.social/@flq" />
+        <link rel="alternate" type="application/rss+xml" title="RSS Feed for realfiction.net" href="/rss.xml" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {
             meta.map(({ name, content }) => (

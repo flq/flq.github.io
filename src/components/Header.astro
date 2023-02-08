@@ -40,12 +40,14 @@ const { title } = Astro.props;
 
     a {
         text-decoration: none;
+        text-decoration-style: none;
         display: inline-block;
         color: var(--linkColorMain);
     }
 
     a:hover {
         text-decoration: underline;
+        text-decoration-style: solid;
     }
 
     a:visited {
@@ -82,9 +84,6 @@ const { title } = Astro.props;
             <a href="/archive">Archive</a>
             <a href="/tags">Tags</a>
             <a href="/about">About</a>
-            <a rel="me" class="visuallyHidden" href="https://mas.to/@flq">
-                My profile in the Fediverse
-            </a>
         </div>
     </div>
 </nav>
