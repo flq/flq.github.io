@@ -49,6 +49,10 @@ figcaption {
   margin-bottom: 2em;
 }
 
+ul {
+  padding: 0;
+}
+
 img, .giphy-embed {
   display: block;
   margin: 20px auto;

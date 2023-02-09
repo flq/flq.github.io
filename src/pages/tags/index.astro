@@ -3,7 +3,9 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/main.astro";
 
 const articles = await getCollection("blog");
-const allTags = [...new Set(articles.flatMap((entry) => entry.data.tags))].sort();
+const allTags = [...new Set(articles.flatMap((entry) => entry.data.tags))].sort(
+    (a, b) => a.toLowerCase().localeCompare(b.toLowerCase())
+);
 ---
 
 <style>
