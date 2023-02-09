@@ -4,7 +4,7 @@ import Layout from "../../layouts/main.astro";
 
 const articles = await getCollection("blog");
 const allTags = [...new Set(articles.flatMap((entry) => entry.data.tags))].sort(
-    (a, b) => a.toLowerCase().localeCompare(b.toLowerCase())
+    (a, b) => a.localeCompare(b, undefined, { sensitivity: "base" })
 );
 ---
 
