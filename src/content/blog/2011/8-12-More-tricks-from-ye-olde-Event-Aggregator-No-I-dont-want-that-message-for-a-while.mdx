@@ -62,7 +62,7 @@ public class BlockSpecialsIfsuspended : ISetup<IConfigurableBus>
 }
 ```
 
-What this class does it accessing the configuration part regarding subscribing. Based on a MessageMatch, essentially a filter to state for which messages you want to influence the way subscriptions are treated. Here we specify the [ISubscriptionShape](http://realfiction.net/go/181) instances that will be applied to the basic subscription inside out. Hence, **DenyIfSuspended** is an **ISubscriptionShape** implementation:
+What this class does it accessing the configuration part regarding subscribing. Based on a MessageMatch, essentially a filter to state for which messages you want to influence the way subscriptions are treated. Here we specify the [ISubscriptionShape](/posts/membus-extension-points) instances that will be applied to the basic subscription inside out. Hence, **DenyIfSuspended** is an **ISubscriptionShape** implementation:
 
 ```csharp
 private class DenyIfSuspended : ISubscriptionShaper, ISubscription

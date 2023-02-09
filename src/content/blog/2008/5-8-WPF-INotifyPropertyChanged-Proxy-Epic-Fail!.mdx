@@ -7,7 +7,7 @@ slug: wpf-inotifypropertychanged-proxy-epic-fail
 
 It seemed a straightforward thing to do.
 
-Sending property changed events when a property is changed is repetitive boilerplate code that can be factored out into an aspect of your system's behaviour. This can be done with a proxy generator library like the Castle's **DynamicProxy2 **(See my first attempts playing with such a framework [here](http://realfiction.net/go/154)).
+Sending property changed events when a property is changed is repetitive boilerplate code that can be factored out into an aspect of your system's behaviour. This can be done with a proxy generator library like the Castle's **DynamicProxy2 **(See my first attempts playing with such a framework [here](/posts/spring-aop-castle-dynamicproxy2-first-glance-from-an-outsider)).
 
 The idea goes as follows: Program an **IInterceptor** that every time a setter of the class encapsulated by the proxy is accessed raises the **PropertyChanged** event as defined by the interface mentioned in the title. The basic problem is that accessing a property from the outside is OK: But what if you change the property from the inside? A basic proxy that simply surrounds the class cannot register this action, hence no event is automatically raised...
 
