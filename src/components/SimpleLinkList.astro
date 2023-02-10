@@ -101,7 +101,7 @@ const groups = groupBy(entries, grouper);
     <h1>{title}</h1>
     <ul>
         {
-            Object.keys(groups).map((group) => (
+            Object.keys(groups).sort().map((group) => (
                 <li>
                     <span>{group}</span>
                     <ul>
