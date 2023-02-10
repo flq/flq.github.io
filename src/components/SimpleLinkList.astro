@@ -1,32 +1,95 @@
 ---
 import Layout from "../layouts/main.astro";
+import { groupBy } from "./utils";
 interface Link {
     link: string;
     text: string;
 }
+interface DatedLink extends Link {
+    date: Date;
+}
+
 interface Props {
+    grouping: "Month & Year" | "Month";
     title: string;
     back: Link;
-    entries: Link[];
+    entries: DatedLink[];
 }
 
 const {
     title,
+    grouping,
     back: { link: backLink, text: backText },
     entries,
 } = Astro.props;
+
+const monthMaker = (d: Date) => ("0" + (d.getMonth() + 1)).slice(-2)
+
+const grouper: (e: DatedLink) => string =
+    grouping === "Month"
+        ? (e) => `${monthMaker(e.date)}`
+        : (e) => `${e.date.getFullYear()} / ${monthMaker(e.date)}`;
+
+const groups = groupBy(entries, grouper);
 ---
 
 <style lang="scss">
     @import "../styles/imports.scss";
+
+    h1 {
+        margin-bottom: 3rem;
+    }
+
     h2 a,
     ul a {
         @include underlined-links;
     }
 
-    ul {
+    ul:has(ul) {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 2rem;
+        row-gap: 3rem;
+        list-style: none;
+        @media (min-width: $iPad) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        > li {
+            border: 1px solid var(--separatorColor);
+            border-radius: 5px;
+            padding: 0.5rem;
+            position: relative;
+
+            > span {
+                position: absolute;
+                padding: 0.1rem 1rem;
+                display: inline-block;
+                margin-top: -2rem;
+                margin-left: 0.25rem;
+                background-color: var(--background);
+                z-index: 1;
+                border: 1px solid var(--separatorColor);
+                border-radius: 10px;
+            }
+        }
+    }
+
+    ul:not(:has(ul)) {
+        margin-top: 1.5rem;
+        margin-left: 0.5rem;
         font-size: 1.2rem;
         list-style: circle inside;
+
+        > li {
+            display:flex;
+
+            &:before {
+                content: "\29BF";
+                color: var(--linkColor);
+                margin-right: 0.5rem;
+            }
+        }
     }
 </style>
 <Layout title={title}>
@@ -38,9 +101,16 @@ const {
     <h1>{title}</h1>
     <ul>
         {
-            entries.map(({ link, text }) => (
+            Object.keys(groups).map((group) => (
                 <li>
-                    <a href={link}>{text}</a>
+                    <span>{group}</span>
+                    <ul>
+                        {groups[group].map(({ link, text }) => (
+                            <li>
+                                <a href={link}>{text}</a>
+                            </li>
+                        ))}
+                    </ul>
                 </li>
             ))
         }

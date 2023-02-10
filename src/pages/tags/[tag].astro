@@ -11,7 +11,9 @@ export async function getStaticPaths() {
     return allTags.map((tag) => ({
         params: { tag },
         props: {
-            entries: articles.filter((a) => a.data.tags.some((t) => t == tag)),
+            entries: articles
+                .filter((a) => a.data.tags.some((t) => t == tag))
+                .sort((a) => a.data.date as any),
         },
     }));
 }
@@ -21,9 +23,11 @@ const { entries } = Astro.props;
 
 <SimpleLinkList
     title={tag!}
+    grouping="Month & Year"
     back={{ link: "/tags", text: "All Tags" }}
-    entries={entries.map(({ slug, data: { title: text } }) => ({
+    entries={entries.map(({ slug, data: { title: text, date } }) => ({
         link: `/posts/${slug}`,
         text,
+        date,
     }))}
 />

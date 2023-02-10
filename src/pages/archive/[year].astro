@@ -23,9 +23,11 @@ const { entries } = Astro.props;
 
 <SimpleLinkList
     title={year!}
+    grouping="Month"
     back={{ link: "/archive", text: "Archive" }}
-    entries={entries.map(({ slug, data: { title: text } }) => ({
+    entries={entries.map(({ slug, data: { title: text, date } }) => ({
         link: `/posts/${slug}`,
         text,
+        date
     }))}
 />
