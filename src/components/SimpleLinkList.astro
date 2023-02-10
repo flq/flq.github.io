@@ -30,12 +30,12 @@ const {
     }
 </style>
 <Layout title={title}>
-    <h1>{title}</h1>
     <nav>
         <h2>
             <a href={backLink}>&#8612; {backText}</a>
         </h2>
     </nav>
+    <h1>{title}</h1>
     <ul>
         {
             entries.map(({ link, text }) => (

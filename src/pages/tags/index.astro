@@ -1,14 +1,18 @@
 ---
 import { getCollection } from "astro:content";
+import { groupBy } from "../../components/utils";
 import Layout from "../../layouts/main.astro";
 
 const articles = await getCollection("blog");
-const allTags = [...new Set(articles.flatMap((entry) => entry.data.tags))].sort(
-    (a, b) => a.localeCompare(b, undefined, { sensitivity: "base" })
+const allTags = groupBy(
+    [...new Set(articles.flatMap((entry) => entry.data.tags))].sort((a, b) =>
+        a.localeCompare(b, undefined, { sensitivity: "base" })
+    ),
+    (tag) => tag.substring(0, 1).toLocaleUpperCase()
 );
 ---
 
-<style>
+<style lang="scss">
     ul {
         display: grid;
         list-style: circle inside;
@@ -16,23 +20,45 @@ const allTags = [...new Set(articles.flatMap((entry) => entry.data.tags))].sort(
         grid-template-columns: repeat(auto-fill, 300px);
         max-width: 100%;
         font-size: 1.2rem;
+
+        a {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
-    ul a {
-        text-decoration: none;
-    }
+    ul:has(ul) {
+        list-style: none;
 
-    ul a:hover {
-        text-decoration: underline;
+        > li {
+            margin-bottom: 1rem;
+            > span {
+                display: block;
+                width: 60%;
+                padding-left: 0.25rem;
+                margin-bottom: 1rem;
+                border-bottom: 1px solid var(--text);
+            }
+        }
     }
 </style>
 <Layout title="tags">
     <h1>All known tags</h1>
     <ul>
         {
-            allTags.map((tag) => (
+            Object.keys(allTags).map((group) => (
                 <li>
-                    <a href={`/tags/${tag}`}>{tag}</a>
+                    <span>{group}</span>
+                    <ul>
+                        {allTags[group].map((tag) => (
+                            <li>
+                                <a href={`/tags/${tag}`}>{tag}</a>
+                            </li>
+                        ))}
+                    </ul>
                 </li>
             ))
         }
