@@ -17,8 +17,8 @@ const [date, month, year] = [
     time {
         align-self: flex-start;
         display: inline-grid;
-        grid-template-columns: 0 auto;
-        grid-template-rows: auto auto;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, auto);
         border: 1px solid var(--linkColorMain);
         border-radius: 5px;
         @media (min-width: $mobile) {
@@ -32,35 +32,47 @@ const [date, month, year] = [
         text-align: center;
         padding: 0.25rem 0.5rem;
         display: block;
-        grid-column: 2;
-        grid-row: 1;
+        grid-row: 2;
+        background-color: var(--linkColorMain);
+        color: white;
+        @media (min-width: $mobile) {
+            grid-row: 1;
+            grid-column: 2;
+            background-color: initial;
+            color: var(--text);
+        }
     }
 
     .day {
         display: flex;
-        grid-column: 2;
-        grid-row: 2;
-        background-color: var(--linkColorMain);
-        color: white;
-        padding: 0.25rem 0;
-        font-size: 1.2rem;
-        line-height: 1.2rem;
+        grid-row: 3;
+        padding: 0.25rem;
+        line-height: 1rem;
         text-align: center;
         justify-self: stretch;
         justify-content: center;
         align-items: center;
+        @media (min-width: $mobile) {
+            background-color: var(--linkColorMain);
+            color: white;
+            grid-column: 2;
+            grid-row: 2;
+            padding: 0.25rem 0;
+            line-height: 1.2rem;
+            font-size: 1.2rem;
+        }
     }
 
     .year {
         display: block;
-        visibility: hidden;
-        writing-mode: vertical-lr;
-        grid-column: 1;
-        grid-row: 1 / span 2;
+        grid-row: 1;
         padding: 0.25rem;
         line-height: 1rem;
         @media (min-width: $mobile) {
             visibility: visible;
+            writing-mode: vertical-lr;
+            grid-column: 1;
+            grid-row: 1 / span 2;
         }
     }
 </style>
