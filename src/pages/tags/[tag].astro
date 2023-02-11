@@ -1,6 +1,7 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
 import SimpleLinkList from "../../components/SimpleLinkList.astro";
+import { byDateAscending } from "../../components/utils";
 interface Props {
     entries: CollectionEntry<"blog">[];
 }
@@ -13,7 +14,7 @@ export async function getStaticPaths() {
         props: {
             entries: articles
                 .filter((a) => a.data.tags.some((t) => t == tag))
-                .sort((a) => a.data.date as any),
+                .sort(byDateAscending),
         },
     }));
 }

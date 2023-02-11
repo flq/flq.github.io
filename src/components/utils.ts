@@ -1,3 +1,5 @@
+import type { CollectionEntry } from "astro:content";
+
 export function* windowIterator<T>(array: T[]): Generator<[T, T | undefined, T | undefined]> {
   if (array.length === 0) {
     return;
@@ -18,4 +20,13 @@ export function groupBy<T, K extends string | number | symbol>(items: T[], selec
     result[key].push(item);
   }
   return result;
+}
+
+
+export function byDateAscending({data: { date: a } }: CollectionEntry<"blog">, {data: { date: b } }: CollectionEntry<"blog">) {
+  return (a as any) - (b as any);
+}
+
+export function byDateDescending({data: { date: b } }: CollectionEntry<"blog">, {data: { date: a } }: CollectionEntry<"blog">) {
+  return (a as any) - (b as any);
 }
