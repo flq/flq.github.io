@@ -2,13 +2,16 @@
 import katex from "katex";
 interface Props {
     exp: string;
+    caption?: string;
+    centered?: boolean;
 }
 
-const { exp } = Astro.props;
+const { exp, caption, centered } = Astro.props;
 const math = katex.renderToString(exp);
 ---
 
-<style>
+<style lang="scss">
+    @import "../../styles/imports.scss";
     :global(.katex-html) {
         clip: rect(0 0 0 0);
         clip-path: inset(50%);
@@ -18,6 +21,28 @@ const math = katex.renderToString(exp);
         white-space: nowrap;
         width: 1px;
     }
+
+    .has-caption {
+        display: grid;
+        grid-template-rows: auto;
+        @media (min-width: $mobile) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .centered {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+
+    figcaption {
+        text-align: left;
+        margin-bottom: 0.5rem;
+    }
 </style>
 
-<Fragment set:html={math} />
+<div class={caption ? "has-caption" : centered ? "centered" : undefined}>
+    <div set:html={math} />
+    {caption && <figcaption>{caption}</figcaption>}
+</div>

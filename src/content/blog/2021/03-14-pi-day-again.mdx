@@ -9,7 +9,9 @@ Oh. My. Gawd - it's Pi Day, again! I've written a few times about Pi already. No
 
 I have also written about continued fractions [once before][2]. They are a fascinating construct which can be used to build interesting numbers. One interesting number is...Pi. You can see on wikipedia [some examples for Pi expansions][3] in the form of continued fractions.
 
-![My Mum's trusty Sony tape player](/assets/wikipedia-pi.png)
+<Math exp={
+  'x = 3 + \\cfrac{1^2}{6 + \\cfrac{3^2}{6 + \\cfrac{5^2}{6 + \\cfrac{7^2}{6 + \\cfrac{9^2}{\\ddots}} } } }'
+  } centered />
 <figcaption>Continued fraction of Pi as taken from Wikipedia</figcaption>
 
 If we take one of those and slap it into js, we get sth like this:
