@@ -16,7 +16,8 @@ const {
 } = entry;
 ---
 
-<style>
+<style lang="scss">
+    @import "../styles/imports.scss";
     article {
         margin-bottom: 3rem;
     }
@@ -29,12 +30,19 @@ const {
         display: flex;
         flex-direction: row;
         align-items: center;
+
+        @media (min-width: $desktop) {
+            justify-content: space-between;
+        }
     }
 
     h2 {
         font-size: 1.7rem;
         line-height: 2rem;
         margin: 0 0 0 0.5rem;
+        @media (min-width: $desktop) {
+            margin: 0;
+        }
     }
 
     h2 a {
@@ -50,10 +58,16 @@ const {
         font-size: 1.4rem;
         margin: 0.25rem;
     }
+
+    .order {
+        @media (min-width: $desktop) {
+            order: 2;
+        }
+    }
 </style>
 <article role="listitem">
     <header>
-        <Date date={date} />
+        <Date class="order" date={date} />
         <h2>
             <a href={`/posts/${slug}`}>{title}</a>
         </h2>

@@ -2,8 +2,9 @@
 interface Props {
     date: Date;
     class?: string;
+    usage?: "page";
 }
-const { date: d, class: className } = Astro.props;
+const { date: d, class: className, usage } = Astro.props;
 
 const [date, month, year] = [
     d.getDate(),
@@ -24,6 +25,12 @@ const [date, month, year] = [
         @media (min-width: $mobile) {
             grid-template-columns: 1.5rem 3rem;
         }
+
+        &:not(.page) {
+            @media (min-width: $desktop) {
+                grid-template-columns: repeat(3, auto);
+            }
+        }
     }
 
     .month {
@@ -35,11 +42,25 @@ const [date, month, year] = [
         grid-row: 2;
         background-color: var(--linkColorMain);
         color: white;
+
         @media (min-width: $mobile) {
             grid-row: 1;
             grid-column: 2;
             background-color: initial;
             color: var(--text);
+        }
+
+        &:not(.page) {
+            @media (min-width: $desktop) {
+                background-color: var(--linkColorMain);
+                color: white;
+                grid-row: 1;
+                grid-column: 2;
+                padding: 0.25rem;
+                margin: 0 0.25rem;
+                align-self: stretch;
+                line-height: 1.2rem;
+            }
         }
     }
 
@@ -52,6 +73,7 @@ const [date, month, year] = [
         justify-self: stretch;
         justify-content: center;
         align-items: center;
+
         @media (min-width: $mobile) {
             background-color: var(--linkColorMain);
             color: white;
@@ -61,6 +83,16 @@ const [date, month, year] = [
             line-height: 1.2rem;
             font-size: 1.2rem;
         }
+
+        &:not(.page) {
+            @media (min-width: $desktop) {
+                background-color: var(--background);
+                color: var(--text);
+                grid-column: 3;
+                grid-row: 1;
+                margin: 0 0.5rem;
+            }
+        }
     }
 
     .year {
@@ -68,17 +100,26 @@ const [date, month, year] = [
         grid-row: 1;
         padding: 0.25rem;
         line-height: 1rem;
+
         @media (min-width: $mobile) {
-            visibility: visible;
             writing-mode: vertical-lr;
             grid-column: 1;
             grid-row: 1 / span 2;
+        }
+
+        &:not(.page) {
+            @media (min-width: $desktop) {
+                writing-mode: inherit;
+                grid-column: 1;
+                grid-row: 1;
+                margin: 0 0.25rem;
+            }
         }
     }
 </style>
 
 <time class={className} datetime={date.toString()}>
-    <span class="month">{month}</span>
-    <span class="day">{date}</span>
-    <span class="year">{year}</span>
+    <span class={`month ${usage ? "page" : ""}`}>{month}</span>
+    <span class={`day   ${usage ? "page" : ""}`}>{date}</span>
+    <span class={`year  ${usage ? "page" : ""}`}>{year}</span>
 </time>
