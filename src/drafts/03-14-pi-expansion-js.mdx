@@ -1,0 +1,53 @@
+---
+title: "Srinivasa Ramanujan's expansion of Pi"
+slug: srinivasa-pi-expansion
+tags: [mathematics]
+date: 2023-03-14 20:00:00
+draft: true
+---
+
+Many years ago I created a small [silverlight "applet"][1] that was able to calculate Pi based on some famous expansions.
+With [continued fractions][2] it is also possible to arrive at the value of Pi, but the expansions that converge the fastest are the ones
+discovered by [Srinivasa Ramanujan][bio]. The wikipedia page on Pi expansions talks about them [here][3].
+
+<Math exp={
+    '\\frac{1}{\\pi} = \\frac{2\\sqrt{2}}{9801}\\displaystyle\\sum_{k=0}^\\infty\\frac{(4k)!(1103+26390k)}{(k!)^4 396^{4k}}'
+    } centered />
+<figcaption>one of the first expansions found by Srinivasa</figcaption>
+
+Of course the function is writable in Typescript ([follow this link to a ts playground to try it out][4].). Here's the code:
+
+```ts
+interface Factorial { (n: number): number; cache: Record<number, number>; }
+
+const factorial : Factorial = function(n: number): number {
+  if (n == 0) return 1;
+  if (factorial.cache[n]) return factorial.cache[n];
+  factorial.cache[n] = n * factorial(n-1);
+  return factorial.cache[n];
+};
+factorial.cache = {};
+
+function calculatePi(n : number) {
+  let sum = 0;
+
+  for (let i = 0; i <= n; i++) {
+    let numerator = factorial(4*i) * (1103 + 26390 * i);
+    let denominator = Math.pow(factorial(i), 4) * Math.pow(396, 4 * i);
+    sum += numerator / denominator;
+  }
+
+  return 1 / (2 * Math.sqrt(2) / 9801 * sum);
+}
+
+console.log(calculatePi(0));
+```
+
+The only problem is...Srinivasa's expansiopn converges so fast that after 2 iterations the accuracy of 
+javascript's number type is already exhausted. Great work, Sir!
+
+[1]: /posts/in-honour-of-the-pi-day-expansion-series-in-silverlight
+[2]: /posts/its-continued-pi-day-again
+[bio]: https://en.wikipedia.org/wiki/Srinivasa_Ramanujan
+[3]: https://en.wikipedia.org/wiki/Approximations_of_π#20th_and_21st_centuries
+[4]: https://www.typescriptlang.org/play?jsx=0#code/JYOwLgpgTgZghgYwgAgGKLAeysOAbZAb2QAoQAuZEAVwFsAjaASkpoegG5kFEALCSgCUICbABMAPG0ZQANFToyAfFwC+AKHWiQAZzDJ4CLDnzJK6I9lwEAvAeogjwTCDKtFzd+yhF1yZMAwpCDINnYADEzIUBBg1FAhAIwcfgFBJIbG1gB0PAj8ANogALpRMXEJBhhW+Ll8EEXFKf6ZNXh1+Q0loVTIAFRVliZ4ZAC0iUzN0bHxIa3DHYUlKaop8zl5-D2Eq5owDk4u3PgI1HhwkAAKwGRmCt5RhKl4scg6dD3hKakw2KQv+mAny4QIkdhAIIA1JDHql-AD7tALn87Ot8CQACx9YBRAYkRKJcIAZmQkOQACYAGxEgCc4X6AUmcOQCLEEBAmFooGRPjsAFkLrxsgAHTAAdwy1WGJBx8gxuOQArAQtFEtplLlDJxU3871opPBdCRxmQAHpkGyOVyQDyphpUuVZshEmbSOSGUqhToAI5QMAkclRc00gAc4RdAz1TPt2h0mBe2TwmAA5iQeHhTucrjdIpMgA
