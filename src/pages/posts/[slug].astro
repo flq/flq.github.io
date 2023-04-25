@@ -106,14 +106,8 @@ const {
   title={entry.data.title}
   meta={[
     { name: "keywords", content: entry.data.tags.join(", ") },
-    { name: "twitter:card", content: "summary" },
-    { name: "twitter:title", content: entry.data.title },
-    { name: "twitter:site:id", content: "fquednau" },
-    { name: "twitter:description", content: excerpt },
-    {
-      name: "twitter:image",
-      content: "https://realfiction.net/icons/icon-72x72.png",
-    },
+    { name: "og:title", content: entry.data.title },
+    { name: "og:description", content: excerpt },
   ]}
 >
   <article>
