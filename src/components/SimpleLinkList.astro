@@ -11,6 +11,7 @@ interface DatedLink extends Link {
 
 interface Props {
     grouping: "Month & Year" | "Month";
+    sorting?: "Ascending" | "Descending";
     title: string;
     back: Link;
     entries: DatedLink[];
@@ -21,7 +22,10 @@ const {
     grouping,
     back: { link: backLink, text: backText },
     entries,
+    sorting = "Ascending"
 } = Astro.props;
+
+const sorter = (a: Array<any>) => sorting === "Ascending" ? a.sort() : a.sort().reverse();
 
 const monthMaker = (d: Date) => ("0" + (d.getMonth() + 1)).slice(-2)
 
@@ -101,7 +105,7 @@ const groups = groupBy(entries, grouper);
     <h1>{title}</h1>
     <ul>
         {
-            Object.keys(groups).sort().map((group) => (
+            sorter(Object.keys(groups)).map((group) => (
                 <li>
                     <span>{group}</span>
                     <ul>
