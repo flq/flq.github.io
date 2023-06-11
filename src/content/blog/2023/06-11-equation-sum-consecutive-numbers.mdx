@@ -1,0 +1,74 @@
+---
+title: "Dominoes, combinations, sums and reductions"
+slug: dominoes-combinations-etc
+tags: [mathematics]
+date: 2023-06-12 20:45:00
+---
+
+When in Cuba, and leaving behind iPad and all, I was idling around how many Domino stones there are in a game of Dominoes that goes from 0 to 9.
+
+Basically, we have all combinations of numbers 0-9 **plus** a doubled stone for each number, i.e.
+
+<Math exp={
+    '{10 \\choose 2} + 10 = \\frac{10!}{2!(10 - 2)!} + 10 = 55'
+    } centered />
+<figcaption>There are 55 domino stones in a game of dominoes</figcaption>
+
+With my son we arrived at the number by thinking:
+
+* For number 0, 0 can be combined with all other numbers: 10 domininoes
+* For number 1, it can be combined with all others, however, 1 combination (0,1) is already present: 9 dominoes
+* For each subsequent number, you add the missing combinations - it is always 1 less than the previous one.
+
+Mathematically, you can express this as
+
+<Math exp={
+    '\\sum_{n=1}^{10} n = 55'
+    } centered />
+<figcaption>The numbers, when written out, would be reversed compared to the textual description</figcaption>
+
+Now, if you arrange the numbers in pairs, where you take the left and right boundary of the remaining sequence of numbers you end up with
+
+<Math exp={'1+2+3+4+5+6+7+8+9+10'} />
+<Math exp={'\\Rightarrow (10+1) + (9+2) + (8+3) + (7+4) + (6+5)'} />
+
+If you generalize this pattern you get that the sum of the pair is always one more than the biggest number, and you can form pairs up to the half of the biggest number:
+
+<Math exp={
+    '\\sum_{n=1}^{10} n = (n+1)\\frac{n}{2}'
+    } centered />
+
+Intuitively, this seems to work out for any sequence starting with 1 up to some arbitrary number n.
+
+At this point I attempted a proof by induction (and I'm pretty sure I got the details wrong, but I was happy at the end), which
+I hadn't done for several decades at this point.
+
+Let's establish the baseline, and settle that the equation works for n = 1:
+
+<Math exp={
+    '\\sum_{n=1}^{1} n = (1+1)\\frac{1}{2} = 2 * 0,5 = 1'
+    } centered />
+
+That is correct.
+
+Now, for the **next** step we get that
+
+<Math exp={'\\sum_{n=1}^{x+1} n = \\sum_{n=1}^{x} n + (x+1)'}  />
+
+by the very definition of a sum. Substituting our equation on both sides, we get
+
+<Math exp={'((x+1)+1)\\frac{x+1}{2} = (x+1)\\frac{x}{2} + (x+1)'}  />
+
+Let's multiply both sides by 2:
+
+<Math exp={'(x+2)(x+1) = x(x+1) + 2(x + 1)'}  />
+
+Let's expand!
+
+<Math exp={'x^2+3x+2 = x^2 + 3x + 2'}  />
+
+The point being that this holds true for any x, we can expand the solution for the previous step into the solution for the next step,
+coming all the way down to our baseline.
+Looking chill from this side of the screen!
+
+See, there is no boredom with a pen and a piece of paper :)
