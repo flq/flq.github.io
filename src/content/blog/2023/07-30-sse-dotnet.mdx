@@ -1,0 +1,58 @@
+---
+title: "Server-Sent Events with dotnet 7"
+slug: sse-dotnet
+tags: [dotnet, software-development]
+date: 2023-07-30 13:30:00
+topic: "sse-1"
+---
+
+<TopicToc topicId="sse-1" active="Server-Side Events with .NET 7" />
+
+[Server-Sent Events][sse] (SSE) is an interesting extension of a HTTP response that generalizes rules on how to send responses 
+down an open connection to the client and a javascript API on how to consume this data as it comes in (this in the next post). That way we can add some
+_"realtime"_ capabilities to our web application provided that a uni-directional communication from server to client is sufficient.
+
+<Info>
+SSE allows a lot more than this demo has implemented, last but not least around the interrruption of the connection.
+</Info>
+
+The basics on how to send SSEs from a dotnet backend are very well described in the post 
+["Server-side Event Streams with Dotnet Core and TypeScript"][1] by _Wim Jongeneel_, an Engineer located in Rotterdam. In fact,
+some of the code contained in [the repo I'll be drawing code from][2] you will recognize as coming relatively straight from his post.
+
+What is added in this demo above the extension methods of sending data down the wire with the aid of the `HttpResponse` object is 
+how one can leverage [dotnet minimal API][3] infrastructure to __decouple__ how your _business code_ may send events from 
+the actual mechanics.
+
+For this we introduce an object that implements `IResult`- this interface is understood by the minimal API infrastructure and 
+marks the result of an HTTP endpoint:
+
+<GHEmbed repo="sse-demo" branch="develop" file="SSEDemo/SSEResult.cs" start={3} end={32} />
+
+By passing an `IAsyncEnumerable` into a custom `IResult` object we have a nice way of providing a source of elements 
+that can be mapped 1:1 to events sent to the client.
+
+One constraint that we apply to the provided items is that they provide a `Name` and a `Payload` property which will be used 
+to define under what event name the data will be sent to the client.
+
+<GHEmbed repo="sse-demo" branch="develop" file="SSEDemo/SSEResult.cs" start={34} end={38} />
+
+Armed with this handling of an `IAsyncEnumerable` one can use it in this way:
+
+<GHEmbed repo="sse-demo" branch="develop" file="SSEDemo/Program.cs" start={8} end={8} />
+
+`ProduceEvents` could be anything, e.g. the return of a MediatR call or however you call your business logic. 
+In this case it is a simple demo function like this one:
+
+<GHEmbed repo="sse-demo" branch="develop" file="SSEDemo/Program.cs" start={13} end={22} />
+
+Also of note is that in this code, a special "Close" event will be sent. In the spec there doesn't seem to be anything specific
+to how the server can end the connection (It's the client's responsibility to say good-bye), but by having a special event
+we can trigger that the client should close the SSEs response.
+
+In the next post we'll have a look at how the data provided by the API can be put to good use in a web page.
+
+[sse]: https://html.spec.whatwg.org/multipage/server-sent-events.html
+[1]: https://itnext.io/server-side-event-streams-with-dotnet-core-and-typescript-d20c84017480
+[2]: https://github.com/flq/sse-demo
+[3]: https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-7.0&tabs=visual-studio-code
