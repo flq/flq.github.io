@@ -95,10 +95,8 @@ pre[class*="language-"] {
 }
 
 code {
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  background: #5b5e4fff;
-  color: #f8f8f2;
-  padding: 0 0.5rem;
+  background: #5b5e4f33;
+  padding: 0 0.25rem;
   border-radius: 5px;
 }
 
