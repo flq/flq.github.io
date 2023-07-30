@@ -90,7 +90,7 @@ blockquote:before {
 }
 
 pre[class*="language-"] {
-  font-size: 1rem;
+  font-size: 0.75em !important;
   box-shadow: var(--standardShadow);
 }
 

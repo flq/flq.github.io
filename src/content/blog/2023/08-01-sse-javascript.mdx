@@ -1,0 +1,112 @@
+---
+title: "Handling Server-Sent Events with javascript"
+slug: sse-javascript
+tags: [javascript, software-development]
+date: 2023-07-31 08:30:00
+topic: "sse-1"
+---
+
+<TopicToc topicId="sse-1" active="Handling Server-Sent Events with javascript" />
+
+Now that we're sending out events, I could point you to the [Mozilla pages][1] that explain how the `EventSource` instance 
+is to be used and call it a day. However, in the year 2023 I don't find the use of event handlers really idiomatic javascript.
+Let's see how we can translate a class that emits events to an async iterable (kind of the javascript counterpart to dotnet's `IAsyncEnumerable`).
+
+Normally you can write a generator function over which you can iterate with the asterisk syntax.
+
+```javascript
+function* yieldStuff() {
+  for (let i = 0; i < 10; i++) {
+    yield i;
+  }
+}
+
+for (let item of yieldStuff()) {
+  console.log(item);
+}
+```
+<figcaption>the code will write the number 0 through 9 to the console</figcaption>
+
+This also works in an asynchronous fashion:
+
+```javascript
+async function* yieldStuff() {
+  for (let i = 0; i < 10; i++) {
+    yield Promise.resolve(i);
+  }
+}
+
+async function iterating() {
+  for await (let item of yieldStuff()) {
+    console.log(item);
+  }
+}
+
+iterating()
+```
+
+The asterisk notation is syntactic sugar for this construction here:
+
+```javascript
+function yieldStuff() {
+  let counter = 9;
+  return {
+    [Symbol.asyncIterator]: () => ({
+      next: () => {
+        if (counter >= 0) 
+          return Promise.resolve({ value: counter--, done: false});
+        return Promise.resolve({ done: true })
+      }
+    })
+  }
+}
+
+async function iterating() {
+  for await (let item of yieldStuff()) {
+    console.log(item);
+  }
+}
+
+iterating()
+```
+
+if an object defines a function that returns an object with a `next`- function that returns (in Typescript notation)
+
+```typescript
+type Return<T> = { value: T, done: false } | { done: true }
+
+```
+
+you can iterate over it!
+
+Armed with this knowledge we can build an iterator around an EventSource that we can iterate over events 
+coming out of an EventSource in an asynchronous fashion.
+
+<GHEmbed repo="sse-demo" branch="develop" file="SSEDemo/wwwroot/index.html" start={40} end={81} />
+
+The code is a bit involved as it has to satisfy the needs of an iterator while the event handler of the `EventSource` can 
+also be called at any moment.
+
+The `eventQueue` array acts like a queue (we add elements via `push` and take the first element via `shift`).
+
+On the iterator side, everytime next is called, we either resolve the first element of the queue if there is one, or signal that
+the next call is waiting for an element (`isWaiting`) and await the promise stored under `eventAvailableSignal`. Once
+the signal is resolved, the iterator is not waiting anymore and can yield the element that is now available in the queue.
+
+On the event handling side, when an event is received, it is added to the queue. 
+Then it is checked whether the iterator is waiting - if it is, the signal is resolved, and a new signal (aka Promise) is set up
+for the next round.
+
+As mentioned in the previous post, we allow the server to send a special __"Close"__ event, which is specifically handled such that
+the event source is closed and an element is enqueued that signals to any iterating code that the iterator will not yield any more
+elements.
+
+Now we can use the `iterateEventSource` method to create modern-day idiomatic javascript:
+
+<GHEmbed repo="sse-demo" branch="develop" file="SSEDemo/wwwroot/index.html" start={27} end={38} />
+<figcaption>No guarantee is given as to the correctness with regard to all corner cases</figcaption>
+
+This concludes our small excursion into Server-Sent Events and how you can translate the basic mechanisms into higher 
+level idioms of the respective language.
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
