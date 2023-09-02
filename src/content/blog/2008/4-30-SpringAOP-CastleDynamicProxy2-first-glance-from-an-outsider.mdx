@@ -15,11 +15,11 @@ You may also stumble upon another fantastic project with plenty of Mojo in it, A
 
 For this post I set up a simple project referencing both assemblies like that:
 
-![Project references](files/images/referencesProxies.png)
+![Project references](/assets/referencesProxies.png)
 
 My aim was to get first a basic feeling what it costs performance-wise to create a proxy for some object, adding an interceptor to it and then accessing methods and properties on it. For that I created the HorridPerson class, a class so ugly, even VBA programmers may run away screaming:
 
-![A yucky class](files/images/horridPersonProxies.png)
+![A yucky class](/assets/horridPersonProxies.png)
 
 The use of interceptors is normally comfortably accessible from within the framework of Spring.Net/Castle Windsor. The documentation how the proxy generators should be used is not readily available. Best bet in such a case are the relevant test cases. With both projects being open source and providing a decent suite of test cases, there is no excuse in not figuring out how some part of a system is meant to be used.
 
