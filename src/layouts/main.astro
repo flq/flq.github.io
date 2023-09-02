@@ -4,6 +4,7 @@ interface Props {
     title?: string;
     skipFooter?: boolean;
 }
+import { ViewTransitions } from 'astro:transitions';
 import "prismjs/themes/prism-okaidia.css";
 import "../styles/normalize.css";
 import "../styles/base.css";
@@ -14,9 +15,10 @@ const title = "realfiction";
 const { meta = [], title: pageTitle, skipFooter } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" transition:animate="slide">
     <head>
         <title>{pageTitle ? `${pageTitle} (${title})` : title}</title>
+        <ViewTransitions fallback="none" />
         <meta charset="utf-8" />
         <link rel="icon" href="/favicon.png" type="image/png">
         <link rel="me" href="https://freiburg.social/@flq" />
