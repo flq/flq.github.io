@@ -53,7 +53,7 @@ ul {
   padding: 0;
 }
 
-img, .giphy-embed {
+img, video, .giphy-embed {
   display: block;
   margin: 20px auto;
   max-width: 100%;

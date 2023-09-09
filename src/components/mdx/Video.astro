@@ -1,0 +1,13 @@
+---
+interface Props {
+  name: string;
+  width: string;
+  height: string;
+}
+
+const { name, width, height } = Astro.props;
+---
+
+<video width={width} height={height} controls>
+  <source src={`/assets/${name}`} />
+</video>
