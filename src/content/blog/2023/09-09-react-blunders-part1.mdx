@@ -1,0 +1,60 @@
+---
+title: "React blunders: Stale, staler, Function components"
+slug: react-blunders-part-1
+tags: [javascript, react, software-development]
+date: 2023-09-09 15:30:00
+---
+
+Lately I've seen a few posts that have critiqued react for being a pretty complex thing. 
+After having worked intensely with react for more than 5 years I would certainly attest to the honeymoon being over.
+It's not that I hate the framework or anything like that, it's that some things can get really complicated.
+
+Especially with **hooks** which, when they came to react felt to me like _react coming home_, one can now say in retrospect that
+being part of the very function that is being called for rendering opens up to a whole host of possible issues. 
+You need to make sure that you don't use any state that is stale and does not belong to what is currently 
+being shown to the user. 
+
+Of course all of this is etched into the mechanics of **dependency arrays**, a compromise between satisfying the rendering mechanics
+of react (only render when things really change) and satisfying the basic rules of closing over state in functions within functions.
+
+Today I bring you the example of a long running function that "_uploads multiple items_" while giving feedback to the UI user.
+
+Let's have a look at the uploading component:
+
+<GHEmbed repo="react-issues-1" branch="baseline" file="src/Uploader.jsx" start={4} end={15} />
+
+The code _"uploads"_ three items, simulating the action with a `setTimeout` in async form, and then informs a user of the component that
+the item has been completed via `onItemCompleted`, providing the item. Once all items have been processed a final event (`onAllCompleted`) is raised.
+
+The consumer might look something like this:
+
+<GHEmbed repo="react-issues-1" branch="baseline" file="src/App.jsx" start={5} end={22} />
+
+Every time that `onItemCompleted` is raised, we add to the state we're keeping for having the items available. Then, once we get the
+signal that all items are processed, we show all items to the user.
+
+Nice, let's see then what the user gets to see with this code:
+
+<Video width="568" height="352" name="react-try1.mp4" />
+
+According to the code I would have expected that
+
+* On each item completed event, I get to see all items that have been added to my list of items already
+* When the all completed event is raised I get to do sth with all those items that have been collected up to that point.
+
+But why? As a solid react dev I didn't use any of the dangerous stuff like `useCallback` etc where a dependency array needs 
+to be defined... all my functions are fresh, are they not?
+
+Here is the point where I let you think what is happening...
+
+![waiting for you](/assets/dog-waiting.gif)
+<figcaption>I can wait :)</figcaption>
+
+What is happening is that even though all kinds of things around the `upload` function in the Uploader change because we are 
+triggering rerenders and what-have-you, the initial `upload` instance that was called is still running through its lifetime,
+using all those references that were closed over the moment the `Uploader` rendered for the first time.
+
+But Frank, you say, how the hell am I supposed to avoid that? The uploader runs for as long as it has to run - how can we make this fly
+nonetheless?
+
+That's what we'll look at in the next post.
