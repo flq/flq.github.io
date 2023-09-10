@@ -16,7 +16,7 @@ Basically, we have all combinations of numbers 0-9 **plus** a doubled stone for 
 
 With my son we arrived at the number by thinking:
 
-* For number 0, 0 can be combined with all other numbers: 10 domininoes
+* For number 0, 0 can be combined with all other numbers: 10 dominoes
 * For number 1, it can be combined with all others, however, 1 combination (0,1) is already present: 9 dominoes
 * For each subsequent number, you add the missing combinations - it is always 1 less than the previous one.
 
@@ -35,7 +35,7 @@ Now, if you arrange the numbers in pairs, where you take the left and right boun
 If you generalize this pattern you get that the sum of the pair is always one more than the biggest number, and you can form pairs up to the half of the biggest number:
 
 <Math exp={
-    '\\sum_{n=1}^{10} n = (n+1)\\frac{n}{2}'
+    '\\sum_{n=1}^{z} n = (z+1)\\frac{z}{2}'
     } centered />
 
 Intuitively, this seems to work out for any sequence starting with 1 up to some arbitrary number n.
