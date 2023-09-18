@@ -1,0 +1,41 @@
+---
+title: "React blunders: close over objects"
+slug: react-blunders-part-2
+tags: [javascript, react, software-development]
+date: 2023-09-18 22:30:00
+topic: "react-issue-1"
+---
+
+<TopicToc topicId="react-issue-1" active="React blunders: close over objects" />
+
+To recap the last post - one issue this combination of components faces is that
+the asynchronous upload method closed over functions which in turn closed over state that
+gets stale over time.
+
+<Info>
+    There is always the option to redesign components such that you don't get into bad situations like this.
+    One possibility would be for the uploader to keep track of the uploaded items and provide the full list of items
+    to the `onAllCompleted` callback as argument.
+</Info>
+
+One of the two issues we can resolve with the `useState` overload that provides us with the current state:
+
+<GHEmbed repo="react-issues-1" branch="fixes" file="src/App.jsx" start={12} end={14} />
+
+This fixes the `onItemCompleted` callback. But what about `onAllCompleted` ?
+
+To show you one more tool from our arsenal of circumventing staleness in function components, 
+let's make sure that the Uploader always sees the latest version of the onAllCompleted callback:
+
+On every render of `Uploader`, we'll write the passed in props into a ref:
+
+<GHEmbed repo="react-issues-1" branch="fixes" file="src/Uploader.jsx" start={4} end={6} />
+
+And from now on we access the props through the ref:
+
+<GHEmbed repo="react-issues-1" branch="fixes" file="src/Uploader.jsx" start={8} end={15} />
+
+Now the `uploadAsync` function has access to the last set of functions that were passed in during the last render. 
+Once `onAllCompleted` is called, it is the one that _sees_ the latest version of the items state from App.
+
+I hope you'll enjoy this little ref hack and you might find it useful here & there.
