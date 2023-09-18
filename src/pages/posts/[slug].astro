@@ -58,7 +58,7 @@ const {
   header {
     display: grid;
     grid-template-rows: auto auto;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr auto;
     column-gap: 0.25rem;
     font-size: 1.2rem;
     margin-bottom: 2rem;
@@ -113,8 +113,8 @@ const {
 >
   <article>
     <header>
-      <Date usage="page" class="date" date={entry.data.date} />
       <h1>{entry.data.title}</h1>
+      <Date usage="page" class="date" date={entry.data.date} />
       <Tags tags={entry.data.tags} />
     </header>
     <Content
