@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/main.astro";
+---
+
+<style lang="scss">
+	main {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 1.5rem;
+	}
+
+	aside {
+		margin-top: 2rem;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: start;
+		gap: 1rem;
+		font-size: smaller;
+	}
+
+	a.badge {
+		padding: 0.25rem 0.25rem;
+		display: block;
+		text-align: center;
+		text-decoration: none;
+		border-radius: 5px;
+		border: 1px solid var(--linkColor);
+	}
+
+	a.badge:hover {
+		text-decoration: underline;
+	}
+</style>
+<Layout>
+	<main>
+		<article>
+			<h3>Hi, Frank L. Quednau here</h3>
+			<p>
+				I've been maintaining this online presence since about the year
+				2000. I work in software development, about the first 12 years
+				of my career in consulting positions, and for the past 10 years
+				in product development.
+			</p>
+			<p>
+				The last 5 years I've been <em>software gardening</em> at ahead,
+				playing an important role in taking the company from 0 to a
+				roughly 1.5Mio ARR business that competes with much bigger fish
+				in the intranet-as-a-service business.
+			</p>
+			<p>
+				The <a href="/posts/the-realfiction-manifesto"
+					>realfiction manifesto from 2006</a
+				>
+				 gives you some background about this website. While I still
+				share the sentiment of the important entanglement between
+				reality and fiction that drives human progress forward, with
+				time this site became more of an outlet of things surrounding my
+				software world, with short intermezzos that dabble into other
+				areas of interest.
+			</p>
+		</article>
+		<aside>
+			<a class="badge" href="https://freiburg.social/@flq">
+				flq@freiburg.social
+			</a>
+			<a class="badge" href="https://github.com/flq">flq@github.com</a>
+			<a class="badge" href="http://stackoverflow.com/users/21226">
+				flq@stackoverflow.com
+			</a>
+			<a
+				class="badge"
+				href="https://www.linkedin.com/in/frank-quednau-921856/"
+			>
+				flq@linkedin.com
+			</a>
+		</aside>
+	</main>
+</Layout>
