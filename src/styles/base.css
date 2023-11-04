@@ -1,3 +1,27 @@
+@font-face {
+  font-family: 'Geist';
+  src: url('/font/Geist-Thin.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/font/Geist-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/font/Geist-Regular.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --linkColorMain: #af0000;
   --linkColorMainContrast: #c6f8ff;
@@ -32,12 +56,12 @@ body {
   color: var(--text);
   line-height: 1.6;
   font-weight: 400;
-  font-family: Raleway, HelveticaNeue, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
+  font-family: 'Geist', sans-serif;
   padding: 0 var(--sidePadding) 0 var(--sidePadding);
 }
 
 a {
+  font-weight: 500;
   color: var(--linkColor);
 }
 
@@ -83,7 +107,6 @@ blockquote:before {
   color: #ccc;
   content: '\201D';
   font-size: 3em;
-  font-family: helvetica;
   line-height: 0.1em;
   margin-right: 0.25em;
   vertical-align: -0.4em;

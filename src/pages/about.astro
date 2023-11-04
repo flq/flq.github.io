@@ -3,6 +3,7 @@ import Layout from "../layouts/main.astro";
 ---
 
 <style lang="scss">
+	@import "../styles/imports.scss";
 	main {
 		display: grid;
 		grid-template-columns: 1fr auto;
@@ -20,16 +21,12 @@ import Layout from "../layouts/main.astro";
 	}
 
 	a.badge {
+		@include underlined-links;
 		padding: 0.25rem 0.25rem;
 		display: block;
 		text-align: center;
-		text-decoration: none;
 		border-radius: 5px;
 		border: 1px solid var(--linkColor);
-	}
-
-	a.badge:hover {
-		text-decoration: underline;
 	}
 </style>
 <Layout>

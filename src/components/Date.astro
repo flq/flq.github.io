@@ -15,7 +15,9 @@ const [date, month, year] = [
 
 <style lang="scss">
     @import "../styles/imports.scss";
+
     time {
+        font-size: 1rem;
         align-self: flex-start;
         display: inline-grid;
         grid-template-columns: auto;
@@ -34,8 +36,6 @@ const [date, month, year] = [
     }
 
     .month {
-        font-size: 1rem;
-        line-height: 1rem;
         text-align: center;
         padding: 0.25rem 0.5rem;
         display: block;
@@ -59,7 +59,6 @@ const [date, month, year] = [
                 padding: 0.25rem;
                 margin: 0 0.25rem;
                 align-self: stretch;
-                line-height: 1.2rem;
             }
         }
     }
@@ -68,7 +67,6 @@ const [date, month, year] = [
         display: flex;
         grid-row: 3;
         padding: 0.25rem;
-        line-height: 1rem;
         text-align: center;
         justify-self: stretch;
         justify-content: center;
@@ -80,8 +78,6 @@ const [date, month, year] = [
             grid-column: 2;
             grid-row: 2;
             padding: 0.25rem 0;
-            line-height: 1.2rem;
-            font-size: 1.2rem;
         }
 
         &:not(.page) {
@@ -99,7 +95,8 @@ const [date, month, year] = [
         display: block;
         grid-row: 1;
         padding: 0.25rem;
-        line-height: 1rem;
+        align-self: center;
+        justify-self: center;
 
         @media (min-width: $mobile) {
             writing-mode: vertical-lr;
@@ -118,7 +115,7 @@ const [date, month, year] = [
     }
 </style>
 
-<time class={className} datetime={date.toString()}>
+<time class={`${className} ${usage ? "page" : ""}`} datetime={date.toString()}>
     <span class={`month ${usage ? "page" : ""}`}>{month}</span>
     <span class={`day   ${usage ? "page" : ""}`}>{date}</span>
     <span class={`year  ${usage ? "page" : ""}`}>{year}</span>
