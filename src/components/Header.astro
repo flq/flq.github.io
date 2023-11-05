@@ -1,110 +1,109 @@
 ---
 export interface Props {
-    title: string;
+  title: string;
 }
 const { title } = Astro.props;
 ---
 
 <style lang="scss">
-    @import "../styles/imports.scss";
-    nav {
-        display: flex;
-        align-items: stretch;
-        justify-content: center;
-        padding: 0.5rem var(--sidePadding);
-        box-shadow: var(--topShadow);
-        background-color: var(--backgroundHeader);
-        z-index: 10;
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-    }
+  @import "../styles/imports.scss";
+  nav {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: 0.5rem var(--sidePadding);
+    box-shadow: var(--topShadow);
+    background-color: var(--backgroundHeader);
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
 
-    .main {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        @include widths;
-    }
+  .main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @include widths;
+  }
 
-    h1 {
-        font-family: "Lora", serif;
-        font-style: italic;
-        letter-spacing: 0.01rem;
-        text-shadow: 2px 1px 1px #999;
-        margin: 0 1rem 0 0;
-        font-size: 2.2rem;
-    }
+  h1 {
+    font-family: "Lora", serif;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.01rem;
+    text-shadow: 2px 1px 1px #999;
+    margin: 0 1rem 0 0;
+    font-size: 2.2rem;
+  }
 
-    a {
-        font-weight: 500;
-        text-decoration: none;
-        text-decoration-style: none;
-        display: inline-block;
-        color: var(--linkColorMain);
-        & span {
-            display: none;
-            @media (min-width: $iPad) {
-                display: inline;
-                width: inherit;
-            }
-        }
+  a {
+    font-weight: 500;
+    text-decoration: none;
+    text-decoration-style: none;
+    display: inline-block;
+    color: var(--linkColorMain);
+    & span {
+      display: none;
+      @media (min-width: $iPad) {
+        display: inline;
+        width: inherit;
+      }
     }
+  }
 
-    a:hover {
-        text-decoration: underline;
-        text-decoration-style: solid;
-    }
+  a:hover {
+    text-decoration: underline;
+    text-decoration-style: solid;
+  }
 
-    a:visited {
-        color: var(--linkColorMain);
-    }
+  a:visited {
+    color: var(--linkColorMain);
+  }
 
-    a:not(:first-child)::before {
-        content: " | ";
-        color: var(--linkColorMain);
-        margin: 0 0.5rem;
-        text-decoration: none;
-        display: inline-block;
-    }
+  a:not(:first-child)::before {
+    content: " | ";
+    color: var(--linkColorMain);
+    margin: 0 0.5rem;
+    text-decoration: none;
+    display: inline-block;
+  }
 
-    .hide-mobile {
-        display: none;
-        @media (min-width: $iPad) {
-            display: inline-block;
-        }
+  .hide-mobile {
+    display: none;
+    @media (min-width: $iPad) {
+      display: inline-block;
     }
+  }
 
-    img {
-        margin: 0;
-        display: inline-block;
-        width: 2.2rem;
-        box-shadow: none;
-        vertical-align: middle;
-        @media (min-width: $iPad) {
-            display: none;
-        }
+  img {
+    margin: 0;
+    display: inline-block;
+    width: 2.2rem;
+    box-shadow: none;
+    vertical-align: middle;
+    @media (min-width: $iPad) {
+      display: none;
     }
+  }
 </style>
 <nav>
-    <div class="main">
-        <h1>
-            <a href="/">
-                {title}
-            </a>
-        </h1>
-        <div>
-            <a href="/archive"
-                ><img src="/assets/archive.webp" alt="Archive" /><span
-                    >Archive</span
-                ></a
-            >
-            <a href="/tags"
-                ><img src="/assets/tags.webp" alt="Tags" /><span>Tags</span></a
-            >
-            <a href="/about" class="hide-mobile">About</a>
-        </div>
+  <div class="main">
+    <h1>
+      <a href="/">
+        {title}
+      </a>
+    </h1>
+    <div>
+      <a href="/archive"
+        ><img src="/assets/archive.webp" alt="Archive" /><span>Archive</span></a
+      >
+      <a href="/tags"
+        ><img src="/assets/tags.webp" alt="Tags" /><span>Tags</span></a
+      >
+      <a href="/about" class="hide-mobile">About</a>
     </div>
+  </div>
 </nav>
