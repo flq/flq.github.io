@@ -8,6 +8,10 @@ import Layout from "../layouts/main.astro";
 		display: grid;
 		grid-template-columns: 1fr auto;
 		gap: 1.5rem;
+
+		@media (max-width: $iPad) {
+            grid-template-columns: 1fr;
+        }
 	}
 
 	aside {
@@ -18,6 +22,11 @@ import Layout from "../layouts/main.astro";
 		justify-content: start;
 		gap: 1rem;
 		font-size: smaller;
+
+		@media (max-width: $iPad) {
+            display: grid;
+			grid-template-columns: repeat(2, 1fr);
+        }
 	}
 
 	a.badge {
