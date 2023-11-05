@@ -1,15 +1,15 @@
 @font-face {
   font-family: 'Geist';
-  src: url('/font/Geist-Thin.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+  src: url('/font/Geist-Light.woff2') format('woff2');
+  font-weight: normal; /* 400 */
+  font-style: normal; 
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Geist';
   src: url('/font/Geist-Bold.woff2') format('woff2');
-  font-weight: bold;
+  font-weight: bold; /* 700 */
   font-style: normal;
   font-display: swap;
 }
@@ -18,6 +18,14 @@
   font-family: 'Geist';
   src: url('/font/Geist-Regular.woff2') format('woff2');
   font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/font/Geist-Thin.woff2') format('woff2');
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
