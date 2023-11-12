@@ -3,83 +3,107 @@ import Layout from "../layouts/main.astro";
 ---
 
 <style lang="scss">
-	@import "../styles/imports.scss";
-	main {
-		display: grid;
-		grid-template-columns: 1fr auto;
-		gap: 1.5rem;
+  @import "../styles/imports.scss";
+  main {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.5rem;
 
-		@media (max-width: $iPad) {
-            grid-template-columns: 1fr;
-        }
-	}
+    @media (max-width: $iPad) {
+      grid-template-columns: 1fr;
+    }
+  }
 
-	aside {
-		margin-top: 2rem;
-		display: flex;
-		flex-direction: column;
-		align-items: stretch;
-		justify-content: start;
-		gap: 1rem;
-		font-size: smaller;
+  aside {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+    gap: 1rem;
+    font-size: smaller;
 
-		@media (max-width: $iPad) {
-            display: grid;
-			grid-template-columns: repeat(2, 1fr);
-        }
-	}
+    @media (max-width: $iPad) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 
-	a.badge {
-		@include underlined-links;
-		padding: 0.25rem 0.25rem;
-		display: block;
-		text-align: center;
-		border-radius: 5px;
-		border: 1px solid var(--linkColor);
-	}
+  a.badge {
+    @include underlined-links;
+    padding: 0.25rem 0.25rem;
+    display: block;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid var(--linkColor);
+
+    &:hover img.badgelogo {
+      filter: brightness(1.3);
+    }
+  }
+  img.badgelogo {
+    width: 32px;
+    height: 32px;
+    box-shadow: none;
+    margin: 0 auto;
+  }
 </style>
 <Layout>
-	<main>
-		<article>
-			<h3>Hi, Frank L. Quednau here</h3>
-			<p>
-				I've been <a href="/tags/site">maintaining</a> this <a href="/posts/the-one-where-all-the-stuff-is-put-on-github">online presence</a> since about the year
-				1997. I work in software development, about the first 12 years
-				of my career in consulting positions, and for the past 10 years
-				in product development (with a small stint in the <em>"Enterprise"</em>).
-			</p>
-			<p>
-				The last 5 years I've been <em>software gardening</em> at <a href="https://aheadintranet.com">ahead</a>,
-				playing an important role in taking the company from 0 to a
-				roughly 1.5Mio ARR business that competes with much bigger fish
-				in the intranet-as-a-service business.
-			</p>
-			<p>
-				The <a href="/posts/the-realfiction-manifesto"
-					>realfiction manifesto from 2006</a
-				>
-				 gives you some background about this website. While I still
-				share the sentiment of the important entanglement between
-				reality and fiction that drives human progress forward, with
-				time this site became more of an outlet of things surrounding my
-				software world, with short intermezzos that dabble into other
-				areas of interest.
-			</p>
-		</article>
-		<aside>
-			<a class="badge" href="https://freiburg.social/@flq">
-				flq@freiburg.social
-			</a>
-			<a class="badge" href="https://github.com/flq">flq@github.com</a>
-			<a class="badge" href="https://stackoverflow.com/users/51428/flq">
-				flq@stackoverflow.com
-			</a>
-			<a
-				class="badge"
-				href="https://www.linkedin.com/in/frank-quednau-921856/"
-			>
-				flq@linkedin.com
-			</a>
-		</aside>
-	</main>
+  <main>
+    <article>
+      <h3>Hi, Frank L. Quednau here</h3>
+      <p>
+        I've been <a href="/tags/site">maintaining</a> this <a
+          href="/posts/the-one-where-all-the-stuff-is-put-on-github"
+          >online presence</a
+        > since about the year 1997. I work in software development, about the
+        first 12 years of my career in consulting positions, and for the past 10
+        years in product development (with a small stint in the <em
+          >"Enterprise"</em
+        >).
+      </p>
+      <p>
+        The last 5 years I've been <em>software gardening</em> at <a
+          href="https://aheadintranet.com">ahead</a
+        >, playing an important role in taking the company from 0 to a roughly
+        1.5Mio ARR business that competes with much bigger fish in the
+        intranet-as-a-service business.
+      </p>
+      <p>
+        The <a href="/posts/the-realfiction-manifesto"
+          >realfiction manifesto from 2006</a
+        >
+         gives you some background about this website. While I still share the
+        sentiment of the important entanglement between reality and fiction that
+        drives human progress forward, with time this site became more of an
+        outlet of things surrounding my software world, with short intermezzos
+        that dabble into other areas of interest.
+      </p>
+    </article>
+    <aside>
+      <a class="badge" href="https://freiburg.social/@flq">
+        <img class="badgelogo" src="/assets/mastodon.png" /><span
+          >flq@freiburg.social</span
+        >
+      </a>
+      <a class="badge" href="https://github.com/flq">
+        <picture>
+          <source
+            srcset="/assets/github-white.png"
+            media="(prefers-color-scheme: dark)"
+          />
+          <img src="/assets/github-black.png" class="badgelogo" />
+        </picture>
+        <span>flq@github.com</span>
+      </a>
+      <a class="badge" href="https://stackoverflow.com/users/51428/flq">
+        <img src="/assets/stackoverflow.png" class="badgelogo" />
+        <span>flq@stackoverflow.com</span>
+      </a>
+      <a class="badge" href="https://www.linkedin.com/in/frank-quednau-921856/">
+		<img src="/assets/linkedin.png" class="badgelogo" />
+        <span>flq@linkedin.com</span>
+      </a>
+    </aside>
+  </main>
 </Layout>
