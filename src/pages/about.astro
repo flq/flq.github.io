@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/main.astro";
+import Info from "../components/mdx/Info.astro";
 ---
 
 <style lang="scss">
@@ -47,6 +48,10 @@ import Layout from "../layouts/main.astro";
     box-shadow: none;
     margin: 0 auto;
   }
+
+  .space {
+    margin: 2rem 0.5rem 2rem 3rem;
+  }
 </style>
 <Layout>
   <main>
@@ -78,6 +83,15 @@ import Layout from "../layouts/main.astro";
         outlet of things surrounding my software world, with short intermezzos
         that dabble into other areas of interest.
       </p>
+      <hr />
+      <Info>
+        <div class="space">
+          If you want to do me something good, here's my <a
+            href="https://www.amazon.de/hz/wishlist/ls/1FR8NN43G98BJ?ref_=wl_share"
+            >amazon wishlist</a
+          >.
+        </div>
+      </Info>
     </article>
     <aside>
       <a class="badge" href="https://freiburg.social/@flq">
