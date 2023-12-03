@@ -1,5 +1,6 @@
 ---
-import { CollectionEntry, getCollection, getEntryBySlug } from "astro:content";
+import { getCollection, getEntryBySlug } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import Layout from "../../layouts/main.astro";
 import Date from "../../components/Date.astro";
 import Tags from "../../components/Tags.astro";
@@ -14,6 +15,7 @@ import Video from "../../components/mdx/Video.astro";
 import GHEmbed from "../../components/mdx/GHEmbed.astro";
 import Gist from "../../components/mdx/Gist.astro";
 import Math from "../../components/mdx/Math.astro";
+import MastoPost from "../../components/mdx/MastoPost.astro";
 import { byDateAscending, windowIterator } from "../../components/utils";
 
 export interface Props {
@@ -119,16 +121,17 @@ const {
     </header>
     <Content
       components={{
-        Tweet,
-        YouTubeEmbed,
-        Info,
         Alpha,
         Beta,
-        TopicToc,
         GHEmbed,
         Gist,
+        Info,
+        MastoPost,
         Math,
-        Video
+        TopicToc,
+        Tweet,
+        Video,
+        YouTubeEmbed
       }}
     />
   </article>

@@ -1,0 +1,37 @@
+---
+interface Props {
+  url: string;
+}
+const { url } = Astro.props;
+---
+
+<style lang="scss">
+  @import "../../styles/imports.scss";
+  div {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+  }
+  iframe {
+    width: 80%;
+    height: 200px;
+    box-shadow: var(--standardShadow);
+    
+    @media (min-width: $desktop) {
+      width: 50%;
+      height: 300px;
+    }
+  }
+  a {
+    font-size: small;
+  }
+</style>
+
+<div>
+  <iframe
+    src={`${url}/embed`}
+    allowfullscreen="allowfullscreen"
+    sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
+  ></iframe>
+  <a href={url} target="_blank">Open in new tab</a>
+</div>
