@@ -1,5 +1,7 @@
-import { CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { byDateDescending } from "./utils";
+
 export default async function data() : Promise<CollectionEntry<"blog">[]> {
     const blogEntries = await getCollection("blog");
     const entries = blogEntries

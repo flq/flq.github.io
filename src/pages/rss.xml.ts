@@ -1,8 +1,9 @@
-import MarkdownIt from 'markdown-it';
+import Parser from 'markdown-it';
 import rss from '@astrojs/rss';
 import type { RSSOptions } from '@astrojs/rss'
 import query from "../components/mainPageQuery"
-const parser = new MarkdownIt();
+
+const parser = new Parser();
 
 async function getItems(): Promise<RSSOptions["items"]> {
   const entries = await query();
@@ -14,7 +15,7 @@ async function getItems(): Promise<RSSOptions["items"]> {
   }));
 }
 
-export async function get() {
+export async function GET() {
   
   return rss({
     title: 'realfiction by Frank Quednau',

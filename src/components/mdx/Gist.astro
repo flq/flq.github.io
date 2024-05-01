@@ -9,6 +9,7 @@ const query = file ? new URLSearchParams({ file }) : "";
 ---
 
 <script
+  is:inline
   cross-origin="anonymous"
   src={`https://gist.github.com/flq/${id}.js${
     query ? "?" + query.toString() : ""
