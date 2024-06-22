@@ -1,0 +1,45 @@
+---
+interface Props {
+  inline?: boolean;
+}
+
+const { inline = false } = Astro.props;
+---
+<style>
+    blockquote {
+        display: inline-block;
+        margin: 0;
+        padding: 0.25rem 1rem;
+        font-size: smaller;
+        font-style: normal;
+        font-weight: 400;
+    }
+    blockquote:before {
+        display: block;
+        margin: 0;
+        line-height: 0.8rem;
+        font-size: small;
+        font-style: oblique;
+        content: "AI"
+    }
+
+    span {
+        position:relative;
+        font-style: normal;
+        border-bottom: 1px dashed rgba(0,0,0,0.1);
+    }
+    span:before {
+        position: absolute;
+        top: -1.1rem;
+        font-size: small;
+        font-style: oblique;
+        color: rgba(0,0,0,0.3);
+        content: "AI";
+        padding-left: 0.2rem;
+        line-height: 1rem;
+        border-left: 2px solid rgba(0,0,0,0.1);
+    }
+
+</style>
+
+{inline ? <span><slot/></span> : <blockquote><slot /></blockquote>}
