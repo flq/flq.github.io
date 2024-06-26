@@ -1,0 +1,229 @@
+---
+title: "m3u8, HLS, clear key encryption, iPhones...oh my!"
+slug: m3u8-drm-howto
+tags: [azure, web, software-development]
+date: 2024-06-26 22:59:00
+---
+
+## Azure Media Services is EOL
+
+If you visit their online presence as a pristine (and naive) user, you don't even get a hint on the fact that Azure Media Services
+is being discontinued. We were using said platform to let our tenants upload and rewatch visual content. We were informed roughly a year ago
+that the platform was to be deprecated and the main recommendation was to move the functionality (video upload, processing and delivery capabilities) 
+to [mk.io][1].
+
+All things considered, the migration went pretty smooth, but we had to iron out some issues with regard to how we deal with the HLS-content in our application.
+
+<Info>
+
+### What is HLS?
+__HTTP Live Streaming__ (HLS) is a media streaming protocol developed by <br />__🍏 Apple__ to deliver video 
+content over the internet. It allows to describe different bit rates to the client and by
+sitting on top of HTTP it can leverage all the good stuff that we have like __CDNs__, etc.
+
+There is wide support available either natively or with the aid of the __hls.js__ library
+
+</Info>
+
+## A basic layer of protection in our multi-tenant application
+
+With [ahead][a] being a multi-tenant application, we did not want videos from one tenant to be easily readable 
+from within the context of another tenant. 
+
+For this, we decided to introduce a layer of encryption based on the concept of __ClearKey DRM__.
+
+<Info>
+
+### What is ClearKey DRM?
+
+ClearKey protects content by encrypting video segments with a single key. The client needs access to this key 
+in order to decrypt the segments which are being accessed by the video player.
+
+</Info>
+
+While this is certainly not the most secure way to handle DRM, we consider it to be sufficient, because
+
+1. In order to get to see a video, you need to be authenticated 
+1. In order to get the token with which you can fetch the decryption key, you also need to be authenticated.
+
+## The media
+
+The video is provided as a **HTTP live stream** (HLS) 
+
+Core to this stream is the provision of an m3u8 file which is organized in the way the following image shows.
+
+![Overview how the top-level m3u8 file composes other m3u8 files for different bandwidths](/assets/m3u8-1.png)
+
+An __m3u8__ file describes the different bandwidths available. 
+Each different stream is then further described by an __additional m3u8 file__. This file looks a bit like this:
+
+```ini title="The start of the top-level manifest"
+#EXTM3U
+#EXT-X-VERSION:6
+#EXT-X-INDEPENDENT-SEGMENTS
+#EXT-X-STREAM-INF:BANDWIDTH=440123,AVERAGE-BANDWIDTH=400112,RESOLUTION=320x180,CODECS="avc1.4D400D"
+video_400000.m3u8(encryption=cbc)
+...
+```
+
+where comments are used to describe **extensions** that are meta information while the actual
+files to be downloaded are presented in uncommented lines. Above, the "**video_400000.m3u8(encryption=cbc)**"
+is a relative path.
+
+<Info>
+
+### What is CMAF?
+CMAF stands for __The Common Media Application Format__ and describes the concept to provide media in a segmented
+fashion such that a client can e.g. switch between different bitrates if the network allows it. 
+In other words this concept is a foundational building block for a streaming format like HLS.
+
+</Info>
+
+The second-level m3u8 file then points to the actual video segments for a particular bandwidth chosen:
+
+![An m3u8 file contains the list of actual mp4 segments as well as the info where to get the decryption key](/assets/m3u8-2.png)
+
+It is here where we encounter a reference to where the key can be obtained. In the file we find a line like:
+
+```text
+#EXT-X-KEY:
+  METHOD=AES-128,
+  URI="https://.../drm/token-protected-clear-key?ownerUid=xyz&key_id=related-to-video",
+  IV=0xsome-vector
+```
+<small>_(Note: I have broken the parameters to the "EXT-X-KEY:" directive to multiple lines for legibility, 
+but this is not standard-compliant and should all be on a single line)_</small>
+
+This specific extension tells a client
+1. How the media has been encrypted
+1. The URI where the key can be obtained
+1. An initialization vector relevant to the decryption process.
+
+## How to obtain the decryption key
+
+Depending on whether your browser has the MediaSource API available or not, you have to do one of two things,
+as shown in the image:
+
+![You can't do the same on every system. Some backend code was written to deal with iPhones](/assets/m3u8-3.png)
+
+### MediaSource API is present
+
+In the case where the API is available, we can load the [hls.js][2] library, eg by doing
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+```
+
+Moving on (taken straight from their website, since our own code uses react-player, 
+which uses hls.js internally), we get the library to run by connecting it to a video element as follows:
+
+```javascript
+<video id="video"></video>
+<script>
+  let video = document.getElementById('video');
+  let videoSrc = 'https://place-of-your-videos.cdn/x36xhzz/x36xhzz.m3u8-cmaf(encryption=cbc)';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+</script>
+```
+
+However, this doesn't yet solve the thing about obtaining the decryption key. The library will realize
+that it needs to call the URL stored under the **EXT-X-KEY** extension, but without knowing the necessary <kbd>token</kbd>
+the request will fail. We can provide the library with the token by providing the hls instance some config:
+
+```javascript ins={6-12}
+  let token = "some-token-that-you-got-with-your-authorization"
+  let video = document.getElementById('video');
+  let videoSrc = 'https://place-of-your-videos.cdn/x36xhzz/x36xhzz.m3u8-cmaf(encryption=cbc)';
+  if (Hls.isSupported()) {
+    let hls = new Hls({
+      // the options exposed here are documented at
+      // https://github.com/video-dev/hls.js/blob/master/docs/API.md
+      xhrSetup: function (xhr, url) {
+        if (url.includes("drm")) {
+          xhr.setRequestHeader("Authorization", `Bearer=${token}`);
+        }
+      },
+    });
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+```
+Pay attention to the fact that depending on the server you're fetching media from, you may get away with
+adding the token to all calls anyway (the xhr setup will be used for all calls done). In our case, I wanted
+only the url containing "drm" to receive the token - only the URL under the _EXT-X-KEY_ extension will match the predicate.
+
+### The MediaSource API is not present (aka iPhone)
+
+This actually means that the video element can directly consume the HLS manifest file. However, it will get stuck when
+attempting to obtain the decryption key. The idea here is to **rewrite the relevant manifests**. In order to do this we call
+our server with the original manifest url as well as the relevant token. 
+
+Our server will then
+* fetch the original manifest
+* rewrite the urls for two reasons 
+  * relative paths would now point to our server
+  * keep the token in the state transfer such that it can be placed on the drm-url
+
+
+As an example, if the manifest url is 
+```text
+https://mkio-url/stuff/video-xyz/manifest.m3u
+```
+
+we perform a call to 
+
+```text
+https://ahead/api/manifest?url={https://mkio-url/stuff/video-xyz/manifest.m3u}&token={token}
+```
+
+Let's look how the manifest rewrite changes the content of the file:
+
+```text del={5} ins={6}
+#EXTM3U
+#EXT-X-VERSION:6
+#EXT-X-INDEPENDENT-SEGMENTS
+#EXT-X-STREAM-INF:BANDWIDTH=440123,AVERAGE-BANDWIDTH=400112,RESOLUTION=320x180,CODECS="avc1.4D400D"
+video_400000.m3u8(encryption=cbc)
+https://ahead/api/manifest-deeper?url=https://mkio-url/stuff/video-xyz/video_400000.m3u8(encryption=cbc)&token={token}
+```
+
+When the browser wants to fetch the segments for that particular bandwidth, it will call our server again, providing as parameters
+* the original manifest url
+* the token
+
+It is on this level where we have to apply the token. The server performs these changes:
+
+```text del={9,11,14} ins={10,12,15}
+#EXTM3U
+#EXT-X-VERSION:6
+#EXT-X-TARGETDURATION:4
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-DISCONTINUITY-SEQUENCE:0
+#EXT-X-PLAYLIST-TYPE:VOD
+#EXT-X-START:TIME-OFFSET=0
+#EXT-X-INDEPENDENT-SEGMENTS
+#EXT-X-KEY:METHOD=AES-128,URI="https://host/drm/clear-key?ownerUid=.&key_id=123",IV=0x102
+#EXT-X-KEY:METHOD=AES-128,URI="https://host/drm/clear-key?ownerUid=.&key_id=123&token={token}",IV=0x102
+#EXT-X-MAP:URI="init-0-0-video_400000.m4s(encryption=cbc)"
+#EXT-X-MAP:URI="https://mkio-url/.../manifest.ism/init-0-0-video_400000.m4s(encryption=cbc)"
+#EXTINF:2.0000,
+media-0-0-video_400000-1200000.m4s(encryption=cbc)
+https://mkio-url/.../manifest.ism/media-0-0-video_400000-1200000.m4s(encryption=cbc)
+```
+The token ends up on the call to get the decryption key such that it is properly authorized in its own right.
+All the urls that were written relative before now need to be expanded to their absolute forms,
+since the video player is fetching the m3u8 manifest from **our** app server.
+
+Once the files are properly set up, the manifest will be properly consumed by a video tag running on an iPhone
+or by a video tag with hls.js support on any other platform.
+
+# 🎉
+
+
+[a]: https://aheadintranet.com
+[1]: https://mk.io
+[2]: https://github.com/video-dev/hls.js/ 

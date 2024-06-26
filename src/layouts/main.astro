@@ -47,10 +47,18 @@ const { meta = [], title: pageTitle, skipFooter } = Astro.props;
         align-items: center;
       }
 
-      body :global(ul) {
-        padding: 0 1rem;
-        @media (min-width:$iPad) {
-            padding: 0;
+      body {
+        :global(ul), :global(ol) {
+          padding: 0 1rem;
+          :global(ul), :global(ol) {
+            @media (min-width:$iPad) {
+              padding: 0 1rem;
+            }
+          }
+          
+          @media (min-width:$iPad) {
+              padding: 0;
+          }
         }
       }
 
