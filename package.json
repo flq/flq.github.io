@@ -15,7 +15,7 @@
     "@astrojs/rss": "^4.0.6",
     "@astrojs/sitemap": "^3.1.5",
     "astro": "^4.10.2",
-    "astro-expressive-code": "^0.36.1",
+    "astro-expressive-code": "^0.37.0",
     "katex": "0.16.11",
     "markdown-it": "^14.1.0"
   },
