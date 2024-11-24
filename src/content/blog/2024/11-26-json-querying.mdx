@@ -1,0 +1,86 @@
+---
+title: "Querying & Transforming JSON"
+slug: querying-json
+tags: [javascript, software-development]
+date: 2024-11-26 20:00:00
+---
+
+Seeing that there was yet another way to query & transform JSON that I hadn't heard of, I wanted to collect all
+the ways to do just that for future reference
+
+# JSON Path
+
+[Wikipedia][1] states that
+
+> JSONPath is a query language for querying values in JSON. The uses of JSONPath include
+> Selecting a specific node in a JSON value<br/>
+> Retrieving a set of nodes from a JSON value, based on specific criteria<br/>
+> Navigating through complex JSON values to retrieve the required data.
+
+There is an online evaluator you can play with [over here][2]. The biggest difference to the other two
+seems to me the lack of any functions to perform e.g. arithmetics.
+
+## jq
+
+jq is a nice [little command line tool][3] to perform selections and transformations over json. I used the tool here to
+get [to some information about failed jest tests][4]. You can try an [online version][5] of the tool for funsies.
+
+If you take as an example this simple JSON...
+
+```json
+{
+  "shoppingCart": {
+    "items": [
+      {
+        "category": "fiction",
+        "title": "The Great Adventure",
+        "price": 10,
+        "quantity": 2
+      },
+      {
+        "category": "non-fiction",
+        "title": "Learn JSON",
+        "price": 20,
+        "quantity": 1
+      },
+      {
+        "category": "science",
+        "title": "Physics Basics",
+        "price": 15,
+        "quantity": 3
+      }
+    ],
+    "totalPrice": 100
+  }
+}
+```
+
+The query 
+
+```bash
+[.shoppingCart.items[] | .price * .quantity] | add
+```
+
+will select price and quantity of each object in the items array, multiply them, and add them together.
+
+# JSONata
+
+I had never heard about this until today. [JSONata][6] can also do querying, transforming and arithmetic, and manages so
+with a pretty simple syntax. Given the same example from above, the correct query to also get a total sum looks like this:
+
+```bash
+$sum(shoppingCart.items.(price * quantity))
+```
+
+This tool also provides an [online playground][7] to check it out.
+
+
+#### Which one do you prefer?
+
+[1]: https://en.wikipedia.org/wiki/JSONPath
+[2]: https://jsonpath.com/
+[3]: https://jqlang.github.io/jq/
+[4]: /posts/getting-all-files-containing-a-failed-test-from-a-jest-run
+[5]: https://www.devtoolsdaily.com/jq_playground/
+[6]: https://jsonata.org
+[7]: https://try.jsonata.org
