@@ -14,7 +14,7 @@ const [date, month, year] = [
 ---
 
 <style lang="scss">
-    @import "../styles/imports.scss";
+    @use "../styles/_common.scss" as common;
 
     time {
         font-size: 1rem;
@@ -25,12 +25,12 @@ const [date, month, year] = [
         grid-template-rows: repeat(3, auto);
         border: 1px solid var(--linkColorMain);
         border-radius: 5px;
-        @media (min-width: $mobile) {
+        @media (min-width: common.$mobile) {
             grid-template-columns: 1.5rem 3rem;
         }
 
         &:not(.page) {
-            @media (min-width: $desktop) {
+            @media (min-width: common.$desktop) {
                 grid-template-columns: repeat(3, auto);
             }
         }
@@ -44,7 +44,7 @@ const [date, month, year] = [
         background-color: var(--linkColorMain);
         color: white;
 
-        @media (min-width: $mobile) {
+        @media (min-width: common.$mobile) {
             grid-row: 1;
             grid-column: 2;
             background-color: initial;
@@ -52,7 +52,7 @@ const [date, month, year] = [
         }
 
         &:not(.page) {
-            @media (min-width: $desktop) {
+            @media (min-width: common.$desktop) {
                 background-color: var(--linkColorMain);
                 color: white;
                 grid-row: 1;
@@ -73,7 +73,7 @@ const [date, month, year] = [
         justify-content: center;
         align-items: center;
 
-        @media (min-width: $mobile) {
+        @media (min-width: common.$mobile) {
             background-color: var(--linkColorMain);
             color: white;
             grid-column: 2;
@@ -82,7 +82,7 @@ const [date, month, year] = [
         }
 
         &:not(.page) {
-            @media (min-width: $desktop) {
+            @media (min-width: common.$desktop) {
                 background-color: var(--background);
                 color: var(--text);
                 grid-column: 3;
@@ -99,14 +99,14 @@ const [date, month, year] = [
         align-self: center;
         justify-self: center;
 
-        @media (min-width: $mobile) {
+        @media (min-width: common.$mobile) {
             writing-mode: vertical-lr;
             grid-column: 1;
             grid-row: 1 / span 2;
         }
 
         &:not(.page) {
-            @media (min-width: $desktop) {
+            @media (min-width: common.$desktop) {
                 writing-mode: inherit;
                 grid-column: 1;
                 grid-row: 1;

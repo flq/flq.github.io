@@ -12,16 +12,16 @@ const allYears = articles.reduce((agg, val) => {
 ---
 
 <style lang="scss">
-    @import "../../styles/imports.scss";
+    @use "../../styles/_common.scss" as common;
     ul {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 1rem;
         list-style: none;
-        @media (min-width: $iPad) {
+        @media (min-width: common.$iPad) {
             grid-template-columns: repeat(3, 1fr);
         }
-        @media (min-width: $desktop) {
+        @media (min-width: common.$desktop) {
             grid-template-columns: repeat(4, 1fr);
         }
     }

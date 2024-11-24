@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 ---
 <style lang="scss">
-    @import "../styles/imports.scss";
+    @use "../styles/_common.scss" as common;
     footer {
         width: 100%;
         display: flex;
@@ -14,13 +14,13 @@ import { Image } from 'astro:assets';
         font-size: 1rem;
         border-top: var(--lightSeparator);
 
-        @media (min-width: $iPad) {
+        @media (min-width: common.$iPad) {
             width: 90%;
         }
-        @media (min-width: $desktop) {
+        @media (min-width: common.$desktop) {
             width: 70%;
         }
-        @media (min-width: $largeDesktop) {
+        @media (min-width: common.$largeDesktop) {
             width: 55%;
         }
 

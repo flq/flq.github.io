@@ -8,6 +8,15 @@ import expressiveCode from "astro-expressive-code";
 // https://astro.build/config
 export default defineConfig({
   site: "https://realfiction.net",
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler' // or "modern"
+        }
+      }
+    }
+  },
   integrations: [
     expressiveCode({ themes: ["dracula"] }),
     mdx({

@@ -4,13 +4,13 @@ import Info from "../components/mdx/Info.astro";
 ---
 
 <style lang="scss">
-  @import "../styles/imports.scss";
+  @use "../styles/_common.scss" as common;
   main {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 1.5rem;
 
-    @media (max-width: $iPad) {
+    @media (max-width: common.$iPad) {
       grid-template-columns: 1fr;
     }
   }
@@ -24,14 +24,14 @@ import Info from "../components/mdx/Info.astro";
     gap: 1rem;
     font-size: smaller;
 
-    @media (max-width: $iPad) {
+    @media (max-width: common.$iPad) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   a.badge {
-    @include underlined-links;
+    @include common.underlined-links;
     padding: 0.25rem 0.25rem;
     display: block;
     text-align: center;

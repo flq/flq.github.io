@@ -39,7 +39,7 @@ const { meta = [], title: pageTitle, skipFooter } = Astro.props;
       rel="stylesheet"
     />
     <style lang="scss">
-      @import "../styles/imports.scss";
+      @use "../styles/_common.scss" as common;
 
       body {
         display: flex;
@@ -51,12 +51,12 @@ const { meta = [], title: pageTitle, skipFooter } = Astro.props;
         :global(ul), :global(ol) {
           padding: 0 1rem;
           :global(ul), :global(ol) {
-            @media (min-width:$iPad) {
+            @media (min-width: common.$iPad) {
               padding: 0 1rem;
             }
           }
           
-          @media (min-width:$iPad) {
+          @media (min-width: common.$iPad) {
               padding: 0;
           }
         }
@@ -64,7 +64,7 @@ const { meta = [], title: pageTitle, skipFooter } = Astro.props;
 
       main {
         padding: 5rem 0 1rem 0;
-        @include widths;
+        @include common.widths;
       }
     </style>
   </head>

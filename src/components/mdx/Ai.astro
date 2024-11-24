@@ -6,7 +6,7 @@ interface Props {
 const { inline = false } = Astro.props;
 ---
 <style lang="scss">
-    @import "../../styles/imports.scss";
+    @use "../../styles/_common.scss" as common;
     blockquote {
         display: inline-block;
         margin: 0;
@@ -40,7 +40,7 @@ const { inline = false } = Astro.props;
         line-height: 1rem;
         border-left: 2px solid rgba(0,0,0,0.2);
         
-        @media (min-width:$iPad) {
+        @media (min-width: common.$iPad) {
             top: -1.1rem;
         }
     }

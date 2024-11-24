@@ -38,7 +38,7 @@ const groups = groupBy(entries, grouper);
 ---
 
 <style lang="scss">
-    @import "../styles/imports.scss";
+    @use "../styles/_common.scss" as common;
 
     h1 {
         margin-bottom: 3rem;
@@ -46,7 +46,7 @@ const groups = groupBy(entries, grouper);
 
     h2 a,
     ul a {
-        @include underlined-links;
+        @include common.underlined-links;
     }
 
     ul:has(ul) {
@@ -55,7 +55,7 @@ const groups = groupBy(entries, grouper);
         column-gap: 2rem;
         row-gap: 3rem;
         list-style: none;
-        @media (min-width: $iPad) {
+        @media (min-width: common.$iPad) {
             grid-template-columns: repeat(2, 1fr);
         }
 

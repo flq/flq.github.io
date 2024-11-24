@@ -11,7 +11,7 @@ const math = katex.renderToString(exp);
 ---
 
 <style lang="scss">
-    @import "../../styles/imports.scss";
+    @use "../../styles/_common.scss" as common;
     :global(.katex-html) {
         clip: rect(0 0 0 0);
         clip-path: inset(50%);
@@ -25,7 +25,7 @@ const math = katex.renderToString(exp);
     .has-caption {
         display: grid;
         grid-template-rows: auto;
-        @media (min-width: $mobile) {
+        @media (min-width: common.$mobile) {
             grid-template-columns: 1fr 1fr;
         }
     }
