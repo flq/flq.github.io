@@ -9,16 +9,8 @@ export function extractExcerptPlugin() {
 }
 
 function truncateToNearestWord(str, num) {
-    // Check if the string is shorter than the specified number of characters
-    if (str.length <= num) {
-        return str;
-    }
-    // Find the last index of a space within the specified number of characters
+    if (str.length <= num) return str;
+    
     let lastSpace = str.lastIndexOf(" ", num);
-    // If no space is found, return the specified number of characters
-    if (lastSpace === -1) {
-        return str.substring(0, num);
-    }
-    // Otherwise, return the substring up to the nearest whole word
-    return str.substring(0, lastSpace) + "…";
+    return lastSpace === -1 ? str.substring(0, num) : str.substring(0, lastSpace) + "…";
 }  
