@@ -1,35 +1,3 @@
-@font-face {
-  font-family: 'Geist';
-  src: url('/font/Geist-Light.woff2') format('woff2');
-  font-weight: normal; /* 400 */
-  font-style: normal; 
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Geist';
-  src: url('/font/Geist-Bold.woff2') format('woff2');
-  font-weight: bold; /* 700 */
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Geist';
-  src: url('/font/Geist-Regular.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Geist';
-  src: url('/font/Geist-Thin.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --linkColorMain: #af0000;
   --linkColorMainContrast: #c6f8ff;
@@ -64,7 +32,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   font-weight: 400;
-  font-family: 'Geist', sans-serif;
+  font-family: "B612", serif;
   padding: 0 var(--sidePadding) 0 var(--sidePadding);
 }
 
@@ -86,6 +54,10 @@ img, video, .giphy-embed {
   margin: 20px auto;
   max-width: 100%;
   box-shadow: var(--standardShadow);
+}
+
+ol, ul {
+  padding: 0 2rem;
 }
 
 @media (min-width: 768px) {
