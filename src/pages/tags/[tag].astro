@@ -1,5 +1,6 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import SimpleLinkList from "../../components/SimpleLinkList.astro";
 import { byDateDescending } from "../../components/utils";
 interface Props {
