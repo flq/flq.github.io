@@ -3,9 +3,347 @@ interface Props {
   mastodonRef: string;
 }
 
+const host = "freiburg.social";
+const userName = "flq";
 const { mastodonRef } = Astro.props;
+const url = `https://${host}/@${userName}/${mastodonRef}`;
 ---
 
-<p>
-  {mastodonRef}
-</p>
+<style>
+
+  hr {
+    margin-top: 4rem;
+  }
+
+  .info {
+    padding: 0 1rem 0.5rem 1rem;
+    font-size: 0.6em;
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  .reply {
+    text-align: right;
+
+    a {
+      font-size: 0.8em;
+      text-decoration: none;
+      border: 1px solid var(--linkColor);
+      color: var(--linkColor);
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+    }
+  }
+
+  button {
+    font-size: 0.8em;
+    background-color: var(--background);
+    border: 1px solid var(--linkColor);
+    color: var(--linkColor);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  #comments {
+    article {
+      margin-top: 1rem;
+      border: 1px solid var(--separatorColor);
+      border-radius: 10px;
+      padding: 1rem;
+
+      header {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: auto 1fr auto; /* Avatar, middle content, and time */
+        grid-template-rows: 1.2rem 1.2rem; /* Two rows */
+        grid-template-areas:
+          "avatar name time"
+          "avatar instance time";
+
+        & > * {
+          line-height: 1.2rem;
+          padding: 0;
+          margin: 0;
+        }
+
+        [data-avatar] {
+          grid-area: avatar;
+
+          img {
+            margin: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: none;
+          }
+        }
+
+        span {
+          grid-area: name;
+        }
+
+        [data-instance] {
+          grid-area: instance;
+          font-size: 0.6em;
+        }
+
+        time {
+          grid-area: time;
+          text-align: right;
+          align-self: start;
+
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+</style>
+<hr />
+<section
+  id="comments"
+  data-host={host}
+  data-user={userName}
+  data-id={mastodonRef}
+>
+  <h3>Comments</h3>
+  <p class="info">
+    With an account on the Fediverse or Mastodon, you can respond to this <a
+      href={url}>post</a
+    >. Since Mastodon is decentralized, you can use your existing account hosted
+    by another Mastodon server or compatible platform if you don't have an
+    account on this one. Known non-private replies are displayed below by pressing the "load comments" button.
+  </p>
+
+  <button id="load-comment">Load comments</button>
+
+  <div id="comments-container">
+    <noscript
+      ><p>
+        Loading comments relies on JavaScript. Try enabling JavaScript and
+        reloading, or visit <a href={url}>the original post</a> on Mastodon.
+      </p>
+    </noscript>
+  </div>
+
+  <p class="reply">
+    <a href={url} target="_blank">Reply to this blog post via mastodon</a>
+  </p>
+
+  <script>
+    const formatter = new Intl.DateTimeFormat(navigator.language, {
+      dateStyle: "short", // Short date format
+      timeStyle: "short", // Short time format
+    });
+    const commentSection = document.getElementById("comments")!;
+    const commentsContainer = document.getElementById("comments-container")!;
+    const loadCommentsButton = document.getElementById(
+      "load-comment"
+    ) as HTMLButtonElement;
+    const host = commentSection.dataset["host"]!;
+    const userName = commentSection.dataset["user"]!;
+    const id = commentSection.dataset["id"]!;
+
+    function escapeHtml(unsafe: string) {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function emojify(
+      input: string,
+      emojis: { url: string; static_url: string; shortcode: string }[]
+    ) {
+      let output = input;
+
+      emojis.forEach((emoji) => {
+        let picture = document.createElement("picture");
+
+        let source = document.createElement("source");
+        source.setAttribute("srcset", escapeHtml(emoji.url));
+        source.setAttribute("media", "(prefers-reduced-motion: no-preference)");
+
+        let img = document.createElement("img");
+        img.className = "emoji";
+        img.setAttribute("src", escapeHtml(emoji.static_url));
+        img.setAttribute("alt", `:${emoji.shortcode}:`);
+        img.setAttribute("title", `:${emoji.shortcode}:`);
+        img.setAttribute("width", "20");
+        img.setAttribute("height", "20");
+
+        picture.appendChild(source);
+        picture.appendChild(img);
+
+        output = output.replace(`:${emoji.shortcode}:`, picture.outerHTML);
+      });
+
+      return output;
+    }
+
+    async function loadComments() {
+      const commentsWrapper = document.getElementById("comments-container")!;
+      loadCommentsButton.innerHTML = "Loading";
+      try {
+        const response = await fetch(
+          `https://${host}/api/v1/statuses/${id}/context`
+        );
+        if (response.status !== 200) {
+          switch (response.status) {
+            case 404:
+              throw new Error("The referenced post was not found.");
+            default:
+              throw new Error(`Error status ${response.status}`);
+          }
+        }
+        const data = await response.json();
+        let descendants = data["descendants"];
+
+        if (!Array.isArray(descendants) || descendants.length === 0) {
+          commentsWrapper.innerHTML = "No discussion found";
+          descendants = [];
+        }
+
+        descendants.forEach((status: any) => {
+          commentsWrapper.appendChild(createComment(status));
+        });
+
+        loadCommentsButton.innerHTML = "Loaded";
+        loadCommentsButton.disabled = true;
+      } catch (error: any) {
+        loadCommentsButton.innerHTML = "Loading failed.";
+        commentsContainer.innerHTML = error.message;
+      }
+    }
+
+    function createComment(status: any) {
+      if (status.account.display_name.length > 0) {
+        status.account.display_name = escapeHtml(status.account.display_name);
+        status.account.display_name = emojify(
+          status.account.display_name,
+          status.account.emojis
+        );
+      } else {
+        status.account.display_name = status.account.username;
+      }
+
+      const instance: string = status.account.acct.includes("@")
+        ? status.account.acct.split("@")[1]
+        : host;
+
+      const isReply = status.in_reply_to_id !== id;
+
+      let op = status.account.acct == userName;
+
+      status.content = emojify(status.content, status.emojis);
+
+      let avatarSource = document.createElement("source");
+      avatarSource.setAttribute("srcset", escapeHtml(status.account.avatar));
+      avatarSource.setAttribute(
+        "media",
+        "(prefers-reduced-motion: no-preference)"
+      );
+
+      let avatarImg = document.createElement("img");
+      avatarImg.setAttribute("src", escapeHtml(status.account.avatar_static));
+      avatarImg.setAttribute(
+        "alt",
+        `@${status.account.username}@${instance} avatar`
+      );
+
+      let avatarPicture = document.createElement("picture");
+      avatarPicture.appendChild(avatarSource);
+      avatarPicture.appendChild(avatarImg);
+
+      let avatar = document.createElement("a");
+      avatar.dataset["avatar"] = "true";
+      avatar.setAttribute("target", "_blank");
+      avatar.setAttribute("href", status.account.url);
+      avatar.setAttribute("rel", "external nofollow");
+      avatar.setAttribute(
+        "title",
+        `View profile at @${status.account.username}@${instance}`
+      );
+      avatar.appendChild(avatarPicture);
+
+      let instanceBadge = document.createElement("a");
+      instanceBadge.dataset["instance"] = "true";
+      instanceBadge.setAttribute("href", status.account.url);
+      instanceBadge.setAttribute("target", "_blank");
+      instanceBadge.setAttribute(
+        "title",
+        `@${status.account.username}@${instance}`
+      );
+      instanceBadge.setAttribute("rel", "external nofollow");
+      instanceBadge.textContent = instance;
+
+      let display = document.createElement("span");
+      display.innerHTML = status.account.display_name;
+
+      let permalink = document.createElement("a");
+      permalink.setAttribute("href", status.url);
+      permalink.setAttribute("target", "_blank");
+      permalink.setAttribute("title", `View comment at ${instance}`);
+      permalink.setAttribute("rel", "external nofollow");
+      permalink.textContent = formatter.format(new Date(status.created_at));
+
+      let timestamp = document.createElement("time");
+      timestamp.setAttribute("datetime", status.created_at);
+      timestamp.appendChild(permalink);
+
+      let header = document.createElement("header");
+      header.className = "author";
+      header.append(avatar);
+      header.appendChild(display);
+      header.appendChild(instanceBadge);
+      header.appendChild(timestamp);
+
+      let main = document.createElement("main");
+      main.setAttribute("itemprop", "text");
+      main.innerHTML = status.content;
+
+      let comment = document.createElement("article");
+      comment.id = `comment-${status.id}`;
+      if (isReply) {
+        comment.dataset["reply"] = "true";
+      }
+      comment.appendChild(header);
+      comment.appendChild(main);
+
+      if (status.favourites_count > 0) {
+        let interactions = document.createElement("footer");
+        let faves = document.createElement("a");
+        faves.className = "faves";
+        faves.setAttribute("href", `${status.url}/favourites`);
+        faves.setAttribute("title", `Favorites from ${instance}`);
+        faves.textContent = status.favourites_count;
+        interactions.appendChild(faves);
+        comment.appendChild(interactions);
+      }
+
+      if (op) {
+        comment.dataset["owner"] = "true";
+
+        avatar.setAttribute(
+          "title",
+          "Blog post author; " + avatar.getAttribute("title")
+        );
+
+        instanceBadge.setAttribute(
+          "title",
+          "Blog post author: " + instanceBadge.getAttribute("title")
+        );
+      }
+      return comment;
+    }
+
+    loadCommentsButton.addEventListener("click", loadComments);
+  </script>
+</section>
