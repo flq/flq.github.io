@@ -6,7 +6,8 @@ const blogCollection = defineCollection({
       title: z.string(),
       tags: z.array(z.string()),
       date: z.date(),
-      topic: z.string().optional()
+      topic: z.string().optional(),
+      mastodonRef: z.string().optional()
     }),
   });
 
