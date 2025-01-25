@@ -1,0 +1,131 @@
+---
+title: "Razor components within an MVC context"
+slug: razor-components-in-mvc
+tags: [software-development,libs-and-frameworks,web]
+date: 2025-01-25 12:00:00
+---
+
+I am currently looking into how to ease our frontend developers with react background into doing more backend work.
+
+<Info>
+"But react is perfectly fine" you say. Well, to a degree. However, there is a mismatch between the future of react
+embedded within the offerings of Next.JS which essentially wants you to write backend code within the react paradigm
+(aka Server Components) and a team that writes their server-side code in .NET.
+Also, while the browser evolves at a slow pace, it evolves, while keeping an incredible degree of backwards compatibility.
+In other words, cranking out HTML with a sprinkling of interactivity is where the browser stack shines and where your investments
+in a long term platform are most secure.
+</Info>
+
+Our server code is typically written with the ASP.NET Core tech stack. Sadly, .NET doesn't tell a particularly good pure server-side render story. cshtml feels ancient at times, no co-located css, no co-located js.
+
+<Info>
+When I tried posting this on code engineering stackexchange (what a failure) somebody asked "what is a server-side story". 
+Everything we do can be told in stories. The lifecycle of developing a web application which renders out a lot of static HTML, 
+how it is developed, tested, debugged…How do I work with it on a day-to-day basis?
+That is the story a tech stack tells.
+</Info>
+
+Now, with a few lines of code one can get razor components (which are typically associated with the rather proprietary Blazor tech stack) to kinda play well with the ASP.NET Core MVC stack.
+
+1. Add relevant services in `Program.cs`: `builder.Services.AddRazorComponents();`
+1. Ability to return razor components from a controller action:
+
+This needs a tiny class which doesn't seem to exist within ASP.NET Core itself
+
+```c#
+class ResultToActionResult(IResult result) : IActionResult
+{
+    public Task ExecuteResultAsync(ActionContext context) => 
+        result.ExecuteAsync(context.HttpContext);
+}
+```
+
+Now in a controller action, we can basically do:
+
+```c#
+return new ResultToActionResult(
+  new RazorComponentResult(typeof(TenantList), 
+    new Dictionary<string, object> { ["Model"] = result.Other }));
+```
+
+Providing a base class that exposes the provided model as a property makes this work quite similar to a model provided to a view.
+
+Now we are in the space of Razor Components, where component-based UI development can feel much more at home while retaining full control of the HTML sent to the client.
+
+3. **co-located css**: This already works out of the box with razor components,
+3. **co-located js**: I found it quite weird that there doesn't seem to be anything for that. Here, in a POC I took the following approach:
+
+Have a class that is able to hold registrations of js during a request:
+
+```c#
+// register this at startup like 
+// builder.Services.AddScoped<JavascriptModuleRendering>();
+public class JavascriptModuleRendering : IEnumerable<string>
+{
+    private readonly List<string> scripts = [];
+
+    public void Add(Type componentType)
+    {
+        // note that co-located js exists as concept 
+        // and will be added to wwwroot in a "publish" operation
+        var fullName = componentType
+          .FullName!.Replace("MyAssembly", "").Replace(".", "/");
+        scripts.Add($"{fullName}.razor.js");
+    }
+
+    public IEnumerator<string> GetEnumerator() => scripts.GetEnumerator();
+
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+}
+```
+
+Now, if you, as a component, want to make sure that your co-located js comes to the client, inherit from `ComponentWithScriptBase`:
+
+```c#
+public class ComponentWithScriptBase : ComponentBase
+{
+    [Inject] 
+    protected JavascriptModuleRendering JavascriptCollector { get; set; } = null!;
+    
+    protected override void OnInitialized() => JavascriptCollector.Add(GetType());
+}
+```
+
+Finally, in your layout you can add an "Outlet" for those scripts:
+```html
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="/MyAssembly.styles.css" rel="stylesheet">
+    <HeadOutlet/>
+    <ScriptsRenderer />
+</head>
+```
+
+where the **ScriptsRenderer.razor** looks like this
+
+```razor
+@using MyAssembly
+@foreach(var script in JavascriptCollector)
+{
+    <script src="@script" type="module"></script>
+}
+
+@code {
+    [Inject] 
+    protected JavascriptModuleRendering JavascriptCollector { get; set; } = null!;
+}
+```
+
+## Conclusion
+
+So, with a couple of code pieces, we can leverage Blazor tech to tell a better pure server-side rendering story in ASP.NET Core. My question really is the typical Jurassic Park question: 
+
+![YOU WERE SO PREOCCUPIED WITH WHETHER OR NOT YOU COULD, YOU DIDN'T STOP TO THINK IF YOU SHOULD.](/assets/jurassic-goldblum.webp)
+<figcaption>
+you were so preoccupied with whether or not you could, you didn't stop to think if you should.
+</figcaption>
+
+I'm old enough to have seen a bunch of UI frameworks from Microsoft come and go. 
+* Should I lean into the Blazor tech in that way or keep living with the inferior cshtml stuff? 
+* Why does Microsoft not tell a compelling server-side rendering story?
