@@ -45,11 +45,7 @@ export async function getStaticPaths() {
     }
   }
 
-  return Array.from(
-    create(
-      blogEntries.sort(byDateAscending)
-    )
-  );
+  return Array.from(create(blogEntries.sort(byDateAscending)));
 }
 const { entry, previous, next } = Astro.props;
 const {
@@ -93,6 +89,11 @@ const mastodonRef = entry.data.mastodonRef;
     padding: 0.5rem 1rem;
     text-decoration: none;
     border: 1px solid var(--linkColor);
+
+    &[data-empty] {
+      opacity: 0.5;
+      border-style: dashed;
+    }
   }
 
   a[data-previous] {
@@ -135,7 +136,7 @@ const mastodonRef = entry.data.mastodonRef;
         Tweet,
         Video,
         YouTubeEmbed,
-        Ai
+        Ai,
       }}
     />
   </article>
@@ -143,14 +144,22 @@ const mastodonRef = entry.data.mastodonRef;
   {
     (previous || next) && (
       <nav class="bottom">
-        {previous && (
+        {previous ? (
           <a data-previous href={previous.slug}>
             {previous.title}
           </a>
+        ) : (
+          <a data-previous data-empty>
+            &nbsp;
+          </a>
         )}
-        {next && (
+        {next ? (
           <a data-next href={next.slug}>
             {next.title}
+          </a>
+        ) : (
+          <a data-next data-empty>
+            &nbsp;
           </a>
         )}
       </nav>
