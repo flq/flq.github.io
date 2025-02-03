@@ -1,0 +1,41 @@
+---
+title: "Mastodon-based commenting on this site"
+slug: mastodon-based-commenting
+tags: [software-development,site]
+date: 2025-02-03 21:00:00
+# mastodonRef: "113890488077775503"
+---
+
+Thanks to [a post][1] by Carl Schwan, I now have some a very basic commenting system,
+provided someone actually has an account with which to reply on the Fediverse, and
+I have a Fediverse post linked to a blog post. That's a lot of assumptions, but I assume this
+is better than nothing, and also, it does not use anything weird that goes after your data a lot.
+
+The basic code is very much derived from above post, however it has been adapted a bit to work well
+in my Astro site.
+
+### Views into the code
+
+An id for a mastodon post to be associated with a blog post is given through a new entry in a post's
+frontmatter. This is specified in Astro's config.
+
+<GHEmbed repo="flq.github.io" branch="develop" file="src/content/config.ts" start={4} end={12} />
+
+When the `mastodonRef` property is present, a new component is rendered in the page "template".
+
+<GHEmbed repo="flq.github.io" branch="develop" file="src/pages/posts/[slug].astro" start={138} end={145} />
+
+The new `Comments` component then has the job to fetch the relevant data upon a click. There are some notable
+differences to Carl's implementation in that the DOM-Element building was too hardcore for me.
+
+I went for an interpolated string and then use a `DOMParser` to get the proper DOM out of it:
+
+<GHEmbed repo="flq.github.io" branch="develop" file="src/components/mdx/Comments.astro" start={214} end={249} />
+
+I make some use of data attributes to play nice with the styling (well, the styling ain't gonna win a prize 😅). 
+What is a bit special is that relevant setup data is given to the main script via data attributes.
+This is because the astro build step basically makes a javascript module out of a script on an 
+Astro component. The whole component is [here on github][2].
+
+[1]: https://carlschwan.eu/2020/12/29/adding-comments-to-your-static-blog-with-mastodon/
+[2]: https://github.com/flq/flq.github.io/blob/develop/src/components/mdx/Comments.astro
