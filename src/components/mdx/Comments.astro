@@ -136,6 +136,7 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
     </noscript>
   </div>
 
+  <script type="text/javascript" src="https://unpkg.com/dompurify@1.0.8/dist/purify.min.js" />
   <script>
     const formatter = new Intl.DateTimeFormat(navigator.language, {
       dateStyle: "short",
@@ -210,7 +211,7 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
 
       status.content = emojify(status.content, status.emojis);
 
-      const comment = `
+      let comment = `
         <article id="comment-${status.id}" ${isReply ? "data-reply" : ""} ${blogOwner ? "data-owner" : ""}>
           <header>
             <a data-avatar target="_blank" href="${status.account.url}" rel="external nofollow" title="View profile at @${status.account.username}@${instance}">
@@ -236,6 +237,11 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
           </main>
         </article>
       `;
+
+      const dp = (window as any).DOMPurify;
+      if (dp) {
+        comment = dp.sanitize(comment);
+      }
 
       return parser.parseFromString(comment, "text/html").body
         .firstElementChild!;
