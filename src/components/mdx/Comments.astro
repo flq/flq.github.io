@@ -21,37 +21,22 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
     opacity: 0.9;
   }
 
-  .actions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    a {
-      font-size: 0.8em;
-      text-decoration: none;
-      border: 1px solid var(--linkColor);
-      color: var(--linkColor);
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
-    }
-  }
-
-  button {
+  a.reply {
+    display: block;
+    text-align: center;
     font-size: 0.8em;
-    background-color: var(--background);
+    text-decoration: none;
     border: 1px solid var(--linkColor);
     color: var(--linkColor);
     padding: 0.5rem 1rem;
     border-radius: 10px;
-
-    &[data-loaded] {
-      opacity: 0;
-    }
   }
 
-  #comments {
+  section {
+    width: 100%;
     article {
       margin-top: 1rem;
+      margin-right: 2rem;
       border: 1px solid var(--separatorColor);
       border-radius: 10px;
       padding: 1rem;
@@ -76,8 +61,8 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
 
           img {
             margin: 0;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             box-shadow: none;
           }
@@ -103,6 +88,12 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
         }
       }
     }
+
+    article[data-owner] {
+      margin-right: 0;
+      margin-left: 2rem;
+    }
+
   }
 </style>
 <hr />
@@ -122,10 +113,9 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
     pressing the "load comments" button.
   </p>
 
-  <div class="actions">
-    <button id="load-comment">Load comments</button>
-    <a href={url} target="_blank">Reply to this blog post via mastodon</a>
-  </div>
+  <a class="reply" href={url} target="_blank"
+    >Reply to this blog post via mastodon</a
+  >
 
   <div id="comments-container">
     <noscript
@@ -136,7 +126,9 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
     </noscript>
   </div>
 
-  <script type="text/javascript" src="https://unpkg.com/dompurify@1.0.8/dist/purify.min.js" />
+  <script
+    type="text/javascript"
+    src="https://unpkg.com/dompurify@1.0.8/dist/purify.min.js"></script>
   <script>
     const formatter = new Intl.DateTimeFormat(navigator.language, {
       dateStyle: "short",
@@ -144,17 +136,12 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
     });
     const commentSection = document.getElementById("comments")!;
     const commentsContainer = document.getElementById("comments-container")!;
-    const loadCommentsButton = document.getElementById(
-      "load-comment"
-    ) as HTMLButtonElement;
     const host = commentSection.dataset["host"]!;
     const userName = commentSection.dataset["user"]!;
     const id = commentSection.dataset["id"]!;
-    loadCommentsButton.addEventListener("click", loadComments);
 
-    async function loadComments() {
+    (async () => {
       const commentsWrapper = document.getElementById("comments-container")!;
-      loadCommentsButton.innerHTML = "Loading";
 
       try {
         const response = await fetch(
@@ -181,14 +168,10 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
         descendants.forEach((status: any) => {
           commentsWrapper.appendChild(createComment(status, parser));
         });
-
-        loadCommentsButton.dataset["loaded"] = "true";
-        loadCommentsButton.disabled = true;
       } catch (error: any) {
-        loadCommentsButton.innerHTML = "Loading failed.";
         commentsContainer.innerHTML = error.message;
       }
-    }
+    })();
 
     function createComment(status: any, parser: DOMParser) {
       if (status.account.display_name.length > 0) {
