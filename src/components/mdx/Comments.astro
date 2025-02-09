@@ -24,12 +24,12 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
   a.reply {
     display: block;
     text-align: center;
-    font-size: 0.8em;
     text-decoration: none;
     border: 1px solid var(--linkColor);
     color: var(--linkColor);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     border-radius: 10px;
+    margin-right: 2rem;
   }
 
   section {
@@ -58,11 +58,12 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
 
         [data-avatar] {
           grid-area: avatar;
+          align-self: self-start;
 
           img {
             margin: 0;
-            width: 40px;
-            height: 40px;
+            width: 60px;
+            aspect-ratio: 1;
             border-radius: 50%;
             box-shadow: none;
           }
@@ -107,10 +108,9 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
   <p class="info">
     With an account on the Fediverse or Mastodon, you can respond to this <a
       href={url}>post</a
-    >. Since Mastodon is decentralized, you can use your existing account hosted
+    >. Since the Fediverse is decentralized, you can use your existing account hosted
     by another Mastodon server or compatible platform if you don't have an
-    account on this one. Known non-private replies are displayed below by
-    pressing the "load comments" button.
+    account on this one. Known non-private replies are displayed below.
   </p>
 
   <a class="reply" href={url} target="_blank"
