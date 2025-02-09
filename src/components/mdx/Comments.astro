@@ -7,6 +7,12 @@ const host = "freiburg.social";
 const userName = "flq";
 const { mastodonRef } = Astro.props;
 const url = `https://${host}/@${userName}/${mastodonRef}`;
+/*
+  Breakpoints used here are taken from _common.scss
+  If using scss all css would have to be applied via specific global classes
+  as the dynamically generated DOM does not know about the special attributes etc. 
+  created by Astro
+*/
 ---
 
 <style>
@@ -40,15 +46,23 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
       border: 1px solid var(--separatorColor);
       border-radius: 10px;
       padding: 1rem;
+      overflow-x: hidden;
 
       header {
         display: grid;
         gap: 1rem;
-        grid-template-columns: auto 1fr auto;
         grid-template-rows: 1.2rem 1.2rem;
+        grid-template-columns: 1fr auto;
         grid-template-areas:
-          "avatar name time"
-          "avatar instance time";
+          "name time"
+          "instance time";
+
+        @media (width >= 500px) {
+          grid-template-columns: auto 1fr auto;
+          grid-template-areas:
+            "avatar name time"
+            "avatar instance time";
+        }
 
         & > * {
           line-height: 1.2rem;
@@ -57,6 +71,12 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
         }
 
         [data-avatar] {
+          display: none;
+
+          @media (width >= 500px) {
+            display: block;
+          }
+
           grid-area: avatar;
           align-self: self-start;
 
@@ -75,10 +95,11 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
 
         [data-instance] {
           grid-area: instance;
-          font-size: 0.6em;
+          font-size: medium;
         }
 
         time {
+          font-size: medium;
           grid-area: time;
           text-align: right;
           align-self: start;
@@ -94,7 +115,6 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
       margin-right: 0;
       margin-left: 2rem;
     }
-
   }
 </style>
 <hr />
@@ -108,9 +128,9 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
   <p class="info">
     With an account on the Fediverse or Mastodon, you can respond to this <a
       href={url}>post</a
-    >. Since the Fediverse is decentralized, you can use your existing account hosted
-    by another Mastodon server or compatible platform if you don't have an
-    account on this one. Known non-private replies are displayed below.
+    >. Since the Fediverse is decentralized, you can use your existing account
+    hosted by another Mastodon server or compatible platform if you don't have
+    an account on this one. Known non-private replies are displayed below.
   </p>
 
   <a class="reply" href={url} target="_blank"
