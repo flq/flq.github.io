@@ -11,17 +11,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.0.6",
+    "@astrojs/mdx": "4.1.0",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "3.2.1",
-    "astro": "^5.1.7",
-    "astro-expressive-code": "0.38.3",
-    "katex": "0.16.19",
+    "astro": "5.4.1",
+    "astro-expressive-code": "0.40.2",
+    "katex": "0.16.21",
     "markdown-it": "^14.1.0"
   },
   "devDependencies": {
     "@types/katex": "0.16.7",
     "@types/markdown-it": "14.1.2",
-    "sass": "1.83.0"
+    "sass": "1.85.1"
   }
 }
