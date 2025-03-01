@@ -7,6 +7,10 @@ slug: a-http-file-server-in-130-lines-of-code
 
 ...of which 20 deal with mapping file extensions to MIME types. 
 
+<Info icon={false}>
+_Update:_ There's [a new version][1] for 2025, written with all the glory that .NET9 provides at this point in time.
+</Info>
+
 For an integration test I want to be able to set up an HTTP server that serves files from a directory. While I was at it I ensured that a proper directory listing and links are provided by the web server so I can browse the contents of a directory from my browser. With the aid of the [HttpListener](http://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx) this is quite easy to do.
 
 The whole thing is wrapped inside a class HttpFileServer, implementing disposable.
@@ -107,4 +111,6 @@ private static string getcontentType(string extension)
 
 And for those who want to play with this, here’s the full monty:
 
-<Gist id="369432" />
+<Gist id="369432" showHint />
+
+[1]: /posts/a-http-file-server-in-60-lines-of-code

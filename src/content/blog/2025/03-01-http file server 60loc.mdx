@@ -1,0 +1,21 @@
+---
+title: "A HTTP file server in 60 lines of code"
+slug: a-http-file-server-in-60-lines-of-code
+tags: [software-development, dotnet, web]
+date: 2025-03-01 12:00:00
+---
+
+15 (!) years ago I wrote [a post][1] on writing a web server serving files from a directory in a 
+small amount of code in .NET. Revisiting the premise with the current capabilities naturally yields
+to a smaller footprint, in relying on the very compact form of starting a minimal API server.
+Another nice reduction of lines of code is the boring mime-type mapping that a class in .NET can now do for us,
+the `FileExtensionContentTypeProvider` in the `Microsoft.AspNetCore.StaticFiles`.
+
+Also, I saved myself the url escaping (eg space becoming %20) - the _browser_ these days seems to handle such
+intricacies just fine.
+
+And here we go:
+
+<Gist id="90a074e38fb4a48cf5d51d43a7b68145" showHint />
+
+[1]: /posts/a-http-file-server-in-130-lines-of-code
