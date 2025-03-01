@@ -2,12 +2,18 @@
 interface Props {
   id: string;
   file?: string;
+  showHint?: boolean;
 }
 
-const { id, file } = Astro.props;
+const { id, file, showHint = false } = Astro.props;
 const query = file ? new URLSearchParams({ file }) : "";
 ---
-
+<style>
+  p {
+    font-size: small;
+    color: hsl(0, 0%, 50%);
+  }
+</style>
 <script
   is:inline
   cross-origin="anonymous"
@@ -15,3 +21,4 @@ const query = file ? new URLSearchParams({ file }) : "";
     query ? "?" + query.toString() : ""
   }`}
 ></script>
+{showHint && <p>Gist not showing up? Most likely you're using Chrome. Reload the page to see the gist.</p> }
