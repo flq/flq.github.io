@@ -115,6 +115,10 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
       margin-right: 0;
       margin-left: 2rem;
     }
+
+    #comments-container[data-empty] {
+      margin-top: 1rem;
+    }
   }
 </style>
 <hr />
@@ -180,6 +184,7 @@ const url = `https://${host}/@${userName}/${mastodonRef}`;
 
         if (!Array.isArray(descendants) || descendants.length === 0) {
           commentsWrapper.innerHTML = "No discussion found";
+          commentsWrapper.dataset["empty"] = "true";
           descendants = [];
         }
 
