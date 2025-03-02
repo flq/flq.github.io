@@ -1,0 +1,36 @@
+---
+title: "A HTTP file server by ChatGPT"
+slug: a-http-file-server-by-chat-gpt
+tags: [software-development, dotnet, web, ai]
+date: 2025-03-02 16:00:00
+---
+
+After [yesterday's update][2] of some long standing code on this website, considering that writing this kind of code is 
+a pretty routine work, I tasked ChatGPT to write me the same that I did. Here is my specification:
+
+> I would like you to build the following with modern dotnet / csharp:
+> * A web server which serves files an directories in a console app.
+> * when started, an argument is provided that constitutes the root path of the server
+> * when started, the contents are shown as list in html (no css required, just markup)
+> * A directory, when clicked will show its contents in the same way as before
+> * A file, when clicked, will be downloaded
+
+Check out the results of the interaction after a couple of iterations (the interaction has been stolen straight from Anthropic's Claude :):
+
+<Gist id="39c7feba1061d6a2dca72dfc2d3dd419" showHint />
+
+The iterations are documented [in this chat][1]. In general, especially at the start the code was written in a strange way.
+While the system would use minimal APIs, it would read and write into the HttpContext. After telling it so, it switched
+to using the query parameter and the `Results` helper to produce results.
+
+When pasted into my project I can see that many namespaces are imported that are not in use. 
+Also, the context is still passed in as argument to the route handler, even though it is not used anymore.
+But in theory, combining this with a code inspection tool like Resharper could yield nice results. All in all, the program
+did what it was requested to do.
+
+More concerning was what was made up about the double asterisk (**) used in the route pattern. The reason to put 2
+there is wrong and even non-sensical, the irony being that I asked the system yesterday about how to match route parts
+that contain slashes, and it yielded the correct answer of prefixing the route with a __single__ asterisk.
+
+[1]: https://chatgpt.com/share/67c46e2b-d444-8000-8745-53139f9ba6ff
+[2]: /posts/a-http-file-server-in-60-lines-of-code
