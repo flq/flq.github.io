@@ -1,0 +1,68 @@
+---
+title: "Depending on a colour"
+slug: depending-on-a-color
+tags: [software-development, dotnet, web, technology]
+date: 2025-03-12 23:30:00
+---
+
+Since the end of January, the established world order of the West is being torn apart,
+as Trump and his gang of kleptocrats are ripping out the backbone of said order.
+For better or worse, the deal that was so beneficial for both sides 
+(even though some people would pretend otherwise) has been terminated.
+
+The repercussions of these actions are complex and touch many areas. 
+As a product software developer one question keeps bothering me:
+_How deep is our dependence on IT systems and cloud infrastructure 
+provided by the big US-based players like **Microsoft**, **Google** or **Amazon**?_
+
+After a hard reality check, one can't help but notice that all companies offering such services 
+at this level of maturity and with which we Europeans can interact with fairly easily, come from the USA.
+
+However, big corporations historically [do the bidding of the regime in power][1], especially 
+if it is some authoritarian regime.
+
+While all those companies offer cloud regions within Europe 
+(or even Switzerland, which has been quite relevant for us),
+It becomes clear that we depend on services provided from a country which is increasingly not an ally
+of Western Europe anymore.
+
+Nations and companies that heavily rely on said technology stacks in Europe can easily be pressured.
+For example, in Germany, countless government institutions and departments rely on Azure services.
+
+What does this mean for the [company][2] I work for?
+Throughout the years we have always erred towards using PaaS offerings from Azure wherever possible, in order to delegate a lot of the ops in Dev<u>Ops</u> to their 
+site reliability engineers.
+This has allowed us to keep a small development team and still manage to implement a multitude of interesting features
+to our customers, with very little downtime.
+
+We are talking about services like the [Cosmos DB][cosmos], [Event grid][eg], [Azure search][as], etc. 
+that gives us the necessary capabilities in a moderately complex application
+while delegating the necessary work around updating dependencies, ensuring reliability, scaling, 
+and additional operational aspects.
+
+## Can the status quo continue?
+
+The nations of Europe cannot easily make up for the incredible neglect towards modern service-oriented software offerings.
+Microsoft alone generates tens of billions from the Azure platform, while investing similar-sized
+amounts into data centers and software.
+
+On the other hand, one can see the opportunity in this. If the provided infrastructure cannot be deemed safe anymore
+from a strategic defense perspective, Europe has an opportunity to invest in alternatives. Catching up may seem daunting, 
+but technological progress often follows an exponential curve, which means Europe could develop competitive 
+solutions faster than it took the tech giants to build theirs.
+
+## Is there a technical angle to this?
+
+The itch I have begun to scratch is which parts of Azure's offerings can be recreated with containers &
+open source, thereby increasing the likelihood of running on a purely European infrastructure without involvement
+of US big tech. The foundation remains in dotnet, as this would avoid unnecessary rewrites of the software that we have been creating 
+over the past years.
+
+Expect more to come in this space.
+
+
+[1]: https://en.wikipedia.org/wiki/IBM_and_the_Holocaust
+[2]: https://aheadintranet.com
+[cosmos]: https://azure.microsoft.com/en-us/products/cosmos-db
+[eg]: https://azure.microsoft.com/en-us/products/event-grid
+[as]: https://azure.microsoft.com/en-us/products/ai-services/ai-search
