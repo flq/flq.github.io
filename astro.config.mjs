@@ -18,14 +18,17 @@ export default defineConfig({
       }
     }
   },
+  markdown: {
+    syntaxHighlight: {
+      type: "shiki",
+      excludeLangs: ['mermaid']
+    }
+  },
   integrations: [
     expressiveCode({ themes: ["dracula"] }),
     mdx({
-      syntaxHighlight: {
-        excludeLangs: ['mermaid']
-      },
       remarkPlugins: [extractExcerptPlugin],
-      rehypePlugins: [[rehypeMermaid, { strategy: "img-svg", dark: true, colorScheme: "forest" }]]
+      //rehypePlugins: [[rehypeMermaid, { strategy: "img-svg", dark: true, colorScheme: "forest" }]]
     }),
     sitemap(),
   ],
