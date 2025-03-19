@@ -21,14 +21,14 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: {
       type: "shiki",
-      excludeLangs: ['mermaid']
-    }
+      excludeLangs: ["mermaid"]
+    },
+    rehypePlugins: [[rehypeMermaid, { strategy: "img-svg", dark: true, colorScheme: "forest" }]]
   },
   integrations: [
     expressiveCode({ themes: ["dracula"] }),
     mdx({
-      remarkPlugins: [extractExcerptPlugin],
-      //rehypePlugins: [[rehypeMermaid, { strategy: "img-svg", dark: true, colorScheme: "forest" }]]
+      remarkPlugins: [extractExcerptPlugin]
     }),
     sitemap(),
   ],

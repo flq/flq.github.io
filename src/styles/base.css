@@ -49,11 +49,27 @@ figcaption {
   margin-bottom: 2em;
 }
 
-img, video, .giphy-embed {
+img:not([id^="mermaid"]), video, .giphy-embed {
   display: block;
   margin: 20px auto;
   max-width: 100%;
   box-shadow: var(--standardShadow);
+}
+
+picture:has(img[id^="mermaid"]) {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  padding: 10px 0;
+  box-shadow: 3px 3px 8px -1px rgba(100, 112, 49, 0.5);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #333;
+  }
+}
+
+img[id^="mermaid"] {
+  max-width: 100%;
 }
 
 ol, ul {
