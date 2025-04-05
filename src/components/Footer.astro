@@ -12,6 +12,7 @@ import { Image } from 'astro:assets';
         justify-content: center;
         align-items: center;
         font-size: 1rem;
+        gap: 1rem;
         border-top: var(--lightSeparator);
 
         @media (min-width: common.$iPad) {
@@ -24,15 +25,11 @@ import { Image } from 'astro:assets';
             width: 55%;
         }
 
-    }
+        img {
+            margin: 0.25rem;
+            box-shadow: none;
+        }
 
-    .main img {
-        margin: 0.25rem;
-        box-shadow: none;
-    }
-
-    .main p {
-        margin: 0.25rem;
     }
 </style>
 
