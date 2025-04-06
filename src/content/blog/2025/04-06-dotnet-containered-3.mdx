@@ -1,0 +1,64 @@
+---
+title: "Cloud Agnostic - introducing the AheadDockerized .NET Solution"
+slug: cloud-agnostic-1
+tags: [software-development, dotnet, web, azure]
+date: 2025-04-06 21:30:00
+topic: "azure-ahead"
+---
+
+<TopicToc topicId="azure-ahead" active="Cloud Agnostic - introducing the AheadDockerized .NET Solution" />
+
+Let's quickly revisit where we're coming from—and where we’re headed:
+
+### Keep using as much code as possible from the azure-based product ahead
+
+The existing code is split into multiple C# projects and the single page application frontend, 
+a frontend built with Next.js and pre-rendered into static pages. 
+The following posts won't cover the frontend - we assume that, given the same endpoints as today, 
+it will keep working no matter where the backend code is hosted.
+
+### Reduce dependencies on platform-as-a-service offerings from azure as much as possible to allow running ahead on EU servers offered by EU legal entities
+
+As previously established, there is currently no alternative with the same breadth and depth of service offerings
+as the big US cloud platforms. So what we will have to do is to lean heavily into **containerization**.
+In Europe, providers can be found that will offer hosting containers, or [managed Kubernetes environments][1].
+While this adds a layer of complexity in terms of managing scalability, roll out upgrades and related operational tasks,
+it results in a more cloud-agnostic product.
+
+### How is the proof of concept built?
+
+Setting up a _cloud native_ .NET application today means that one must take a look at [Aspire][2]. 
+According to Microsoft
+
+> .NET Aspire improves the experience of building apps that have a variety of projects and resources. 
+> With dev-time productivity enhancements that emulate deployed scenarios, you can quickly develop 
+> interconnected apps.
+
+As the second, implicit, mission of the proof-of-concept (PoC) being built is to let me learn about how dotnet has advanced as a platform
+in the past years (evolving a product that earns money means you can't always throw the newest and shiniest at it) and as Aspire
+promises a great local development experience, which is ideal for a PoC, 
+it seemed a natural choice to describe the solution and its dependencies with the aid of Aspire.
+
+<Info icon={false}>
+If you want to know more about what Aspire aspires to be (those puns are impossible to avoid), David Fowler,
+who is leading the effort at Microsoft, has [been][4] [writing][5] [about][6] [it][7].
+</Info>
+
+The basic structure of the solution (which you can [find here on github][3]) looks like this:
+
+![Screenshot of the solution structure of AheadDockerized](/assets/cloud-agnostic-1.png)
+
+* The **Web** project represents the user-facing process with web pages and endpoints.
+* The **Backend** project is the process that will handle asynchronous workloads
+* The **AppHost** project contains the code that is Aspire-specific and gives us the capability to have a local
+(i.e. developer machine) representation of how the different pieces of the solution interact with each other.
+
+The next post will look at how we can go about replacing the *Azure Blob Storage* dependency.
+
+[1]: https://european-alternatives.eu/category/cloud-computing-platforms
+[2]: https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview
+[3]: https://github.com/flq/ahead-dockerized
+[4]: https://medium.com/@davidfowl/bridging-the-gap-the-future-of-aspire-6eb421a92ab8
+[5]: https://medium.com/@davidfowl/making-software-like-lego-how-aspire-brings-the-pieces-together-d6a99c2c4cde
+[6]: https://medium.com/@davidfowl/aspire-a-platform-for-reusable-infrastructure-3a15582f8a5a
+[7]: https://medium.com/@davidfowl/the-aspire-compiler-f8ccdf4bca0c
