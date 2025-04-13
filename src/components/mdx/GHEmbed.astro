@@ -6,9 +6,10 @@ interface Props {
   end?: number;
   branch?: string;
   user?: string;
+  showHint?: boolean;
 }
 
-const { user = "flq", repo, branch = "develop", file, start, end } = Astro.props;
+const { showHint = false, user = "flq", repo, branch = "develop", file, start, end } = Astro.props;
 const lines = start && end ? `#L${start}-L${end}` : ''
 
 const query = new URLSearchParams({
@@ -22,8 +23,16 @@ const query = new URLSearchParams({
 
 ---
 
+<style>
+  p {
+    font-size: small;
+    color: hsl(0, 0%, 50%);
+  }
+</style>
+
 <script
   is:inline
   cross-origin="anonymous"
   src={`https://emgithub.com/embed-v2.js?${query.toString()}`}
 ></script>
+{showHint && <p>Gist not showing up? Most likely you're using Chrome. Reload the page to see the gist.</p> }
