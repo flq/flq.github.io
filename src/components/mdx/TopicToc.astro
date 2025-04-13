@@ -4,10 +4,11 @@ import { byDateAscending } from "../utils";
 
 interface Props {
   title?: string;
+  closed?: boolean;
   active: string;
   topicId: string;
 }
-const { topicId, active, title = "In this series" } = Astro.props;
+const { topicId, active, title = "In this series", closed = false } = Astro.props;
 const articles = await getCollection("blog");
 const entries = articles
   .filter((a) => a.data.topic == topicId)
@@ -58,7 +59,7 @@ const entries = articles
   }
 </style>
 
-<details open>
+<details open={!closed}>
   <summary>
     <span>{title}</span>
   </summary>
