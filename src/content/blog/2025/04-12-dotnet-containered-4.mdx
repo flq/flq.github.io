@@ -36,7 +36,7 @@ Defining such a container as a resource in Aspire looks like this:
 
 <GHEmbed showHint repo="ahead-dockerized" branch="snapshot_1" file="AppHost/Program.cs" start={10} end={19} />
 
-People who know docker containers probably recognize the different settings that are being set:
+People who know docker containers probably recognize the different settings that are being applied:
 
 * 2 environment variables that define the admin user with which we can log in at min.io's dashboard (port 9090)
 * port bindings
@@ -84,8 +84,9 @@ mandatory vs what is not, hence it is sometimes something of a trial and error t
 
 <GHEmbed repo="ahead-dockerized" branch="snapshot_1" file="Ahead.Web/Infrastructure/IBlobStorage.cs" start={31} end={44} />
 
-Another thing I wanted to check out is the signed url functionality - Links to files in ahead are usually written
-like `api/files/{fileId}` - the server then redirects to a signed url, which lets you see the file for a limited amount of time:
+Another thing I wanted to check out is the signed url functionality. 
+Links to files in ahead are usually written like `api/files/{fileId}` — the server then redirects to a signed url, 
+which lets you see the file for a limited amount of time:
 
 ```mermaid
 sequenceDiagram
@@ -99,7 +100,7 @@ sequenceDiagram
     B-->>A: redirect to pre-signed URL
 ```
 
-This is how to get the necessary url through the min.io API:
+This is how to get the necessary url:
 
 <GHEmbed repo="ahead-dockerized" branch="snapshot_1" file="Ahead.Web/Infrastructure/IBlobStorage.cs" start={46} end={55} />
 
