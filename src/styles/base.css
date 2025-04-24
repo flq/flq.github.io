@@ -112,10 +112,17 @@ pre[class*="language-"] {
   box-shadow: var(--standardShadow);
 }
 
-code {
+code:not(:has(*)) {
+  display: inline-block;
+  font-family: monospace;
+  font-size: larger;
   background: #5b5e4f33;
-  padding: 0 0.25rem;
+  padding: 0 0.5rem;
   border-radius: 5px;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #9b9e9f55;
+  }
 }
 
 code.hljs {
