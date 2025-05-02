@@ -1,0 +1,67 @@
+---
+title: "☁️ 🤔 Intermezzo – Insightful spans with OpenTelemetry"
+slug: cloud-agnostic-7
+tags: [software-development, dotnet, web, azure]
+date: 2025-05-02 19:00:00
+topic: "azure-ahead"
+---
+
+<TopicToc 
+    title="Cloud agnostic series" 
+    topicId="azure-ahead" 
+    active={frontmatter.title}
+    closed
+ />
+
+Let's take a short break from looking at service replacements and marvel at the fun that is having good [OpenTelemetry][otel]
+data.
+
+When we started ahead many years, OpenTelemetry didn't exist yet. Aspire leans into it quite nicely, 
+providing a dashboard in which captured open telemetry data is seen.
+
+When you start a project from scratch, you may miss exposing open telemetry from your project. This is done through
+some adequate service registrations, which in the solution I have galvanized into
+a `IHostApplicationBuilder` extension method to [be found here][1].
+
+Much of what is encoded there comes directly from the [official documentation][2].
+
+The next challenge was seeing traces that span Frontend and Backend activities 
+when it is correct to do so.
+
+I wasn't quite sure [what is going on][3] with OTel support around RabbitMQ, so I decided to do the 
+necessary boilerplate myself.
+
+What I do on the sending side e.g. when enqueueing a message is to create a new `Activity`:
+
+<GHEmbed showHint repo="ahead-dockerized" branch="snapshot_1" file="Ahead.Web/Infrastructure/QueueSender.cs" start={12} end={13} />
+
+Let us revisit the sending of the message to RabbitMQ. We will send telemetry information alongside the message in the **headers** of the message:
+
+<GHEmbed repo="ahead-dockerized" branch="snapshot_1" file="Ahead.Web/Infrastructure/QueueSender.cs" start={25} end={35} />
+
+What happens in `TryInjectTraceContextIntoDictionary`? Let's take a look:
+
+<GHEmbed repo="ahead-dockerized" branch="snapshot_1" file="Ahead.Common/OTelUtilities.cs" start={13} end={20} />
+
+The `TraceContextPropagator` is a helper class from the **OpenTelemetry** package(s). It helps to inject the proper
+information into the headers of the message which we will use on the _"other side"_ to attach ourselves to the correct trace context:
+
+<GHEmbed repo="ahead-dockerized" branch="snapshot_1" file="Ahead.Backend/Infrastructure/QueueListener.cs" start={29} end={36} />
+
+This allows us to get traces that span our projects and provide us additional insights into what is going on:
+
+![Screenshot of Aspire OpenTelemetry trace of a queueing operation](/assets/cloud-agnostic-5.png)
+<figcaption>Aspire OpenTelemetry trace of a queueing operation</figcaption>
+
+Essentially the same was done for the Broadcasting part, which allows us to see who consumed a particular broadcast message:
+
+![Screenshot of Aspire OpenTelemetry trace of a publish operation](/assets/cloud-agnostic-6.png)
+<figcaption>Aspire OpenTelemetry trace of a publish operation</figcaption>
+
+When having a solution spanning multiple processes these insights are extremely valuable in understanding the internal workings of
+the machine you're creating – a machine that will inevitably increase in complexity as your product grows to be successful with your customers.
+
+[1]: https://github.com/flq/ahead-dockerized/blob/main/Ahead.Common/OTelConfiguration.cs
+[2]: https://learn.microsoft.com/en-us/dotnet/core/diagnostics/observability-otlp-example
+[3]: https://github.com/dotnet/aspire/issues/583
+[otel]: https://opentelemetry.io
