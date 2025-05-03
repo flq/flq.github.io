@@ -1,0 +1,156 @@
+---
+title: "☁️ Agnostic – On gremlins and graphs"
+slug: cloud-agnostic-8
+tags: [software-development, dotnet, web, azure]
+date: 2025-05-04 21:30:00
+topic: "azure-ahead"
+---
+
+<TopicToc 
+    title="Cloud agnostic series" 
+    topicId="azure-ahead" 
+    active={frontmatter.title}
+    closed
+ />
+
+Time to look at what may be by far the most exotic technology choice in ahead: The use of a graph database 
+in the form of the gremlin endpoint provided by Cosmos.
+
+This decision was taken about 7 years ago – a good part of it was related to my excellent
+experiences with graph databases. Microsoft was already offering said endpoint for their Cosmos DB offering,
+and after some proof of concept we went in.
+
+From today's perspective, I'd rather choose _boring tech&trade;_ over _superior tech&trade;_. Case in point,
+it took me quite some time to settle on what a dockerized version of ahead could use from the [list of technologies
+showcased][list-dbs] on the tinkerpop (tinkerpop the tech vs gremlin the language, I assume, although I've never been
+100% clear on where to draw the line between the two terms) page.
+
+Generally, the tech feels fairly far away from .NET, even though [Gremlin.NET][gremlinnet-doc] is a capable client to access
+gremlin-enabled databases.
+
+After some back and forth I settled for [Arcade DB][arcade]. It is a multi-model database (much like Cosmos is)
+and offers Gremlin-related capabilities, [documented here][arcade-gremlin-doc].
+
+## The infrastructure
+
+The DB is also available as container – the following code shows how the resource is registered with Aspire:
+
+<GHEmbed showHint repo="ahead-dockerized" branch="snapshot_2" file="AppHost/InfrastructureDependencies.cs" start={27} end={65} />
+
+There's a bit to unpack here:
+
+In Aspire, we can define a connection string also as a resource. This method will then return the Graph DB resource
+as well as the connection string necessary to connect to it as a resource as well. This is done 
+in the `AppHost` project as follows:
+
+<GHEmbed repo="ahead-dockerized" branch="snapshot_2" file="AppHost/Program.cs" start={30} end={37} />
+
+<Info>
+In the code you find traces of some conditional resource building - this felt particularly useful for when
+focusing work on a specific subset of resources. If you know your system well, you may not need to start
+_all_ services to check on specific aspects of your application. Aspire will allow you to conditionally initiate
+and reference resources, since, at the end of the day, it is just c# code.
+</Info>
+
+We can then reference the connection string from the project that needs it. The connection string will appear
+in the system as a connect string with the name given to the resource (`GraphDbConnectionString.Name`).
+
+<GHEmbed repo="ahead-dockerized" branch="snapshot_2" file="Ahead.Web/Infrastructure/GraphAccess.cs" start={23} end={27} />
+
+Where things went awry for me is that the documentation of Arcade DB for [running it in a container][in-container] says that you should bind
+a specific folder in order to have the database files stored beyond container restarts. However, the graph db-related
+plugin defined its own specific location that was not bound to an external volume and hence all data created while 
+having the solution running was lost after a restart.
+To counter this behavior I made a copy of the original properties file governing the behavior of the gremlin db plugin:
+
+```sh title="This command is run in the data folder"
+docker cp ahead_graphdb:/home/arcadedb/config/gremlin-server.properties ./gremlin-server.properties
+```
+
+And then the file is adapted for the relevant setting to point to something in the folder 
+already bound for database data.
+
+```properties ins={2}
+gremlin.graph=com.arcadedb.gremlin.ArcadeGraph
+gremlin.arcadedb.directory=/data/graph
+```
+<br/>
+
+<Info>
+
+If you wanted to have a look into the container's file system,
+you can do an interactive session with the container like so:
+
+```sh
+docker exec -it ahead_graphdb sh
+```
+
+provided you gave it the name `ahead_graphdb`
+
+</Info>
+
+The readme of the solution contains instructions if you want to connect to the database via an interactive console.
+
+## The usage
+
+The basic abstractions to use the DB follow those that we established many years ago at ahead:
+
+```csharp
+public interface IAheadGraphDatabase
+{
+    public Task RunJob(IGremlinJob job);
+    public Task<T> RunJob<T>(IGremlinJob<T> job);
+}
+
+public interface IGremlinJob
+{
+    Task Run(IGraphContext graphContext);
+}
+
+public interface IGremlinJob<T>
+{
+    Task<T> Run(IGraphContext graphContext);
+}
+
+public interface IGraphContext
+{
+    Task Run(string query);
+    Task<IReadOnlyList<TOut>> Run<TIn,TOut>(Func<GraphTraversalSource,GraphTraversal<TIn,TOut>> query);
+}
+```
+
+This forces the packaging of database mutating & querying as _jobs_, where the constructor plays the role of accepting
+necessary parameters and the return value typically provides DTOs that are already useful for further processing.
+
+The `GraphTraversalSource` and other Types come from the [Gremlin.NET Nuget package][gremlin-nuget], 
+that also comes with the methods to write a so-called traversal (aka query).
+
+<Info>
+Interestingly, I was able to use the latest version of Gremlin.NET, which is still not allowed to be used with Cosmos DB.
+This latest version allows eg to send the traversal request in a binary form, which presumably is more efficient to en- & decode than the 
+usual JSON.
+</Info>
+
+A simple usage example is implemented in the solution in the "Graph"-page:
+
+<GHEmbed repo="ahead-dockerized" branch="snapshot_2" file="Ahead.Web/Pages/Graph.cshtml.cs" start={21} end={31} />
+
+## Conclusion
+
+After some searching and back & forth, I have a somewhat better feeling about how a migration could look like.
+Scaling could work with Arcade DB's clustering features or lean into things we've learned around using different
+resources for different tenants in order to support different data residencies in order to scale horizontally.
+
+Even so, I am still thinking how a migration to a document database could look like - simply for reasons of using even more
+_boring tech&trade;_, something a long-lived product can profit immensely from.
+
+
+[list-dbs]: https://tinkerpop.apache.org/providers.html
+[gremlinnet-doc]: https://tinkerpop.apache.org/docs/current/reference/#gremlin-DotNet
+[arcade]: https://arcadedb.com/
+[arcade-gremlin-doc]: https://docs.arcadedb.com/#gremlin-api
+[arcade-source]: https://github.com/ArcadeData/arcadedb
+[gremlin-nuget]: https://www.nuget.org/packages/Gremlin.Net
+[in-container]: https://docs.arcadedb.com/#docker
+
+
