@@ -1,0 +1,161 @@
+---
+title: "Experiences with working with Claude Code"
+slug: claude-code-xp
+tags: [ai,software-development]
+date: 2025-09-21 19:00:00
+---
+
+<Info icon={false} header="Disclaimer on LLMs">
+  I sort of sit in a bubble at Mastodon where most people are heavily 
+  opposed to the current incarnation of AI, the LLM-based technology.
+
+  I absolutely get it, and while most people probably wouldn't agree there, I share many values with those people.
+
+  There is a lot to criticize and I don't want to reiterate all the points that have already been made:
+
+  * The way cheap labor (aka modern-day slavery) has been used to categorize the training data, 
+  * the incredible amounts of electricity and other resources necessary to power the resulting models,
+  * the fact that it destroys the democratization of software development, 
+  * the way how the most relevant players so easily bend the knee to the new US autocracy. 
+  * And many more…
+  
+  Yes, all of this is true.
+
+  But I'm tired now. I don't hold humanity to a particularly high standard these days, myself included.
+  I am actually positive towards the idea that we could develop some sort of new life-form, one that runs
+  on thinking stones. Who am I to accuse and blame the modest, brutal and chaotic origins of something that at some point may become a new form of consciousness?
+
+  Oh, I'm with you, LLMs are not the singularity. We have done nothing yet that those models are able to keep training themselves,
+  and they cannot experience reality through senses and interaction. These are absolute show-stoppers when it comes to exploring the solution space.
+  
+  But I certainly think it correct that we should keep trying it. We humans are not the pinnacle of evolution.
+
+  _(In fact, nothing ever is—as the solution space gets explored, who has the right to say that one exploration is better than the other?)_
+
+  I also don't share the very generic statement/sentiment that this technology is useless.
+  Just yesterday, we took a photo of an assignment of my son, highlighted relevant parts of the text and verbally asked Chat GPT to help us understand 
+  and give us an example by solving the first task. The whole interaction worked flawlessly.
+
+  This is _absolutely bonkers_. So the tech makes mistakes? Big deal! 
+  It has always been and will be for the foreseeable future dangerous to take decisions made by software as some kind of ultimate truth.
+  Is your software free of mistakes?
+  In fact, is the way I live my life free of mistakes? 
+  
+  Since when do we take marketing claims of clowns like Sam Altman at face value and 
+  let it dictate what to expect of this new technology? This stuff is far from perfect and
+  yet it enables interactions previously deemed impossible with satisfactory accuracy if 
+  you stop thinking of it as a magic box and start understanding its constraints and put in the work to work around them.
+</Info>
+
+Since about 2 months I have been using Claude Code here & there at work & in private. 
+
+> The background? About 25 years of work experience as consultant and later in product development.
+Most of my career I have been working with C#, HTML, CSS, JavaScript and TypeScript.
+> Our product is now almost 8 years old, and for many things that happen in the system there is prior art.
+
+## First assignment
+
+The first assignment I wanted to do with Claude to see how it fairs
+was an Excel Importer for our product's new capability of importing users that get authenticated through our own IDP
+and not Entra. The task here was to add a new command to our admin console and use things that we already have in place
+these days and combine them such that we can create users from an Excel file that follows a template and is provided by a customer.
+
+The way I use the tool is that I do a full code review as well as testing, etc. before committing the output.
+
+This first usage went fairly well. One thing that I am happy about is that the tool can take certain chores away from me
+that **I like to think about, but with my 50 years of age do not particularly look forward coding out**.
+
+So, the tool does allow me to dictate it refactorings, like "extract the part where we provide a row object for each line into its own class named ExcelFileReader".
+
+The truth is, the initial code is almost always not to the standard of quality I expect in our codebase. 
+It usually does what you wanted it to do, but it will be up to you to bring it into the shape you want it to. 
+This would be annoying if you had to do it all by yourself, but with a combination of JetBrains Rider/Resharper and 
+telling Claude what refactoring to perform, you get to where you want.
+
+## Side note on speed of working
+
+Am I faster now, having this tool? I don't know, probably not. But that to me is somewhat beside the point. Claude can be quite slow in fact
+and for very small tasks I may end up just doing it myself, as the shuffling of tokens feels wholly inefficient in that situation.
+
+However, the tool may lead me to tackle things that I deem useful but are far too lazy to get started with it.
+
+## What _is_ the point then?
+
+In my position, I actually end up reviewing far more code than I write myself. I am involved in a number of activities around the software lifecycle,
+and actually coding is often a small part of it. So, when I tell Claude what to do, the end result pretty much exercises the same muscles that I 
+am already using, namely code review and giving feedback on what to improve.
+
+## Intermezzo: Many customers want access to LLM-tools
+
+Truth is: Customers ask for AI tools. Our product is what was in another era called an Intranet. 
+Many customers are used to having tried Chat GPT privately or in their work and are often satisfied with the results.
+
+How can this be?
+
+Those people often work with facts well-known to them (intra-company facts). The fact-checking is easily reviewable by them.
+The LLM can then e.g. help people not that used to communicating to others writing a 
+decent article about some facts in the tone they're striving for. This is, as an example, a user-case that works pretty well.
+
+## A proof of concept to work on how we can leverage LLMs in our product
+
+On this POC I use Claude regularly, especially **for the stuff I don't care about**, while focussing on what I do care about.
+
+One comical error I did right when starting the POC was to ask too much in one task, like 
+
+> "Set up an Aspire project containing a minimal API ASP.NET project, a frontend SPA react project with Vite and a service containing YARP to be able to have a BFF-layer on top of the two projects".
+
+This completely overwhelmed Claude and at some point it even forgot that the whole solution was meant to be set up in Aspire, 
+deleted all Aspire dependencies and wanted to start orchestrating the processes with custom-written code.
+Hilarious!
+
+Now I know better. The tasks need to stay crisp & clear and focus on specific things to accomplish. Makes absolute sense, right? 
+I find Claude pretty bad at "architecting". And you know what? That's fine, that's my job after all.
+
+Also, some hard coding stuff, e.g. a nested async iterator in the frontend to stream e.g. tokens into one message, 
+while starting a new message with a function cal request, I need to do myself. 
+Also fine, I mean, I'm paid for the hard stuff, right?
+
+## Writing some MCP tools to be used in Claude as well as using some
+
+In-between I also wrote 2 MCP tools that
+
+* Allow starting a work item in Azure DevOps and take the contents of the work item as task input.
+* Start a PR on a given branch and work item describing what we did.
+
+This is the sort of things where an LLM can lower the barrier to entry. Looking up the necessary queries and APIs and dependencies to talk to Azure DevOps?
+Not in this lifetime, I don't so. Meanwhile, Claude was able to set this part up to me. I fully expect a connoisseur of the 
+Azure DevOps API to look at the code and say things like "This can be simplified etc.", but I understand the code, and the general
+quality is sufficient for its intended use and mid-term maintainability.
+
+I would like to mention the MCP tool [Context7](https://context7.com), which has helped to perform certain code changes 
+based on current documentation instead of whatever was used to train the current model in use.
+
+## What else have I used Claude for?
+
+* Code extraction refactorings
+* Tasks with prior art I can point to. A well-factored codebase is beneficial to good outcomes. 
+  "More of the same" works pretty well.
+* Writing certain tests of high complexity. Yes, some of our tests are ugly, e.g. around signin. 
+  Yes, sometimes I code first and perform the testing steps afterwards, it happens.
+  Claude can help write me tests, especially when I say what to test for.
+* Finding something back where I know there should be prior art. Claude can help me finding it. "code that fits in your head"
+  is a good mantra, but the totality of ahead's code does not fit in anyone's head at once, so sometimes the question is where we did a certain thing before.
+
+## In Conclusion
+
+There is a very unfortunate dichotomy that LLM tools are useful, but the usefulness has been utterly dwarfed 
+by investments undertaken by big tech. The limitations are clear by now, and once more, LLMs are no silver bullet. Why
+some of big tech keeps pretending otherwise is probably more dictated by the high financial stakes involved rather than actual outcomes
+of using the technology.
+
+From a user's perspective like me, the monthly costs of the subscription seem appropriate to me. I can use the tech when
+
+* I have clear directions to give
+* When there is prior art
+* When the code is actually supposed to do something rather than become more maintainable or some other metric that goes beyond
+  the "do this thing"-mantra.
+
+I don't get good results when
+
+* The directives are too vague
+* The thing that the code needs to do is non-trivial.
