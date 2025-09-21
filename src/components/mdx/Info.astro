@@ -1,17 +1,17 @@
 ---
 interface Props {
   icon?: boolean;
+  header?: string;
 }
-const { icon = true } = Astro.props;
+const { icon = true, header } = Astro.props;
 ---
 
 <style>
     aside {
-        display: flex;
-        justify-content: center;
+        display: block;
     }
 
-    div {
+    div, details {
         font-weight: 500;
         position: relative;
         background: rgb(198, 248, 255);
@@ -38,8 +38,45 @@ const { icon = true } = Astro.props;
         opacity: 0.4;
         z-index: 0;
     }
+
+    summary {
+        font-size: large;
+        font-style: italic;
+        cursor: pointer;
+        position: relative;
+        padding-left: 1.5em;
+        list-style: none;
+    }
+
+    summary::before {
+        content: "▶";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        font-style: normal;
+        transform: translateY(-50%);
+        transition: transform 0.2s ease;
+        font-size: 0.8em;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    details[open] summary::before {
+        transform: translateY(-50%) rotate(90deg);
+    }
 </style>
 
-<aside>
+{header ? <aside>
+    <details>
+        <summary>{header}</summary>
+        <p>
+            <slot />
+        </p>
+    </details>
+</aside> : (<aside>
     <div class=`${icon && "icon"}`><slot /></div>
-</aside>
+</aside>)
+}
+
