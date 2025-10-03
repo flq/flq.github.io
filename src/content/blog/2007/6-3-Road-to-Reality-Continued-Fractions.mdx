@@ -9,9 +9,9 @@ Saturday my new book arrived - [The Road to Reality](http://www.amazon.de/Road-R
 
 A continued fraction looks e.g. like this:
 
-1 + (2 + (2 + (2)<sup>-1</sup>)<sup>-1</sup>)<sup>-1</sup>
+<Math exp={'1 + \\cfrac{1}{2 + \\cfrac{1}{2 + \\cfrac{1}{2 + \\ddots}}}'} />
 
-Knowing that x<sup>-1</sup> = 1 / x, one can see why this is a continued fraction. However, we have stopped here after 3 steps, while a true representation of the squareroot of 2 would be to carry on with the sequence indefinitely.
+A true representation of the square root of 2 needs to carry on with the sequence indefinitely.
 
 The great thing about maths is that interesting patterns emerge...to cite Penrose's book (related to how to calculate quadratic irrationals, i.e. those squares whose roots are irrational numbers):
 
@@ -38,11 +38,24 @@ useSeq start x = start + ctF (makeSequence mySeq) depth
 -- e.g. sqrt(2) = useReq 1 [2] 
 -- sqrt(14) = useSeq 3 [1,2,1]
 -- sqrt(15) = useSeq 3 [1]
--- sqrt(24) = useSeq 4 [1]
 -- sqrt(23) = useSeq 4 [1,3,1]
 -- sqrt(24) = useSeq 4 [1]
 ```
 
-Haskell is just cool when it comes down to using infiniteness. We have inifinite lists, sequences, what have you. Naturally we have to ensure that at some point we get a result back, however the bail-out condition in the above code is the depth value that states how often we will perform a division.
+Haskell is just cool when it comes down to using infiniteness. 
+Even so, we have to ensure that at some point we get a result back, 
+The bail-out condition in the above code is the depth value that states how often we will perform a 
+division.
 
-By the way, one pattern appears obvious: (useSeq x [1])<sup>2</sup> = (x+1)<sup>2</sup> - 1 . You have got to love maths for that kind of stuff. Infiniteness reduces getting square roots of integers to a game of division.
+So, for the square root of 14, the repeating pattern that results from this input is 1, 2, 1, 6
+
+It looks like this as a continued fraction in mathematical notation:
+
+<Math exp={'\\sqrt{14} = 3 + \\cfrac{1}{1 + \\cfrac{1}{2 + \\cfrac{1}{1 + \\cfrac{1}{6 + \\cfrac{1}{1 + \\cfrac{1}{2 + \\cfrac{1}{1 + \\ddots}}}}}}}'} />
+
+As this can become a bit unwieldy, there is also a compact notation:
+
+<Math exp={'\\sqrt{14} = [3;\\,\\overline{1,2,1,6}]'} />
+
+You have got to love maths for that kind of stuff. 
+Infiniteness reduces getting square roots of integers to a game of division.
