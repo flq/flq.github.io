@@ -30,6 +30,8 @@ export default defineConfig({
     mdx({
       remarkPlugins: [extractExcerptPlugin]
     }),
-    sitemap(),
+    sitemap({
+      filter: page => !page.startsWith("https://realfiction.net/2245-ddlm-3321")
+    }),
   ],
 });

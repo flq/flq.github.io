@@ -4,7 +4,7 @@ interface Props {
   title?: string;
   skipFooter?: boolean;
 }
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import "prismjs/themes/prism-okaidia.css";
 import "../styles/normalize.css";
 import "../styles/base.css";
@@ -18,7 +18,7 @@ const { meta = [], title: pageTitle, skipFooter } = Astro.props;
 <html lang="en" transition:animate="slide">
   <head>
     <title>{pageTitle ? `${pageTitle} (${title})` : title}</title>
-    <ViewTransitions fallback="none" />
+    <ClientRouter fallback="none" />
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="me" href="https://freiburg.social/@flq" />
@@ -31,7 +31,7 @@ const { meta = [], title: pageTitle, skipFooter } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {meta.map(({ name, content }) => <meta name={name} content={content} />)}
     <meta name="og:image" content="https://realfiction.net/2006-02-rf.webp" />
-    <link rel="me" href="https://freiburg.social/@flq" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
