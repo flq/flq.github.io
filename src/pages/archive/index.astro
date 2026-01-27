@@ -59,7 +59,7 @@ const allYears = articles.reduce((agg, val) => {
                     <li>
                         <a href={`/archive/${year}`}>
                             <span>{year}</span>
-                            <span>({allYears[year]} posts)</span>
+                            <span>({allYears[year]}&nbsp;{allYears[year] == 1 ? "post" : "posts" })</span>
                         </a>
                     </li>
                 ))
