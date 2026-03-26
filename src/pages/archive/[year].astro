@@ -13,7 +13,7 @@ export async function getStaticPaths() {
         ...new Set(articles.flatMap((entry) => entry.data.date.getFullYear())),
     ];
     return allYears.map((year) => ({
-        params: { year },
+        params: { year: year.toString() },
         props: {
             entries: articles
                 .filter((a) => a.data.date.getFullYear() === year)
@@ -29,8 +29,8 @@ const { entries } = Astro.props;
     title={year!}
     grouping="Month"
     back={{ link: "/archive", text: "Archive" }}
-    entries={entries.map(({ slug, data: { title: text, date } }) => ({
-        link: `/posts/${slug}`,
+    entries={entries.map(({ id, data: { title: text, date } }) => ({
+        link: `/posts/${id}`,
         text,
         date,
     }))}

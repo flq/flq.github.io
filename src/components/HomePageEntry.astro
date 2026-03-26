@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
 import Date from "../components/Date.astro";
 
 interface Props {
@@ -9,10 +10,10 @@ interface Props {
 const { entry } = Astro.props;
 const {
     remarkPluginFrontmatter: { excerpt },
-} = await entry.render();
+} = await render(entry);
 const {
     data: { title, date },
-    slug,
+    id,
 } = entry;
 ---
 
@@ -67,7 +68,7 @@ const {
     <header>
         <Date class="order" date={date} />
         <h2>
-            <a href={`/posts/${slug}`}>{title}</a>
+            <a href={`/posts/${id}`}>{title}</a>
         </h2>
     </header>
     <p>{excerpt}</p>

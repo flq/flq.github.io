@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntryBySlug } from "astro:content";
+import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import Layout from "../../layouts/main.astro";
 import Date from "../../components/Date.astro";
@@ -22,8 +22,8 @@ import { byDateAscending, windowIterator } from "../../components/utils";
 
 export interface Props {
   entry: CollectionEntry<"blog">;
-  previous: { slug: string; title: string } | undefined;
-  next: { slug: string; title: string } | undefined;
+  previous: { id: string; title: string } | undefined;
+  next: { id: string; title: string } | undefined;
 }
 
 export async function getStaticPaths() {
@@ -31,14 +31,14 @@ export async function getStaticPaths() {
   function* create(entries: CollectionEntry<"blog">[]) {
     for (let [entry, prev, next] of windowIterator(entries)) {
       yield {
-        params: { slug: entry.slug },
+        params: { id: entry.id },
         props: {
           entry,
           previous: prev
-            ? { slug: `/posts/${prev.slug}`, title: prev.data.title }
+            ? { id: `/posts/${prev.id}`, title: prev.data.title }
             : undefined,
           next: next
-            ? { slug: `/posts/${next.slug}`, title: next.data.title }
+            ? { id: `/posts/${next.id}`, title: next.data.title }
             : undefined,
         },
       };
@@ -51,7 +51,7 @@ const { entry, previous, next } = Astro.props;
 const {
   Content,
   remarkPluginFrontmatter: { excerpt },
-} = await entry.render();
+} = await render(entry);
 const mastodonRef = entry.data.mastodonRef;
 ---
 
@@ -145,7 +145,7 @@ const mastodonRef = entry.data.mastodonRef;
     (previous || next) && (
       <nav class="bottom">
         {previous ? (
-          <a data-previous href={previous.slug}>
+          <a data-previous href={previous.id}>
             {previous.title}
           </a>
         ) : (
@@ -154,7 +154,7 @@ const mastodonRef = entry.data.mastodonRef;
           </a>
         )}
         {next ? (
-          <a data-next href={next.slug}>
+          <a data-next href={next.id}>
             {next.title}
           </a>
         ) : (
