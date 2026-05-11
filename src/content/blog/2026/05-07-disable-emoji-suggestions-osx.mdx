@@ -1,13 +1,12 @@
 ---
 title: "Silencing macOS emoji suggestions"
 slug: silencing-macos-emoji-suggestions
-tags: [osx, stuff-we-like]
+tags: [apple, stuff-we-like]
 date: 2026-05-07 22:45:00
 ---
 
-You type "good" and macOS helpfully pops up a thumbs-up emoji suggestion. 
-You type "love" and a heart appears, uninvited, hovering over your cursor.
-Trying to get to the actual emoji you want to use turns out into a big UX mess.
+Apple OSX at some point got this idiotic suggested emojis feature which falls
+exactly into this category of UX labelled "meant to be helpful, doing the opposite".
 
 There is a way to make it stop. Run this in a terminal:
 
@@ -16,14 +15,13 @@ defaults write /Library/Preferences/FeatureFlags/Domain/UIKit.plist emoji_enhanc
 ```
 
 A reboot later and the suggestions are gone. 
-The path `/Library/Preferences/FeatureFlags/Domain/` is Apple's mechanism for toggling system-level feature flags. 
-The `UIKit.plist` file in that directory controls various UIKit-level behaviours, and `emoji_enhancements` is the flag 
-responsible for the emoji substitution suggestions.
 
 Note that writing to `/Library/Preferences` requires `sudo` — if the command above fails with a permission error, 
 prefix it with `sudo`.
 
-Worth knowing: macOS updates can reset feature flags, so if the suggestions ever come back after an OS update, 
+<Info>
+macOS updates can reset feature flags, so if the suggestions ever come back after an OS update, 
 just run the command again.
+</Info>
 
-Now, how to fix the other 347 issues that Tahoe has…
+Now, how to fix the other <u>347</u> issues that Tahoe has…
