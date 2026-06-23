@@ -65,13 +65,13 @@ const entries = articles
   </summary>
   <ol>
     {
-      entries.map(({ slug, data: { title } }) => {
+      entries.map(({ id, data: { title } }) => {
         return (
           <li>
             {title == active ? (
               <span>{title}</span>
             ) : (
-              <a href={`/posts/${slug}`}>{title}</a>
+              <a href={`/posts/${id}`}>{title}</a>
             )}
           </li>
         );

@@ -10,7 +10,7 @@ async function getItems(): Promise<RSSOptions["items"]> {
   return entries.map(e => ({
     title: e.data.title,
     pubDate: e.data.date,
-    link: `/posts/${e.slug}`,
+    link: `/posts/${e.id}`,
     content: parser.render(e.body)
   }));
 }
