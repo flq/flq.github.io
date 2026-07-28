@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import { unified } from "@astrojs/markdown-remark";
 import { extractExcerptPlugin } from "./support/extract-excerpt.mjs";
 import rehypeMermaid from "rehype-mermaid";
 
@@ -19,17 +20,18 @@ export default defineConfig({
     }
   },
   markdown: {
-    syntaxHighlight: {
-      type: "shiki",
-      excludeLangs: ["mermaid"]
-    },
-    rehypePlugins: [[rehypeMermaid, { strategy: "img-svg", dark: true, colorScheme: "forest" }]]
+    processor: unified({
+      syntaxHighlight: {
+        type: "shiki",
+        excludeLangs: ["mermaid"]
+      },
+      remarkPlugins: [extractExcerptPlugin],
+      rehypePlugins: [[rehypeMermaid, { strategy: "img-svg", dark: true, colorScheme: "forest" }]]
+    })
   },
   integrations: [
     expressiveCode({ themes: ["dracula"] }),
-    mdx({
-      remarkPlugins: [extractExcerptPlugin]
-    }),
+    mdx(),
     sitemap({
       filter: page => !page.startsWith("https://realfiction.net/2245-ddlm-3321")
     }),
