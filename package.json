@@ -25,5 +25,8 @@
   },
   "devDependencies": {
     "sass": "1.108.2"
+  },
+  "overrides": {
+    "katex": "$katex"
   }
 }
